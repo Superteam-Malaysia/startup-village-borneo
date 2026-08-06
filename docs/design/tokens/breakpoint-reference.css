@@ -103,6 +103,25 @@
   --bp-section-padding-y-mobile: 5rem;
   --bp-section-padding-y-desktop: 7.5rem;
 
+  /* ── 2025 archive (Abu Dhabi) — wisp/azure system ─────────── */
+  --bp-archive-null: #11081b;
+  --bp-archive-wisp: #e7d2f9;
+  --bp-archive-byte: #ab66fd;
+  --bp-archive-azure: #59b8fe;
+  --bp-archive-lime: #c9ff7c;
+  --bp-archive-wisp-10: #e7d2f91a;
+  --bp-archive-wisp-40: #e7d2f966;
+
+  /* Stat display (2025 archive) */
+  --bp-text-stat-display: clamp(4rem, 3.648rem + 1.502vw, 5rem);
+  --bp-text-stat-display-line-height: clamp(4.16rem, 3.794rem + 1.562vw, 5.2rem);
+  --bp-text-stat-display-letter-spacing: clamp(-0.25rem, -0.282rem + 0.135vw, -0.16rem);
+
+  /* CTA heights (2025 archive) */
+  --bp-cta-height-sm: 3rem;
+  --bp-cta-height-md: 3.5rem;
+  --bp-cta-height-lg: 4.25rem;
+
   /* ── Radius ────────────────────────────────────────────────── */
   --bp-radius-xs: 0.125rem;
   --bp-radius-sm: 0.25rem;

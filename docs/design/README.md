@@ -15,6 +15,7 @@ hackathon-first utility (leaderboard, submissions, judging).
 | 1 | [`01-breakpoint-reverse-engineering.md`](./01-breakpoint-reverse-engineering.md) | What Breakpoint does visually: tokens, typography, components, motion — extracted from live CSS/HTML. |
 | 2 | [`02-brand-design-plan.md`](./02-brand-design-plan.md) | How we adapt Breakpoint patterns for SVB: brand pillars, color strategy, regional accents, page templates. |
 | 3 | [`03-element-library.md`](./03-element-library.md) | Catalog of reusable UI elements with specs, states, and implementation notes. |
+| 4 | [`04-breakpoint-2025-archive-pixels.md`](./04-breakpoint-2025-archive-pixels.md) | Pixel-level specs from the 2025 Abu Dhabi archive (wisp/azure CTA system, carousels, accordions). |
 
 ## Tokens (implementation-ready)
 

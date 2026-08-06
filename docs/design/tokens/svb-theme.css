@@ -49,6 +49,27 @@
   --color-task-race: var(--svb-color-solana-mint);
   --color-task-deadline: var(--svb-color-borneo-coral);
 
+  /* ── Wisp system (2025 archive — optional landing bands) ───── */
+  --color-wisp: #e7d2f9;
+  --color-null: #11081b;
+  --color-byte: #ab66fd;
+  --color-azure: #59b8fe;
+  --color-lime: #c9ff7c;
+  --color-wisp-10: #e7d2f91a;
+  --color-wisp-40: #e7d2f966;
+  --color-transparent-wisp-10: #e7d2f91a;
+  --color-transparent-null-10: #11081b1a;
+
+  /* ── Stat display (prices, big points) ─────────────────────── */
+  --text-stat-display: clamp(4rem, 3.648rem + 1.502vw, 5rem);
+  --text-stat-display-line-height: clamp(4.16rem, 3.794rem + 1.562vw, 5.2rem);
+  --text-stat-display-letter-spacing: clamp(-0.25rem, -0.282rem + 0.135vw, -0.16rem);
+
+  /* ── CTA heights ───────────────────────────────────────────── */
+  --cta-height-sm: 3rem;
+  --cta-height-md: 3.5rem;
+  --cta-height-lg: 4.25rem;
+
   /* ── Typography ────────────────────────────────────────────── */
   --font-display: 'Space Grotesk', system-ui, sans-serif;
   --font-sans: 'DM Sans', system-ui, sans-serif;
@@ -107,6 +128,8 @@
   --duration-normal: 300ms;
   --duration-slow: 600ms;
   --duration-reveal: 900ms;
+  --duration-ticker: 200s;
+  --duration-accordion: 200ms;
 
   /* ── Z-index layers ────────────────────────────────────────── */
   --z-nav: 40;

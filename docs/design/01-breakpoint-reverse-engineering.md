@@ -1,7 +1,11 @@
 # 01 — Breakpoint Reverse Engineering
 
-> Source: [solana.com/breakpoint](https://solana.com/breakpoint) — HTML + CSS bundles
-> captured 2026-08-06. Stack: Next.js, Tailwind CSS v4.2.4.
+> **Sources:**
+> - Live 2026 London: [solana.com/breakpoint](https://solana.com/breakpoint) — black/mint/glitch system
+> - 2025 Abu Dhabi archive:
+>   [web.archive.org/web/20251127225341](https://web.archive.org/web/20251127225341/https://solana.com/breakpoint)
+>   — wisp/azure CTA system, carousels, stat display typography.
+>   Pixel specs: [`04-breakpoint-2025-archive-pixels.md`](./04-breakpoint-2025-archive-pixels.md)
 
 This document records what Breakpoint does visually so we can reuse patterns in the
 Startup Village Borneo companion app without copying proprietary assets.
@@ -267,6 +271,11 @@ See [`03-element-library.md`](./03-element-library.md) for full catalog. Key Bre
 | Glitch/display motion (subtle) | Hero only — avoid on leaderboard (clarity) |
 | Footer wave + brand block | SVB wordmark + Sheraton/Kuching context |
 | Step-based reveals on load | Page enter animations |
+| **2025 archive:** wisp/azure palette | Landing bands, participation cards |
+| **2025 archive:** `text-stat-display` | Leaderboard totals, task points |
+| **2025 archive:** `.cta` button matrix | All primary actions |
+| **2025 archive:** image filter + carousel | Speaker/partner rows, photo galleries |
+| **2025 archive:** Radix FAQ accordion | FAQ + expandable task rules |
 
 | Do not copy | Reason |
 | ----------- | ------ |
