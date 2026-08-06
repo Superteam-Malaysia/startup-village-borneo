@@ -1,0 +1,4 @@
+{
+  "name": "startup-village-borneo",
+  "install": "bash .cursor/install.sh"
+}
