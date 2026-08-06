@@ -30,6 +30,10 @@ Thumbs.db
 # Spec Kit runtime state (per-agent feature pointer; not shared config)
 .specify/feature.json
 
+# Local archive scrape artifacts (not for commit)
+tmp-bp*.html
+tmp-bp*.js
+
 # Cursor agent-local credentials/artifacts (keep committed commands & skills)
 .cursor/**/credentials*
 .cursor/**/*.token

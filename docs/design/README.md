@@ -26,7 +26,24 @@ hackathon-first utility (leaderboard, submissions, judging).
 | [`tokens/svb-theme.css`](./tokens/svb-theme.css) | Startup Village Borneo theme: adapted palette, spacing, typography fallbacks. |
 | [`assets/bp-map-*.webp`](./assets/) | Reference floor plan renders from Breakpoint 2025 (Etihad Arena) — design reference only. |
 
-Import `svb-theme.css` in the web client when the Next.js app is scaffolded.
+Import `svb-theme.css` in the web client global CSS.
+
+## Implementation (React components)
+
+The element library is **implemented in code**, not only documented:
+
+| Path | Contents |
+| ---- | -------- |
+| `apps/web/src/components/ui/` | CtaButton, Section, StatDisplay, ActionCard, Accordion, StatusChip |
+| `apps/web/src/components/venue/` | EventMap (pan/zoom, floor layers, SVG pins) |
+| `apps/web/src/styles/` | `svb-theme.css`, `breakpoint-components.css` |
+| `apps/web/public/map/` | Reference floor plan WebP assets |
+| `apps/web/src/app/design-system/` | Live showcase page |
+
+```bash
+cd apps/web && npm install && npm run dev
+# → http://localhost:3000/design-system
+```
 
 ## Relationship to Spec Kit
 

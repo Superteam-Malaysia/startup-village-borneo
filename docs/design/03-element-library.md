@@ -1167,9 +1167,7 @@ When the Next.js app is scaffolded, map elements to components:
 | EL-43 | `components/ui/SponsorLogo.tsx` |
 | EL-44 | `components/ui/Accordion.tsx` |
 | EL-45 | `components/ui/ImageFilter.tsx` |
-| EL-51–63 | `components/venue/EventMap.tsx` + subcomponents |
-
-Global styles: import `docs/design/tokens/svb-theme.css` → move to `app/globals.css` when app exists.
+| EL-51–63 | `apps/web/src/components/venue/EventMap.tsx` + subcomponents |
 
 ---
 

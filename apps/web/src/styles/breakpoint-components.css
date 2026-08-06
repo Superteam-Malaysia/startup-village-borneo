@@ -1,0 +1,245 @@
+/**
+ * Reverse-engineered Breakpoint UI classes (2025 archive + event map).
+ * See docs/design/03-element-library.md
+ */
+
+/* EL-28 CTA */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3xs, 0.5rem);
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.09375rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    color var(--duration-normal) var(--ease-out-expo),
+    background-color var(--duration-normal) var(--ease-out-expo),
+    border-color var(--duration-normal) var(--ease-out-expo),
+    fill var(--duration-normal) var(--ease-out-expo);
+  outline-offset: 8px;
+}
+
+.cta:focus-visible {
+  outline: 2px solid var(--color-transparent-wisp-10);
+}
+
+.cta--sm {
+  height: var(--cta-height-sm);
+  padding-inline: var(--space-xs);
+}
+
+.cta--md {
+  height: var(--cta-height-md);
+  padding-inline: var(--space-m);
+}
+
+.cta--lg {
+  height: var(--cta-height-md);
+  padding-inline: var(--space-m);
+}
+
+@media (min-width: 768px) {
+  .cta--lg {
+    height: var(--cta-height-lg);
+  }
+}
+
+.cta--byte {
+  background: var(--color-byte);
+  color: var(--color-null);
+  border: none;
+}
+
+.cta--byte:hover {
+  background: var(--color-wisp);
+  color: var(--color-null);
+}
+
+.cta--azure {
+  background: var(--color-azure);
+  color: var(--color-null);
+  border: none;
+}
+
+.cta--azure:hover {
+  background: var(--color-wisp);
+}
+
+.cta--ghost-wisp {
+  background: transparent;
+  color: var(--color-wisp);
+  border: 1px solid var(--color-wisp);
+}
+
+.cta--ghost-wisp:hover {
+  background: var(--color-transparent-wisp-10);
+}
+
+.cta--ghost-null {
+  background: transparent;
+  color: var(--color-null);
+  border: 1px solid var(--color-null);
+}
+
+.cta--ghost-null:hover {
+  background: var(--color-transparent-null-10);
+}
+
+.cta--full {
+  width: 100%;
+}
+
+/* EL-27 Eyebrow */
+.text-eyebrow {
+  display: inline-block;
+  align-self: flex-start;
+  margin-inline-start: var(--space-3xs, 0.5rem);
+  padding-inline: var(--space-3xs, 0.5rem);
+  font-family: var(--font-mono);
+  font-size: 0.882rem;
+  font-weight: 500;
+  letter-spacing: 0.09375rem;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: var(--color-wisp);
+}
+
+@media (min-width: 376px) {
+  .text-eyebrow {
+    font-size: 1.0625rem;
+    letter-spacing: 0.10625rem;
+  }
+}
+
+/* EL-26 Article section */
+.bp-article {
+  width: 100%;
+  padding: var(--space-xs);
+  color: var(--color-wisp);
+  background: var(--color-null);
+}
+
+@media (min-width: 768px) {
+  .bp-article {
+    padding: var(--space-s);
+  }
+}
+
+/* EL-32 Stat display */
+.stat-display {
+  font-family: var(--font-display);
+  font-size: var(--text-stat-display);
+  line-height: var(--text-stat-display-line-height);
+  letter-spacing: var(--text-stat-display-letter-spacing);
+  font-weight: 400;
+}
+
+/* EL-35 / EL-36 cards */
+.bp-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-xs);
+}
+
+@media (min-width: 768px) {
+  .bp-card {
+    padding: var(--space-s);
+  }
+}
+
+.bp-card--square {
+  aspect-ratio: 1 / 1;
+}
+
+.bp-card--5-4 {
+  aspect-ratio: 5 / 4;
+}
+
+.bp-card--null {
+  background: var(--color-null);
+  color: var(--color-wisp);
+}
+
+.bp-card--mint {
+  background: var(--color-bg-accent);
+  color: var(--color-null);
+}
+
+.bp-card--azure {
+  background: var(--color-azure);
+  color: var(--color-null);
+}
+
+.bp-card--null-accent {
+  color: var(--color-azure);
+}
+
+/* EL-11 Status chip */
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm, 0.25rem);
+  font-family: var(--font-mono);
+  font-size: var(--text-caption, 0.6875rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+.status-chip--approved {
+  background: #14f1951a;
+  color: var(--color-bg-accent);
+  border-color: #14f1954d;
+}
+
+.status-chip--pending {
+  background: #f59e0b1a;
+  color: #f59e0b;
+  border-color: #f59e0b4d;
+}
+
+.status-chip--locked {
+  background: #ffffff0a;
+  color: var(--color-text-secondary);
+  border-color: #333;
+}
+
+/* Event map animations (from Breakpoint CSS) */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes callout-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.event-map-callout-pulse {
+  animation: callout-pulse 2s ease-in-out infinite;
+}
+
+.map-pin-pulse {
+  transform-origin: center;
+  animation: pulse-ring 1.5s ease-out infinite;
+}

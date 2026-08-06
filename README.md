@@ -27,6 +27,14 @@ specify version              # sanity check
 specify check                # confirm the Cursor integration
 ```
 
+### Web UI library
+
+```bash
+cd apps/web && npm install && npm run dev
+```
+
+Open [http://localhost:3000/design-system](http://localhost:3000/design-system) for the live Breakpoint-derived component showcase (CTA, cards, accordion, interactive event map).
+
 ## Spec-driven workflow
 
 Run these slash commands inside Cursor (details in
