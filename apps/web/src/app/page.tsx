@@ -173,6 +173,28 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Companion dApp teasers */}
+      <section className="border-b border-[color:var(--color-transparent-wisp-10)]">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-10 md:py-12">
+          <div className="grid gap-4 md:grid-cols-2 list-none">
+            <ActionCard
+              title="Leaderboard"
+              tone="azure"
+              aspect="5-4"
+              description="Sample standings & halftone trends — live data at the event."
+              cta={{ label: "View board", href: "/leaderboard" }}
+            />
+            <ActionCard
+              title="Submissions"
+              tone="mint"
+              aspect="5-4"
+              description="Race threads, decks & content rules — uploads in companion dApp."
+              cta={{ label: "How to submit", href: "/submissions" }}
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Prizes preview */}
       <section id="prizes" className="border-b border-[color:var(--color-transparent-wisp-10)]">
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24">

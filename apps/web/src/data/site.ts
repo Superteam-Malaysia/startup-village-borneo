@@ -16,12 +16,15 @@ export const NAV_LINKS = [
   { href: "/schedule", label: "Schedule" },
   { href: "/speakers", label: "Speakers" },
   { href: "/amazing-race", label: "Amazing Race" },
+  { href: "/leaderboard", label: "Leaderboard" },
   { href: "/prizes", label: "Prizes" },
   { href: "/travel", label: "Travel" },
   { href: "/faq", label: "FAQ" },
 ] as const;
 
 export const FOOTER_LINKS = [
+  { href: "/leaderboard", label: "Leaderboard" },
+  { href: "/submissions", label: "Submissions" },
   { href: "/venue", label: "Venue" },
   { href: "/get-involved", label: "Get involved" },
   { href: "/partners", label: "Partners" },
