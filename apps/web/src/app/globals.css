@@ -2,6 +2,7 @@
 @import "tailwindcss";
 @import "../styles/svb-theme.css";
 @import "../styles/breakpoint-components.css";
+@import "../styles/experience.css";
 
 @theme inline {
   --font-sans: var(--font-sans);

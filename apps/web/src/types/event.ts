@@ -1,0 +1,52 @@
+export type ScheduleItem = {
+  id: string;
+  dayIndex: number;
+  start: string; // HH:mm
+  end?: string;
+  title: string;
+  detail?: string;
+  kind: "session" | "workshop" | "meal" | "break" | "build" | "deadline" | "social";
+  location?: string;
+};
+
+export type DaySchedule = {
+  index: number;
+  date: string; // ISO date
+  label: string;
+  title: string;
+  subtitle?: string;
+  venueNote?: string;
+  items: ScheduleItem[];
+};
+
+export type RaceTask = {
+  id: string;
+  number: number;
+  title: string;
+  description: string;
+  points: number | string;
+  category: "content" | "race" | "wallet";
+  group?: string;
+  deadline?: string;
+  tags?: string[];
+  bonusNote?: string;
+};
+
+export type FaqItem = {
+  id: string;
+  question: string;
+  answer: string;
+  category: "general" | "race" | "teams" | "submissions" | "wallet";
+};
+
+export type PrizeRow = {
+  label: string;
+  amount: string;
+  note?: string;
+};
+
+export type Partner = {
+  name: string;
+  role: "anchor" | "confirmed" | "pending";
+  workshops?: boolean;
+};

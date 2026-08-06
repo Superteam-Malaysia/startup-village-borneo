@@ -14,24 +14,12 @@ import { HalftoneShowcase } from "@/components/halftone";
 export default function DesignSystemPage() {
   return (
     <main className="pb-20">
-      <header className="sticky top-0 z-[var(--z-nav)] border-b border-[color:var(--color-transparent-wisp-10)] bg-[var(--color-null)]/95 backdrop-blur-sm px-4 md:px-8 py-4 flex items-center justify-between gap-4">
-        <Link href="/" className="font-[family-name:var(--font-mono)] text-sm tracking-widest uppercase">
-          ≡ SVB UI
-        </Link>
-        <nav className="flex gap-4 text-sm font-[family-name:var(--font-mono)] uppercase tracking-wide">
-          <a href="#cta" className="hover:text-[var(--color-byte)] transition-colors">CTA</a>
-          <a href="#cards" className="hover:text-[var(--color-byte)] transition-colors">Cards</a>
-          <a href="#halftone" className="hover:text-[var(--color-byte)] transition-colors">Halftone</a>
-          <a href="#map" className="hover:text-[var(--color-byte)] transition-colors">Map</a>
-        </nav>
-      </header>
-
       <div className="max-w-[90rem] mx-auto px-4 md:px-8 pt-12 flex flex-col gap-16 md:gap-24">
         <section>
-          <SectionIntro eyebrow="Element library" title="Breakpoint-derived components in code" />
+          <SectionIntro eyebrow="Developer" title="Breakpoint + Halftone component lab" />
           <p className="mt-6 max-w-2xl text-[var(--color-wisp)]/80 leading-relaxed">
-            These React components live in <code className="text-[var(--color-byte)]">apps/web/src/components</code>
-            — reverse-engineered from Solana Breakpoint CSS/HTML, not just markdown specs.
+            Internal reference for <code className="text-[var(--color-byte)]">apps/web/src/components</code>.
+            The public experience site lives at <Link href="/" className="text-[var(--color-byte)] hover:underline">/</Link>.
           </p>
         </section>
 

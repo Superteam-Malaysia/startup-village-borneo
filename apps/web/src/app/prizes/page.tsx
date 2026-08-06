@@ -1,0 +1,47 @@
+import { CtaButton, SectionArticle, SectionIntro } from "@/components/ui";
+import { JUDGES, PRIZE_ROWS, PRIZE_TOTAL } from "@/data/prizes";
+
+export const metadata = { title: "Prizes" };
+
+export default function PrizesPage() {
+  return (
+    <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20">
+      <SectionArticle>
+        <SectionIntro eyebrow="Prize pool" title={`${PRIZE_TOTAL} USD`} />
+        <p className="mt-6 max-w-2xl text-[var(--color-wisp)]/70">
+          Prizes are settled off-app per event operations. This site is the program bible — not a
+          payment portal.
+        </p>
+        <table className="mt-12 w-full max-w-2xl text-left border-collapse">
+          <thead>
+            <tr className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-wisp)]/50">
+              <th className="pb-4">Award</th>
+              <th className="pb-4 text-right">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            {PRIZE_ROWS.map((row) => (
+              <tr key={row.label} className="border-t border-[color:var(--color-transparent-wisp-10)]">
+                <td className="py-4 font-[family-name:var(--font-mono)] text-sm">{row.label}</td>
+                <td className="py-4 text-right font-[family-name:var(--font-display)] text-xl">
+                  {row.amount}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div className="mt-12">
+          <p className="text-eyebrow !ms-0">Demo Day judges</p>
+          <ul className="mt-4 list-none flex flex-col gap-2 text-[var(--color-wisp)]/75">
+            {JUDGES.map((j) => (
+              <li key={j}>{j}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="mt-10">
+          <CtaButton href="/amazing-race" variant="byte" size="md">Amazing Race prizes</CtaButton>
+        </div>
+      </SectionArticle>
+    </main>
+  );
+}

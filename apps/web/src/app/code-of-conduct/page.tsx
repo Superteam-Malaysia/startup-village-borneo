@@ -1,0 +1,33 @@
+import { SectionArticle, SectionIntro } from "@/components/ui";
+
+export const metadata = { title: "Code of conduct" };
+
+export default function CodeOfConductPage() {
+  return (
+    <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20">
+      <SectionArticle className="max-w-3xl">
+        <SectionIntro eyebrow="Community" title="Code of conduct" />
+        <div className="mt-10 flex flex-col gap-6 text-[var(--color-wisp)]/75 leading-relaxed">
+          <p>
+            Startup Village Borneo is a builder community event anchored by the Solana Foundation
+            and SOCOE. We expect respect, inclusion, and professionalism from every participant,
+            partner, and guest.
+          </p>
+          <p>
+            <strong className="text-[var(--color-wisp)]">Wallet task briefing:</strong> teach, never
+            pressure. Do not approach anyone about money or investment. If someone is not interested,
+            thank them and move on.
+          </p>
+          <p>
+            Harassment, discrimination, or disruptive behaviour may result in removal from the event
+            without refund. Report issues to organizers immediately.
+          </p>
+          <p className="text-sm text-[var(--color-wisp)]/50">
+            Aligned with Solana Foundation community standards. Full policy to be linked when
+            published by organizers.
+          </p>
+        </div>
+      </SectionArticle>
+    </main>
+  );
+}

@@ -18,9 +18,9 @@ export type FloorConfig = {
 };
 
 export const FLOOR_CONFIG: FloorConfig[] = [
-  { id: "ground", label: "Ground", image: "/map/ground.webp", locationCount: 8 },
-  { id: "mezz", label: "Mezzanine", image: "/map/mezz.webp", locationCount: 2 },
-  { id: "floor-1", label: "Floor 1", image: "/map/floor-1.webp", locationCount: 4 },
+  { id: "ground", label: "Ground", image: "/map/bp-map-ground.webp", locationCount: 8 },
+  { id: "mezz", label: "Mezzanine", image: "/map/bp-map-mezz.webp", locationCount: 2 },
+  { id: "floor-1", label: "Floor 1", image: "/map/bp-map-floor-1.webp", locationCount: 4 },
 ];
 
 /** Sample data reverse-engineered from Breakpoint 2025 event-day archive (Dec 11). */

@@ -27,14 +27,28 @@ specify version              # sanity check
 specify check                # confirm the Cursor integration
 ```
 
-### Web UI library
+### Web experience site (program bible)
 
 ```bash
 cd apps/web && npm install && npm run dev
 ```
 
-Open [http://localhost:3000/design-system](http://localhost:3000/design-system) for the live showcase:
-Breakpoint CTAs, cards, accordion, event map, and Halftone UI meters/charts.
+| Route | Purpose |
+| ----- | ------- |
+| `/` | Breakpoint-style home — overview, schedule preview, race, prizes, partners, FAQ |
+| `/schedule` | Five-day **calendar** view (time-axis per day) |
+| `/speakers` | Workshop leaders & on-stage sessions by day |
+| `/amazing-race` | Full task catalog + Halftone leaderboard preview |
+| `/prizes` | USD $10k breakdown + judges |
+| `/travel` | Kuching logistics — airport, hotels, local tips |
+| `/venue` | Sheraton / Voco + interactive map UI |
+| `/faq` | Full FAQ from program |
+| `/partners` | Anchor + confirmed partners |
+| `/get-involved` | Builder / sponsor / press / content cards |
+| `/code-of-conduct` | Community standards + wallet task rules |
+| `/design-system` | Component lab (internal) |
+
+Program content is sourced from `docs/blueprint/01-event-context.md` and the official PDF via `apps/web/src/data/`.
 
 ## Spec-driven workflow
 

@@ -1,0 +1,40 @@
+import { ActionCard, SectionArticle, SectionIntro } from "@/components/ui";
+
+export const metadata = { title: "Get involved" };
+
+export default function GetInvolvedPage() {
+  return (
+    <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20">
+      <SectionArticle>
+        <SectionIntro eyebrow="Get involved" title="Take part in SVB 2026" />
+        <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4 list-none">
+          <li>
+            <ActionCard
+              title="Builders"
+              tone="azure"
+              description="Join a team at the welcome dinner. Formation closes Day 2 lunch."
+            />
+          </li>
+          <li>
+            <ActionCard
+              title="Sponsors"
+              tone="null"
+              accentText
+              description="Legends plan ahead. Logo + office hours for ecosystem partners."
+            />
+          </li>
+          <li>
+            <ActionCard title="Press" tone="mint" description="Cover Demo Day and the builder village." />
+          </li>
+          <li>
+            <ActionCard
+              title="Content"
+              tone="mint"
+              description="Content Award — post by 10 Sept, judged remotely."
+            />
+          </li>
+        </ul>
+      </SectionArticle>
+    </main>
+  );
+}

@@ -346,12 +346,13 @@ export const RACE_SUBMISSION_RULES = [
   "Amazing Race and deck cutoff: Day 4 at 18:00 — nothing accepted after.",
   "Teach wallet users; never pressure anyone about money or investment.",
   "Content posts must tag @superteamMY, @solana, and SOCOE.",
+  "Your build comes first — race runs in evenings and gaps.",
 ];
 
 export const SAMPLE_LEADERBOARD = [
-  { rank: 1, team: "Borneo Builders", points: 1240, trend: [180, 420, 680, 980, 1240] },
-  { rank: 2, team: "Kuching Coders", points: 1085, trend: [120, 340, 560, 820, 1085] },
-  { rank: 3, team: "Sarawak Stack", points: 920, trend: [90, 280, 480, 710, 920] },
-  { rank: 4, team: "Monke Foundry", points: 780, trend: [60, 220, 400, 580, 780] },
-  { rank: 5, team: "Laksa Labs", points: 645, trend: [40, 180, 320, 490, 645] },
+  { rank: 1, team: "Borneo Builders", points: 62, trend: [12, 28, 45, 58, 62] },
+  { rank: 2, team: "Kuching Coders", points: 54, trend: [10, 22, 38, 48, 54] },
+  { rank: 3, team: "Sarawak Stack", points: 47, trend: [8, 18, 30, 42, 47] },
+  { rank: 4, team: "Monke Foundry", points: 41, trend: [6, 14, 25, 35, 41] },
+  { rank: 5, team: "Laksa Labs", points: 36, trend: [5, 12, 20, 28, 36] },
 ];

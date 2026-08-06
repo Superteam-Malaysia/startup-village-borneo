@@ -1,48 +1,40 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { SCHEDULE_DAYS } from "@/data/schedule";
 import { DayCalendar } from "./DayCalendar";
+import { SectionArticle, SectionIntro } from "@/components/ui";
 
-export type ScheduleExplorerProps = {
-  initialDay?: number;
-};
-
-/** EL-16 / EL-39 — Day tabs with single-day calendar view. */
-export function ScheduleExplorer({ initialDay = 1 }: ScheduleExplorerProps) {
-  const [activeDay, setActiveDay] = useState(initialDay);
-  const selected = SCHEDULE_DAYS.find((d) => d.index === activeDay) ?? SCHEDULE_DAYS[0];
+export function ScheduleExplorer({ initialDay = 1 }: { initialDay?: number }) {
+  const [dayIndex, setDayIndex] = useState(initialDay);
+  const day = useMemo(
+    () => SCHEDULE_DAYS.find((d) => d.index === dayIndex) ?? SCHEDULE_DAYS[0],
+    [dayIndex],
+  );
 
   return (
-    <div className="flex flex-col gap-8 sm:gap-10">
-      <nav
-        className="flex gap-4 sm:gap-8 overflow-x-auto pb-2 -mx-1 px-1"
-        aria-label="Schedule days"
-      >
-        {SCHEDULE_DAYS.map((day) => {
-          const isActive = day.index === activeDay;
-          return (
-            <button
-              key={day.index}
-              type="button"
-              onClick={() => setActiveDay(day.index)}
-              className={[
-                "schedule-day-tab shrink-0",
-                isActive ? "" : "opacity-65",
-              ].join(" ")}
-              data-active={isActive}
-              aria-current={isActive ? "true" : undefined}
-            >
-              <span className="block font-[family-name:var(--font-display)] text-base sm:text-lg normal-case tracking-normal">
-                {day.label}
-              </span>
-              <span className="block mt-1 text-[0.65rem] opacity-70">{day.date}</span>
-            </button>
-          );
-        })}
-      </nav>
+    <SectionArticle>
+      <SectionIntro eyebrow="Calendar" title={day.title} />
+      <p className="mt-4 text-sm text-[var(--color-wisp)]/60 font-[family-name:var(--font-mono)] uppercase tracking-widest">
+        {day.subtitle}
+        {day.venueNote ? ` · ${day.venueNote}` : ""}
+      </p>
 
-      <DayCalendar day={selected} />
-    </div>
+      <div className="mt-8 flex gap-2 overflow-x-auto pb-2">
+        {SCHEDULE_DAYS.map((d) => (
+          <button
+            key={d.index}
+            type="button"
+            className="schedule-day-tab"
+            data-active={d.index === dayIndex}
+            onClick={() => setDayIndex(d.index)}
+          >
+            {d.label}
+          </button>
+        ))}
+      </div>
+
+      <DayCalendar events={day.events} />
+    </SectionArticle>
   );
 }
