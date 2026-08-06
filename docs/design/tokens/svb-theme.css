@@ -1,0 +1,125 @@
+/**
+ * Startup Village Borneo — application theme
+ * Adapted from Breakpoint reference tokens + Borneo regional accents.
+ * Import in the Next.js app global CSS.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+:root {
+  /* ── SVB brand colors ──────────────────────────────────────── */
+  --svb-color-solana-mint: #14f195;
+  --svb-color-solana-purple: #9945ff;
+  --svb-color-breakpoint-purple: #aa67fb;
+
+  /* Borneo warmth — jungle, sunset, Sarawak craft */
+  --svb-color-borneo-teal: #0d9488;
+  --svb-color-borneo-amber: #f59e0b;
+  --svb-color-borneo-coral: #f97316;
+  --svb-color-borneo-forest: #14532d;
+
+  /* ── Semantic (dark-first, Breakpoint-aligned) ─────────────── */
+  --color-bg-primary: #0e0e10;
+  --color-bg-secondary: #111214;
+  --color-bg-elevated: #1a1a1a;
+  --color-bg-invert: #ffffff;
+  --color-bg-accent: var(--svb-color-solana-mint);
+  --color-bg-accent-muted: #14f1951a;
+  --color-bg-brand: var(--svb-color-breakpoint-purple);
+  --color-bg-warning: var(--svb-color-borneo-amber);
+
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #a2a2a2;
+  --color-text-muted: #858585;
+  --color-text-invert: #0e0e10;
+  --color-text-highlight: var(--svb-color-breakpoint-purple);
+  --color-text-accent: var(--svb-color-solana-mint);
+  --color-text-on-accent: #000000;
+
+  --color-stroke-primary: #333333;
+  --color-stroke-secondary: #4a4a4a;
+  --color-stroke-focus: #f5f5f5;
+
+  --color-success: var(--svb-color-solana-mint);
+  --color-error: #ef4444;
+  --color-pending: var(--svb-color-borneo-amber);
+
+  /* Leaderboard / race task categories */
+  --color-task-content: var(--svb-color-breakpoint-purple);
+  --color-task-race: var(--svb-color-solana-mint);
+  --color-task-deadline: var(--svb-color-borneo-coral);
+
+  /* ── Typography ────────────────────────────────────────────── */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --text-display: clamp(2.5rem, 8vw, 5rem);
+  --text-h1: clamp(2rem, 6vw, 5rem);
+  --text-h2: clamp(1.75rem, 4vw, 4rem);
+  --text-h3: clamp(1.5rem, 3vw, 3rem);
+  --text-h4: 2.5rem;
+  --text-h5: 2rem;
+  --text-h6: 1.5rem;
+  --text-body-lg: 1.5rem;
+  --text-body: 1.125rem;
+  --text-body-sm: 0.875rem;
+  --text-eyebrow: 1rem;
+  --text-button: 0.875rem;
+  --text-caption: 0.6875rem;
+
+  --tracking-display: 0.05rem;
+  --tracking-h1: -0.03em;
+  --tracking-h2: 0.04em;
+  --tracking-eyebrow: 0.08rem;
+  --tracking-button: 0.07rem;
+
+  --leading-tight: 0.98;
+  --leading-snug: 1.15;
+  --leading-normal: 1.45;
+
+  /* ── Spacing (Breakpoint scale) ────────────────────────────── */
+  --space-4xs: 0.25rem;
+  --space-3xs: 0.5rem;
+  --space-2xs: 0.75rem;
+  --space-xs: 1rem;
+  --space-s: 1.5rem;
+  --space-m: 2rem;
+  --space-l: 3rem;
+  --space-xl: 4rem;
+  --space-2xl: 5rem;
+  --space-3xl: 7.5rem;
+
+  --section-py-mobile: 5rem;
+  --section-py-desktop: 7.5rem;
+  --container-px-mobile: 16px;
+  --container-px-desktop: 32px;
+
+  /* ── Radius & borders ──────────────────────────────────────── */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+
+  /* ── Motion ────────────────────────────────────────────────── */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 600ms;
+  --duration-reveal: 900ms;
+
+  /* ── Z-index layers ────────────────────────────────────────── */
+  --z-nav: 40;
+  --z-modal: 50;
+  --z-tooltip: 60;
+}
+
+/* Reduced motion: respect user preference (constitution: accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-normal: 0ms;
+    --duration-slow: 0ms;
+    --duration-reveal: 0ms;
+  }
+}

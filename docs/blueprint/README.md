@@ -14,6 +14,9 @@ event and the product vision.
 | 3 | [`03-architecture.md`](./03-architecture.md) | Proposed technical architecture, including the Solana components and off-chain services. |
 | 4 | [`04-spec-kit-workflow.md`](./04-spec-kit-workflow.md) | How to drive development with Spec Kit in this repo (constitution → specify → plan → tasks → implement). |
 
+**UI / brand design** (Breakpoint-derived element library and tokens):
+[`docs/design/README.md`](../design/README.md)
+
 ## At a glance
 
 - **Event:** Startup Village Borneo — 5–9 September 2026, Sheraton Kuching, Sarawak.

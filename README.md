@@ -9,6 +9,8 @@ SOCOE). This repo is developed **spec-first** with
 
 - **Blueprint docs:** [`docs/blueprint/`](./docs/blueprint/README.md) — event
   context, product vision, architecture, and the Spec Kit workflow.
+- **Design system:** [`docs/design/`](./docs/design/README.md) — Breakpoint-derived
+  brand plan, element library, and CSS tokens.
 - **Project constitution:** [`.specify/memory/constitution.md`](./.specify/memory/constitution.md).
 
 ## Development environment
