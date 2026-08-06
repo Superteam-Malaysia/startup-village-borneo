@@ -2,15 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { SiteNav } from "@/components/shell/SiteNav";
 import { SiteFooter } from "@/components/shell/SiteFooter";
+import { rootMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: {
-    default: "Startup Village Borneo 2026",
-    template: "%s · Startup Village Borneo",
-  },
-  description:
-    "Solana-first hackathon in Kuching, Sarawak — 5–9 September 2026. Schedule, Amazing Race, prizes, and the full builder experience.",
-};
+export const metadata: Metadata = rootMetadata;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
