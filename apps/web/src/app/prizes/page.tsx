@@ -1,7 +1,13 @@
-import { CtaButton, SectionArticle, SectionIntro } from "@/components/ui";
+import { ActionCard, CtaButton, SectionArticle, SectionIntro } from "@/components/ui";
 import { JUDGES, PRIZE_ROWS, PRIZE_TOTAL } from "@/data/prizes";
+import { CONTENT_AWARD, SUSTAINABILITY_TRACK } from "@/data/tracks";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = { title: "Prizes" };
+export const metadata = pageMetadata({
+  title: "Prizes",
+  description: "USD $10,000 prize pool for Startup Village Borneo — hackathon, race, content, and sustainability tracks.",
+  path: "/prizes",
+});
 
 export default function PrizesPage() {
   return (
@@ -30,6 +36,36 @@ export default function PrizesPage() {
             ))}
           </tbody>
         </table>
+        <div className="mt-16">
+          <p className="text-eyebrow !ms-0">Program tracks</p>
+          <ul className="mt-8 grid gap-6 md:grid-cols-3 list-none">
+            <li>
+              <ActionCard
+                tone="azure"
+                title="Sustainability"
+                description={`${SUSTAINABILITY_TRACK.prizes.count}×${SUSTAINABILITY_TRACK.prizes.amount}`}
+                cta={{ label: "Track criteria", href: "/sustainability" }}
+              />
+            </li>
+            <li>
+              <ActionCard
+                tone="mint"
+                title="Content Award"
+                description={`${CONTENT_AWARD.prizes.count}×${CONTENT_AWARD.prizes.amount}`}
+                cta={{ label: "Content tasks", href: "/content-awards" }}
+              />
+            </li>
+            <li>
+              <ActionCard
+                tone="null"
+                accentText
+                title="Amazing Race"
+                description="2×$500"
+                cta={{ label: "Race tasks", href: "/amazing-race" }}
+              />
+            </li>
+          </ul>
+        </div>
         <div className="mt-12">
           <p className="text-eyebrow !ms-0">Demo Day judges</p>
           <ul className="mt-4 list-none flex flex-col gap-2 text-[var(--color-wisp)]/75">
