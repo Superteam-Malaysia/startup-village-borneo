@@ -65,6 +65,19 @@ and SVB adaptations in [`02-brand-design-plan.md`](./02-brand-design-plan.md).
 | EL-48 | Get involved 4-col grid | `md-lg:grid-cols-4` | Participation cards |
 | EL-49 | Video highlight card | carousel + year label | Recap / fireside |
 | EL-50 | Closing CTA band | azure + h2 + dual CTA | Event sign-off |
+| EL-51 | Event map section | `#map` + EventMap component | Sheraton / venue |
+| EL-52 | Map search input | 48px dark field + icon | Find tasks/rooms |
+| EL-53 | Floor tab bar (mobile) | 3-col byte active | Level/day switcher |
+| EL-54 | Floor list button (desktop) | sidebar level rows | Level picker |
+| EL-55 | Map pan/zoom container | `event-map-container` 16:9 | Interactive plan |
+| EL-56 | Floor plan image layer | stacked webp opacity fade | Floor/venue art |
+| EL-57 | Numbered map pin | SVG mint pulse + number | Zone markers |
+| EL-58 | Icon map pin | smaller circle + 16px icon | Single POI |
+| EL-59 | Map leader line | mint orthogonal path | Pin to edge |
+| EL-60 | Zone callout panel | byte border + location list | Selected zone |
+| EL-61 | Location list chip | `bg-wisp/5` rounded row | Booth/task row |
+| EL-62 | Map zoom controls | 28px stack bottom-right | Pan/zoom UI |
+| EL-63 | Event nav Map link | `#map` inset-shadow tab | Live event nav |
 
 ---
 
@@ -1092,6 +1105,33 @@ Sign-off pattern ("See you in Abu Dhabi" → SVB: "See you in Kuching").
 
 ---
 
+## Event map elements (EL-51–EL-63)
+
+> Full pixel specs: [`05-breakpoint-event-map-pixels.md`](./05-breakpoint-event-map-pixels.md).
+> Extracted from Dec 11, 2025 event-day archive (not the Nov 27 pre-event URL).
+
+| ID | Summary | Key pixels |
+| -- | ------- | ---------- |
+| EL-51 | Section shell `id="map"`, eyebrow + venue `h2` | `bg-null`, EL-26 padding |
+| EL-52 | Search `h-12 px-4`, border `wisp/20`, focus `byte/50` | 48px height, 20px icon |
+| EL-53 | Mobile tabs `grid-cols-3`, active `bg-byte` | `text-xs`, `py-2` |
+| EL-54 | Desktop level rows `px-4 py-3`, count badge `text-[12px]` | active `byte/20` border |
+| EL-55 | `aspect-video`, react-transform pan/zoom, canvas underlay | 8/4 grid split |
+| EL-56 | Layered webp, opacity 1 vs 0.1, 500ms fade | `object-contain` |
+| EL-57 | Pin `r=3`, pulse-ring 1.5s, number `font-size 2.2` | mint `#14f195` |
+| EL-58 | Pin `r=2.5` + 16×16 icon embed | white icon on null fill |
+| EL-59 | Leader `stroke #14f19566`, width 0.35, square caps | end dot `r=0.5` |
+| EL-60 | Callout `border-byte/50 p-4`, badge 24–28px circle | zone title `text-byte` |
+| EL-61 | Chip `px-3 py-2 bg-wisp/5 rounded-md text-sm` | partner \| location format |
+| EL-62 | Zoom stack `bottom-4 right-4`, buttons 28×28 | `bg-null/50` border `wisp/10` |
+| EL-63 | Nav `href="#map"` with EL-29 inset hover | event-mode nav item |
+
+**SVB use:** Sheraton floor plan, Amazing Race station clusters, workshop rooms at Voco.
+
+**Status:** `reference` + assets in `docs/design/assets/`
+
+---
+
 ## Implementation mapping (future)
 
 When the Next.js app is scaffolded, map elements to components:
@@ -1127,6 +1167,7 @@ When the Next.js app is scaffolded, map elements to components:
 | EL-43 | `components/ui/SponsorLogo.tsx` |
 | EL-44 | `components/ui/Accordion.tsx` |
 | EL-45 | `components/ui/ImageFilter.tsx` |
+| EL-51–63 | `components/venue/EventMap.tsx` + subcomponents |
 
 Global styles: import `docs/design/tokens/svb-theme.css` → move to `app/globals.css` when app exists.
 
@@ -1138,3 +1179,4 @@ Global styles: import `docs/design/tokens/svb-theme.css` → move to `app/global
 | ---- | ------ |
 | 2026-08-06 | Initial library from Breakpoint 2026 London reverse engineering |
 | 2026-08-06 | Added EL-26–EL-50 from 2025 archive pixel specs (wisp/azure/cta system) |
+| 2026-08-06 | Added EL-51–EL-63 event map + floor plans (Dec 11 event-day archive) |

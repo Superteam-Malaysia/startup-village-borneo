@@ -16,6 +16,7 @@ hackathon-first utility (leaderboard, submissions, judging).
 | 2 | [`02-brand-design-plan.md`](./02-brand-design-plan.md) | How we adapt Breakpoint patterns for SVB: brand pillars, color strategy, regional accents, page templates. |
 | 3 | [`03-element-library.md`](./03-element-library.md) | Catalog of reusable UI elements with specs, states, and implementation notes. |
 | 4 | [`04-breakpoint-2025-archive-pixels.md`](./04-breakpoint-2025-archive-pixels.md) | Pixel-level specs from the 2025 Abu Dhabi archive (wisp/azure CTA system, carousels, accordions). |
+| 5 | [`05-breakpoint-event-map-pixels.md`](./05-breakpoint-event-map-pixels.md) | Interactive event map, floor plans, pins, callouts (Dec 11 event-day archive). |
 
 ## Tokens (implementation-ready)
 
@@ -23,6 +24,7 @@ hackathon-first utility (leaderboard, submissions, judging).
 | ---- | ------- |
 | [`tokens/breakpoint-reference.css`](./tokens/breakpoint-reference.css) | Extracted Breakpoint design tokens (reference only — proprietary fonts not included). |
 | [`tokens/svb-theme.css`](./tokens/svb-theme.css) | Startup Village Borneo theme: adapted palette, spacing, typography fallbacks. |
+| [`assets/bp-map-*.webp`](./assets/) | Reference floor plan renders from Breakpoint 2025 (Etihad Arena) — design reference only. |
 
 Import `svb-theme.css` in the web client when the Next.js app is scaffolded.
 
