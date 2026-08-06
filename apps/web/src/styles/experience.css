@@ -295,6 +295,57 @@
   background: var(--color-transparent-wisp-10);
 }
 
+.schedule-sticky-tabs {
+  position: sticky;
+  top: 3.5rem;
+  z-index: 10;
+  background: color-mix(in srgb, var(--color-null) 92%, transparent);
+  backdrop-filter: blur(8px);
+  padding-bottom: 0.5rem;
+}
+
+.schedule-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-wisp);
+  opacity: 0.55;
+}
+
+.schedule-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.schedule-legend__swatch {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 2px;
+  border: 1px solid var(--color-transparent-wisp-10);
+}
+
+.schedule-legend__swatch--wisp {
+  background: var(--color-transparent-wisp-10);
+}
+
+.schedule-legend__swatch--azure {
+  background: color-mix(in srgb, var(--color-azure) 40%, transparent);
+}
+
+.schedule-legend__swatch--byte {
+  background: color-mix(in srgb, var(--color-byte) 35%, transparent);
+}
+
+.schedule-legend__swatch--deadline {
+  background: color-mix(in srgb, #ef4444 45%, transparent);
+}
+
 /* Race task cards */
 .race-task-card {
   border: 1px solid var(--color-transparent-wisp-10);
@@ -308,6 +359,26 @@
 
 .race-task-card:hover {
   border-color: var(--color-byte);
+}
+
+.race-task-card[data-theme="food"] {
+  border-left: 3px solid color-mix(in srgb, #f59e0b 70%, transparent);
+}
+
+.race-task-card[data-theme="culture"] {
+  border-left: 3px solid color-mix(in srgb, var(--color-azure) 70%, transparent);
+}
+
+.race-task-card[data-theme="waterfront"] {
+  border-left: 3px solid color-mix(in srgb, #22c55e 70%, transparent);
+}
+
+.race-task-card[data-theme="wallet"] {
+  border-left: 3px solid color-mix(in srgb, #ef4444 70%, transparent);
+}
+
+.race-task-card[data-theme="content"] {
+  border-left: 3px solid color-mix(in srgb, #a855f7 70%, transparent);
 }
 
 .race-points-badge {

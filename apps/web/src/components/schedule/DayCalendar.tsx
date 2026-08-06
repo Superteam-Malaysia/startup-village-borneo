@@ -9,8 +9,9 @@ function timeToMinutes(time: string): number {
   return h * 60 + (m ?? 0);
 }
 
-function colorClass(color: ScheduleEvent["color"]): string {
-  switch (color) {
+function colorClass(event: ScheduleEvent): string {
+  if (event.isDeadline) return "schedule-event--deadline";
+  switch (event.color) {
     case "azure":
       return "schedule-event--workshop";
     case "byte":
@@ -49,7 +50,7 @@ export function DayCalendar({ events }: { events: ScheduleEvent[] }) {
         return (
           <div
             key={event.id}
-            className={`schedule-event ${colorClass(event.color)}`}
+            className={`schedule-event ${colorClass(event)}`}
             style={{ top: `${topRem}rem`, height: `${heightRem}rem` }}
           >
             <p className="font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-wider text-[var(--color-byte)]">

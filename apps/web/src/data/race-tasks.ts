@@ -317,6 +317,33 @@ export const THEME_LABELS: Record<TaskTheme, string> = {
 
 export const THEME_ORDER: TaskTheme[] = ["food", "culture", "waterfront", "wallet"];
 
+export const SUMMARY_THEME_ORDER: TaskTheme[] = [
+  "content",
+  "food",
+  "culture",
+  "waterfront",
+  "wallet",
+];
+
+export const THEME_MAX_POINTS: Record<TaskTheme, number> = {
+  content: 10,
+  food: 17,
+  culture: 23,
+  waterfront: 15,
+  wallet: 10,
+};
+
+export const THEME_METER_COLORS: Record<
+  TaskTheme,
+  "green" | "orange" | "purple" | "blue" | "red"
+> = {
+  content: "purple",
+  food: "orange",
+  culture: "blue",
+  waterfront: "green",
+  wallet: "red",
+};
+
 export const CATEGORY_LABELS: Record<TaskCategory, string> = {
   content: "Content",
   race: "Race",
@@ -328,6 +355,13 @@ export const MAX_RACE_POINTS = RACE_TASKS.reduce(
   (sum, t) => sum + (t.pointsMax ?? t.pointsBase),
   0,
 );
+
+export function getThemePointsSummary(): { theme: TaskTheme; max: number }[] {
+  return SUMMARY_THEME_ORDER.map((theme) => ({
+    theme,
+    max: THEME_MAX_POINTS[theme],
+  }));
+}
 
 export function groupRaceTasksByTheme(): Record<TaskTheme, RaceTask[]> {
   const groups = Object.fromEntries(

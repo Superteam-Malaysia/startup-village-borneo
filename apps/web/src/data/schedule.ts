@@ -14,6 +14,7 @@ export type ScheduleEvent = {
   speaker?: string;
   description?: string;
   color: ScheduleEventColor;
+  isDeadline?: boolean;
 };
 
 export type ScheduleDay = {
@@ -272,6 +273,7 @@ export const SCHEDULE_DAYS: ScheduleDay[] = [
         end: "18:15",
         description: "Nothing accepted after this time.",
         color: "byte",
+        isDeadline: true,
       },
     ],
   },

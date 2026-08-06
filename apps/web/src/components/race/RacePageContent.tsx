@@ -8,7 +8,9 @@ import {
   RACE_SUBMISSION_RULES,
   SAMPLE_LEADERBOARD,
   THEME_LABELS,
+  THEME_METER_COLORS,
   THEME_ORDER,
+  getThemePointsSummary,
   groupRaceTasksByTheme,
 } from "@/data/race-tasks";
 import { RaceTaskCard } from "./RaceTaskCard";
@@ -39,6 +41,24 @@ export function RacePageContent() {
 
       <SvbHalftoneProvider>
         <SectionArticle className="border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-8">
+          <SectionIntro eyebrow="Points map" title="Max points per theme" />
+          <p className="mt-4 text-sm text-[var(--color-wisp)]/50 max-w-xl">
+            You may not finish every station — choose well.
+          </p>
+          <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 list-none">
+            {getThemePointsSummary().map(({ theme, max }) => (
+              <li key={theme}>
+                <p className="text-eyebrow !ms-0 mb-2">{THEME_LABELS[theme]}</p>
+                <Meter value={max} max={25} color={THEME_METER_COLORS[theme]} h={12} />
+                <p className="mt-2 font-[family-name:var(--font-mono)] text-xs text-[var(--color-wisp)]/50">
+                  up to {max} pts
+                </p>
+              </li>
+            ))}
+          </ul>
+        </SectionArticle>
+
+        <SectionArticle className="border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-8 mt-8">
           <SectionIntro eyebrow="Live preview" title="Race intensity & standings" />
           <p className="mt-4 text-sm text-[var(--color-wisp)]/50 max-w-xl">
             Sample data — full leaderboard ships with the companion dApp backend.
@@ -102,7 +122,7 @@ export function RacePageContent() {
         const tasks = themed[theme];
         if (!tasks.length) return null;
         return (
-          <SectionArticle key={theme}>
+          <SectionArticle key={theme} className="race-theme-section" data-theme={theme}>
             <SectionIntro eyebrow="Stations" title={THEME_LABELS[theme]} />
             <ul className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3 list-none">
               {tasks.map((task) => (

@@ -13,7 +13,7 @@ function pointsLabel(task: RaceTask): string {
 
 export function RaceTaskCard({ task }: { task: RaceTask }) {
   return (
-    <article className="race-task-card">
+    <article className="race-task-card" data-theme={task.theme}>
       <div className="flex items-start justify-between gap-3">
         <span className="font-[family-name:var(--font-mono)] text-xs text-[var(--color-wisp)]/40">
           #{task.number}

@@ -5,6 +5,13 @@ import { SCHEDULE_DAYS } from "@/data/schedule";
 import { DayCalendar } from "./DayCalendar";
 import { SectionArticle, SectionIntro } from "@/components/ui";
 
+const LEGEND = [
+  { label: "Program", className: "schedule-legend__swatch--wisp" },
+  { label: "Workshop", className: "schedule-legend__swatch--azure" },
+  { label: "Key moment", className: "schedule-legend__swatch--byte" },
+  { label: "Deadline", className: "schedule-legend__swatch--deadline" },
+];
+
 export function ScheduleExplorer({ initialDay = 1 }: { initialDay?: number }) {
   const [dayIndex, setDayIndex] = useState(initialDay);
   const day = useMemo(
@@ -20,19 +27,30 @@ export function ScheduleExplorer({ initialDay = 1 }: { initialDay?: number }) {
         {day.venueNote ? ` · ${day.venueNote}` : ""}
       </p>
 
-      <div className="mt-8 flex gap-2 overflow-x-auto pb-2">
-        {SCHEDULE_DAYS.map((d) => (
-          <button
-            key={d.index}
-            type="button"
-            className="schedule-day-tab"
-            data-active={d.index === dayIndex}
-            onClick={() => setDayIndex(d.index)}
-          >
-            {d.label}
-          </button>
-        ))}
+      <div className="schedule-sticky-tabs mt-8">
+        <div className="flex gap-2 overflow-x-auto pb-2">
+          {SCHEDULE_DAYS.map((d) => (
+            <button
+              key={d.index}
+              type="button"
+              className="schedule-day-tab"
+              data-active={d.index === dayIndex}
+              onClick={() => setDayIndex(d.index)}
+            >
+              {d.label}
+            </button>
+          ))}
+        </div>
       </div>
+
+      <ul className="schedule-legend mt-6" aria-label="Calendar legend">
+        {LEGEND.map((item) => (
+          <li key={item.label} className="schedule-legend__item">
+            <span className={`schedule-legend__swatch ${item.className}`} />
+            {item.label}
+          </li>
+        ))}
+      </ul>
 
       <DayCalendar events={day.events} />
     </SectionArticle>
