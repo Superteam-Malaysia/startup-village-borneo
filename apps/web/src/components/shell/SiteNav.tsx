@@ -38,14 +38,16 @@ export function SiteNav() {
       </div>
 
       <nav
-        className="lg:hidden flex overflow-x-auto gap-4 px-4 pb-3 font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-widest text-[var(--color-wisp)]/70 border-t border-[color:var(--color-transparent-wisp-10)] pt-2"
+        className="nav-mobile-scroll lg:hidden gap-0 px-0 pb-0 pt-0"
         aria-label="Mobile primary"
       >
-        {NAV_LINKS.map((link) => (
-          <Link key={link.href} href={link.href} className="whitespace-nowrap hover:text-[var(--color-byte)]">
-            {link.label}
-          </Link>
-        ))}
+        <div className="flex gap-0 px-4 pb-3 pt-2 min-w-full">
+          {NAV_LINKS.map((link) => (
+            <Link key={link.href} href={link.href} className="nav-mobile-link">
+              {link.label}
+            </Link>
+          ))}
+        </div>
       </nav>
     </header>
   );

@@ -3,6 +3,7 @@
 @import "../styles/svb-theme.css";
 @import "../styles/breakpoint-components.css";
 @import "../styles/experience.css";
+@import "../styles/taste-polish.css";
 
 @theme inline {
   --font-sans: var(--font-sans);
