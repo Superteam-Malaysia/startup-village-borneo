@@ -316,13 +316,20 @@ function MapViewport({
 export type EventMapProps = {
   venueName?: string;
   zones?: MapZone[];
+  defaultZoneId?: string;
 };
 
 /** EL-51–62 — Interactive venue map (reverse-engineered from Breakpoint EventMap). */
-export function EventMap({ venueName = "Etihad Arena", zones = BREAKPOINT_VENUE_ZONES }: EventMapProps) {
+export function EventMap({
+  venueName = "Etihad Arena",
+  zones = BREAKPOINT_VENUE_ZONES,
+  defaultZoneId,
+}: EventMapProps) {
   const [floor, setFloor] = useState<FloorId>("ground");
   const [search, setSearch] = useState("");
-  const [selected, setSelected] = useState<MapZone | null>(zones.find((z) => z.id === "touch-grass") ?? null);
+  const [selected, setSelected] = useState<MapZone | null>(
+    () => zones.find((z) => z.id === defaultZoneId) ?? zones[0] ?? null,
+  );
   const transformRef = useRef<ReactZoomPanPinchRef>(null);
 
   const floorZones = useMemo(() => zones.filter((z) => z.floor === floor), [zones, floor]);
