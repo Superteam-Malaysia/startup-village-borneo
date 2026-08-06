@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HeroGlitch } from "@/components/shell";
 import {
   Accordion,
   ActionCard,
@@ -24,12 +25,12 @@ export default function HomePage() {
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 pt-16 md:pt-24 pb-16 md:pb-24">
           <p className="text-eyebrow mb-8">Solana Foundation · SOCOE · Kuching</p>
           <h1 className="hero-display max-w-5xl">
-            <span className="hero-display-accent hero-glitch">Startup</span>
+            <HeroGlitch>Startup</HeroGlitch>
             <br />
             Village Borneo
           </h1>
 
-          <div className="hero-stat-row mt-10 md:mt-12">
+          <div className="hero-stat-row mt-10 md:mt-12" aria-label="Event at a glance">
             <div className="hero-stat">
               <span className="hero-stat__value">5–9 Sep</span>
               <span className="hero-stat__label">2026 · 5 days</span>
@@ -41,6 +42,10 @@ export default function HomePage() {
             <div className="hero-stat">
               <span className="hero-stat__value">{PRIZE_TOTAL}</span>
               <span className="hero-stat__label">Prize pool</span>
+            </div>
+            <div className="hero-stat">
+              <span className="hero-stat__value">18:00</span>
+              <span className="hero-stat__label">Day 4 cutoff</span>
             </div>
           </div>
 

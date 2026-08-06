@@ -81,7 +81,7 @@
   flex-wrap: wrap;
   gap: 0;
   border-block: 1px solid var(--color-transparent-wisp-10);
-  max-width: 42rem;
+  max-width: 56rem;
 }
 
 .hero-stat {
