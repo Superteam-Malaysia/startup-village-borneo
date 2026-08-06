@@ -9,6 +9,7 @@ import {
   StatusChip,
 } from "@/components/ui";
 import { EventMap } from "@/components/venue";
+import { HalftoneShowcase } from "@/components/halftone";
 
 export default function DesignSystemPage() {
   return (
@@ -20,6 +21,7 @@ export default function DesignSystemPage() {
         <nav className="flex gap-4 text-sm font-[family-name:var(--font-mono)] uppercase tracking-wide">
           <a href="#cta" className="hover:text-[var(--color-byte)] transition-colors">CTA</a>
           <a href="#cards" className="hover:text-[var(--color-byte)] transition-colors">Cards</a>
+          <a href="#halftone" className="hover:text-[var(--color-byte)] transition-colors">Halftone</a>
           <a href="#map" className="hover:text-[var(--color-byte)] transition-colors">Map</a>
         </nav>
       </header>
@@ -137,6 +139,23 @@ export default function DesignSystemPage() {
                   },
                 ]}
               />
+            </div>
+          </SectionArticle>
+        </section>
+
+        <section id="halftone">
+          <SectionArticle>
+            <SectionIntro eyebrow="Halftone UI" title="Print-screen data surfaces" />
+            <p className="mt-4 text-[var(--color-wisp)]/70 text-sm max-w-2xl">
+              Breakpoint handles layout, CTAs, and venue chrome. Halftone UI (
+              <a href="https://halftone-ui.com/docs/" className="text-[var(--color-byte)] hover:underline">
+                halftone-kit
+              </a>
+              ) presses meters, charts, and cards — copy-in at{" "}
+              <code className="text-[var(--color-byte)]">src/halftone/</code>.
+            </p>
+            <div className="mt-10">
+              <HalftoneShowcase />
             </div>
           </SectionArticle>
         </section>

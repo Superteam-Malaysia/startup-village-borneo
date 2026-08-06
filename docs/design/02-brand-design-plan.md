@@ -2,6 +2,20 @@
 
 > Adapts Breakpoint visual patterns for the event companion dApp. Read
 > [`01-breakpoint-reverse-engineering.md`](./01-breakpoint-reverse-engineering.md) first.
+> Data surfaces use [Halftone UI](https://halftone-ui.com/docs/) — see
+> [`06-halftone-ui-integration.md`](./06-halftone-ui-integration.md).
+
+---
+
+## 0. Visual stack (v1)
+
+| Concern | Source | Examples |
+| ------- | ------ | -------- |
+| Layout, marketing, venue | **Breakpoint elements** | CTA, ticket cards, accordion, event map, section rhythm |
+| Leaderboard, progress, charts | **Halftone UI** | Meter, BarChart, LineChart, pressed Card |
+
+No dither shaders or alternate texture libraries in product UI for v1. Breakpoint glitch stays
+hero-only.
 
 ---
 

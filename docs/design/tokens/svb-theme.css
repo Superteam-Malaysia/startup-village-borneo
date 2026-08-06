@@ -141,6 +141,16 @@
   --duration-ticker: 200s;
   --duration-accordion: 200ms;
 
+  /* Halftone UI ink palette */
+  --ink: var(--color-wisp);
+  --purple: var(--svb-color-breakpoint-purple);
+  --green: var(--svb-color-solana-mint);
+  --blue: var(--color-azure);
+  --grey: #a2a2a2;
+  --orange: var(--svb-color-borneo-amber);
+  --pink: #f472b6;
+  --red: #ef4444;
+
   /* ── Z-index layers ────────────────────────────────────────── */
   --z-nav: 40;
   --z-modal: 50;

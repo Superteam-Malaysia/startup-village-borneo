@@ -50,6 +50,16 @@
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --duration-normal: 300ms;
+
+  /* Halftone UI ink palette (read by HalftoneProvider from CSS custom properties) */
+  --ink: var(--color-wisp);
+  --purple: var(--svb-color-breakpoint-purple);
+  --green: var(--svb-color-solana-mint);
+  --blue: var(--color-azure);
+  --grey: #a2a2a2;
+  --orange: #f59e0b;
+  --pink: #f472b6;
+  --red: #ef4444;
 }
 
 @media (prefers-reduced-motion: reduce) {

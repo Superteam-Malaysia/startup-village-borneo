@@ -7,6 +7,9 @@ the 2025 archive pixel specs in
 [`04-breakpoint-2025-archive-pixels.md`](./04-breakpoint-2025-archive-pixels.md),
 and SVB adaptations in [`02-brand-design-plan.md`](./02-brand-design-plan.md).
 
+**Halftone UI** covers print-screen meters and charts — see
+[`06-halftone-ui-integration.md`](./06-halftone-ui-integration.md) (not duplicated as EL IDs here).
+
 **Status key:** `reference` = spec only (not implemented) · `token` = CSS tokens exist
 
 ---

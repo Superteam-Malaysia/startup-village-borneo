@@ -8,10 +8,10 @@ export default function HomePage() {
       <h1
         className="font-[family-name:var(--font-display)] text-[clamp(2rem,6vw,4rem)] leading-tight tracking-tight text-[var(--color-wisp)] max-w-3xl"
       >
-        UI library — Breakpoint patterns in React
+        UI library — Breakpoint layout + Halftone data surfaces
       </h1>
       <p className="text-[var(--color-wisp)]/70 max-w-lg">
-        Reverse-engineered components, tokens, and an interactive venue map — not just markdown specs.
+        Breakpoint-derived chrome (CTAs, cards, map) plus Halftone UI for leaderboard meters and charts.
       </p>
       <CtaButton href="/design-system" variant="byte" size="lg">
         Open design system

@@ -3,10 +3,19 @@
 This directory holds the **UI brand plan**, the **Breakpoint reverse-engineering
 analysis**, and the **element library** for the event companion dApp.
 
-The visual language is derived from [Solana Breakpoint](https://solana.com/breakpoint)
-(Solana's flagship conference site) and adapted for Startup Village Borneo: same
-Solana ecosystem credibility, warmer Borneo/Kuching regional identity, and
+The visual language combines [Solana Breakpoint](https://solana.com/breakpoint) layout patterns
+with [Halftone UI](https://halftone-ui.com/docs/) print-screen surfaces for data (leaderboard,
+race progress). Same Solana ecosystem credibility, warmer Borneo/Kuching regional identity, and
 hackathon-first utility (leaderboard, submissions, judging).
+
+## Visual stack (v1)
+
+| Layer | Tool | Repo |
+| ----- | ---- | ---- |
+| Chrome & layout | Breakpoint elements | `apps/web/src/components/ui/`, `breakpoint-components.css` |
+| Data surfaces | Halftone UI kit | `apps/web/src/halftone/`, `components/halftone/` |
+
+See [`06-halftone-ui-integration.md`](./06-halftone-ui-integration.md) for how the two layers compose.
 
 ## Reading order
 
@@ -17,6 +26,7 @@ hackathon-first utility (leaderboard, submissions, judging).
 | 3 | [`03-element-library.md`](./03-element-library.md) | Catalog of reusable UI elements with specs, states, and implementation notes. |
 | 4 | [`04-breakpoint-2025-archive-pixels.md`](./04-breakpoint-2025-archive-pixels.md) | Pixel-level specs from the 2025 Abu Dhabi archive (wisp/azure CTA system, carousels, accordions). |
 | 5 | [`05-breakpoint-event-map-pixels.md`](./05-breakpoint-event-map-pixels.md) | Interactive event map, floor plans, pins, callouts (Dec 11 event-day archive). |
+| 6 | [`06-halftone-ui-integration.md`](./06-halftone-ui-integration.md) | Halftone UI stack: meters, charts, copy-in kit, SVB screen mapping. |
 
 ## Tokens (implementation-ready)
 
@@ -35,6 +45,8 @@ The element library is **implemented in code**, not only documented:
 | Path | Contents |
 | ---- | -------- |
 | `apps/web/src/components/ui/` | CtaButton, Section, StatDisplay, ActionCard, Accordion, StatusChip |
+| `apps/web/src/components/halftone/` | SvbHalftoneProvider, HalftoneShowcase (Halftone UI) |
+| `apps/web/src/halftone/` | Vendored halftone-kit (`core` + `react`) |
 | `apps/web/src/components/venue/` | EventMap (pan/zoom, floor layers, SVG pins) |
 | `apps/web/src/styles/` | `svb-theme.css`, `breakpoint-components.css` |
 | `apps/web/public/map/` | Reference floor plan WebP assets |
@@ -42,7 +54,7 @@ The element library is **implemented in code**, not only documented:
 
 ```bash
 cd apps/web && npm install && npm run dev
-# → http://localhost:3000/design-system
+# → http://localhost:3000/design-system  (Breakpoint chrome + Halftone data surfaces)
 ```
 
 ## Relationship to Spec Kit
