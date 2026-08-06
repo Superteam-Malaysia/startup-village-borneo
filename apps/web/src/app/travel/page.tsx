@@ -1,8 +1,19 @@
 import { CtaButton, SectionArticle, SectionIntro } from "@/components/ui";
-import { TRAVEL_HERO, TRAVEL_SECTIONS, TRAVEL_TIPS } from "@/data/travel";
-import { SITE } from "@/data/site";
+import {
+  GRAB_TIPS,
+  KCH_AIRPORT_DETAILS,
+  RACE_GEOGRAPHY_NOTE,
+  TRAVEL_HERO,
+  TRAVEL_SECTIONS,
+  TRAVEL_TIPS,
+} from "@/data/travel";
+import { VENUES } from "@/data/venues";
 
-export const metadata = { title: "Travel" };
+export const metadata = {
+  title: "Travel",
+  description:
+    "Getting to Kuching for Startup Village Borneo — KCH airport, Grab tips, Sheraton & Voco logistics, and Amazing Race geography for 5–9 September 2026.",
+};
 
 export default function TravelPage() {
   return (
@@ -24,11 +35,44 @@ export default function TravelPage() {
           <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-byte)]">
             {TRAVEL_HERO.airport}
           </p>
+          <p className="mt-2 font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-widest text-[var(--color-wisp)]/50">
+            {TRAVEL_HERO.airportCode}
+          </p>
           <p className="mt-3 font-[family-name:var(--font-display)] text-2xl">{TRAVEL_HERO.distance}</p>
+          <p className="mt-2 text-sm text-[var(--color-wisp)]/55">{TRAVEL_HERO.terminal}</p>
           <p className="mt-4 text-sm text-[var(--color-wisp)]/55">{TRAVEL_HERO.timezone}</p>
-          <p className="mt-6 text-sm text-[var(--color-wisp)]/70">{SITE.venue}</p>
+          <p className="mt-6 text-sm text-[var(--color-wisp)]/70">{VENUES.sheraton.address}</p>
         </div>
       </header>
+
+      <SectionArticle>
+        <SectionIntro eyebrow="KCH" title="Kuching International Airport" />
+        <div className="mt-6 grid gap-6 md:grid-cols-2 text-sm text-[var(--color-wisp)]/75 leading-relaxed">
+          <div>
+            <p className="font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-widest text-[var(--color-byte)]">
+              Codes &amp; location
+            </p>
+            <p className="mt-3">
+              {KCH_AIRPORT_DETAILS.name} — {KCH_AIRPORT_DETAILS.iata} / {KCH_AIRPORT_DETAILS.icao}
+            </p>
+            <p className="mt-2 text-[var(--color-wisp)]/60">{KCH_AIRPORT_DETAILS.address}</p>
+            <ul className="mt-4 flex flex-col gap-2 list-none">
+              <li>{KCH_AIRPORT_DETAILS.driveToSheraton}</li>
+              <li>{KCH_AIRPORT_DETAILS.driveToVoco}</li>
+            </ul>
+          </div>
+          <div>
+            <p className="font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-widest text-[var(--color-byte)]">
+              Arrival flow
+            </p>
+            <ol className="mt-3 flex flex-col gap-3 list-decimal list-inside">
+              {KCH_AIRPORT_DETAILS.arrivalFlow.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </SectionArticle>
 
       <div className="grid gap-8 md:grid-cols-2">
         {TRAVEL_SECTIONS.map((section) => (
@@ -51,6 +95,33 @@ export default function TravelPage() {
         ))}
       </div>
 
+      <SectionArticle>
+        <SectionIntro eyebrow="Grab" title="Getting around Kuching" />
+        <ul className="mt-6 grid gap-3 md:grid-cols-2 list-none">
+          {GRAB_TIPS.map((tip) => (
+            <li
+              key={tip}
+              className="font-[family-name:var(--font-mono)] text-sm leading-relaxed border-l-2 border-[var(--color-null)]/25 pl-4 text-[var(--color-wisp)]/75"
+            >
+              {tip}
+            </li>
+          ))}
+        </ul>
+      </SectionArticle>
+
+      <SectionArticle className="bg-[var(--color-azure)] text-[var(--color-null)] p-8 md:p-10">
+        <SectionIntro eyebrow="Amazing Race" title="Race geography" />
+        <p className="mt-6 max-w-3xl text-sm leading-relaxed opacity-90">{RACE_GEOGRAPHY_NOTE}</p>
+        <div className="mt-10 flex flex-wrap gap-4">
+          <CtaButton href="/amazing-race" variant="ghost-null" size="md">
+            Race tasks
+          </CtaButton>
+          <CtaButton href="/venue" variant="ghost-null" size="md" showArrow={false}>
+            Venue &amp; waterfront map
+          </CtaButton>
+        </div>
+      </SectionArticle>
+
       <SectionArticle className="bg-[var(--color-azure)] text-[var(--color-null)] p-8 md:p-10">
         <SectionIntro eyebrow="Tips" title="Before you land" />
         <ul className="mt-8 grid gap-4 md:grid-cols-2 list-none">
@@ -63,12 +134,6 @@ export default function TravelPage() {
             </li>
           ))}
         </ul>
-        <div className="mt-10 flex flex-wrap gap-4">
-          <CtaButton href="/venue" variant="ghost-null" size="md">Venue & map</CtaButton>
-          <CtaButton href="/amazing-race" variant="ghost-null" size="md" showArrow={false}>
-            Amazing Race
-          </CtaButton>
-        </div>
       </SectionArticle>
     </main>
   );

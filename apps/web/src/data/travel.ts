@@ -10,9 +10,37 @@ export type TravelSection = {
 
 export const TRAVEL_HERO = {
   airport: "Kuching International Airport (KCH)",
-  distance: "~15 min drive to city centre & Sheraton",
+  airportCode: "KCH · WBGG",
+  distance: "~11 km south of downtown · ~15 min to Sheraton",
   timezone: "Malaysia Time (MYT, UTC+8)",
+  terminal: "Single integrated terminal — domestic & international",
 };
+
+export const KCH_AIRPORT_DETAILS = {
+  name: "Kuching International Airport",
+  iata: "KCH",
+  icao: "WBGG",
+  address: "Jalan Lapangan Terbang, 93756 Kuching, Sarawak, Malaysia",
+  driveToSheraton: "~15 minutes in light traffic (11 km north to downtown)",
+  driveToVoco: "~5 minutes — Voco sits on Jalan Lapangan Terbang Baru near the airport",
+  arrivalFlow: [
+    "Immigration & baggage claim on the ground floor for international arrivals.",
+    "ATMs and telco counters (Celcom, Digi, Maxis) in arrivals — grab a local SIM or eSIM before Grab.",
+    "Grab pickup bay is signed outside arrivals; airport taxis also operate from the official counter.",
+  ],
+};
+
+export const GRAB_TIPS = [
+  "Download Grab before you land — it works reliably across Kuching and is cheaper than airport taxis.",
+  "Pin \"Kuching International Airport (KCH)\" for pickup; exit via the main arrivals doors.",
+  "Pay with card or GrabPay; small cash top-up works if your home card declines.",
+  "GrabCar (not GrabShare) when travelling with teammates, luggage, or demo hardware.",
+  "Save both Sheraton Kuching and voco Kuching as favourites before Day 2 morning rush.",
+  "Morning Sheraton → Voco runs ~15–20 min; allow buffer so the 10:00 hard start isn't missed.",
+];
+
+export const RACE_GEOGRAPHY_NOTE =
+  "The Amazing Race spans all of Kuching — but geography clusters. Waterfront stations (Darul Hana bridge, KUCHING sign, sampan, flagpole, Old Court House) are walkable from Sheraton in one evening. Food tasks scatter wider: Choon Hui Cafe, Mama Su, Sam's ice cream, and the Ceylonese restaurant each need a dedicated trip. You won't finish every task — choose stations near each other and run the race in evenings and gaps, never during workshop hours.";
 
 export const TRAVEL_SECTIONS: TravelSection[] = [
   {
@@ -21,15 +49,18 @@ export const TRAVEL_SECTIONS: TravelSection[] = [
     items: [
       {
         label: "Airport",
-        detail: "Kuching International Airport (KCH) — direct flights from Kuala Lumpur, Singapore, Johor Bahru, and regional hubs.",
+        detail:
+          "Kuching International Airport (KCH / WBGG) — single terminal with domestic and international gates. Direct flights from Kuala Lumpur, Singapore, Johor Bahru, and regional hubs.",
       },
       {
-        label: "Ground transport",
-        detail: "Grab is reliable. Airport taxi counters are available. Sheraton is ~15 minutes from KCH in light traffic.",
+        label: "KCH → Sheraton",
+        detail:
+          "Sheraton is downtown on Jalan Tunku Abdul Rahman, ~11 km north of the airport. Grab or airport taxi: ~15 minutes in light traffic. Voco is only ~5 minutes from KCH if you need the workshop venue first.",
       },
       {
         label: "Arrival Day 1",
-        detail: "Teams are assigned before landing. Check in, join your WhatsApp group, and the Amazing Race starts immediately.",
+        detail:
+          "Teams are assigned before landing. Check in at Sheraton, join your WhatsApp group, and the Amazing Race starts immediately — race brief drops on arrival.",
       },
     ],
   },
@@ -39,15 +70,18 @@ export const TRAVEL_SECTIONS: TravelSection[] = [
     items: [
       {
         label: "Sheraton Kuching",
-        detail: "Primary hotel — welcome dinner Day 1, evening building every night, breakfast before workshop days.",
+        detail:
+          "Jalan Tunku Abdul Rahman, 93100 Kuching — primary hotel. Welcome dinner Day 1, evening building every night, breakfast before workshop days.",
       },
       {
-        label: "Voco Kuching",
-        detail: "Workshop venue from Day 2. Breakfast at Sheraton, then travel to Voco for 10:00 sessions.",
+        label: "voco Kuching",
+        detail:
+          "Jalan Lapangan Terbang Baru, 93350 Kuching — workshop venue Day 2–5. Breakfast at Sheraton, then Grab or shuttle to Voco for 10:00 sessions.",
       },
       {
         label: "Rhythm",
-        detail: "Sessions hard stop 17:00–17:30. Evenings are free for building at the hotel.",
+        detail:
+          "Sessions hard stop 17:00–17:30. Evenings are free for building at the hotel. Day 5: check out of Sheraton, Demo Day at Voco.",
       },
     ],
   },
@@ -57,15 +91,18 @@ export const TRAVEL_SECTIONS: TravelSection[] = [
     items: [
       {
         label: "Waterfront",
-        detail: "Darul Hana bridge, cat statues, sampan rides — core Amazing Race territory. Walkable from downtown.",
+        detail:
+          "Five minutes on foot from Sheraton — Darul Hana bridge, cat statues, sampan rides, and the KUCHING letter sign. Core Amazing Race territory.",
       },
       {
         label: "Food",
-        detail: "Laksa, kek lapis, cheese naan — the race is literally a food tour. Cash and e-wallet both work widely.",
+        detail:
+          "Laksa, kek lapis, cheese naan — the race is literally a food tour. Cash and e-wallet both work widely.",
       },
       {
         label: "Weather",
-        detail: "Tropical — expect heat and humidity. Light rain is common; pack a compact umbrella.",
+        detail:
+          "Tropical — expect heat and humidity. Light rain is common; pack a compact umbrella.",
       },
     ],
   },
@@ -79,11 +116,13 @@ export const TRAVEL_SECTIONS: TravelSection[] = [
       },
       {
         label: "Connectivity",
-        detail: "eSIMs and local SIMs are easy at the airport. WhatsApp is the ops channel for teams.",
+        detail:
+          "eSIMs and local SIMs at KCH arrivals. WhatsApp is the ops channel for teams — join your group before leaving the airport.",
       },
       {
         label: "Visa",
-        detail: "Check Malaysia entry requirements for your passport. Many nationalities get visa-free or e-visa access.",
+        detail:
+          "Check Malaysia entry requirements for your passport. Many nationalities get visa-free or e-visa access.",
       },
     ],
   },
@@ -94,4 +133,5 @@ export const TRAVEL_TIPS = [
   "Book Sheraton early; Demo Day week fills quickly.",
   "Grab > hailing — saves negotiating in the heat.",
   "Amazing Race stations span the city — plan evenings, not workshop hours.",
+  "Pin Sheraton and Voco in Grab before Day 2; morning traffic adds 5–10 minutes.",
 ];
