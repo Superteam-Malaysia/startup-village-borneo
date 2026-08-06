@@ -19,8 +19,9 @@ export function RacePageContent() {
 
   return (
     <div className="flex flex-col gap-16 md:gap-24">
-      <header>
-        <p className="text-eyebrow mb-6">Points-weighted · evenings & gaps</p>
+      <header className="race-page-header">
+        <p className="race-page-header__accent mb-4">15+ stations · points-weighted</p>
+        <p className="text-eyebrow mb-6">Evenings & gaps · Kuching</p>
         <h1 className="hero-display max-w-4xl">
           The <span className="hero-display-accent">Amazing</span>
           <br />

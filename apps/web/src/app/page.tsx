@@ -19,28 +19,41 @@ export default function HomePage() {
 
   return (
     <main>
-      {/* Hero — Breakpoint-style information density */}
+      {/* Hero — Breakpoint-style information density + one-shot glitch accent */}
       <section className="relative border-b border-[color:var(--color-transparent-wisp-10)]">
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 pt-16 md:pt-24 pb-16 md:pb-24">
           <p className="text-eyebrow mb-8">Solana Foundation · SOCOE · Kuching</p>
           <h1 className="hero-display max-w-5xl">
-            <span className="hero-display-accent">Startup</span>
+            <span className="hero-display-accent hero-glitch">Startup</span>
             <br />
             Village Borneo
           </h1>
-          <div className="mt-10 md:mt-14 grid gap-8 md:grid-cols-[1fr_auto] md:items-end max-w-5xl">
-            <div className="flex flex-col gap-4 text-[var(--color-wisp)]/75 leading-relaxed max-w-xl">
-              <p className="font-[family-name:var(--font-mono)] text-sm uppercase tracking-widest text-[var(--color-byte)]">
-                {SITE.dates}
-              </p>
-              <p>{SITE.venue}</p>
-              <p>{SITE.rhythm}</p>
+
+          <div className="hero-stat-row mt-10 md:mt-12">
+            <div className="hero-stat">
+              <span className="hero-stat__value">5–9 Sep</span>
+              <span className="hero-stat__label">2026 · 5 days</span>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <CtaButton href="/schedule" variant="byte" size="lg">View schedule</CtaButton>
+            <div className="hero-stat">
+              <span className="hero-stat__value">Kuching</span>
+              <span className="hero-stat__label">Sheraton · Voco</span>
+            </div>
+            <div className="hero-stat">
+              <span className="hero-stat__value">{PRIZE_TOTAL}</span>
+              <span className="hero-stat__label">Prize pool</span>
+            </div>
+          </div>
+
+          <div className="mt-10 md:mt-12 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end max-w-5xl">
+            <p className="hero-lead">{SITE.rhythm}</p>
+            <div className="hero-cta-group">
+              <CtaButton href="/schedule" variant="byte" size="lg">
+                View schedule
+              </CtaButton>
               <CtaButton href="/amazing-race" variant="ghost-wisp" size="lg" showArrow={false}>
                 Amazing Race
               </CtaButton>
+              <span className="hero-cta-note hidden sm:inline">Demo Day · Wed 9 Sep</span>
             </div>
           </div>
         </div>
@@ -147,8 +160,14 @@ export default function HomePage() {
               <StatDisplay value="18:00" label="Day 4 cutoff" />
               <StatDisplay value="2×$500" label="Race prizes" />
             </div>
-            <div className="mt-10">
+            <div className="mt-10 flex flex-wrap gap-4">
               <CtaButton href="/amazing-race" variant="byte" size="lg">Explore all tasks</CtaButton>
+              <CtaButton href="/leaderboard" variant="ghost-wisp" size="md" showArrow={false}>
+                Leaderboard
+              </CtaButton>
+              <CtaButton href="/submissions" variant="ghost-wisp" size="md" showArrow={false}>
+                Submissions
+              </CtaButton>
             </div>
           </SectionArticle>
         </div>
