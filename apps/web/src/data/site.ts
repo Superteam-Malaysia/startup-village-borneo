@@ -25,6 +25,8 @@ export const NAV_LINKS = [
 export const FOOTER_LINKS = [
   { href: "/leaderboard", label: "Leaderboard" },
   { href: "/submissions", label: "Submissions" },
+  { href: "/demo-day", label: "Demo Day" },
+  { href: "/wallet", label: "Wallet onboarding" },
   { href: "/sustainability", label: "Sustainability track" },
   { href: "/content-awards", label: "Content Award" },
   { href: "/venue", label: "Venue" },
