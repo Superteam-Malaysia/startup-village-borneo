@@ -18,7 +18,7 @@ export const metadata = {
 
 export default function TravelPage() {
   return (
-    <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col gap-16 md:gap-20">
+    <main className="site-main site-main--stack">
       <header className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-end">
         <PageHeader
           meta="Kuching · Sarawak"

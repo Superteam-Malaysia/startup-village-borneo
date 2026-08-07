@@ -1,7 +1,6 @@
 "use client";
 
 import { BarChart, Meter } from "@/halftone/react/index.js";
-import { SvbHalftoneProvider } from "@/components/halftone";
 import {
   CONTENT_TASKS,
   RACE_CUTOFF,
@@ -32,8 +31,7 @@ export function RacePageContent() {
         {RACE_CUTOFF.label} · {RACE_CUTOFF.time} — Amazing Race & deck cutoff. Nothing after.
       </div>
 
-      <SvbHalftoneProvider>
-        <SectionArticle className="border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-8">
+      <SectionArticle className="border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-8">
           <SectionIntro title="Max points per theme" />
           <p className="mt-4 text-sm text-[var(--color-wisp)]/50 max-w-xl">
             You may not finish every station — choose well.
@@ -95,7 +93,6 @@ export function RacePageContent() {
             ))}
           </ol>
         </SectionArticle>
-      </SvbHalftoneProvider>
 
       <SectionArticle>
         <SectionIntro title="Individual X posts" />

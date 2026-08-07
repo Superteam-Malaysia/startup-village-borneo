@@ -20,7 +20,7 @@ export const metadata = pageMetadata({
 
 export default function WalletPage() {
   return (
-    <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col gap-16 md:gap-24">
+    <main className="site-main site-main--stack">
       <PageHeader
         meta="Task #15 · Solana-first"
         title="Wallet onboarding"

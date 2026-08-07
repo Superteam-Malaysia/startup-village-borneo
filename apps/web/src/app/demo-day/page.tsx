@@ -18,7 +18,7 @@ export const metadata = pageMetadata({
 
 export default function DemoDayPage() {
   return (
-    <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col gap-16 md:gap-24">
+    <main className="site-main site-main--stack">
       <PageHeader
         meta={`Day 5 · ${DEMO_DAY.date}`}
         title="Demo Day"

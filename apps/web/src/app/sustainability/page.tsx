@@ -12,7 +12,7 @@ export const metadata = pageMetadata({
 
 export default function SustainabilityPage() {
   return (
-    <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col gap-16">
+    <main className="site-main site-main--stack">
       <PageHeader
         meta="SOCOE · opt in on Day 2"
         title="Sustainability track"

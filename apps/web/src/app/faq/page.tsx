@@ -6,7 +6,7 @@ export const metadata = { title: "FAQ" };
 
 export default function FaqPage() {
   return (
-    <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20">
+    <main className="site-main">
       <PageHeader title="Frequently asked questions" />
       <SectionArticle className="max-w-3xl">
         <div className="mt-10">

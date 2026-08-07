@@ -3,6 +3,7 @@ import "./globals.css";
 import { HalftoneShell } from "@/components/halftone";
 import { SiteNav } from "@/components/shell/SiteNav";
 import { SiteFooter } from "@/components/shell/SiteFooter";
+import { ScrollToTop } from "@/components/shell/ScrollToTop";
 import { rootMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = rootMetadata;
@@ -12,8 +13,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-[var(--color-null)] text-[var(--color-wisp)]">
         <HalftoneShell>
+          <ScrollToTop />
           <SiteNav />
-          <div className="flex-1 flex flex-col">{children}</div>
+          <div className="site-content">{children}</div>
           <SiteFooter />
         </HalftoneShell>
       </body>

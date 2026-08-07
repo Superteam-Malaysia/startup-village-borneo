@@ -5,7 +5,7 @@ export const metadata = { title: "Code of conduct" };
 
 export default function CodeOfConductPage() {
   return (
-    <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20">
+    <main className="site-main">
       <PageHeader title="Code of conduct" />
       <SectionArticle className="max-w-3xl">
         <div className="mt-10 flex flex-col gap-6 text-[var(--color-wisp)]/75 leading-relaxed">

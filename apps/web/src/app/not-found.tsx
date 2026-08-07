@@ -4,7 +4,7 @@ import { CtaButton } from "@/components/ui";
 
 export default function NotFound() {
   return (
-    <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-24 md:py-32 flex flex-col items-start gap-8">
+    <main className="site-main">
       <PageHeader meta="404" title="Page not found" lead="This route isn't on the program map. Head home or jump to the schedule." />
       <div className="flex flex-wrap gap-4">
         <CtaButton href="/" variant="byte" size="md">Home</CtaButton>

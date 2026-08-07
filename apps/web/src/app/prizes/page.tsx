@@ -12,7 +12,7 @@ export const metadata = pageMetadata({
 
 export default function PrizesPage() {
   return (
-    <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20">
+    <main className="site-main">
       <PageHeader
         title={`${PRIZE_TOTAL} prize pool`}
         lead="Prizes are settled off-app per event operations. This site is the program bible — not a payment portal."

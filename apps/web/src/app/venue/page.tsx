@@ -20,7 +20,7 @@ export const metadata = {
 
 export default function VenuePage() {
   return (
-    <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col gap-16">
+    <main className="site-main site-main--stack">
       <PageHeader
         title="Sheraton and Voco"
         lead="Evening building at Sheraton. Day workshops at Voco from Day 2 — breakfast at the hotel, then travel across town."

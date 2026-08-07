@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function AmazingRacePage() {
   return (
-    <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20">
+    <main className="site-main site-main--stack">
       <RacePageContent />
     </main>
   );

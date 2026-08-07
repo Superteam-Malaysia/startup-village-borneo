@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function SubmissionsPage() {
   return (
-    <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20">
+    <main className="site-main">
       <div className="flex flex-col gap-16 md:gap-24">
         <PageHeader
           meta="Race · decks · content"

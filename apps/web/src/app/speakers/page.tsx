@@ -15,7 +15,7 @@ const KIND_LABEL: Record<string, string> = {
 
 export default function SpeakersPage() {
   return (
-    <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col gap-16 md:gap-24">
+    <main className="site-main site-main--stack">
       <PageHeader
         meta="On stage · Voco workshops"
         title="Speakers and sessions"

@@ -10,7 +10,7 @@ export default function PartnersPage() {
   const pending = PARTNERS.filter((p) => p.role === "pending");
 
   return (
-    <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20">
+    <main className="site-main">
       <PageHeader
         title="Partners"
         lead="Partners not on stage receive logo placement and office hours access (e.g. BESarawak, TankDAO)."

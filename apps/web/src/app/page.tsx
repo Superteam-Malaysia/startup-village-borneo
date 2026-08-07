@@ -26,7 +26,7 @@ export default function HomePage() {
     <main>
       {/* Hero — Breakpoint-style information density + one-shot glitch accent */}
       <section className="relative border-b border-[color:var(--color-transparent-wisp-10)]">
-        <div className="max-w-[90rem] mx-auto px-4 md:px-8 pt-16 md:pt-24 pb-16 md:pb-24">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-8 pt-8 md:pt-12 pb-16 md:pb-24">
           <HalftoneTitle text="Startup Village Borneo" />
           <p className="home-hero__meta">
             {SITE.dates} · Solana Foundation · SOCOE · Kuching

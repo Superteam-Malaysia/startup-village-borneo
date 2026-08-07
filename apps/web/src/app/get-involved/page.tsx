@@ -5,7 +5,7 @@ export const metadata = { title: "Get involved" };
 
 export default function GetInvolvedPage() {
   return (
-    <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20">
+    <main className="site-main">
       <PageHeader title="Take part in SVB 2026" />
       <SectionArticle>
         <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4 list-none">

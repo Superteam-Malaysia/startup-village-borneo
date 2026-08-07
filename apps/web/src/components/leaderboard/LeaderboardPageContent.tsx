@@ -1,7 +1,6 @@
 "use client";
 
 import { BarChart, Meter } from "@/halftone/react/index.js";
-import { SvbHalftoneProvider } from "@/components/halftone";
 import { MAX_RACE_POINTS, RACE_CUTOFF, SAMPLE_LEADERBOARD } from "@/data/race-tasks";
 import { CtaButton, SectionArticle, SectionIntro } from "@/components/ui";
 import { PageHeader } from "@/components/shell";
@@ -32,8 +31,7 @@ export function LeaderboardPageContent() {
         Live data ships with the companion dApp — this table uses sample teams for layout only.
       </div>
 
-      <SvbHalftoneProvider>
-        <SectionArticle className="border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-8">
+      <SectionArticle className="border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-8">
           <SectionIntro title="Top three momentum" />
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {SAMPLE_LEADERBOARD.slice(0, 3).map((row) => (
@@ -155,7 +153,6 @@ export function LeaderboardPageContent() {
             </div>
           </div>
         </SectionArticle>
-      </SvbHalftoneProvider>
 
       <SectionArticle>
         <SectionIntro title="Log your race tasks" />
