@@ -23,7 +23,6 @@ export function usePress(ref, opts = {}, deps = []) {
   optsRef.current = opts;
 
   // Mount once per (context, element). mount() reads ref.current directly — no DOM lookup.
-  // Double-rAF defers first draw until layout has settled (avoids stale zero-height surfaces).
   useEffect(() => {
     const el = ref.current;
     if (!el) return undefined;
@@ -38,21 +37,17 @@ export function usePress(ref, opts = {}, deps = []) {
       if (optsRef.current.animate) handle.pressIn();
       if (handle.stale && typeof ResizeObserver !== 'undefined') {
         ro = new ResizeObserver(() => {
-          if (!handle || cancelled || !handle.stale) return;
-          handle.rebuild();
-          handle.draw();
+          if (!handle || cancelled) return;
+          if (handle.stale) handle.rebuild();
         });
         ro.observe(el);
       }
     };
 
-    const frame = requestAnimationFrame(() => {
-      requestAnimationFrame(attach);
-    });
+    attach();
 
     return () => {
       cancelled = true;
-      cancelAnimationFrame(frame);
       ro?.disconnect();
       handle?.destroy();
       handleRef.current = null;

@@ -56,6 +56,7 @@ export function resolvePress(opts = {}, ctx = null) {
     animate: opts.animate ?? false,       // press-in when the caller triggers it
     harmony: opts.harmony ?? false,       // per-instance (V-12)
     pressMs: opts.pressMs ?? 700,         // press-in duration
+    onReady: opts.onReady ?? null,        // lifecycle hook (not part of press dials)
   };
 }
 
@@ -197,7 +198,7 @@ export function mount(el, spec, ctx) {
   // The public handle — the imperative surface the spec (§4b) promises.
   return {
     draw: () => s.draw(),
-    rebuild: () => { s.rebuild(); s.draw(); },
+    rebuild: () => { s.rebuild(); s.draw(); notifyReady(); },
     set: (patch) => s.set(patch),
     pressIn: (ms) => s.pressIn(ms),
     proof: () => s.proof(),
