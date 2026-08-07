@@ -41,15 +41,39 @@
 }
 
 .site-nav__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  color: var(--color-wisp);
+  text-decoration: none;
+}
+
+.site-nav__logo:hover {
+  color: var(--color-byte);
+}
+
+.site-nav__logo-mark {
+  display: block;
+  width: 2.25rem;
+  height: auto;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .site-nav__logo-mark {
+    width: 2.5rem;
+  }
+}
+
+.site-nav__logo-text {
   font-family: var(--font-mono);
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.04em;
-  color: var(--color-wisp);
-  flex-shrink: 0;
 }
 
-.site-nav__logo:hover {
+.site-nav__logo:hover .site-nav__logo-text {
   color: var(--color-byte);
 }
 

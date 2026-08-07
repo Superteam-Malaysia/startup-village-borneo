@@ -2,13 +2,15 @@ import Link from "next/link";
 import { CtaButton } from "@/components/ui";
 import { NAV_LINKS, SITE } from "@/data/site";
 import { MobileNavMenu } from "./MobileNavMenu";
+import { SvbHibiscusLogo } from "./SvbHibiscusLogo";
 
 export function SiteNav() {
   return (
     <header className="site-nav">
       <div className="site-nav__bar">
         <Link href="/" className="site-nav__logo">
-          {SITE.shortName}
+          <SvbHibiscusLogo className="site-nav__logo-mark" title={SITE.name} />
+          <span className="site-nav__logo-text">{SITE.shortName}</span>
         </Link>
 
         <nav className="site-nav__desktop" aria-label="Primary">
