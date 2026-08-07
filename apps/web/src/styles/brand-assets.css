@@ -1,0 +1,103 @@
+/**
+ * Brand assets page — logo download grid.
+ */
+
+.brand-logos__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+  .brand-logos__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .brand-logos__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.brand-logos__card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid var(--color-transparent-wisp-10);
+  background: color-mix(in srgb, var(--color-null) 92%, var(--color-wisp));
+}
+
+.brand-logos__preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 10rem;
+  padding: 1.5rem 1.25rem;
+}
+
+.brand-logos__preview--dark {
+  background: var(--color-null);
+}
+
+.brand-logos__preview--light {
+  background: var(--color-wisp);
+}
+
+.brand-logos__preview--azure {
+  background: var(--color-azure);
+}
+
+.brand-logos__image {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 7rem;
+  object-fit: contain;
+}
+
+.brand-logos__preview--azure .brand-logos__image,
+.brand-logos__preview--light .brand-logos__image {
+  max-height: 5.5rem;
+}
+
+.brand-logos__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1.125rem 1.125rem;
+  border-top: 1px solid var(--color-transparent-wisp-10);
+}
+
+.brand-logos__name {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-wisp);
+}
+
+.brand-logos__usage {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--color-wisp) 72%, transparent);
+}
+
+.brand-logos__download {
+  margin-top: 0.25rem;
+  width: fit-content;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-byte);
+  text-decoration: none;
+}
+
+.brand-logos__download:hover {
+  color: color-mix(in srgb, var(--color-byte) 82%, var(--color-wisp));
+}

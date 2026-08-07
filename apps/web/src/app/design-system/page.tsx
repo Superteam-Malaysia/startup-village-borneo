@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogosPanel } from "@/components/brand";
 import {
   Accordion,
   ActionCard,
@@ -11,16 +12,28 @@ import {
 import { EventMap } from "@/components/venue";
 import { HalftoneShowcase } from "@/components/halftone";
 
+export const metadata = {
+  title: "Brand assets",
+  description: "Startup Village Borneo logos, marks, and component reference.",
+};
+
 export default function DesignSystemPage() {
   return (
     <main className="pb-20">
       <div className="max-w-[90rem] mx-auto px-4 md:px-8 pt-12 flex flex-col gap-16 md:gap-24">
         <section>
-          <SectionIntro title="Breakpoint + Halftone component lab" />
+          <SectionIntro title="Brand assets" accent="byte" />
           <p className="mt-6 max-w-2xl text-[var(--color-wisp)]/80 leading-relaxed">
-            Internal reference for <code className="text-[var(--color-byte)]">apps/web/src/components</code>.
-            The public experience site lives at <Link href="/" className="text-[var(--color-byte)] hover:underline">/</Link>.
+            Official SVB marks for partners and press. Component reference for{" "}
+            <code className="text-[var(--color-byte)]">apps/web/src/components</code> below.
+            Public site: <Link href="/" className="text-[var(--color-byte)] hover:underline">/</Link>.
           </p>
+        </section>
+
+        <section id="logos">
+          <SectionArticle>
+            <BrandLogosPanel />
+          </SectionArticle>
         </section>
 
         <section id="cta">

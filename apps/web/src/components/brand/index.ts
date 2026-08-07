@@ -1,0 +1,1 @@
+export { BrandLogosPanel } from "./BrandLogosPanel";
