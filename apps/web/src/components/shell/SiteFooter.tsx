@@ -1,42 +1,46 @@
 import Link from "next/link";
-import { FOOTER_LINKS, SITE } from "@/data/site";
-import { TextTicker } from "./TextTicker";
+import { SITE } from "@/data/site";
+import { FooterCountdown } from "./FooterCountdown";
+import { FooterSocialIcons } from "./FooterSocialIcons";
+import { KuchingSkyline } from "./KuchingSkyline";
+
+function FooterStepEdge() {
+  return (
+    <div className="bp-footer__steps" aria-hidden>
+      <svg viewBox="0 0 1440 28" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          fill="#9945ff"
+          d="M0 28V0h80v12h64V4h96v16h80V8h112v20h72V0h88v14h104V6h96v22h80V10h112v18h64V2h96v26h80V8h112v20h72V0h88v12h104V4h96v24h80V14h112v14h64V0H1440v28H0Z"
+        />
+      </svg>
+    </div>
+  );
+}
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto border-t border-[color:var(--color-transparent-wisp-10)] bg-[var(--color-null)]">
-      <TextTicker />
-      <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-16 grid gap-10 md:grid-cols-[1.2fr_1fr]">
-        <div>
-          <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.25em] text-[var(--color-byte)] mb-4">
-            {SITE.shortName} 2026
+    <footer className="bp-footer">
+      <FooterStepEdge />
+      <div className="bp-footer__inner">
+        <div className="bp-footer__top">
+          <FooterSocialIcons />
+          <p className="bp-footer__copyright">
+            © SOLANA FOUNDATION · SOCOE | 2026
           </p>
-          <p className="font-[family-name:var(--font-display)] text-2xl md:text-3xl text-[var(--color-wisp)] leading-tight max-w-md">
-            {SITE.dates}
-            <br />
-            <span className="text-[var(--color-wisp)]/60">{SITE.venue}</span>
-          </p>
-          <p className="mt-4 text-sm text-[var(--color-wisp)]/50 max-w-md leading-relaxed">
-            {SITE.rhythm}
-          </p>
+          <div className="bp-footer__links">
+            <a href={`mailto:${SITE.email}`} className="bp-footer__link">
+              Contact us ↗
+            </a>
+            <Link href="/code-of-conduct" className="bp-footer__link">
+              Code of conduct ↗
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-6">
-          <h3 className="text-label">Navigate</h3>
-          <ul className="grid grid-cols-2 gap-3 list-none">
-            {FOOTER_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-label text-label-muted hover:text-[var(--color-byte)] transition-colors"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <p className="text-xs text-[var(--color-wisp)]/40 font-[family-name:var(--font-mono)]">
-            Anchor partners: {SITE.anchors.join(" · ")}
-          </p>
+
+        <FooterCountdown />
+
+        <div className="bp-footer__skyline-wrap">
+          <KuchingSkyline className="bp-footer__skyline" />
         </div>
       </div>
     </footer>

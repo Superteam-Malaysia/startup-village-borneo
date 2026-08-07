@@ -7,6 +7,7 @@
 @import "../styles/unslop.css";
 @import "../styles/halftone-surfaces.css";
 @import "../styles/site-nav.css";
+@import "../styles/breakpoint-footer.css";
 
 @theme inline {
   --font-sans: var(--font-sans);
