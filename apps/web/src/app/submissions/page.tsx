@@ -6,6 +6,7 @@ import {
   SectionArticle,
   SectionIntro,
 } from "@/components/ui";
+import { PageHeader } from "@/components/shell";
 import {
   CONTENT_TASKS,
   RACE_CUTOFF,
@@ -30,17 +31,11 @@ export default function SubmissionsPage() {
   return (
     <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20">
       <div className="flex flex-col gap-16 md:gap-24">
-        <header>
-          <p className="text-eyebrow mb-6">Race · decks · content</p>
-          <h1 className="hero-display max-w-4xl">
-            <span className="hero-display-accent">Sub</span>
-            missions
-          </h1>
-          <p className="mt-8 max-w-2xl text-[var(--color-wisp)]/75 leading-relaxed text-lg">
-            Everything you need to log Amazing Race threads, pitch decks, and content tasks — before
-            the companion dApp goes live on-site.
-          </p>
-        </header>
+        <PageHeader
+          meta="Race · decks · content"
+          title="Submissions"
+          lead="Everything you need to log Amazing Race threads, pitch decks, and content tasks — before the companion dApp goes live on-site."
+        />
 
         <div className="companion-banner" role="status">
           <span className="companion-banner__tag">Coming soon</span>
@@ -54,7 +49,7 @@ export default function SubmissionsPage() {
         </div>
 
         <SectionArticle>
-          <SectionIntro eyebrow="Channels" title="Three ways to submit" />
+          <SectionIntro title="Three ways to submit" />
           <ul className="mt-10 grid gap-6 md:grid-cols-3 list-none">
             <li>
               <ActionCard
@@ -83,7 +78,7 @@ export default function SubmissionsPage() {
         </SectionArticle>
 
         <SectionArticle>
-          <SectionIntro eyebrow="Amazing Race" title="Twitter thread submission" />
+          <SectionIntro title="Twitter thread submission" />
           <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_1.2fr]">
             <div className="flex flex-col gap-6 text-[var(--color-wisp)]/75 leading-relaxed">
               <p>
@@ -119,7 +114,7 @@ export default function SubmissionsPage() {
         </SectionArticle>
 
         <SectionArticle>
-          <SectionIntro eyebrow="Content tasks" title="Individual X posts" />
+          <SectionIntro title="Individual X posts" />
           <p className="mt-4 text-sm text-[var(--color-wisp)]/60">
             Tag @superteamMY, @solana, and SOCOE on every qualifying post.
           </p>
@@ -144,7 +139,7 @@ export default function SubmissionsPage() {
 
         {walletTask && (
           <SectionArticle className="border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-8">
-            <SectionIntro eyebrow="Wallet task" title="Teach — don't sell" />
+            <SectionIntro title="Teach — don't sell" />
             <div className="mt-8 grid gap-8 lg:grid-cols-2">
               <div className="flex flex-col gap-4 text-[var(--color-wisp)]/75 leading-relaxed">
                 <p>{walletTask.shortDescription}</p>
@@ -172,7 +167,7 @@ export default function SubmissionsPage() {
         )}
 
         <SectionArticle>
-          <SectionIntro eyebrow="FAQ" title="Submission quick answers" />
+          <SectionIntro title="Submission quick answers" />
           <div className="mt-8 max-w-2xl">
             <Accordion
               items={SUBMISSION_FAQ.map((f) => ({
@@ -185,7 +180,7 @@ export default function SubmissionsPage() {
         </SectionArticle>
 
         <SectionArticle className="bg-[var(--color-byte)]/5 border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-10">
-          <SectionIntro eyebrow="Companion dApp" title="Uploads open at the event" />
+          <SectionIntro title="Uploads open at the event" />
           <p className="mt-6 max-w-xl text-[var(--color-wisp)]/75 leading-relaxed">
             Thread URLs, deck files, and live validation land in the SVB companion dApp — same spirit
             as Breakpoint registration and on-site check-in. Bookmark this page for rules; watch for

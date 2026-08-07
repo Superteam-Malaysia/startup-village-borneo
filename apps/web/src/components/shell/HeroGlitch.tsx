@@ -13,9 +13,7 @@ export function HeroGlitch({
 }) {
   return (
     <span
-      className={["hero-glitch hero-display-accent", className]
-        .filter(Boolean)
-        .join(" ")}
+      className={["hero-glitch", className].filter(Boolean).join(" ")}
     >
       {children}
     </span>

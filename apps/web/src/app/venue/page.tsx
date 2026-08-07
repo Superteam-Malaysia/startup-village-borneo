@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { VenueMapSwitcher } from "@/components/venue";
 import { CtaButton, SectionArticle, SectionIntro } from "@/components/ui";
+import { PageHeader } from "@/components/shell";
 import {
   BREAKFAST_RHYTHM,
   SHERATON_TO_VOCO,
@@ -20,21 +21,13 @@ export const metadata = {
 export default function VenuePage() {
   return (
     <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col gap-16">
-      <header>
-        <p className="text-eyebrow mb-6">Venue</p>
-        <h1 className="hero-display max-w-4xl">
-          Sheraton
-          <br />
-          <span className="hero-display-accent">&amp; Voco</span>
-        </h1>
-        <p className="mt-8 max-w-2xl text-[var(--color-wisp)]/75 leading-relaxed">
-          Evening building at Sheraton. Day workshops at Voco from Day 2 — breakfast at the hotel,
-          then travel across town.
-        </p>
-      </header>
+      <PageHeader
+        title="Sheraton and Voco"
+        lead="Evening building at Sheraton. Day workshops at Voco from Day 2 — breakfast at the hotel, then travel across town."
+      />
 
       <SectionArticle>
-        <SectionIntro eyebrow="Hotels" title="Where SVB happens" />
+        <SectionIntro title="Where SVB happens" />
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {Object.values(VENUES).map((venue) => (
             <article
@@ -87,7 +80,7 @@ export default function VenuePage() {
       </SectionArticle>
 
       <SectionArticle>
-        <SectionIntro eyebrow="Rhythm" title="Breakfast &amp; ops" />
+        <SectionIntro title="Breakfast &amp; ops" />
         <div className="mt-8 grid gap-6 md:grid-cols-2 text-sm text-[var(--color-wisp)]/75 leading-relaxed">
           <div className="border border-[color:var(--color-transparent-wisp-10)] p-6">
             <p className="font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-widest text-[var(--color-byte)]">
@@ -105,7 +98,7 @@ export default function VenuePage() {
       </SectionArticle>
 
       <SectionArticle>
-        <SectionIntro eyebrow="Directions" title="Sheraton ↔ Voco" />
+        <SectionIntro title="Sheraton ↔ Voco" />
         <p className="mt-4 text-sm text-[var(--color-wisp)]/60">{SHERATON_TO_VOCO.distance}</p>
         <p className="mt-4 max-w-2xl text-sm text-[var(--color-wisp)]/75 leading-relaxed">
           {SHERATON_TO_VOCO.summary}
@@ -121,7 +114,7 @@ export default function VenuePage() {
       </SectionArticle>
 
       <SectionArticle>
-        <SectionIntro eyebrow="Program" title="Day by day — which venue" />
+        <SectionIntro title="Day by day — which venue" />
         <ul className="mt-8 flex flex-col gap-4 list-none">
           {VENUE_DAY_PLAN.map((row) => (
             <li
@@ -147,7 +140,7 @@ export default function VenuePage() {
       </SectionArticle>
 
       <SectionArticle>
-        <SectionIntro eyebrow="Amazing Race" title="Race geography — waterfront" />
+        <SectionIntro title="Race geography — waterfront" />
         <p className="mt-4 max-w-2xl text-sm text-[var(--color-wisp)]/70 leading-relaxed">
           Sheraton is a five-minute walk from the Kuching Waterfront — the densest cluster of race
           stations. Darul Hana bridge, the KUCHING letter sign, sampan rides, and flagpole tasks all
@@ -177,7 +170,7 @@ export default function VenuePage() {
       </SectionArticle>
 
       <SectionArticle>
-        <SectionIntro eyebrow="Map" title="Sheraton floor zones" />
+        <SectionIntro title="Sheraton floor zones" />
         <VenueMapSwitcher />
       </SectionArticle>
     </main>

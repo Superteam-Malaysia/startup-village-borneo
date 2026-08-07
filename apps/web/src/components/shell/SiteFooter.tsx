@@ -21,7 +21,7 @@ export function SiteFooter() {
           </p>
         </div>
         <div className="flex flex-col gap-6">
-          <p className="text-eyebrow !ms-0">Navigate</p>
+          <h3 className="text-label">Navigate</h3>
           <ul className="grid grid-cols-2 gap-3 list-none">
             {FOOTER_LINKS.map((link) => (
               <li key={link.href}>

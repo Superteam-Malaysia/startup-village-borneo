@@ -1,0 +1,90 @@
+/**
+ * Anti-slop typography — no eyebrow+kicker stacks, no accent-split heroes.
+ * Rules from unslop-ui-skill (no-ai-slop).
+ */
+
+.page-header {
+  max-width: 48rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .page-header {
+    margin-bottom: 3rem;
+  }
+}
+
+.page-header__meta {
+  margin-bottom: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--color-wisp) 55%, transparent);
+}
+
+.page-header__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--color-wisp);
+}
+
+.page-header__lead {
+  margin-top: 1.25rem;
+  max-width: 42rem;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: color-mix(in srgb, var(--color-wisp) 78%, transparent);
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 2.5vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--color-wisp);
+}
+
+.section-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 48rem;
+}
+
+.section-intro__lead {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--color-wisp) 72%, transparent);
+}
+
+/* Inline labels — sentence case, not uppercase kickers */
+.text-label {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--color-wisp) 60%, transparent);
+}
+
+/* Home hero — single title, no kicker stack */
+.home-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 6vw, 4.75rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  color: var(--color-wisp);
+  max-width: 14ch;
+}
+
+.home-hero__meta {
+  margin-top: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: color-mix(in srgb, var(--color-wisp) 55%, transparent);
+}

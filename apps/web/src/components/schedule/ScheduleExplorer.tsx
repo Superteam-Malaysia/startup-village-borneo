@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { SCHEDULE_DAYS } from "@/data/schedule";
 import { DayCalendar } from "./DayCalendar";
-import { SectionArticle, SectionIntro } from "@/components/ui";
+import { SectionArticle, SectionHeading } from "@/components/ui";
 
 const LEGEND = [
   { label: "Program", className: "schedule-legend__swatch--wisp" },
@@ -21,7 +21,7 @@ export function ScheduleExplorer({ initialDay = 1 }: { initialDay?: number }) {
 
   return (
     <SectionArticle>
-      <SectionIntro eyebrow="Calendar" title={day.title} />
+      <SectionHeading>{day.title}</SectionHeading>
       <p className="mt-4 text-sm text-[var(--color-wisp)]/60 font-[family-name:var(--font-mono)] uppercase tracking-widest">
         {day.subtitle}
         {day.venueNote ? ` · ${day.venueNote}` : ""}

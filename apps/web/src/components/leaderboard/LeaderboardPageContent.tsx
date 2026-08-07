@@ -4,6 +4,7 @@ import { BarChart, Meter } from "@/halftone/react/index.js";
 import { SvbHalftoneProvider } from "@/components/halftone";
 import { MAX_RACE_POINTS, RACE_CUTOFF, SAMPLE_LEADERBOARD } from "@/data/race-tasks";
 import { CtaButton, SectionArticle, SectionIntro } from "@/components/ui";
+import { PageHeader } from "@/components/shell";
 
 const DAY_LABELS = ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5"];
 
@@ -20,18 +21,11 @@ export function LeaderboardPageContent() {
 
   return (
     <div className="flex flex-col gap-16 md:gap-24">
-      <header>
-        <p className="text-eyebrow mb-6">Amazing Race · standings</p>
-        <h1 className="hero-display max-w-4xl">
-          <span className="hero-display-accent">Leader</span>
-          <br />
-          board
-        </h1>
-        <p className="mt-8 max-w-2xl text-[var(--color-wisp)]/75 leading-relaxed text-lg">
-          Team points across Kuching stations — updated live during the event via the companion dApp.
-          Until then, explore sample standings and momentum charts below.
-        </p>
-      </header>
+      <PageHeader
+        meta="Amazing Race · standings"
+        title="Leaderboard"
+        lead="Team points across Kuching stations — updated live during the event via the companion dApp. Until then, explore sample standings and momentum charts below."
+      />
 
       <div className="companion-banner" role="status">
         <span className="companion-banner__tag">Preview</span>
@@ -40,7 +34,7 @@ export function LeaderboardPageContent() {
 
       <SvbHalftoneProvider>
         <SectionArticle className="border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-8">
-          <SectionIntro eyebrow="Podium" title="Top three momentum" />
+          <SectionIntro title="Top three momentum" />
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {SAMPLE_LEADERBOARD.slice(0, 3).map((row) => (
               <div
@@ -74,7 +68,7 @@ export function LeaderboardPageContent() {
         </SectionArticle>
 
         <SectionArticle className="border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-8">
-          <SectionIntro eyebrow="Field" title="Full standings" />
+          <SectionIntro title="Full standings" />
           <p className="mt-4 text-sm text-[var(--color-wisp)]/50 max-w-xl">
             {RACE_CUTOFF.label} · {RACE_CUTOFF.time} — final submissions lock the board.
           </p>
@@ -134,13 +128,13 @@ export function LeaderboardPageContent() {
         </SectionArticle>
 
         <SectionArticle className="border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-8">
-          <SectionIntro eyebrow="Velocity" title="Cumulative race energy" />
+          <SectionIntro title="Cumulative race energy" />
           <p className="mt-4 text-sm text-[var(--color-wisp)]/50 max-w-xl">
             Aggregate points across all sample teams — {totalPoints} pts logged in this preview field.
           </p>
           <div className="mt-8 grid gap-8 lg:grid-cols-2">
             <div>
-              <p className="text-eyebrow !ms-0 mb-4">Day 5 totals by team</p>
+              <p className="text-label mb-4">Day 5 totals by team</p>
               <BarChart
                 data={SAMPLE_LEADERBOARD.map((row) => ({ label: row.team.split(" ")[0], value: row.points }))}
                 caption="Team points at cutoff"
@@ -150,7 +144,7 @@ export function LeaderboardPageContent() {
               />
             </div>
             <div>
-              <p className="text-eyebrow !ms-0 mb-4">Leader momentum</p>
+              <p className="text-label mb-4">Leader momentum</p>
               <BarChart
                 data={leader.trend.map((v, i) => ({ label: `D${i + 1}`, value: v }))}
                 caption={`${leader.team} — points by day`}
@@ -164,7 +158,7 @@ export function LeaderboardPageContent() {
       </SvbHalftoneProvider>
 
       <SectionArticle>
-        <SectionIntro eyebrow="Submit" title="Log your race tasks" />
+        <SectionIntro title="Log your race tasks" />
         <p className="mt-4 max-w-xl text-[var(--color-wisp)]/70 leading-relaxed">
           Race threads and deck uploads open in the companion dApp. Review submission rules before
           you hit the streets.

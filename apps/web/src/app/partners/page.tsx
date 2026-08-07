@@ -1,4 +1,5 @@
-import { ActionCard, SectionArticle, SectionIntro } from "@/components/ui";
+import { ActionCard, SectionArticle } from "@/components/ui";
+import { PageHeader } from "@/components/shell";
 import { PARTNERS } from "@/data/partners";
 
 export const metadata = { title: "Partners" };
@@ -10,16 +11,15 @@ export default function PartnersPage() {
 
   return (
     <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20">
+      <PageHeader
+        title="Partners"
+        lead="Partners not on stage receive logo placement and office hours access (e.g. BESarawak, TankDAO)."
+      />
       <SectionArticle>
-        <SectionIntro eyebrow="Ecosystem" title="Partners" />
-        <p className="mt-6 max-w-2xl text-[var(--color-wisp)]/70">
-          Partners not on stage receive logo placement and office hours access (e.g. BESarawak,
-          TankDAO).
-        </p>
 
         <div className="mt-12 flex flex-col gap-10">
           <div>
-            <p className="text-eyebrow !ms-0">Anchor</p>
+            <h3 className="text-label">Anchor</h3>
             <ul className="mt-4 grid gap-4 md:grid-cols-2 list-none">
               {anchors.map((p) => (
                 <li key={p.name}>
@@ -29,7 +29,7 @@ export default function PartnersPage() {
             </ul>
           </div>
           <div>
-            <p className="text-eyebrow !ms-0">Confirmed</p>
+            <h3 className="text-label">Confirmed</h3>
             <div className="mt-4 flex flex-wrap gap-2">
               {confirmed.map((p) => (
                 <span key={p.name} className="partner-pill">
@@ -41,7 +41,7 @@ export default function PartnersPage() {
           </div>
           {pending.length > 0 && (
             <div>
-              <p className="text-eyebrow !ms-0">Pending</p>
+              <h3 className="text-label">Pending</h3>
               <div className="mt-4 flex flex-wrap gap-2">
                 {pending.map((p) => (
                   <span key={p.name} className="partner-pill partner-pill--pending">{p.name}</span>

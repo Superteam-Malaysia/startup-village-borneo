@@ -1,12 +1,13 @@
-import { SectionArticle, SectionIntro } from "@/components/ui";
+import { SectionArticle } from "@/components/ui";
+import { PageHeader } from "@/components/shell";
 
 export const metadata = { title: "Code of conduct" };
 
 export default function CodeOfConductPage() {
   return (
     <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20">
+      <PageHeader title="Code of conduct" />
       <SectionArticle className="max-w-3xl">
-        <SectionIntro eyebrow="Community" title="Code of conduct" />
         <div className="mt-10 flex flex-col gap-6 text-[var(--color-wisp)]/75 leading-relaxed">
           <p>
             Startup Village Borneo is a builder community event anchored by the Solana Foundation

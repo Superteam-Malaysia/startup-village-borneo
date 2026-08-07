@@ -1,4 +1,5 @@
 import { CtaButton, SectionArticle, SectionIntro } from "@/components/ui";
+import { PageHeader } from "@/components/shell";
 import { CONTENT_AWARD } from "@/data/tracks";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -11,26 +12,20 @@ export const metadata = pageMetadata({
 export default function ContentAwardsPage() {
   return (
     <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col gap-16">
-      <header>
-        <p className="text-eyebrow mb-6">10×$100 · judged after event</p>
-        <h1 className="hero-display max-w-4xl">
-          Content
-          <br />
-          <span className="hero-display-accent">Award</span>
-        </h1>
-        <p className="mt-8 max-w-2xl text-[var(--color-wisp)]/75 leading-relaxed text-lg">
-          {CONTENT_AWARD.summary}
-        </p>
-      </header>
+      <PageHeader
+        meta="10×$100 · judged after event"
+        title="Content Award"
+        lead={CONTENT_AWARD.summary}
+      />
 
       <SectionArticle className="bg-[var(--color-azure)] text-[var(--color-null)] p-8 md:p-10">
-        <SectionIntro eyebrow="Prizes" title={`${CONTENT_AWARD.prizes.count}×${CONTENT_AWARD.prizes.amount}`} />
+        <SectionIntro title={`${CONTENT_AWARD.prizes.count}×${CONTENT_AWARD.prizes.amount}`} />
         <p className="mt-4 text-[var(--color-null)]/80">{CONTENT_AWARD.judged}</p>
         <p className="mt-4 font-[family-name:var(--font-mono)] text-sm">Tag {CONTENT_AWARD.tags.join(" · ")}</p>
       </SectionArticle>
 
       <SectionArticle>
-        <SectionIntro eyebrow="Tasks" title="Content posts" />
+        <SectionIntro title="Content posts" />
         <ul className="mt-8 flex flex-col gap-6 list-none">
           {CONTENT_AWARD.tasks.map((task) => (
             <li key={task.id} className="border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-8">
@@ -46,7 +41,7 @@ export default function ContentAwardsPage() {
       </SectionArticle>
 
       <SectionArticle>
-        <SectionIntro eyebrow="Rules" title="Before you post" />
+        <SectionIntro title="Before you post" />
         <ul className="mt-6 flex flex-col gap-3 list-disc list-inside text-[var(--color-wisp)]/75">
           {CONTENT_AWARD.rules.map((rule) => (
             <li key={rule}>{rule}</li>

@@ -1,4 +1,5 @@
 import { ScheduleExplorer } from "@/components/schedule";
+import { PageHeader } from "@/components/shell";
 import { SITE } from "@/data/site";
 
 export const metadata = {
@@ -17,12 +18,7 @@ export default async function SchedulePage({
 
   return (
     <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20">
-      <p className="text-eyebrow mb-6">{SITE.dates}</p>
-      <h1
-        className="font-[family-name:var(--font-display)] text-[clamp(2rem,5vw,4rem)] tracking-tight text-[var(--color-wisp)] mb-12"
-      >
-        Program schedule
-      </h1>
+      <PageHeader meta={SITE.dates} title="Program schedule" />
       <ScheduleExplorer initialDay={initialDay} />
     </main>
   );

@@ -16,7 +16,7 @@ export default function DesignSystemPage() {
     <main className="pb-20">
       <div className="max-w-[90rem] mx-auto px-4 md:px-8 pt-12 flex flex-col gap-16 md:gap-24">
         <section>
-          <SectionIntro eyebrow="Developer" title="Breakpoint + Halftone component lab" />
+          <SectionIntro title="Breakpoint + Halftone component lab" />
           <p className="mt-6 max-w-2xl text-[var(--color-wisp)]/80 leading-relaxed">
             Internal reference for <code className="text-[var(--color-byte)]">apps/web/src/components</code>.
             The public experience site lives at <Link href="/" className="text-[var(--color-byte)] hover:underline">/</Link>.
@@ -25,7 +25,7 @@ export default function DesignSystemPage() {
 
         <section id="cta">
           <SectionArticle>
-            <SectionIntro eyebrow="EL-28" title="CTA buttons" />
+            <SectionIntro title="CTA buttons" />
             <div className="mt-8 flex flex-wrap gap-4">
               <CtaButton variant="byte" size="lg">Register</CtaButton>
               <CtaButton variant="azure" size="md">Get updates</CtaButton>
@@ -37,7 +37,7 @@ export default function DesignSystemPage() {
 
         <section>
           <SectionArticle>
-            <SectionIntro eyebrow="EL-32 / EL-33" title="Stat display" />
+            <SectionIntro title="Stat display" />
             <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-8">
               <StatDisplay value="1,240" label="Total pts" />
               <StatDisplay value="84" label="Race rank" />
@@ -49,7 +49,7 @@ export default function DesignSystemPage() {
 
         <section id="cards">
           <SectionArticle className="bg-[var(--color-azure)] text-[var(--color-null)]">
-            <SectionIntro eyebrow="EL-35" title="Ticket cards" />
+            <SectionIntro title="Ticket cards" />
             <ul className="mt-10 grid gap-6 card-sm:grid-cols-2 md:grid-cols-4 list-none">
               <li>
                 <ActionCard title="General Admission" tone="null" aspect="square" accentText>
@@ -75,7 +75,7 @@ export default function DesignSystemPage() {
           </SectionArticle>
 
           <SectionArticle className="mt-8">
-            <SectionIntro eyebrow="EL-36" title="Action cards" />
+            <SectionIntro title="Action cards" />
             <ul className="mt-10 grid gap-6 md:grid-cols-4 list-none">
               <li>
                 <ActionCard title="Speak" tone="null" accentText description="Applications closed." />
@@ -100,7 +100,7 @@ export default function DesignSystemPage() {
 
         <section>
           <SectionArticle>
-            <SectionIntro eyebrow="EL-11" title="Status chips" />
+            <SectionIntro title="Status chips" />
             <div className="mt-6 flex flex-wrap gap-3">
               <StatusChip variant="approved">Approved</StatusChip>
               <StatusChip variant="pending">Pending review</StatusChip>
@@ -111,7 +111,7 @@ export default function DesignSystemPage() {
 
         <section>
           <SectionArticle>
-            <SectionIntro eyebrow="EL-44" title="Accordion" />
+            <SectionIntro title="Accordion" />
             <div className="mt-8 max-w-xl">
               <Accordion
                 items={[
@@ -133,7 +133,7 @@ export default function DesignSystemPage() {
 
         <section id="halftone">
           <SectionArticle>
-            <SectionIntro eyebrow="Halftone UI" title="Print-screen data surfaces" />
+            <SectionIntro title="Print-screen data surfaces" />
             <p className="mt-4 text-[var(--color-wisp)]/70 text-sm max-w-2xl">
               Breakpoint handles layout, CTAs, and venue chrome. Halftone UI (
               <a href="https://halftone-ui.com/docs/" className="text-[var(--color-byte)] hover:underline">
@@ -151,7 +151,7 @@ export default function DesignSystemPage() {
         <section id="map">
           <SectionArticle>
             <div id="map" />
-            <SectionIntro eyebrow="EL-51–62" title="Event map" />
+            <SectionIntro title="Event map" />
             <p className="mt-4 text-[var(--color-wisp)]/70 text-sm max-w-2xl">
               Pan/zoom floor plans with numbered zones — from Breakpoint 2025 event-day archive. Floor images:
               <code className="text-[var(--color-byte)]"> public/map/*.webp</code>

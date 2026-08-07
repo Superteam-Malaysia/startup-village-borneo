@@ -1,4 +1,5 @@
 import { ActionCard, CtaButton, SectionArticle, SectionIntro } from "@/components/ui";
+import { PageHeader } from "@/components/shell";
 import { JUDGES, PRIZE_ROWS, PRIZE_TOTAL } from "@/data/prizes";
 import { CONTENT_AWARD, SUSTAINABILITY_TRACK } from "@/data/tracks";
 import { pageMetadata } from "@/lib/metadata";
@@ -12,12 +13,11 @@ export const metadata = pageMetadata({
 export default function PrizesPage() {
   return (
     <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20">
+      <PageHeader
+        title={`${PRIZE_TOTAL} prize pool`}
+        lead="Prizes are settled off-app per event operations. This site is the program bible — not a payment portal."
+      />
       <SectionArticle>
-        <SectionIntro eyebrow="Prize pool" title={`${PRIZE_TOTAL} USD`} />
-        <p className="mt-6 max-w-2xl text-[var(--color-wisp)]/70">
-          Prizes are settled off-app per event operations. This site is the program bible — not a
-          payment portal.
-        </p>
         <table className="mt-12 w-full max-w-2xl text-left border-collapse">
           <thead>
             <tr className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-wisp)]/50">
@@ -37,7 +37,7 @@ export default function PrizesPage() {
           </tbody>
         </table>
         <div className="mt-16">
-          <p className="text-eyebrow !ms-0">Program tracks</p>
+          <h3 className="text-label">Program tracks</h3>
           <ul className="mt-8 grid gap-6 md:grid-cols-3 list-none">
             <li>
               <ActionCard
@@ -67,7 +67,7 @@ export default function PrizesPage() {
           </ul>
         </div>
         <div className="mt-12">
-          <p className="text-eyebrow !ms-0">Demo Day judges</p>
+          <h3 className="text-label">Demo Day judges</h3>
           <ul className="mt-4 list-none flex flex-col gap-2 text-[var(--color-wisp)]/75">
             {JUDGES.map((j) => (
               <li key={j}>{j}</li>

@@ -23,12 +23,12 @@ export default function HomePage() {
       {/* Hero — Breakpoint-style information density + one-shot glitch accent */}
       <section className="relative border-b border-[color:var(--color-transparent-wisp-10)]">
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 pt-16 md:pt-24 pb-16 md:pb-24">
-          <p className="text-eyebrow mb-8">Solana Foundation · SOCOE · Kuching</p>
-          <h1 className="hero-display max-w-5xl">
-            <HeroGlitch>Startup</HeroGlitch>
-            <br />
-            Village Borneo
+          <h1 className="home-hero__title">
+            <HeroGlitch>Startup Village Borneo</HeroGlitch>
           </h1>
+          <p className="home-hero__meta">
+            Solana Foundation · SOCOE · Kuching · {SITE.dates}
+          </p>
 
           <div className="hero-stat-row mt-10 md:mt-12" aria-label="Event at a glance">
             <div className="hero-stat">
@@ -68,7 +68,7 @@ export default function HomePage() {
       <section id="overview" className="border-b border-[color:var(--color-transparent-wisp-10)]">
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24">
           <SectionArticle>
-            <SectionIntro eyebrow="Overview" title="Five days of build, race, and demo" />
+            <SectionIntro title="Five days of build, race, and demo" />
             <div className="mt-12 grid gap-12 lg:grid-cols-2">
               <p className="text-lg text-[var(--color-wisp)]/80 leading-relaxed">
                 Workshops by day at Voco, building at Sheraton by night. A points-weighted Amazing Race
@@ -102,7 +102,7 @@ export default function HomePage() {
       <section id="schedule" className="border-b border-[color:var(--color-transparent-wisp-10)]">
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24">
           <SectionArticle>
-            <SectionIntro eyebrow="Program" title="Daily rhythm" />
+            <SectionIntro title="Daily rhythm" />
             <ul className="mt-12 grid gap-4 md:grid-cols-5 list-none">
               {SCHEDULE_DAYS.map((day) => (
                 <li key={day.index}>
@@ -132,7 +132,7 @@ export default function HomePage() {
       <section className="border-b border-[color:var(--color-transparent-wisp-10)]">
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24">
           <SectionArticle>
-            <SectionIntro eyebrow="Speakers" title="Workshop leaders on stage" />
+            <SectionIntro title="Workshop leaders on stage" />
             <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5 list-none">
               {FEATURED_SPEAKERS.slice(0, 5).map((s) => (
                 <li key={s.name} className="speaker-tile">
@@ -154,7 +154,7 @@ export default function HomePage() {
       <section className="border-b border-[color:var(--color-transparent-wisp-10)] bg-[var(--color-byte)]/5">
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24">
           <SectionArticle>
-            <SectionIntro eyebrow="Amazing Race" title="Kuching is the playground" />
+            <SectionIntro title="Kuching is the playground" />
             <p className="mt-8 max-w-2xl text-[var(--color-wisp)]/75 leading-relaxed">
               Points-weighted stations from laksa pilgrimages to waterfront sampan rides — plus a
               wallet onboarding mission that teaches, never sells. Submit via team Twitter threads.
@@ -204,7 +204,7 @@ export default function HomePage() {
       <section id="prizes" className="border-b border-[color:var(--color-transparent-wisp-10)]">
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24">
           <SectionArticle className="bg-[var(--color-azure)] text-[var(--color-null)]">
-            <SectionIntro eyebrow="Prizes" title={`${PRIZE_TOTAL} USD prize pool`} />
+            <SectionIntro title={`${PRIZE_TOTAL} USD prize pool`} />
             <ul className="mt-10 grid gap-3 md:grid-cols-2 list-none">
               {PRIZE_ROWS.map((row) => (
                 <li
@@ -229,7 +229,7 @@ export default function HomePage() {
       <section id="get-involved" className="border-b border-[color:var(--color-transparent-wisp-10)]">
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24">
           <SectionArticle>
-            <SectionIntro eyebrow="Get involved" title="Ways to take part" />
+            <SectionIntro title="Ways to take part" />
             <ul className="mt-10 grid gap-6 md:grid-cols-4 list-none">
               <li>
                 <ActionCard title="Build" tone="mint" description="Five-day hackathon track · Demo Day pitches" />
@@ -257,7 +257,7 @@ export default function HomePage() {
       <section id="partners" className="border-b border-[color:var(--color-transparent-wisp-10)]">
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24">
           <SectionArticle>
-            <SectionIntro eyebrow="Ecosystem" title="Partners & workshops" />
+            <SectionIntro title="Partners and workshops" />
             <div className="mt-10 flex flex-wrap gap-2">
               {PARTNERS.map((p) => (
                 <span
@@ -283,7 +283,7 @@ export default function HomePage() {
       <section id="faq" className="border-b border-[color:var(--color-transparent-wisp-10)]">
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24">
           <SectionArticle>
-            <SectionIntro eyebrow="FAQ" title="Before you land" />
+            <SectionIntro title="Before you land" />
             <div className="mt-10 max-w-2xl">
               <Accordion
                 items={previewFaq.map((f) => ({

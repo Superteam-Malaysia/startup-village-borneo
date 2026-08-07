@@ -1,4 +1,5 @@
 import { CtaButton, SectionArticle, SectionIntro } from "@/components/ui";
+import { PageHeader } from "@/components/shell";
 import {
   GRAB_TIPS,
   KCH_AIRPORT_DETAILS,
@@ -19,18 +20,11 @@ export default function TravelPage() {
   return (
     <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col gap-16 md:gap-20">
       <header className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-end">
-        <div>
-          <p className="text-eyebrow mb-6">Kuching · Sarawak</p>
-          <h1 className="hero-display max-w-3xl">
-            Travel
-            <br />
-            <span className="hero-display-accent">to SVB</span>
-          </h1>
-          <p className="mt-8 max-w-xl text-[var(--color-wisp)]/75 leading-relaxed">
-            Land at KCH, check into Sheraton, and the program starts the moment you arrive. This
-            page covers logistics — the Amazing Race covers the city.
-          </p>
-        </div>
+        <PageHeader
+          meta="Kuching · Sarawak"
+          title="Travel to SVB"
+          lead="Land at KCH, check into Sheraton, and the program starts the moment you arrive. This page covers logistics — the Amazing Race covers the city."
+        />
         <div className="travel-hero-card">
           <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-byte)]">
             {TRAVEL_HERO.airport}
@@ -46,7 +40,7 @@ export default function TravelPage() {
       </header>
 
       <SectionArticle>
-        <SectionIntro eyebrow="KCH" title="Kuching International Airport" />
+        <SectionIntro title="Kuching International Airport" />
         <div className="mt-6 grid gap-6 md:grid-cols-2 text-sm text-[var(--color-wisp)]/75 leading-relaxed">
           <div>
             <p className="font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-widest text-[var(--color-byte)]">
@@ -80,7 +74,7 @@ export default function TravelPage() {
             key={section.id}
             className="border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-8 h-full"
           >
-            <SectionIntro eyebrow={section.id} title={section.title} />
+            <SectionIntro title={section.title} />
             <ul className="mt-6 flex flex-col gap-5 list-none">
               {section.items.map((item) => (
                 <li key={item.label} className="travel-detail-row">
@@ -96,7 +90,7 @@ export default function TravelPage() {
       </div>
 
       <SectionArticle>
-        <SectionIntro eyebrow="Grab" title="Getting around Kuching" />
+        <SectionIntro title="Getting around Kuching" />
         <ul className="mt-6 grid gap-3 md:grid-cols-2 list-none">
           {GRAB_TIPS.map((tip) => (
             <li
@@ -110,7 +104,7 @@ export default function TravelPage() {
       </SectionArticle>
 
       <SectionArticle className="bg-[var(--color-azure)] text-[var(--color-null)] p-8 md:p-10">
-        <SectionIntro eyebrow="Amazing Race" title="Race geography" />
+        <SectionIntro title="Race geography" />
         <p className="mt-6 max-w-3xl text-sm leading-relaxed opacity-90">{RACE_GEOGRAPHY_NOTE}</p>
         <div className="mt-10 flex flex-wrap gap-4">
           <CtaButton href="/amazing-race" variant="ghost-null" size="md">
@@ -123,7 +117,7 @@ export default function TravelPage() {
       </SectionArticle>
 
       <SectionArticle className="bg-[var(--color-azure)] text-[var(--color-null)] p-8 md:p-10">
-        <SectionIntro eyebrow="Tips" title="Before you land" />
+        <SectionIntro title="Before you land" />
         <ul className="mt-8 grid gap-4 md:grid-cols-2 list-none">
           {TRAVEL_TIPS.map((tip) => (
             <li

@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
 
+/** @deprecated Prefer SectionIntro title-only; avoid standalone kickers. */
 export function Eyebrow({ children }: { children: ReactNode }) {
-  return <p className="text-eyebrow">{children}</p>;
+  return <p className="text-label">{children}</p>;
 }
 
 export function SectionArticle({
@@ -21,20 +22,20 @@ export function SectionArticle({
 }
 
 export function SectionHeading({ children }: { children: ReactNode }) {
-  return (
-    <h2
-      className="font-[family-name:var(--font-display)] text-[clamp(1.75rem,4vw,4rem)] leading-[1.18] tracking-[0.04em] text-[var(--color-wisp)]"
-    >
-      {children}
-    </h2>
-  );
+  return <h2 className="section-heading">{children}</h2>;
 }
 
-export function SectionIntro({ eyebrow, title }: { eyebrow: string; title: string }) {
+export function SectionIntro({
+  title,
+  lead,
+}: {
+  title: string;
+  lead?: string;
+}) {
   return (
-    <div className="flex flex-col gap-8 sm:gap-12">
-      <Eyebrow>{eyebrow}</Eyebrow>
+    <div className="section-intro">
       <SectionHeading>{title}</SectionHeading>
+      {lead ? <p className="section-intro__lead">{lead}</p> : null}
     </div>
   );
 }

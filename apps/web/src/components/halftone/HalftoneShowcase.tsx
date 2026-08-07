@@ -23,7 +23,7 @@ export function HalftoneShowcase() {
           className="rounded-lg border border-[color:var(--color-transparent-wisp-10)] p-6 min-h-[12rem]"
           color="purple"
         >
-          <p className="text-eyebrow mb-2">Race progress</p>
+          <p className="text-label mb-2">Race progress</p>
           <p className="font-[family-name:var(--font-display)] text-2xl text-[var(--color-wisp)] mb-6">
             Team Borneo Builders
           </p>
@@ -48,7 +48,7 @@ export function HalftoneShowcase() {
           className="rounded-lg border border-[color:var(--color-transparent-wisp-10)] p-6"
           color="purple"
         >
-          <p className="text-eyebrow mb-4">Points by day</p>
+          <p className="text-label mb-4">Points by day</p>
           <BarChart
             data={TEAM_POINTS}
             caption="Team points by conference day"
@@ -62,7 +62,7 @@ export function HalftoneShowcase() {
           className="rounded-lg border border-[color:var(--color-transparent-wisp-10)] p-6 md:col-span-2"
           color="purple"
         >
-          <p className="text-eyebrow mb-4">Leaderboard trend</p>
+          <p className="text-label mb-4">Leaderboard trend</p>
           <LineChart
             data={TEAM_POINTS}
             area

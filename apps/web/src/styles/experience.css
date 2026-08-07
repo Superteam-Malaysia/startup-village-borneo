@@ -142,18 +142,13 @@
   color: color-mix(in srgb, var(--color-wisp) 45%, transparent);
 }
 
-/* Race page header */
+/* Race page header — flat, no gradient band */
 .race-page-header {
   position: relative;
   margin-inline: -1rem;
   padding: 2rem 1rem 2.5rem;
   margin-bottom: 1rem;
   border-block-end: 1px solid var(--color-transparent-wisp-10);
-  background: linear-gradient(
-    165deg,
-    color-mix(in srgb, var(--color-byte) 8%, transparent) 0%,
-    transparent 55%
-  );
 }
 
 @media (min-width: 768px) {
@@ -163,18 +158,18 @@
   }
 }
 
-.race-page-header::before {
-  content: "";
-  position: absolute;
-  inset-inline: 0;
-  top: 0;
-  height: 3px;
-  background: linear-gradient(
-    90deg,
-    var(--color-byte),
-    var(--color-azure) 45%,
-    color-mix(in srgb, var(--color-byte) 30%, transparent) 100%
-  );
+/* Legacy hero classes — prefer .home-hero__title / .page-header__title */
+.hero-display {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--color-wisp);
+}
+
+.hero-display-accent {
+  color: var(--color-wisp);
 }
 
 .race-page-header__accent {
@@ -205,19 +200,6 @@
   .ticker-track {
     animation: none;
   }
-}
-
-/* Hero mega display */
-.hero-display {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 8vw, 6.5rem);
-  line-height: 0.95;
-  letter-spacing: -0.03em;
-  color: var(--color-wisp);
-}
-
-.hero-display-accent {
-  color: var(--color-byte);
 }
 
 /* Schedule calendar */

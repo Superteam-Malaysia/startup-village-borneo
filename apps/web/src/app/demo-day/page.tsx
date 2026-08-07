@@ -1,4 +1,5 @@
 import { ActionCard, CtaButton, SectionArticle, SectionIntro } from "@/components/ui";
+import { PageHeader } from "@/components/shell";
 import {
   DEMO_DAY,
   DEMO_DAY_JUDGES,
@@ -18,19 +19,14 @@ export const metadata = pageMetadata({
 export default function DemoDayPage() {
   return (
     <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col gap-16 md:gap-24">
-      <header>
-        <p className="text-eyebrow mb-6">Day 5 · {DEMO_DAY.date}</p>
-        <h1 className="hero-display max-w-4xl">
-          <span className="hero-display-accent">Demo</span>
-          Day
-        </h1>
-        <p className="mt-8 max-w-2xl text-[var(--color-wisp)]/75 leading-relaxed text-lg">
-          {DEMO_DAY.summary}
-        </p>
-        <p className="mt-4 font-[family-name:var(--font-mono)] text-sm text-[var(--color-byte)]">
-          {DEMO_DAY.venue} · {DEMO_DAY.morningNote}
-        </p>
-      </header>
+      <PageHeader
+        meta={`Day 5 · ${DEMO_DAY.date}`}
+        title="Demo Day"
+        lead={DEMO_DAY.summary}
+      />
+      <p className="-mt-8 font-[family-name:var(--font-mono)] text-sm text-[var(--color-wisp)]/60">
+        {DEMO_DAY.venue} · {DEMO_DAY.morningNote}
+      </p>
 
       <div className="cutoff-banner">
         Deck upload cutoff: {RACE_CUTOFF.label} · {RACE_CUTOFF.time} — same hard stop as Amazing Race
@@ -38,7 +34,7 @@ export default function DemoDayPage() {
       </div>
 
       <SectionArticle>
-        <SectionIntro eyebrow="Schedule" title="Morning at Voco" />
+        <SectionIntro title="Morning at Voco" />
         <ul className="mt-8 flex flex-col gap-4 list-none">
           {DEMO_DAY_SCHEDULE.map((item) => (
             <li
@@ -58,7 +54,7 @@ export default function DemoDayPage() {
       </SectionArticle>
 
       <SectionArticle>
-        <SectionIntro eyebrow="Pitch prep" title="What to bring" />
+        <SectionIntro title="What to bring" />
         <ul className="mt-8 flex flex-col gap-4 list-none">
           {PITCH_REQUIREMENTS.map((req) => (
             <li
@@ -72,7 +68,7 @@ export default function DemoDayPage() {
       </SectionArticle>
 
       <SectionArticle>
-        <SectionIntro eyebrow="Judges" title="Demo Day panel" />
+        <SectionIntro title="Demo Day panel" />
         <ul className="mt-8 list-none flex flex-col gap-2 text-[var(--color-wisp)]/75">
           {DEMO_DAY_JUDGES.map((j) => (
             <li key={j}>{j}</li>

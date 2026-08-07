@@ -14,6 +14,7 @@ import {
   groupRaceTasksByTheme,
 } from "@/data/race-tasks";
 import { RaceTaskCard } from "./RaceTaskCard";
+import { PageHeader } from "@/components/shell";
 import { SectionArticle, SectionIntro } from "@/components/ui";
 
 export function RacePageContent() {
@@ -21,19 +22,11 @@ export function RacePageContent() {
 
   return (
     <div className="flex flex-col gap-16 md:gap-24">
-      <header className="race-page-header">
-        <p className="race-page-header__accent mb-4">15+ stations · points-weighted</p>
-        <p className="text-eyebrow mb-6">Evenings & gaps · Kuching</p>
-        <h1 className="hero-display max-w-4xl">
-          The <span className="hero-display-accent">Amazing</span>
-          <br />
-          Race
-        </h1>
-        <p className="mt-8 max-w-2xl text-[var(--color-wisp)]/75 leading-relaxed text-lg">
-          Kuching is the course — laksa pilgrimages, waterfront sampan rides, cat statues, and a
-          wallet mission that teaches real users. You may not finish every station. Choose well.
-        </p>
-      </header>
+      <PageHeader
+        meta="15+ stations · points-weighted"
+        title="The Amazing Race"
+        lead="Kuching is the course — laksa pilgrimages, waterfront sampan rides, cat statues, and a wallet mission that teaches real users. You may not finish every station. Choose well."
+      />
 
       <div className="cutoff-banner">
         {RACE_CUTOFF.label} · {RACE_CUTOFF.time} — Amazing Race & deck cutoff. Nothing after.
@@ -41,14 +34,14 @@ export function RacePageContent() {
 
       <SvbHalftoneProvider>
         <SectionArticle className="border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-8">
-          <SectionIntro eyebrow="Points map" title="Max points per theme" />
+          <SectionIntro title="Max points per theme" />
           <p className="mt-4 text-sm text-[var(--color-wisp)]/50 max-w-xl">
             You may not finish every station — choose well.
           </p>
           <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 list-none">
             {getThemePointsSummary().map(({ theme, max }) => (
               <li key={theme}>
-                <p className="text-eyebrow !ms-0 mb-2">{THEME_LABELS[theme]}</p>
+                <p className="text-label mb-2">{THEME_LABELS[theme]}</p>
                 <Meter value={max} max={25} color={THEME_METER_COLORS[theme]} h={12} />
                 <p className="mt-2 font-[family-name:var(--font-mono)] text-xs text-[var(--color-wisp)]/50">
                   up to {max} pts
@@ -59,13 +52,13 @@ export function RacePageContent() {
         </SectionArticle>
 
         <SectionArticle className="border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-8 mt-8">
-          <SectionIntro eyebrow="Live preview" title="Race intensity & standings" />
+          <SectionIntro title="Race intensity & standings" />
           <p className="mt-4 text-sm text-[var(--color-wisp)]/50 max-w-xl">
             Sample data — full leaderboard ships with the companion dApp backend.
           </p>
           <div className="mt-8 grid gap-8 lg:grid-cols-2">
             <div>
-              <p className="text-eyebrow !ms-0 mb-4">Top team momentum</p>
+              <p className="text-label mb-4">Top team momentum</p>
               <BarChart
                 data={SAMPLE_LEADERBOARD[0].trend.map((v, i) => ({
                   label: `D${i + 1}`,
@@ -105,7 +98,7 @@ export function RacePageContent() {
       </SvbHalftoneProvider>
 
       <SectionArticle>
-        <SectionIntro eyebrow="Content tasks" title="Individual X posts" />
+        <SectionIntro title="Individual X posts" />
         <p className="mt-4 text-sm text-[var(--color-wisp)]/60">
           Tag @superteamMY, @solana, SOCOE on every post.
         </p>
@@ -123,7 +116,7 @@ export function RacePageContent() {
         if (!tasks.length) return null;
         return (
           <SectionArticle key={theme} className="race-theme-section" data-theme={theme}>
-            <SectionIntro eyebrow="Stations" title={THEME_LABELS[theme]} />
+            <SectionIntro title={THEME_LABELS[theme]} />
             <ul className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3 list-none">
               {tasks.map((task) => (
                 <li key={task.id}>
@@ -136,7 +129,7 @@ export function RacePageContent() {
       })}
 
       <SectionArticle>
-        <SectionIntro eyebrow="Submission" title="How to play" />
+        <SectionIntro title="How to play" />
         <ul className="mt-6 flex flex-col gap-3 list-disc list-inside text-[var(--color-wisp)]/75">
           {RACE_SUBMISSION_RULES.map((rule) => (
             <li key={rule}>{rule}</li>

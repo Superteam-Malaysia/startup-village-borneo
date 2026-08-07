@@ -93,26 +93,19 @@
   width: 100%;
 }
 
-/* EL-27 Eyebrow */
-.text-eyebrow {
-  display: inline-block;
-  align-self: flex-start;
-  margin-inline-start: var(--space-3xs, 0.5rem);
-  padding-inline: var(--space-3xs, 0.5rem);
+/* EL-27 Section label — sentence case, not uppercase kicker */
+.text-eyebrow,
+.text-label {
+  display: block;
+  margin-inline-start: 0;
+  padding-inline: 0;
   font-family: var(--font-mono);
-  font-size: 0.882rem;
+  font-size: 0.8125rem;
   font-weight: 500;
-  letter-spacing: 0.09375rem;
-  line-height: 1.3;
-  text-transform: uppercase;
-  color: var(--color-wisp);
-}
-
-@media (min-width: 376px) {
-  .text-eyebrow {
-    font-size: 1.0625rem;
-    letter-spacing: 0.10625rem;
-  }
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  text-transform: none;
+  color: color-mix(in srgb, var(--color-wisp) 60%, transparent);
 }
 
 /* EL-26 Article section */

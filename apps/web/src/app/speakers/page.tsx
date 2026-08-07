@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CtaButton, SectionArticle, SectionIntro } from "@/components/ui";
+import { PageHeader } from "@/components/shell";
 import { SPEAKER_DAYS, FEATURED_SPEAKERS } from "@/data/speakers";
 
 export const metadata = { title: "Speakers" };
@@ -15,21 +16,14 @@ const KIND_LABEL: Record<string, string> = {
 export default function SpeakersPage() {
   return (
     <main className="max-w-[90rem] mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col gap-16 md:gap-24">
-      <header>
-        <p className="text-eyebrow mb-6">On stage · Voco workshops</p>
-        <h1 className="hero-display max-w-4xl">
-          <span className="hero-display-accent">Speakers</span>
-          <br />
-          & sessions
-        </h1>
-        <p className="mt-8 max-w-2xl text-[var(--color-wisp)]/75 leading-relaxed text-lg">
-          Talks under ten minutes. Workshops thirty to forty-five minutes max. Day 1 is the race —
-          programming begins Day 2 at Voco.
-        </p>
-      </header>
+      <PageHeader
+        meta="On stage · Voco workshops"
+        title="Speakers and sessions"
+        lead="Talks under ten minutes. Workshops thirty to forty-five minutes max. Day 1 is the race — programming begins Day 2 at Voco."
+      />
 
       <SectionArticle>
-        <SectionIntro eyebrow="Featured" title="Workshop leaders" />
+        <SectionIntro title="Workshop leaders" />
         <ul className="mt-10 speaker-marquee grid gap-3 sm:grid-cols-2 lg:grid-cols-5 list-none">
           {FEATURED_SPEAKERS.map((s, i) => (
             <li
