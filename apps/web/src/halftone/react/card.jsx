@@ -15,6 +15,8 @@ export function Card({
   children,
   field = WHISPER,
   screen, scale, r, ink, wash, roll, seed, color,
+  surfaceH,
+  onReady,
   as: Tag = 'div',
   surfaceStyle, surfaceClassName,
   className, style,
@@ -29,6 +31,8 @@ export function Card({
       <Surface
         field={field}
         screen={screen} scale={scale} r={r} ink={ink} wash={wash} roll={roll} seed={seed} color={color}
+        h={surfaceH}
+        onReady={onReady}
         className={surfaceClassName}
         style={{ position: 'absolute', inset: 0, height: '100%', zIndex: 0, ...surfaceStyle }}
       />

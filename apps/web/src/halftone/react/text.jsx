@@ -16,6 +16,7 @@ export function Text({
   text,
   screen, scale, r, ink, wash, roll, color,
   animate, pressMs,
+  onReady,
   className, style,
   ...rest
 }) {
@@ -37,7 +38,12 @@ export function Text({
   // still-empty field and finish before the type exists.
   const press = usePress(
     ref,
-    { field, screen, scale, r, ink, wash, roll, color, pressMs },
+    {
+      field, screen, scale, r, ink, wash, roll, color, pressMs,
+      onReady: () => {
+        if (raster.current) onReady?.();
+      },
+    },
     [screen, scale, r, ink, wash, roll, color],
   );
 
@@ -52,6 +58,7 @@ export function Text({
     width.current = w;
     press.set({ h: H });
     if (animate && firstRaster) press.pressIn();
+    else onReady?.();
   };
 
   // Track width (browser only). Falls back to a one-shot measure where ResizeObserver is absent.

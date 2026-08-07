@@ -39,6 +39,7 @@ export function BarChart({
   data = [], caption, max, gap,
   screen, scale, r, ink, roll, seed, color,
   h = 160, labels = true,
+  onReady,
   surfaceStyle, surfaceClassName,
   className, style,
   ...rest
@@ -54,6 +55,7 @@ export function BarChart({
         field={field}
         screen={screen} scale={scale} r={r} ink={ink} roll={roll} seed={seed} color={color}
         h={h}
+        onReady={onReady}
         deps={[sig, max, gap, screen, scale, r, ink, roll, seed, color, h]}
         className={surfaceClassName}
         style={surfaceStyle}

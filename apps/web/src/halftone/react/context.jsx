@@ -15,6 +15,7 @@ const HalftoneContext = createContext(null);
 export function HalftoneProvider({
   context,           // advanced: inject an already-built press context; else one is built from props
   mode, hue, grain, inks, pal, seed,
+  paletteFromCss = true, // set false when pal is supplied at init (skips post-mount repaint flash)
   children,
 }) {
   // Build the context exactly once (or adopt the injected one). A ref, not useMemo, because this is
@@ -43,6 +44,7 @@ export function HalftoneProvider({
   // swing every var). Runs after the children's mount effects (React fires effects child-first), so
   // the repaint re-inks surfaces that first drew with the pre-CSS fallback.
   useEffect(() => {
+    if (!paletteFromCss) return undefined;
     if (typeof window === 'undefined' || !document.documentElement) return;
     const cs = window.getComputedStyle(document.documentElement);
     const read = (v) => cs.getPropertyValue(v).trim();
@@ -51,7 +53,7 @@ export function HalftoneProvider({
       const c = read('--' + name); if (c) ctx.setPal(name, c);
     }
     ctx.repaint();
-  }, [ctx, mode]);
+  }, [ctx, mode, paletteFromCss]);
 
   // Controlled theme: when mode/hue props change, push them onto the shared context and repaint
   // every live surface. Skipped entirely when the caller doesn't drive theme via props.

@@ -160,11 +160,16 @@ export function mount(el, spec, ctx) {
   };
 
   // set: merge a patch. Geometry-affecting keys force a rebuild; anything else just repaints.
+  function notifyReady() {
+    if (s.stale || s.dead) return;
+    if (typeof spec.onReady === 'function') spec.onReady();
+  }
+
   const GEOMETRY = ['screen', 'scale', 'r', 'h', 'roll'];
   s.set = (patch = {}) => {
     const structural = Object.keys(patch).some((k) => GEOMETRY.includes(k));
     Object.assign(spec, patch);
-    if (structural) { s.rebuild(); s.draw(); } else { s.draw(); }
+    if (structural) { s.rebuild(); s.draw(); notifyReady(); } else { s.draw(); notifyReady(); }
   };
 
   // proof: one flattened settled frame as a data URL. Forces pr to the resting value, rebuilds and
@@ -187,6 +192,7 @@ export function mount(el, spec, ctx) {
   s.rebuild();
   if (spec.animate) s.draw(); // paint the un-pressed frame; caller triggers pressIn() on reveal
   else s.draw();
+  notifyReady();
 
   // The public handle — the imperative surface the spec (§4b) promises.
   return {

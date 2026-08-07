@@ -1,6 +1,7 @@
 "use client";
 
 import { Card, Meter } from "@/halftone/react/index.js";
+import { HalftoneFrame } from "./HalftoneFrame";
 
 type HalftoneStatTileProps = {
   value: string;
@@ -9,7 +10,7 @@ type HalftoneStatTileProps = {
   color?: "purple" | "green" | "blue" | "orange";
 };
 
-/** Pressed-paper stat tile — Halftone Card + optional Meter fill. */
+/** Pressed-paper stat tile — ghost + ink reveal in sync. */
 export function HalftoneStatTile({
   value,
   label,
@@ -17,22 +18,28 @@ export function HalftoneStatTile({
   color = "purple",
 }: HalftoneStatTileProps) {
   return (
-    <Card
-      className="halftone-stat-tile"
-      color={color}
-      screen="am"
-    >
-      <span className="halftone-stat-tile__value tabular-nums">{value}</span>
-      <span className="halftone-stat-tile__label">{label}</span>
-      {meter && (
-        <Meter
-          value={meter.value}
-          max={meter.max ?? 1}
-          color={meter.color ?? "green"}
-          h={10}
-          className="halftone-stat-tile__meter"
-        />
+    <HalftoneFrame ghost="tile">
+      {({ onReady }) => (
+        <Card
+          className="halftone-stat-tile"
+          color={color}
+          screen="am"
+          surfaceH={104}
+          onReady={onReady}
+        >
+          <span className="halftone-stat-tile__value tabular-nums">{value}</span>
+          <span className="halftone-stat-tile__label">{label}</span>
+          {meter ? (
+            <Meter
+              value={meter.value}
+              max={meter.max ?? 1}
+              color={meter.color ?? "green"}
+              h={10}
+              className="halftone-stat-tile__meter"
+            />
+          ) : null}
+        </Card>
       )}
-    </Card>
+    </HalftoneFrame>
   );
 }

@@ -1,6 +1,8 @@
 "use client";
 
 import { HalftoneStatTile } from "./HalftoneStatTile";
+import { HalftoneViewport } from "./HalftoneViewport";
+import { HalftoneGhost } from "./HalftoneGhost";
 import { PRIZE_TOTAL } from "@/data/prizes";
 
 const HERO_STATS = [
@@ -22,10 +24,21 @@ const HERO_STATS = [
 
 export function HomeHalftoneHeroStats() {
   return (
-    <div className="hero-halftone-grid" aria-label="Event at a glance">
-      {HERO_STATS.map((stat) => (
-        <HalftoneStatTile key={stat.label} {...stat} />
-      ))}
-    </div>
+    <HalftoneViewport
+      priority="immediate"
+      ghost={
+        <div className="hero-halftone-grid" aria-hidden>
+          {HERO_STATS.map((stat) => (
+            <HalftoneGhost key={stat.label} variant="tile" />
+          ))}
+        </div>
+      }
+    >
+      <div className="hero-halftone-grid" aria-label="Event at a glance">
+        {HERO_STATS.map((stat) => (
+          <HalftoneStatTile key={stat.label} {...stat} />
+        ))}
+      </div>
+    </HalftoneViewport>
   );
 }

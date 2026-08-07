@@ -75,15 +75,115 @@
 
 .halftone-title {
   max-width: 18ch;
+  position: relative;
+}
+
+.halftone-title__fallback {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 6vw, 4.75rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  color: var(--color-wisp);
+  margin: 0;
+}
+
+.halftone-title--ready .halftone-title__canvas {
+  opacity: 1;
 }
 
 .halftone-title__canvas {
   min-height: 3.5rem;
+  opacity: 0;
+  transition: opacity 180ms var(--ease-out-expo);
 }
 
 @media (min-width: 768px) {
   .halftone-title__canvas {
     min-height: 5rem;
+  }
+}
+
+/* Ghost placeholders — visible before halftone canvases mount */
+.halftone-ghost {
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+  background: linear-gradient(
+    110deg,
+    color-mix(in srgb, var(--color-wisp) 4%, transparent) 0%,
+    color-mix(in srgb, var(--color-wisp) 9%, transparent) 45%,
+    color-mix(in srgb, var(--color-wisp) 4%, transparent) 90%
+  );
+  background-size: 200% 100%;
+  animation: halftone-ghost-shimmer 1.4s ease-in-out infinite;
+  border: 1px solid var(--color-transparent-wisp-10);
+  pointer-events: none;
+}
+
+.halftone-ghost--tile {
+  position: relative;
+  min-height: 6.5rem;
+}
+
+.halftone-ghost--chart {
+  position: relative;
+  min-height: 12rem;
+}
+
+.halftone-ghost--meter {
+  position: relative;
+  min-height: 0.75rem;
+  border-radius: 1px;
+}
+
+.halftone-ghost--title {
+  position: relative;
+  min-height: 3.5rem;
+  max-width: 18ch;
+}
+
+@media (min-width: 768px) {
+  .halftone-ghost--title {
+    min-height: 5rem;
+  }
+}
+
+@keyframes halftone-ghost-shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* Frame: hide content until canvas ready, reveal together */
+.halftone-frame {
+  position: relative;
+  isolation: isolate;
+}
+
+.halftone-frame__content {
+  opacity: 0;
+  transition: opacity 160ms var(--ease-out-expo);
+}
+
+.halftone-frame--ready .halftone-frame__content {
+  opacity: 1;
+}
+
+.halftone-frame--ready .halftone-ghost {
+  opacity: 0;
+  transition: opacity 120ms linear;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .halftone-ghost {
+    animation: none;
+    background: color-mix(in srgb, var(--color-wisp) 6%, transparent);
+  }
+
+  .halftone-frame__content,
+  .halftone-title__canvas {
+    transition: none;
   }
 }
 

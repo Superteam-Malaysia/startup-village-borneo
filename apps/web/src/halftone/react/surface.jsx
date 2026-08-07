@@ -15,13 +15,19 @@ export function Surface({
   field,
   screen, scale, r, ink, wash, roll, h, seed, color,
   animate, pressMs,
+  onReady,
   deps,
   pressRef,
   className, style,
   ...rest
 }) {
   const ref = useRef(null);
-  const opts = { field, screen, scale, r, ink, wash, roll, h, seed, color, animate, pressMs };
+  const onReadyRef = useRef(onReady);
+  onReadyRef.current = onReady;
+  const opts = {
+    field, screen, scale, r, ink, wash, roll, h, seed, color, animate, pressMs,
+    onReady: () => onReadyRef.current?.(),
+  };
   // Default dep list = the scalar dials. `field` identity is intentionally excluded (it is usually a
   // fresh closure every render); to redraw on data change, drive it through `deps`.
   const press = usePress(ref, opts, deps ?? [screen, scale, r, ink, wash, roll, h, seed, color]);

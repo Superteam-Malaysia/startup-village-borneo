@@ -23,13 +23,40 @@ export function usePress(ref, opts = {}, deps = []) {
   optsRef.current = opts;
 
   // Mount once per (context, element). mount() reads ref.current directly — no DOM lookup.
+  // Double-rAF defers first draw until layout has settled (avoids stale zero-height surfaces).
   useEffect(() => {
     const el = ref.current;
     if (!el) return undefined;
-    const handle = mount(el, resolvePress(optsRef.current, ctx), ctx);
-    handleRef.current = handle;
-    if (optsRef.current.animate) handle.pressIn();
-    return () => { handle.destroy(); handleRef.current = null; };
+    let cancelled = false;
+    let handle = null;
+    let ro = null;
+
+    const attach = () => {
+      if (cancelled || !ref.current) return;
+      handle = mount(el, resolvePress(optsRef.current, ctx), ctx);
+      handleRef.current = handle;
+      if (optsRef.current.animate) handle.pressIn();
+      if (handle.stale && typeof ResizeObserver !== 'undefined') {
+        ro = new ResizeObserver(() => {
+          if (!handle || cancelled || !handle.stale) return;
+          handle.rebuild();
+          handle.draw();
+        });
+        ro.observe(el);
+      }
+    };
+
+    const frame = requestAnimationFrame(() => {
+      requestAnimationFrame(attach);
+    });
+
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(frame);
+      ro?.disconnect();
+      handle?.destroy();
+      handleRef.current = null;
+    };
     // ref is a stable ref object; opts are read live via optsRef; only ctx should force a remount.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ctx]);

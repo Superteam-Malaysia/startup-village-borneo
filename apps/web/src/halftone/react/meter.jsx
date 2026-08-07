@@ -15,6 +15,7 @@ export function Meter({
   value = 0, max = 1,
   screen, scale, r, ink, wash, roll, seed, color,
   h = 12,
+  onReady,
   surfaceStyle, surfaceClassName,
   className, style,
   ...rest
@@ -32,6 +33,7 @@ export function Meter({
         field={field}
         screen={screen} scale={scale} r={r} ink={ink} wash={wash} roll={roll} seed={seed} color={color}
         h={h}
+        onReady={onReady}
         deps={[frac, screen, scale, r, ink, wash, roll, seed, color, h]}
         className={surfaceClassName}
         style={surfaceStyle}

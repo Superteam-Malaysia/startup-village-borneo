@@ -1,7 +1,7 @@
 "use client";
 
-import { Button, Card, Meter, BarChart, LineChart } from "@/halftone/react/index.js";
-import { SvbHalftoneProvider } from "./SvbHalftoneProvider";
+import { Button, Card, LineChart } from "@/halftone/react/index.js";
+import { HalftoneBarChart, HalftoneMeter } from "@/components/halftone";
 
 const TEAM_POINTS = [
   { label: "Mon", value: 120 },
@@ -17,8 +17,7 @@ const TEAM_POINTS = [
  */
 export function HalftoneShowcase() {
   return (
-    <SvbHalftoneProvider>
-      <div className="grid gap-10 md:grid-cols-2">
+    <div className="grid gap-10 md:grid-cols-2">
         <Card
           className="rounded-lg border border-[color:var(--color-transparent-wisp-10)] p-6 min-h-[12rem]"
           color="purple"
@@ -30,11 +29,11 @@ export function HalftoneShowcase() {
           <div className="flex flex-col gap-4">
             <label className="flex flex-col gap-2 text-sm text-[var(--color-wisp)]/80">
               <span>Tasks completed</span>
-              <Meter value={6} max={12} color="green" h={14} />
+              <HalftoneMeter value={6} max={12} color="green" h={14} priority="immediate" />
             </label>
             <label className="flex flex-col gap-2 text-sm text-[var(--color-wisp)]/80">
               <span>Cutoff window</span>
-              <Meter value={0.42} color="orange" h={14} />
+              <HalftoneMeter value={0.42} color="orange" h={14} priority="immediate" />
             </label>
           </div>
           <div className="mt-6">
@@ -49,7 +48,8 @@ export function HalftoneShowcase() {
           color="purple"
         >
           <p className="text-label mb-4">Points by day</p>
-          <BarChart
+          <HalftoneBarChart
+            priority="immediate"
             data={TEAM_POINTS}
             caption="Team points by conference day"
             color="green"
@@ -73,6 +73,5 @@ export function HalftoneShowcase() {
           />
         </Card>
       </div>
-    </SvbHalftoneProvider>
   );
 }

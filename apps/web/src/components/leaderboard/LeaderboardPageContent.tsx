@@ -1,6 +1,9 @@
 "use client";
 
-import { BarChart, Meter } from "@/halftone/react/index.js";
+import {
+  HalftoneBarChart,
+  HalftoneMeter,
+} from "@/components/halftone";
 import { MAX_RACE_POINTS, RACE_CUTOFF, SAMPLE_LEADERBOARD } from "@/data/race-tasks";
 import { CtaButton, SectionArticle, SectionIntro } from "@/components/ui";
 import { PageHeader } from "@/components/shell";
@@ -53,7 +56,8 @@ export function LeaderboardPageContent() {
                   </span>
                 </div>
                 <p className="font-[family-name:var(--font-display)] text-xl leading-tight">{row.team}</p>
-                <BarChart
+                <HalftoneBarChart
+                  priority={row.rank === 1 ? "immediate" : "deferred"}
                   data={row.trend.map((v, i) => ({ label: `D${i + 1}`, value: v }))}
                   caption={`${row.team} points by day`}
                   color={row.rank === 1 ? "green" : row.rank === 2 ? "blue" : "orange"}
@@ -100,15 +104,17 @@ export function LeaderboardPageContent() {
                         {row.points}
                       </td>
                       <td className="py-4 pr-4 hidden sm:table-cell">
-                        <Meter
+                        <HalftoneMeter
                           value={share}
                           color={row.rank === 1 ? "green" : "blue"}
                           h={10}
+                          priority="deferred"
                           aria-label={`${Math.round(share * 100)}% of max race points`}
                         />
                       </td>
                       <td className="py-4">
-                        <BarChart
+                        <HalftoneBarChart
+                          priority="deferred"
                           data={row.trend.map((v, i) => ({ label: DAY_LABELS[i], value: v }))}
                           caption={`${row.team} trend`}
                           color={row.rank <= 2 ? "green" : "orange"}
@@ -133,7 +139,8 @@ export function LeaderboardPageContent() {
           <div className="mt-8 grid gap-8 lg:grid-cols-2">
             <div>
               <p className="text-label mb-4">Day 5 totals by team</p>
-              <BarChart
+              <HalftoneBarChart
+                priority="deferred"
                 data={SAMPLE_LEADERBOARD.map((row) => ({ label: row.team.split(" ")[0], value: row.points }))}
                 caption="Team points at cutoff"
                 color="green"
@@ -143,7 +150,8 @@ export function LeaderboardPageContent() {
             </div>
             <div>
               <p className="text-label mb-4">Leader momentum</p>
-              <BarChart
+              <HalftoneBarChart
+                priority="deferred"
                 data={leader.trend.map((v, i) => ({ label: `D${i + 1}`, value: v }))}
                 caption={`${leader.team} — points by day`}
                 color="blue"

@@ -1,6 +1,9 @@
 "use client";
 
-import { BarChart, Meter } from "@/halftone/react/index.js";
+import {
+  HalftoneBarChart,
+  HalftoneMeter,
+} from "@/components/halftone";
 import {
   CONTENT_TASKS,
   RACE_CUTOFF,
@@ -40,7 +43,7 @@ export function RacePageContent() {
             {getThemePointsSummary().map(({ theme, max }) => (
               <li key={theme}>
                 <p className="text-label mb-2">{THEME_LABELS[theme]}</p>
-                <Meter value={max} max={25} color={THEME_METER_COLORS[theme]} h={12} />
+                <HalftoneMeter value={max} max={25} color={THEME_METER_COLORS[theme]} h={12} priority="immediate" />
                 <p className="mt-2 font-[family-name:var(--font-mono)] text-xs text-[var(--color-wisp)]/50">
                   up to {max} pts
                 </p>
@@ -57,7 +60,8 @@ export function RacePageContent() {
           <div className="mt-8 grid gap-8 lg:grid-cols-2">
             <div>
               <p className="text-label mb-4">Top team momentum</p>
-              <BarChart
+              <HalftoneBarChart
+                priority="deferred"
                 data={SAMPLE_LEADERBOARD[0].trend.map((v, i) => ({
                   label: `D${i + 1}`,
                   value: v,
@@ -71,11 +75,11 @@ export function RacePageContent() {
             <div className="flex flex-col gap-4">
               <label className="text-sm text-[var(--color-wisp)]/70">
                 Cutoff window (illustrative)
-                <Meter value={0.58} color="orange" h={14} className="mt-2" />
+                <HalftoneMeter value={0.58} color="orange" h={14} className="mt-2" priority="deferred" />
               </label>
               <label className="text-sm text-[var(--color-wisp)]/70">
                 Stations completed (sample)
-                <Meter value={7} max={15} color="green" h={14} className="mt-2" />
+                <HalftoneMeter value={7} max={15} color="green" h={14} className="mt-2" priority="deferred" />
               </label>
             </div>
           </div>
