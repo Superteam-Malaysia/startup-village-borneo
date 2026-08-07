@@ -71,6 +71,7 @@ export function GlitchPhotoCell({
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
+    setReady(false);
     const img = new Image();
     img.onload = () => {
       imgRef.current = img;
@@ -80,6 +81,7 @@ export function GlitchPhotoCell({
     img.src = src;
     return () => {
       imgRef.current = null;
+      setReady(false);
     };
   }, [src]);
 

@@ -8,41 +8,60 @@ export type GalleryPhoto = {
   widthClass?: string;
 };
 
-/** Breakpoint-style gallery strip — replace with SVB event photos when available. */
+/** Pre-footer photo strip — Superteam MY community & event photos. */
 export const GALLERY_PHOTOS: GalleryPhoto[] = [
   {
-    src: "/gallery/photo-1.jpg",
-    alt: "Attendees at a conference session",
+    src: "/gallery/stmy-01.jpg",
+    alt: "Community builders at a hackathon group photo",
     tint: "blue",
     widthClass: "photo-strip__cell--wide",
   },
   {
-    src: "/gallery/photo-2.jpg",
-    alt: "Community members at an event",
+    src: "/gallery/stmy-02.jpg",
+    alt: "Workshop participants with painted miniatures",
     tint: "green",
+    widthClass: "photo-strip__cell--lg",
   },
   {
-    src: "/gallery/photo-3.jpg",
-    alt: "Workshop participants",
+    src: "/gallery/stmy-03.jpg",
+    alt: "Panel on stage at a blockchain week event",
     tint: "purple",
-    widthClass: "photo-strip__cell--md",
+    widthClass: "photo-strip__cell--wide",
   },
   {
-    src: "/gallery/photo-4.jpg",
-    alt: "Main stage presentation",
+    src: "/gallery/stmy-04.jpg",
+    alt: "Speaker presenting at a community workshop",
     tint: "blue",
     widthClass: "photo-strip__cell--lg",
   },
   {
-    src: "/gallery/photo-5.jpg",
-    alt: "Networking at the venue",
+    src: "/gallery/stmy-05.jpg",
+    alt: "Team photo at an AWS office event",
     tint: "green",
     widthClass: "photo-strip__cell--md",
   },
   {
-    src: "/gallery/photo-6.jpg",
-    alt: "Event crowd",
+    src: "/gallery/stmy-06.jpg",
+    alt: "Developers collaborating at a vibecoding session",
     tint: "purple",
-    widthClass: "photo-strip__cell--lg",
+    widthClass: "photo-strip__cell--wide",
+  },
+  {
+    src: "/gallery/stmy-07.jpg",
+    alt: "Community members at a badminton court",
+    tint: "blue",
+    widthClass: "photo-strip__cell--md",
+  },
+  {
+    src: "/gallery/stmy-08.jpg",
+    alt: "Superteam at Network School for Solana Day",
+    tint: "green",
+    widthClass: "photo-strip__cell--wide",
+  },
+  {
+    src: "/gallery/stmy-09.jpg",
+    alt: "Superteam MY community group photo",
+    tint: "purple",
+    widthClass: "photo-strip__cell--md",
   },
 ];

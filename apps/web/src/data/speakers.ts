@@ -237,24 +237,52 @@ export type WorkshopPreview = {
   title: string;
   speaker: string;
   organization?: string;
+  avatar?: string;
+  twitter?: string;
+  linkedin?: string;
   dayIndex: number;
   dayLabel: string;
   date: string;
   start: string;
 };
 
+/** Workshop leader avatars — sourced from X / LinkedIn profile photos. */
+export const WORKSHOP_LEADER_PROFILES: Record<
+  string,
+  { avatar: string; twitter?: string; linkedin?: string }
+> = {
+  "s2-elfa": { avatar: "/speakers/hypetris.jpg", twitter: "hypetris_" },
+  "s2-semi": { avatar: "/speakers/semi.jpg", twitter: "semiii" },
+  "s2-virtuals": { avatar: "/speakers/virtuals.jpg", twitter: "virtuals_io" },
+  "s3-magic": { avatar: "/speakers/magicblock.jpg", twitter: "magicblock" },
+  "s3-sid": { avatar: "/speakers/simon.jpg", twitter: "simonmolitor" },
+  "s3-monke": { avatar: "/speakers/jemmy.jpg", twitter: "jemmmyjemm" },
+  "s4-super": {
+    avatar: "/speakers/jacob-ko.jpg",
+    linkedin: "jacob-ko-10989b24",
+  },
+  "s4-rarible": { avatar: "/speakers/shuen-rui.jpg", twitter: "shuenrui" },
+  "s4-content": { avatar: "/speakers/nikkideyy.jpg", twitter: "nikkideyy" },
+};
+
 /** On-stage workshops — Breakout livestream row layout (title · speaker · slot). */
 export const WORKSHOP_SESSIONS: WorkshopPreview[] = SPEAKER_DAYS.flatMap((day) =>
   day.sessions
     .filter((session) => session.kind === "workshop")
-    .map((session) => ({
-      id: session.id,
-      title: session.title,
-      speaker: session.speaker,
-      organization: session.organization,
-      dayIndex: day.dayIndex,
-      dayLabel: day.label,
-      date: day.date,
-      start: session.start ?? "",
-    })),
+    .map((session) => {
+      const profile = WORKSHOP_LEADER_PROFILES[session.id];
+      return {
+        id: session.id,
+        title: session.title,
+        speaker: session.speaker,
+        organization: session.organization,
+        avatar: profile?.avatar,
+        twitter: profile?.twitter,
+        linkedin: profile?.linkedin,
+        dayIndex: day.dayIndex,
+        dayLabel: day.label,
+        date: day.date,
+        start: session.start ?? "",
+      };
+    }),
 );
