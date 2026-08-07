@@ -78,7 +78,7 @@ export default function HomePage() {
                     href={`/schedule?day=${day.index}`}
                     className="block border border-[color:var(--color-transparent-wisp-10)] p-4 md:p-5 hover:border-[var(--color-byte)] transition-colors h-full"
                   >
-                    <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-byte)]">
+                    <p className="text-label text-label-accent">
                       {day.label}
                     </p>
                     <p className="mt-2 font-[family-name:var(--font-display)] text-lg leading-snug">
@@ -105,7 +105,7 @@ export default function HomePage() {
               {FEATURED_SPEAKERS.slice(0, 5).map((s) => (
                 <li key={s.name} className="speaker-tile">
                   <p className="font-[family-name:var(--font-display)] text-lg leading-tight">{s.name}</p>
-                  <p className="mt-2 font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-widest text-[var(--color-byte)]">
+                  <p className="mt-2 text-label text-label-accent text-label-sm">
                     {s.org}
                   </p>
                 </li>

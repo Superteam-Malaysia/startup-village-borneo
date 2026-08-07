@@ -123,7 +123,7 @@ function ZoneCallout({
         <div className="flex items-center gap-2 sm:gap-3">
           <span
             className={[
-              "inline-flex items-center justify-center rounded-full font-bold bg-[var(--color-byte)] text-[var(--color-null)]",
+              "inline-flex items-center justify-center rounded font-bold bg-[var(--color-byte)] text-[var(--color-null)]",
               compact ? "w-6 h-6 text-[10px]" : "w-7 h-7 text-xs",
             ].join(" ")}
           >

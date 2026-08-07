@@ -48,7 +48,7 @@ export function LeaderboardPageContent() {
                   <span className={`font-[family-name:var(--font-display)] text-3xl ${rankAccent(row.rank)}`}>
                     #{row.rank}
                   </span>
-                  <span className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-wisp)]/50">
+                  <span className="text-label text-label-muted">
                     {row.points} pts
                   </span>
                 </div>
@@ -74,7 +74,7 @@ export function LeaderboardPageContent() {
           <div className="mt-8 overflow-x-auto">
             <table className="w-full min-w-[36rem] text-left border-collapse">
               <thead>
-                <tr className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-wisp)]/50 border-b border-[color:var(--color-transparent-wisp-10)]">
+                <tr className="text-label text-label-muted border-b border-[color:var(--color-transparent-wisp-10)]">
                   <th className="pb-3 pr-4 w-12">#</th>
                   <th className="pb-3 pr-4">Team</th>
                   <th className="pb-3 pr-4 text-right w-20">Pts</th>

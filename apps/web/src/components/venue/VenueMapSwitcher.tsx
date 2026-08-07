@@ -50,7 +50,7 @@ export function VenueMapSwitcher() {
             type="button"
             onClick={() => setPreset(p.id)}
             className={[
-              "px-4 py-2 font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest border transition-colors cursor-pointer",
+              "px-4 py-2 text-label text-label-accent border transition-colors cursor-pointer",
               preset === p.id
                 ? "bg-[var(--color-byte)] text-[var(--color-null)] border-[var(--color-byte)]"
                 : "border-[color:var(--color-transparent-wisp-10)] text-[var(--color-wisp)]/70 hover:border-[var(--color-byte)]/40",

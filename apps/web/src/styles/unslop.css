@@ -62,13 +62,33 @@
   color: color-mix(in srgb, var(--color-wisp) 72%, transparent);
 }
 
-/* Inline labels — sentence case, not uppercase kickers */
+/* Inline labels — sentence case, not uppercase kickers (unslop-ui v2) */
 .text-label {
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   color: color-mix(in srgb, var(--color-wisp) 60%, transparent);
+}
+
+.text-label-accent {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-byte);
+}
+
+.text-label-muted {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--color-wisp) 50%, transparent);
+}
+
+.text-label-sm {
+  font-size: 0.6875rem;
 }
 
 /* Home hero — single title, no kicker stack */

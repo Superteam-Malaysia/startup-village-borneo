@@ -28,7 +28,7 @@ export function RaceTaskCard({ task }: { task: RaceTask }) {
           {CATEGORY_LABELS[task.category]}
         </StatusChip>
         {task.location && (
-          <span className="text-[0.65rem] font-[family-name:var(--font-mono)] uppercase tracking-wider text-[var(--color-wisp)]/50">
+          <span className="text-label text-label-muted text-label-sm">
             {task.location}
           </span>
         )}
@@ -40,7 +40,7 @@ export function RaceTaskCard({ task }: { task: RaceTask }) {
         ))}
       </ul>
       {task.deadline && (
-        <p className="text-xs font-[family-name:var(--font-mono)] text-[var(--color-byte)] uppercase tracking-wider">
+        <p className="text-label text-label-accent">
           Due: {task.deadline}
         </p>
       )}

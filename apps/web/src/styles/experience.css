@@ -360,14 +360,13 @@
 }
 
 .race-task-card[data-theme="content"] {
-  border-left: 3px solid color-mix(in srgb, #a855f7 70%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--color-byte) 70%, transparent);
 }
 
 .race-points-badge {
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   padding: 0.25rem 0.5rem;
   background: var(--color-byte);
   color: var(--color-null);

@@ -40,7 +40,7 @@ export default function SustainabilityPage() {
         <ul className="mt-8 flex flex-col gap-4 list-none">
           {SUSTAINABILITY_TRACK.timeline.map((step) => (
             <li key={step.when} className="grid gap-2 md:grid-cols-[8rem_1fr] border-b border-[color:var(--color-transparent-wisp-10)] pb-4">
-              <span className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-byte)]">{step.when}</span>
+              <span className="text-label text-label-accent">{step.when}</span>
               <span className="text-[var(--color-wisp)]/75">{step.what}</span>
             </li>
           ))}

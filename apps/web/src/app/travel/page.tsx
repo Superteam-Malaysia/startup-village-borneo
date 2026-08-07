@@ -26,10 +26,10 @@ export default function TravelPage() {
           lead="Land at KCH, check into Sheraton, and the program starts the moment you arrive. This page covers logistics — the Amazing Race covers the city."
         />
         <div className="travel-hero-card">
-          <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-byte)]">
+          <p className="text-label text-label-accent">
             {TRAVEL_HERO.airport}
           </p>
-          <p className="mt-2 font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-widest text-[var(--color-wisp)]/50">
+          <p className="mt-2 text-label text-label-muted text-label-sm">
             {TRAVEL_HERO.airportCode}
           </p>
           <p className="mt-3 font-[family-name:var(--font-display)] text-2xl">{TRAVEL_HERO.distance}</p>
@@ -43,7 +43,7 @@ export default function TravelPage() {
         <SectionIntro title="Kuching International Airport" />
         <div className="mt-6 grid gap-6 md:grid-cols-2 text-sm text-[var(--color-wisp)]/75 leading-relaxed">
           <div>
-            <p className="font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-widest text-[var(--color-byte)]">
+            <p className="text-label text-label-accent text-label-sm">
               Codes &amp; location
             </p>
             <p className="mt-3">
@@ -56,7 +56,7 @@ export default function TravelPage() {
             </ul>
           </div>
           <div>
-            <p className="font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-widest text-[var(--color-byte)]">
+            <p className="text-label text-label-accent text-label-sm">
               Arrival flow
             </p>
             <ol className="mt-3 flex flex-col gap-3 list-decimal list-inside">
@@ -78,7 +78,7 @@ export default function TravelPage() {
             <ul className="mt-6 flex flex-col gap-5 list-none">
               {section.items.map((item) => (
                 <li key={item.label} className="travel-detail-row">
-                  <p className="font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-widest text-[var(--color-byte)]">
+                  <p className="text-label text-label-accent text-label-sm">
                     {item.label}
                   </p>
                   <p className="mt-2 text-sm text-[var(--color-wisp)]/75 leading-relaxed">{item.detail}</p>

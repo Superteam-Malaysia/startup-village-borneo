@@ -124,7 +124,7 @@ export default function SubmissionsPage() {
                 key={task.id}
                 className="border border-[color:var(--color-transparent-wisp-10)] p-5 flex flex-col gap-3"
               >
-                <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-byte)]">
+                <p className="text-label text-label-accent">
                   Task {task.number} · {task.deadline}
                 </p>
                 <h3 className="font-[family-name:var(--font-display)] text-lg">{task.title}</h3>

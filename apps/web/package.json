@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "unslop:scan": "python3 ../../.cursor/skills/unslop-ui/scripts/devibe_scan.py src"
   },
   "dependencies": {
     "next": "16.3.0",

@@ -31,7 +31,7 @@ export default function ContentAwardsPage() {
             <li key={task.id} className="border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-8">
               <p className="font-[family-name:var(--font-display)] text-xl">{task.title}</p>
               <p className="mt-2 text-sm text-[var(--color-wisp)]/60">{task.format}</p>
-              <div className="mt-4 flex flex-wrap gap-4 font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest">
+              <div className="mt-4 flex flex-wrap gap-4 text-label text-label-accent">
                 <span className="text-[var(--color-byte)]">Due {task.deadline}</span>
                 <span className="text-[var(--color-wisp)]/50">{task.points}</span>
               </div>

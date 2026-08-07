@@ -34,7 +34,7 @@ export default function VenuePage() {
               key={venue.id}
               className="border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-8 h-full"
             >
-              <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-byte)]">
+              <p className="text-label text-label-accent">
                 {venue.role}
               </p>
               <h2 className="mt-3 font-[family-name:var(--font-display)] text-2xl text-[var(--color-wisp)]">
@@ -52,14 +52,14 @@ export default function VenuePage() {
               ) : null}
               <div className="mt-6 space-y-4 text-sm text-[var(--color-wisp)]/75 leading-relaxed">
                 <div>
-                  <p className="font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-widest text-[var(--color-byte)]">
+                  <p className="text-label text-label-accent text-label-sm">
                     Check-in
                   </p>
                   <p className="mt-2">{venue.checkInNote}</p>
                 </div>
                 {venue.breakfastNote ? (
                   <div>
-                    <p className="font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-widest text-[var(--color-byte)]">
+                    <p className="text-label text-label-accent text-label-sm">
                       Breakfast
                     </p>
                     <p className="mt-2">{venue.breakfastNote}</p>
@@ -70,7 +70,7 @@ export default function VenuePage() {
                 href={`https://maps.google.com/?q=${venue.mapsQuery}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-block font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-byte)] hover:underline"
+                className="mt-6 inline-block text-label text-label-accent hover:underline"
               >
                 Open in Maps →
               </a>
@@ -83,13 +83,13 @@ export default function VenuePage() {
         <SectionIntro title="Breakfast &amp; ops" />
         <div className="mt-8 grid gap-6 md:grid-cols-2 text-sm text-[var(--color-wisp)]/75 leading-relaxed">
           <div className="border border-[color:var(--color-transparent-wisp-10)] p-6">
-            <p className="font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-widest text-[var(--color-byte)]">
+            <p className="text-label text-label-accent text-label-sm">
               Breakfast rhythm
             </p>
             <p className="mt-3">{BREAKFAST_RHYTHM}</p>
           </div>
           <div className="border border-[color:var(--color-transparent-wisp-10)] p-6">
-            <p className="font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-widest text-[var(--color-byte)]">
+            <p className="text-label text-label-accent text-label-sm">
               WhatsApp ops
             </p>
             <p className="mt-3">{WHATSAPP_OPS_NOTE}</p>
@@ -121,14 +121,14 @@ export default function VenuePage() {
               key={row.day}
               className="grid gap-2 border-b border-[color:var(--color-transparent-wisp-10)] pb-4 md:grid-cols-[7rem_8rem_1fr] md:gap-6 md:items-baseline"
             >
-              <span className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-byte)]">
+              <span className="text-label text-label-accent">
                 {row.day}
               </span>
               <span className="text-sm text-[var(--color-wisp)]/55">{row.date}</span>
               <div>
                 <p className="font-[family-name:var(--font-display)] text-lg text-[var(--color-wisp)]">
                   {row.headline}
-                  <span className="ml-2 font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-byte)]">
+                  <span className="ml-2 text-label text-label-accent">
                     · {venueLabel(row.venueId)}
                   </span>
                 </p>

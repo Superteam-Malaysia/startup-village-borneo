@@ -20,7 +20,7 @@ export default function PrizesPage() {
       <SectionArticle>
         <table className="mt-12 w-full max-w-2xl text-left border-collapse">
           <thead>
-            <tr className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-wisp)]/50">
+            <tr className="text-label text-label-muted border-b border-[color:var(--color-transparent-wisp-10)]">
               <th className="pb-4">Award</th>
               <th className="pb-4 text-right">Amount</th>
             </tr>

@@ -32,7 +32,7 @@ export default function SpeakersPage() {
               style={{ "--tile-delay": `${i * 40}ms` } as React.CSSProperties}
             >
               <p className="font-[family-name:var(--font-display)] text-xl leading-tight">{s.name}</p>
-              <p className="mt-2 font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-widest text-[var(--color-byte)]">
+              <p className="mt-2 text-label text-label-accent text-label-sm">
                 {s.org}
               </p>
             </li>
@@ -44,7 +44,7 @@ export default function SpeakersPage() {
         <SectionArticle key={day.dayIndex} className="speaker-day-block">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 border-b border-[color:var(--color-transparent-wisp-10)] pb-6">
             <div>
-              <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-byte)]">
+              <p className="text-label text-label-accent">
                 {day.label} · {day.date}
               </p>
               <h2 className="mt-2 font-[family-name:var(--font-display)] text-2xl md:text-3xl">
@@ -53,7 +53,7 @@ export default function SpeakersPage() {
             </div>
             <Link
               href={`/schedule?day=${day.dayIndex}`}
-              className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-wisp)]/50 hover:text-[var(--color-byte)] transition-colors"
+              className="text-label text-label-muted hover:text-[var(--color-byte)] transition-colors"
             >
               Calendar →
             </Link>
@@ -65,7 +65,7 @@ export default function SpeakersPage() {
                 key={session.id}
                 className="speaker-session-row group grid gap-4 md:grid-cols-[5rem_1fr_auto] md:items-center border border-[color:var(--color-transparent-wisp-10)] p-4 md:p-5 hover:border-[var(--color-byte)] transition-colors"
               >
-                <div className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-wisp)]/45">
+                <div className="text-label text-label-muted">
                   {session.start ?? "—"}
                 </div>
                 <div>

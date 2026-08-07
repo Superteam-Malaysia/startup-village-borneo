@@ -53,7 +53,7 @@ export function DayCalendar({ events }: { events: ScheduleEvent[] }) {
             className={`schedule-event ${colorClass(event)}`}
             style={{ top: `${topRem}rem`, height: `${heightRem}rem` }}
           >
-            <p className="font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-wider text-[var(--color-byte)]">
+            <p className="text-label text-label-accent text-label-sm">
               {event.start} – {event.end}
             </p>
             <p className="font-[family-name:var(--font-display)] text-sm md:text-base leading-snug mt-1">

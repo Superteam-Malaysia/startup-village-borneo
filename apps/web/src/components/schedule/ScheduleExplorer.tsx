@@ -22,7 +22,7 @@ export function ScheduleExplorer({ initialDay = 1 }: { initialDay?: number }) {
   return (
     <SectionArticle>
       <SectionHeading>{day.title}</SectionHeading>
-      <p className="mt-4 text-sm text-[var(--color-wisp)]/60 font-[family-name:var(--font-mono)] uppercase tracking-widest">
+      <p className="mt-4 text-sm text-[var(--color-wisp)]/60 text-label text-label-muted">
         {day.subtitle}
         {day.venueNote ? ` · ${day.venueNote}` : ""}
       </p>
