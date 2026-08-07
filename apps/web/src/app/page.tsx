@@ -27,7 +27,7 @@ export default function HomePage() {
             <HeroGlitch>Startup Village Borneo</HeroGlitch>
           </h1>
           <p className="home-hero__meta">
-            Solana Foundation · SOCOE · Kuching · {SITE.dates}
+            {SITE.dates} · Solana Foundation · SOCOE · Kuching
           </p>
 
           <div className="hero-stat-row mt-10 md:mt-12" aria-label="Event at a glance">
