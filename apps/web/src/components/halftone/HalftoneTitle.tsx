@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Text } from "@/halftone/react/index.js";
 import { HalftoneGhost } from "./HalftoneGhost";
 
@@ -14,6 +14,11 @@ export function HalftoneTitle({
 }) {
   const [ready, setReady] = useState(false);
   const onReady = useCallback(() => setReady(true), []);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setReady(true), 32);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   return (
     <div
