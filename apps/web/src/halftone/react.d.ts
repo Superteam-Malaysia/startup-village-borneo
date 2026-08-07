@@ -15,4 +15,5 @@ declare module "@/halftone/react/index.js" {
   export function Card(props: HalftoneComponentProps): JSX.Element;
   export function BarChart(props: HalftoneComponentProps): JSX.Element;
   export function LineChart(props: HalftoneComponentProps): JSX.Element;
+  export function Text(props: HalftoneComponentProps & { text: string; animate?: boolean }): JSX.Element;
 }

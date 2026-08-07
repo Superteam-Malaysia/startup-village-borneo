@@ -1,12 +1,16 @@
 import Link from "next/link";
-import { HeroGlitch } from "@/components/shell";
+import {
+  HomeHalftoneHeroStats,
+  HomeHalftoneOverview,
+  HomeRaceTeaserStats,
+  HalftoneTitle,
+} from "@/components/halftone";
 import {
   Accordion,
   ActionCard,
   CtaButton,
   SectionArticle,
   SectionIntro,
-  StatDisplay,
 } from "@/components/ui";
 import { FAQ_ITEMS } from "@/data/faq";
 import { PARTNERS } from "@/data/partners";
@@ -23,31 +27,12 @@ export default function HomePage() {
       {/* Hero — Breakpoint-style information density + one-shot glitch accent */}
       <section className="relative border-b border-[color:var(--color-transparent-wisp-10)]">
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 pt-16 md:pt-24 pb-16 md:pb-24">
-          <h1 className="home-hero__title">
-            <HeroGlitch>Startup Village Borneo</HeroGlitch>
-          </h1>
+          <HalftoneTitle text="Startup Village Borneo" />
           <p className="home-hero__meta">
             {SITE.dates} · Solana Foundation · SOCOE · Kuching
           </p>
 
-          <div className="hero-stat-row mt-10 md:mt-12" aria-label="Event at a glance">
-            <div className="hero-stat">
-              <span className="hero-stat__value">5–9 Sep</span>
-              <span className="hero-stat__label">2026 · 5 days</span>
-            </div>
-            <div className="hero-stat">
-              <span className="hero-stat__value">Kuching</span>
-              <span className="hero-stat__label">Sheraton · Voco</span>
-            </div>
-            <div className="hero-stat">
-              <span className="hero-stat__value">{PRIZE_TOTAL}</span>
-              <span className="hero-stat__label">Prize pool</span>
-            </div>
-            <div className="hero-stat">
-              <span className="hero-stat__value">18:00</span>
-              <span className="hero-stat__label">Day 4 cutoff</span>
-            </div>
-          </div>
+          <HomeHalftoneHeroStats />
 
           <div className="mt-10 md:mt-12 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end max-w-5xl">
             <p className="hero-lead">{SITE.rhythm}</p>
@@ -69,30 +54,13 @@ export default function HomePage() {
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24">
           <SectionArticle>
             <SectionIntro title="Five days of build, race, and demo" />
-            <div className="mt-12 grid gap-12 lg:grid-cols-2">
-              <p className="text-lg text-[var(--color-wisp)]/80 leading-relaxed">
-                Workshops by day at Voco, building at Sheraton by night. A points-weighted Amazing Race
-                across Kuching runs in the gaps — your product comes first. Demo Day on Wednesday
-                morning, prizes at noon, then depart.
-              </p>
-              <div className="info-stat-grid">
-                <div>
-                  <p className="info-stat-value">5</p>
-                  <p className="info-stat-label">Days</p>
-                </div>
-                <div>
-                  <p className="info-stat-value">{PRIZE_TOTAL}</p>
-                  <p className="info-stat-label">Prize pool</p>
-                </div>
-                <div>
-                  <p className="info-stat-value">15+</p>
-                  <p className="info-stat-label">Race stations</p>
-                </div>
-                <div>
-                  <p className="info-stat-value">18:00</p>
-                  <p className="info-stat-label">Day 4 cutoff</p>
-                </div>
-              </div>
+            <p className="mt-8 max-w-2xl text-[var(--color-wisp)]/80 leading-relaxed">
+              Workshops by day at Voco, building at Sheraton by night. A points-weighted Amazing Race
+              across Kuching runs in the gaps — your product comes first. Demo Day on Wednesday
+              morning, prizes at noon, then depart.
+            </p>
+            <div className="mt-12">
+              <HomeHalftoneOverview />
             </div>
           </SectionArticle>
         </div>
@@ -160,11 +128,7 @@ export default function HomePage() {
               wallet onboarding mission that teaches, never sells. Submit via team Twitter threads.
               You may not finish everything; choose well.
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <StatDisplay value="10" label="Wallet task pts" />
-              <StatDisplay value="18:00" label="Day 4 cutoff" />
-              <StatDisplay value="2×$500" label="Race prizes" />
-            </div>
+            <HomeRaceTeaserStats />
             <div className="mt-10 flex flex-wrap gap-4">
               <CtaButton href="/amazing-race" variant="byte" size="lg">Explore all tasks</CtaButton>
               <CtaButton href="/leaderboard" variant="ghost-wisp" size="md" showArrow={false}>

@@ -37,9 +37,9 @@
   --map-pin-mint-40: #14f19566;
   --map-surface: #11081b;
 
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --font-sans: 'DM Sans', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-display: 'Syne', system-ui, sans-serif;
+  --font-sans: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 
   --space-xs: 1rem;
   --space-s: 1.5rem;

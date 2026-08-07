@@ -1,2 +1,8 @@
 export { SvbHalftoneProvider } from "./SvbHalftoneProvider";
+export { HalftoneShell } from "./HalftoneShell";
 export { HalftoneShowcase } from "./HalftoneShowcase";
+export { HalftoneStatTile } from "./HalftoneStatTile";
+export { HomeHalftoneHeroStats } from "./HomeHalftoneHeroStats";
+export { HomeHalftoneOverview } from "./HomeHalftoneOverview";
+export { HomeRaceTeaserStats } from "./HomeRaceTeaserStats";
+export { HalftoneTitle } from "./HalftoneTitle";
