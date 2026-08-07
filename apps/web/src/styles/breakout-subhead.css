@@ -1,0 +1,57 @@
+/**
+ * Colosseum Breakout section subheads — black label + hard offset shadow
+ * (colosseum.com/breakout: box-shadow -8px 8px 0 0 accent)
+ */
+
+.section-heading {
+  margin: 0;
+}
+
+.breakout-subhead {
+  display: inline-block;
+  max-width: 100%;
+  padding: 0.625rem 1rem 1.125rem 1.125rem;
+  background: #000;
+  color: var(--color-wisp);
+  border: 3px solid #000;
+  border-radius: 1px;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  box-shadow: -8px 8px 0 0 var(--subhead-accent, var(--color-lime));
+}
+
+@media (min-width: 1280px) {
+  .breakout-subhead {
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+}
+
+.breakout-subhead--lime {
+  --subhead-accent: var(--color-lime);
+}
+
+.breakout-subhead--azure {
+  --subhead-accent: var(--color-azure);
+}
+
+.breakout-subhead--byte {
+  --subhead-accent: var(--color-byte);
+}
+
+.breakout-subhead--green {
+  --subhead-accent: #03bf62;
+}
+
+.section-intro {
+  gap: 1rem;
+  max-width: none;
+}
+
+.section-intro__lead {
+  max-width: 42rem;
+}

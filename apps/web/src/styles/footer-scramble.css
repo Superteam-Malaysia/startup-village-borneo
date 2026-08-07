@@ -1,0 +1,71 @@
+/**
+ * Breakpoint-style scramble ticker — section divider (solana.com/breakpoint type-marquee).
+ */
+
+.footer-scramble {
+  width: 100%;
+  overflow: hidden;
+  padding: 3rem 0 2.5rem;
+}
+
+.footer-scramble--divider {
+  padding: 1rem 0 1.25rem;
+  border: none;
+}
+
+@media (min-width: 768px) {
+  .footer-scramble {
+    padding: 4rem 0 2.5rem;
+  }
+
+  .footer-scramble--divider {
+    padding: 1.25rem 0 1.5rem;
+  }
+}
+
+.footer-scramble__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.footer-scramble__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: footer-scramble-scroll 120s linear infinite;
+}
+
+.footer-scramble__strip {
+  display: flex;
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  letter-spacing: 0.10625em;
+  text-transform: uppercase;
+}
+
+.footer-scramble__word {
+  color: #ab66fd;
+}
+
+.footer-scramble__noise {
+  color: color-mix(in srgb, var(--color-wisp) 38%, transparent);
+}
+
+@keyframes footer-scramble-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-scramble__track {
+    animation: none;
+  }
+}

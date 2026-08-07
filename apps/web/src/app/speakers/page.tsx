@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { WorkshopRowList } from "@/components/speakers";
 import { CtaButton, SectionArticle, SectionIntro } from "@/components/ui";
 import { PageHeader } from "@/components/shell";
-import { SPEAKER_DAYS, FEATURED_SPEAKERS } from "@/data/speakers";
+import { SPEAKER_DAYS, WORKSHOP_SESSIONS } from "@/data/speakers";
 
 export const metadata = { title: "Speakers" };
 
@@ -23,21 +24,8 @@ export default function SpeakersPage() {
       />
 
       <SectionArticle>
-        <SectionIntro title="Workshop leaders" />
-        <ul className="mt-10 speaker-marquee grid gap-3 sm:grid-cols-2 lg:grid-cols-5 list-none">
-          {FEATURED_SPEAKERS.map((s, i) => (
-            <li
-              key={s.name}
-              className="speaker-tile"
-              style={{ "--tile-delay": `${i * 40}ms` } as React.CSSProperties}
-            >
-              <p className="font-[family-name:var(--font-display)] text-xl leading-tight">{s.name}</p>
-              <p className="mt-2 text-label text-label-accent text-label-sm">
-                {s.org}
-              </p>
-            </li>
-          ))}
-        </ul>
+        <SectionIntro title="Workshop leaders" accent="green" />
+        <WorkshopRowList sessions={WORKSHOP_SESSIONS} />
       </SectionArticle>
 
       {SPEAKER_DAYS.map((day) => (

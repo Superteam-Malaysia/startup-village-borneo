@@ -1,10 +1,13 @@
 import Link from "next/link";
+import { PartnerLogoWall } from "@/components/partners";
 import {
   HomeHalftoneHeroStats,
   HomeHalftoneOverview,
   HomeRaceTeaserStats,
-  HalftoneTitle,
 } from "@/components/halftone";
+import { HeroRevealMeta, HeroRevealTitle } from "@/components/shell/HeroRevealTitle";
+import { PreFooterBand } from "@/components/shell/PreFooterBand";
+import { WorkshopRowList } from "@/components/speakers";
 import {
   Accordion,
   ActionCard,
@@ -13,10 +16,14 @@ import {
   SectionIntro,
 } from "@/components/ui";
 import { FAQ_ITEMS } from "@/data/faq";
-import { PARTNERS } from "@/data/partners";
+import {
+  ANCHOR_PARTNERS,
+  PENDING_PARTNERS,
+  SUPPORTING_PARTNERS,
+} from "@/data/partners";
 import { PRIZE_ROWS, PRIZE_TOTAL } from "@/data/prizes";
 import { SCHEDULE_DAYS } from "@/data/schedule";
-import { FEATURED_SPEAKERS } from "@/data/speakers";
+import { WORKSHOP_SESSIONS } from "@/data/speakers";
 import { SITE } from "@/data/site";
 
 export default function HomePage() {
@@ -24,28 +31,13 @@ export default function HomePage() {
 
   return (
     <main>
-      {/* Hero — Breakpoint-style information density + one-shot glitch accent */}
-      <section className="relative border-b border-[color:var(--color-transparent-wisp-10)]">
-        <div className="max-w-[90rem] mx-auto px-4 md:px-8 pt-8 md:pt-12 pb-16 md:pb-24">
-          <HalftoneTitle text="Startup Village Borneo" />
-          <p className="home-hero__meta">
-            {SITE.dates} · Solana Foundation · SOCOE · Kuching
-          </p>
-
-          <HomeHalftoneHeroStats />
-
-          <div className="mt-10 md:mt-12 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end max-w-5xl">
-            <p className="hero-lead">{SITE.rhythm}</p>
-            <div className="hero-cta-group">
-              <CtaButton href="/schedule" variant="byte" size="lg">
-                View schedule
-              </CtaButton>
-              <CtaButton href="/amazing-race" variant="ghost-wisp" size="lg" showArrow={false}>
-                Amazing Race
-              </CtaButton>
-              <span className="hero-cta-note hidden sm:inline">Demo Day · Wed 9 Sep</span>
-            </div>
-          </div>
+      {/* Hero — Breakpoint-style letter reveal */}
+      <section className="home-hero relative border-b border-[color:var(--color-transparent-wisp-10)]">
+        <div className="home-hero__inner max-w-[90rem] mx-auto px-4 md:px-8">
+          <HeroRevealTitle lines={["Startup Village", "Borneo"]} />
+          <HeroRevealMeta
+            text={`${SITE.dates} · Solana Foundation · SOCOE · Kuching`}
+          />
         </div>
       </section>
 
@@ -53,8 +45,23 @@ export default function HomePage() {
       <section id="overview" className="border-b border-[color:var(--color-transparent-wisp-10)]">
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24">
           <SectionArticle>
-            <SectionIntro title="Five days of build, race, and demo" />
-            <p className="mt-8 max-w-2xl text-[var(--color-wisp)]/80 leading-relaxed">
+            <SectionIntro title="Five days of build, race, and demo" accent="azure" />
+            <div className="mt-10">
+              <HomeHalftoneHeroStats />
+            </div>
+            <div className="mt-10 md:mt-12 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end max-w-5xl">
+              <p className="hero-lead">{SITE.rhythm}</p>
+              <div className="hero-cta-group">
+                <CtaButton href="/schedule" variant="byte" size="lg">
+                  View schedule
+                </CtaButton>
+                <CtaButton href="/amazing-race" variant="ghost-wisp" size="lg" showArrow={false}>
+                  Amazing Race
+                </CtaButton>
+                <span className="hero-cta-note hidden sm:inline">Demo Day · Wed 9 Sep</span>
+              </div>
+            </div>
+            <p className="mt-10 max-w-2xl text-[var(--color-wisp)]/80 leading-relaxed">
               Workshops by day at Voco, building at Sheraton by night. A points-weighted Amazing Race
               across Kuching runs in the gaps — your product comes first. Demo Day on Wednesday
               morning, prizes at noon, then depart.
@@ -70,7 +77,7 @@ export default function HomePage() {
       <section id="schedule" className="border-b border-[color:var(--color-transparent-wisp-10)]">
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24">
           <SectionArticle>
-            <SectionIntro title="Daily rhythm" />
+            <SectionIntro title="Daily rhythm" accent="byte" />
             <ul className="mt-12 grid gap-4 md:grid-cols-5 list-none">
               {SCHEDULE_DAYS.map((day) => (
                 <li key={day.index}>
@@ -96,21 +103,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Speakers preview */}
+      {/* Speakers preview — Breakout livestream workshop rows */}
       <section className="border-b border-[color:var(--color-transparent-wisp-10)]">
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24">
           <SectionArticle>
-            <SectionIntro title="Workshop leaders on stage" />
-            <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5 list-none">
-              {FEATURED_SPEAKERS.slice(0, 5).map((s) => (
-                <li key={s.name} className="speaker-tile">
-                  <p className="font-[family-name:var(--font-display)] text-lg leading-tight">{s.name}</p>
-                  <p className="mt-2 text-label text-label-accent text-label-sm">
-                    {s.org}
-                  </p>
-                </li>
-              ))}
-            </ul>
+            <SectionIntro title="Workshop leaders on stage" accent="green" />
+            <WorkshopRowList sessions={WORKSHOP_SESSIONS} limit={6} />
             <div className="mt-10">
               <CtaButton href="/speakers" variant="ghost-wisp" size="md">All sessions</CtaButton>
             </div>
@@ -119,10 +117,10 @@ export default function HomePage() {
       </section>
 
       {/* Amazing Race teaser */}
-      <section className="border-b border-[color:var(--color-transparent-wisp-10)] bg-[var(--color-byte)]/5">
+      <section className="border-b border-[color:var(--color-transparent-wisp-10)]">
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24">
           <SectionArticle>
-            <SectionIntro title="Kuching is the playground" />
+            <SectionIntro title="Kuching is the playground" accent="lime" />
             <p className="mt-8 max-w-2xl text-[var(--color-wisp)]/75 leading-relaxed">
               Points-weighted stations from laksa pilgrimages to waterfront sampan rides — plus a
               wallet onboarding mission that teaches, never sells. Submit via team Twitter threads.
@@ -168,7 +166,7 @@ export default function HomePage() {
       <section id="prizes" className="border-b border-[color:var(--color-transparent-wisp-10)]">
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24">
           <SectionArticle className="bg-[var(--color-azure)] text-[var(--color-null)]">
-            <SectionIntro title={`${PRIZE_TOTAL} USD prize pool`} />
+            <SectionIntro title={`${PRIZE_TOTAL} USD prize pool`} accent="azure" />
             <ul className="mt-10 grid gap-3 md:grid-cols-2 list-none">
               {PRIZE_ROWS.map((row) => (
                 <li
@@ -193,7 +191,7 @@ export default function HomePage() {
       <section id="get-involved" className="border-b border-[color:var(--color-transparent-wisp-10)]">
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24">
           <SectionArticle>
-            <SectionIntro title="Ways to take part" />
+            <SectionIntro title="Ways to take part" accent="byte" />
             <ul className="mt-10 grid gap-6 md:grid-cols-4 list-none">
               <li>
                 <ActionCard title="Build" tone="mint" description="Five-day hackathon track · Demo Day pitches" />
@@ -217,37 +215,34 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Partners */}
-      <section id="partners" className="border-b border-[color:var(--color-transparent-wisp-10)]">
+      {/* Partners — Breakpoint-style logo wall (before FAQ) */}
+      <section id="partners">
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24">
           <SectionArticle>
-            <SectionIntro title="Partners and workshops" />
-            <div className="mt-10 flex flex-wrap gap-2">
-              {PARTNERS.map((p) => (
-                <span
-                  key={p.name}
-                  className={[
-                    "partner-pill",
-                    p.role === "anchor" ? "partner-pill--anchor" : "",
-                    p.role === "pending" ? "partner-pill--pending" : "",
-                  ]
-                    .filter(Boolean)
-                    .join(" ")}
-                >
-                  {p.name}
-                  {!p.workshops && p.role === "confirmed" ? " · no workshop" : ""}
-                </span>
-              ))}
+            <SectionIntro title="Thank you to our partners" accent="lime" />
+            <div className="mt-10">
+              <PartnerLogoWall
+                anchors={ANCHOR_PARTNERS}
+                supporting={SUPPORTING_PARTNERS}
+                pending={PENDING_PARTNERS}
+              />
+            </div>
+            <div className="mt-10">
+              <CtaButton href="/partners" variant="ghost-wisp" size="sm" showArrow={false}>
+                Partner details
+              </CtaButton>
             </div>
           </SectionArticle>
         </div>
       </section>
 
+      <PreFooterBand />
+
       {/* FAQ */}
       <section id="faq" className="border-b border-[color:var(--color-transparent-wisp-10)]">
         <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24">
           <SectionArticle>
-            <SectionIntro title="Before you land" />
+            <SectionIntro title="Before you land" accent="green" />
             <div className="mt-10 max-w-2xl">
               <Accordion
                 items={previewFaq.map((f) => ({

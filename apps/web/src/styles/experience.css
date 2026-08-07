@@ -220,7 +220,16 @@
   font-size: 0.65rem;
   color: var(--color-wisp);
   opacity: 0.45;
-  padding-top: 0.25rem;
+  height: 0;
+  pointer-events: none;
+}
+
+.schedule-hour-line span {
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  width: 3rem;
+  line-height: 1;
 }
 
 .schedule-event {
@@ -233,6 +242,80 @@
   background: var(--color-transparent-wisp-10);
   overflow: hidden;
   transition: border-color var(--duration-normal) var(--ease-out-expo);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0.25rem;
+  box-sizing: border-box;
+}
+
+.schedule-event__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.schedule-event__time {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--color-wisp) 58%, transparent);
+  line-height: 1.2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.schedule-event__title {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  line-height: 1.25;
+  color: var(--color-wisp);
+}
+
+.schedule-event__speaker {
+  font-size: 0.75rem;
+  color: color-mix(in srgb, var(--color-wisp) 52%, transparent);
+  line-height: 1.3;
+}
+
+.schedule-event__detail {
+  font-size: 0.75rem;
+  color: color-mix(in srgb, var(--color-wisp) 62%, transparent);
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.schedule-event--compact {
+  padding: 0.4rem 0.75rem 0.35rem;
+  justify-content: flex-start;
+}
+
+.schedule-event--compact .schedule-event__title {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.schedule-event--compact .schedule-event__time {
+  font-size: 0.6875rem;
+  color: color-mix(in srgb, var(--color-wisp) 52%, transparent);
+}
+
+.schedule-event--workshop .schedule-event__time {
+  color: color-mix(in srgb, var(--color-wisp) 65%, transparent);
 }
 
 .schedule-event:hover {
@@ -245,8 +328,8 @@
 }
 
 .schedule-event--deadline {
-  background: color-mix(in srgb, #ef4444 22%, transparent);
-  border-color: color-mix(in srgb, #ef4444 45%, transparent);
+  background: color-mix(in srgb, var(--svb-color-red) 22%, transparent);
+  border-color: color-mix(in srgb, var(--svb-color-red) 45%, transparent);
 }
 
 .schedule-event--social {
@@ -281,8 +364,8 @@
   position: sticky;
   top: 3.5rem;
   z-index: 10;
-  background: color-mix(in srgb, var(--color-null) 92%, transparent);
-  backdrop-filter: blur(8px);
+  background: color-mix(in srgb, var(--color-null) 45%, transparent);
+  backdrop-filter: blur(10px);
   padding-bottom: 0.5rem;
 }
 
@@ -325,7 +408,7 @@
 }
 
 .schedule-legend__swatch--deadline {
-  background: color-mix(in srgb, #ef4444 45%, transparent);
+  background: color-mix(in srgb, var(--svb-color-red) 45%, transparent);
 }
 
 /* Race task cards */
@@ -344,23 +427,23 @@
 }
 
 .race-task-card[data-theme="food"] {
-  border-left: 3px solid color-mix(in srgb, #f59e0b 70%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--svb-color-gold) 70%, transparent);
 }
 
 .race-task-card[data-theme="culture"] {
-  border-left: 3px solid color-mix(in srgb, var(--color-azure) 70%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--svb-color-blue) 70%, transparent);
 }
 
 .race-task-card[data-theme="waterfront"] {
-  border-left: 3px solid color-mix(in srgb, #22c55e 70%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--svb-color-blue) 55%, transparent);
 }
 
 .race-task-card[data-theme="wallet"] {
-  border-left: 3px solid color-mix(in srgb, #ef4444 70%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--svb-color-red) 70%, transparent);
 }
 
 .race-task-card[data-theme="content"] {
-  border-left: 3px solid color-mix(in srgb, var(--color-byte) 70%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--svb-color-red) 55%, transparent);
 }
 
 .race-points-badge {
@@ -374,8 +457,8 @@
 }
 
 .cutoff-banner {
-  border: 1px solid color-mix(in srgb, #f59e0b 50%, transparent);
-  background: color-mix(in srgb, #f59e0b 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--svb-color-gold) 50%, transparent);
+  background: color-mix(in srgb, var(--svb-color-gold) 12%, transparent);
   padding: 1rem 1.25rem;
   font-family: var(--font-mono);
   font-size: 0.8rem;

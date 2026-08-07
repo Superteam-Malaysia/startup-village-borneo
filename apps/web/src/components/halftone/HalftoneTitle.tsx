@@ -1,10 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { Text } from "@/halftone/react/index.js";
 import { HalftoneGhost } from "./HalftoneGhost";
 
-/** Halftone-pressed display wordmark — CSS fallback until canvas is ready. */
+/** Halftone-pressed display wordmark — Breakpoint-style CMYK press-in on load. */
 export function HalftoneTitle({
   text,
   className,
@@ -14,11 +14,6 @@ export function HalftoneTitle({
 }) {
   const [ready, setReady] = useState(false);
   const onReady = useCallback(() => setReady(true), []);
-
-  useEffect(() => {
-    const timer = window.setTimeout(() => setReady(true), 32);
-    return () => window.clearTimeout(timer);
-  }, []);
 
   return (
     <div
@@ -30,9 +25,14 @@ export function HalftoneTitle({
       {!ready ? <HalftoneGhost variant="title" /> : null}
       <Text
         text={text}
-        color="purple"
+        color="#ab66fd"
         screen="am"
-        animate={false}
+        animate
+        pressMs={700}
+        scale={1}
+        r={2.4}
+        ink={1}
+        wash={1}
         onReady={onReady}
         className="halftone-title__canvas"
       />

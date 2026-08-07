@@ -74,16 +74,17 @@
 }
 
 .halftone-title {
-  max-width: 18ch;
   position: relative;
+  width: 100%;
+  max-width: 58rem;
 }
 
 .halftone-title__fallback {
   font-family: var(--font-display);
-  font-size: clamp(2.25rem, 6vw, 4.75rem);
+  font-size: clamp(2.75rem, 9vw, 5.5rem);
   font-weight: 800;
   line-height: 1.02;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
   color: var(--color-wisp);
   margin: 0;
 }
@@ -93,14 +94,14 @@
 }
 
 .halftone-title__canvas {
-  min-height: 3.5rem;
+  min-height: clamp(3.5rem, 11vw, 6.5rem);
   opacity: 0;
-  transition: opacity 180ms var(--ease-out-expo);
+  transition: opacity 120ms var(--ease-out-expo);
 }
 
 @media (min-width: 768px) {
   .halftone-title__canvas {
-    min-height: 5rem;
+    min-height: clamp(4.5rem, 9vw, 6.75rem);
   }
 }
 
@@ -139,13 +140,14 @@
 
 .halftone-ghost--title {
   position: relative;
-  min-height: 3.5rem;
-  max-width: 18ch;
+  min-height: clamp(3.5rem, 11vw, 6.5rem);
+  width: 100%;
+  max-width: 58rem;
 }
 
 @media (min-width: 768px) {
   .halftone-ghost--title {
-    min-height: 5rem;
+    min-height: clamp(4.5rem, 9vw, 6.75rem);
   }
 }
 

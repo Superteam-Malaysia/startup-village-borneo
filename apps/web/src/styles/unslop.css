@@ -41,19 +41,12 @@
 }
 
 .section-heading {
-  font-family: var(--font-display);
-  font-size: clamp(1.375rem, 2.5vw, 2.25rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.015em;
-  color: var(--color-wisp);
+  /* Breakout subhead styles live in breakout-subhead.css */
 }
 
 .section-intro {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  max-width: 48rem;
 }
 
 .section-intro__lead {
@@ -91,15 +84,17 @@
   font-size: 0.6875rem;
 }
 
-/* Home hero — single title, no kicker stack */
-.home-hero__title {
-  font-family: var(--font-display);
-  font-size: clamp(2.25rem, 6vw, 4.75rem);
-  font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -0.025em;
-  color: var(--color-wisp);
-  max-width: 14ch;
+/* Home hero layout — title styles in hero-reveal.css */
+.home-hero {
+  min-height: min(72vh, 38rem);
+  display: flex;
+  align-items: flex-end;
+}
+
+.home-hero__inner {
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: clamp(3rem, 8vh, 5rem);
 }
 
 .home-hero__meta {

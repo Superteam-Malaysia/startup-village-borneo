@@ -1,0 +1,45 @@
+/**
+ * Breakpoint hero decode text — scramble-to-clear (solana.com/breakpoint module 37442).
+ */
+
+.home-hero__title {
+  margin: 0;
+  max-width: none;
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 8.5vw, 5rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: var(--color-wisp);
+  white-space: pre-line;
+}
+
+.decode-text__char {
+  display: inline;
+}
+
+.decode-text__block {
+  display: inline-block;
+  height: 0.72em;
+  background: var(--color-wisp);
+  vertical-align: middle;
+  margin: 0 0.08em;
+}
+
+.decode-text__word {
+  opacity: 0;
+  animation: decode-text-word 0.001s linear forwards;
+}
+
+@keyframes decode-text-word {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .decode-text__word {
+    opacity: 1;
+    animation: none;
+  }
+}

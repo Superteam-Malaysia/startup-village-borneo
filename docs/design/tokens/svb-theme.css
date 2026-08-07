@@ -6,59 +6,82 @@
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap');
 
-:root {
-  /* ── SVB brand colors ──────────────────────────────────────── */
-  --svb-color-solana-mint: #14f195;
-  --svb-color-solana-purple: #9945ff;
-  --svb-color-breakpoint-purple: #aa67fb;
+  :root {
+  /* ── SVB logo palette ─────────────────────────────────────── */
+  --svb-color-blue: #2450e6;
+  --svb-color-red: #b91c2e;
+  --svb-color-gold: #d4a82a;
+  --svb-color-midnight: #061228;
+  --svb-color-white: #ffffff;
 
-  /* Borneo warmth — jungle, sunset, Sarawak craft */
-  --svb-color-borneo-teal: #0d9488;
-  --svb-color-borneo-amber: #f59e0b;
-  --svb-color-borneo-coral: #f97316;
-  --svb-color-borneo-forest: #14532d;
+  --svb-color-solana-mint: var(--svb-color-gold);
+  --svb-color-solana-purple: #2450e6;
+  --svb-color-breakpoint-purple: var(--svb-color-blue);
 
-  /* ── Semantic (dark-first, Breakpoint-aligned) ─────────────── */
-  --color-bg-primary: #0e0e10;
-  --color-bg-secondary: #111214;
-  --color-bg-elevated: #1a1a1a;
-  --color-bg-invert: #ffffff;
-  --color-bg-accent: var(--svb-color-solana-mint);
-  --color-bg-accent-muted: #14f1951a;
-  --color-bg-brand: var(--svb-color-breakpoint-purple);
-  --color-bg-warning: var(--svb-color-borneo-amber);
+  /* Borneo warmth — mapped to logo accents */
+  --svb-color-borneo-teal: #1e6fd4;
+  --svb-color-borneo-amber: var(--svb-color-gold);
+  --svb-color-borneo-coral: var(--svb-color-red);
+  --svb-color-borneo-forest: #0d3d6b;
 
-  --color-text-primary: #f5f5f5;
-  --color-text-secondary: #a2a2a2;
-  --color-text-muted: #858585;
-  --color-text-invert: #0e0e10;
-  --color-text-highlight: var(--svb-color-breakpoint-purple);
-  --color-text-accent: var(--svb-color-solana-mint);
-  --color-text-on-accent: #000000;
+  /* ── Semantic (dark-first, SVB logo) ─────────────── */
+  --color-bg-primary: var(--svb-color-midnight);
+  --color-bg-secondary: #0a1a35;
+  --color-bg-elevated: #0f2447;
+  --color-bg-invert: var(--svb-color-white);
+  --color-bg-accent: var(--svb-color-gold);
+  --color-bg-accent-muted: #d4a82a1a;
+  --color-bg-brand: var(--svb-color-blue);
+  --color-bg-warning: var(--svb-color-gold);
 
-  --color-stroke-primary: #333333;
-  --color-stroke-secondary: #4a4a4a;
-  --color-stroke-focus: #f5f5f5;
+  --color-text-primary: var(--svb-color-white);
+  --color-text-secondary: #b8c4d9;
+  --color-text-muted: #8a9bb5;
+  --color-text-invert: var(--svb-color-midnight);
+  --color-text-highlight: var(--svb-color-red);
+  --color-text-accent: var(--svb-color-gold);
+  --color-text-on-accent: var(--svb-color-midnight);
 
-  --color-success: var(--svb-color-solana-mint);
-  --color-error: #ef4444;
-  --color-pending: var(--svb-color-borneo-amber);
+  --color-stroke-primary: #1e3a5f;
+  --color-stroke-secondary: #2a4a72;
+  --color-stroke-focus: var(--svb-color-white);
 
-  /* Leaderboard / race task categories */
-  --color-task-content: var(--svb-color-breakpoint-purple);
-  --color-task-race: var(--svb-color-solana-mint);
-  --color-task-deadline: var(--svb-color-borneo-coral);
+  --color-success: var(--svb-color-gold);
+  --color-error: var(--svb-color-red);
+  --color-pending: var(--svb-color-gold);
 
-  /* ── Wisp system (2025 archive — optional landing bands) ───── */
-  --color-wisp: #e7d2f9;
-  --color-null: #11081b;
-  --color-byte: #ab66fd;
-  --color-azure: #59b8fe;
-  --color-lime: #c9ff7c;
-  --color-wisp-10: #e7d2f91a;
-  --color-wisp-40: #e7d2f966;
-  --color-transparent-wisp-10: #e7d2f91a;
-  --color-transparent-null-10: #11081b1a;
+  --color-task-content: var(--svb-color-red);
+  --color-task-race: var(--svb-color-gold);
+  --color-task-deadline: var(--svb-color-red);
+
+  /* ── Wisp system (legacy names → SVB values) ───── */
+  --color-wisp: var(--svb-color-white);
+  --color-null: var(--svb-color-midnight);
+  --color-byte: var(--svb-color-red);
+  --color-azure: var(--svb-color-blue);
+  --color-lime: var(--svb-color-gold);
+  --color-wisp-10: #ffffff1a;
+  --color-wisp-40: #ffffff66;
+  --color-transparent-wisp-10: #ffffff1a;
+  --color-transparent-null-10: #0612281a;
+
+  --svb-gradient-bg:
+    radial-gradient(
+      ellipse 80vmax 60vmax at 85% -8%,
+      color-mix(in srgb, var(--svb-color-red) 38%, transparent),
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse 72vmax 58vmax at -8% 108%,
+      color-mix(in srgb, var(--svb-color-gold) 32%, transparent),
+      transparent 56%
+    ),
+    radial-gradient(
+      ellipse 78vmax 56vmax at 52% 48%,
+      color-mix(in srgb, var(--svb-color-blue) 36%, transparent),
+      transparent 64%
+    );
+  --svb-noise-opacity: 0.28;
 
   /* ── Stat display (prices, big points) ─────────────────────── */
   --text-stat-display: clamp(4rem, 3.648rem + 1.502vw, 5rem);
@@ -71,11 +94,11 @@
   --cta-height-lg: 4.25rem;
 
   /* ── Event map (Breakpoint event-day pattern) ──────────────── */
-  --map-pin-mint: #14f195;
-  --map-pin-mint-40: #14f19566;
-  --map-surface: #11081b;
-  --map-border-wisp-20: #e7d2f933;
-  --map-border-byte-50: #ab66fd80;
+  --map-pin-mint: var(--svb-color-gold);
+  --map-pin-mint-40: #d4a82a66;
+  --map-surface: var(--svb-color-midnight);
+  --map-border-wisp-20: #ffffff33;
+  --map-border-byte-50: #b91c2e80;
   --map-control-size: 1.75rem; /* 28px zoom buttons */
   --map-search-height: 3rem;   /* 48px */
   --map-callout-max-h: 20rem;  /* max-h-80 */
@@ -143,13 +166,13 @@
 
   /* Halftone UI ink palette */
   --ink: var(--color-wisp);
-  --purple: var(--svb-color-breakpoint-purple);
-  --green: var(--svb-color-solana-mint);
-  --blue: var(--color-azure);
-  --grey: #a2a2a2;
-  --orange: var(--svb-color-borneo-amber);
-  --pink: #f472b6;
-  --red: #ef4444;
+  --purple: var(--svb-color-blue);
+  --green: var(--svb-color-gold);
+  --blue: var(--svb-color-blue);
+  --grey: #b8c4d9;
+  --orange: var(--svb-color-gold);
+  --pink: var(--svb-color-red);
+  --red: var(--svb-color-red);
 
   /* ── Z-index layers ────────────────────────────────────────── */
   --z-nav: 40;

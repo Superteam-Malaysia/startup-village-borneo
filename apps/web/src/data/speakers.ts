@@ -66,7 +66,7 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
       },
       {
         id: "s2-virtuals",
-        title: "Workshop",
+        title: "Virtuals — agent economies",
         speaker: "Virtuals",
         organization: "Virtuals",
         kind: "workshop",
@@ -91,7 +91,7 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
     sessions: [
       {
         id: "s3-magic",
-        title: "Workshop",
+        title: "MagicBlock — on-chain performance",
         speaker: "Dhruv",
         organization: "MagicBlock",
         kind: "workshop",
@@ -100,7 +100,7 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
       },
       {
         id: "s3-sid",
-        title: "Workshop",
+        title: "Solana ID — identity on Solana",
         speaker: "Simon",
         organization: "Solana ID",
         kind: "workshop",
@@ -109,7 +109,7 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
       },
       {
         id: "s3-monke",
-        title: "Workshop",
+        title: "MonkeDAO — community-led building",
         speaker: "Jemmy",
         organization: "MonkeDAO",
         kind: "workshop",
@@ -231,3 +231,30 @@ export const FEATURED_SPEAKERS = [
   { name: "Shuen Rui", org: "Impossible Finance / Rarible" },
   { name: "Nikki", org: "Content" },
 ];
+
+export type WorkshopPreview = {
+  id: string;
+  title: string;
+  speaker: string;
+  organization?: string;
+  dayIndex: number;
+  dayLabel: string;
+  date: string;
+  start: string;
+};
+
+/** On-stage workshops — Breakout livestream row layout (title · speaker · slot). */
+export const WORKSHOP_SESSIONS: WorkshopPreview[] = SPEAKER_DAYS.flatMap((day) =>
+  day.sessions
+    .filter((session) => session.kind === "workshop")
+    .map((session) => ({
+      id: session.id,
+      title: session.title,
+      speaker: session.speaker,
+      organization: session.organization,
+      dayIndex: day.dayIndex,
+      dayLabel: day.label,
+      date: day.date,
+      start: session.start ?? "",
+    })),
+);

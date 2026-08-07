@@ -1,0 +1,219 @@
+/**
+ * Breakout livestream workshops — stacked row layout (colosseum.com/breakout)
+ * Adapted to SVB dark theme: shared borders, thumb cell, title · speaker · slot · link.
+ */
+
+.workshop-rows {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--color-transparent-wisp-10);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.workshop-row + .workshop-row {
+  margin-top: -2px;
+}
+
+.workshop-row__desktop,
+.workshop-row__mobile {
+  align-items: stretch;
+  background: transparent;
+  transition: background-color var(--duration-normal) var(--ease-out-expo);
+}
+
+.group:hover .workshop-row__desktop,
+.group:hover .workshop-row__mobile {
+  background: color-mix(in srgb, var(--color-wisp) 6%, transparent);
+}
+
+/* Thumb */
+.workshop-row__thumb {
+  position: relative;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 9rem;
+  aspect-ratio: 1;
+  border: 2px solid var(--color-transparent-wisp-10);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-wisp);
+  overflow: hidden;
+}
+
+.workshop-row__desktop .workshop-row__thumb {
+  border-top: none;
+  border-left: none;
+}
+
+.workshop-row__thumb--sm {
+  width: 5rem;
+  font-size: 0.95rem;
+}
+
+.workshop-row__thumb--azure {
+  background: color-mix(in srgb, var(--color-azure) 28%, var(--color-null));
+}
+
+.workshop-row__thumb--byte {
+  background: color-mix(in srgb, var(--color-byte) 28%, var(--color-null));
+}
+
+.workshop-row__thumb--lime {
+  background: color-mix(in srgb, var(--color-lime) 24%, var(--color-null));
+}
+
+.group:hover .workshop-row__thumb--azure {
+  background: color-mix(in srgb, var(--color-azure) 42%, var(--color-null));
+}
+
+.group:hover .workshop-row__thumb--byte {
+  background: color-mix(in srgb, var(--color-byte) 42%, var(--color-null));
+}
+
+.group:hover .workshop-row__thumb--lime {
+  background: color-mix(in srgb, var(--color-lime) 38%, var(--color-null));
+}
+
+/* Body */
+.workshop-row__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  border: 2px solid var(--color-transparent-wisp-10);
+  border-top: none;
+  border-left: none;
+}
+
+.workshop-row__body--mobile {
+  border-right: none;
+  border-bottom: none;
+}
+
+.workshop-row__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  line-height: 1.25;
+  font-weight: 700;
+  color: var(--color-wisp);
+}
+
+@media (min-width: 1280px) {
+  .workshop-row__title {
+    font-size: 1.25rem;
+  }
+}
+
+.workshop-row__speaker {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--color-wisp) 72%, transparent);
+}
+
+.workshop-row__speaker--inline {
+  display: none;
+}
+
+.workshop-row__speaker--stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+@media (min-width: 1280px) {
+  .workshop-row__speaker--inline {
+    display: block;
+    max-width: 40rem;
+  }
+
+  .workshop-row__speaker--stack {
+    display: none;
+  }
+}
+
+/* Aside — time + link */
+.workshop-row__aside {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.workshop-row__when {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 1.5rem;
+  border: 2px solid var(--color-transparent-wisp-10);
+  border-top: none;
+  border-left: none;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-wisp);
+  text-align: center;
+  min-width: 11rem;
+}
+
+@media (min-width: 1280px) {
+  .workshop-row__when {
+    min-width: 20rem;
+  }
+}
+
+.workshop-row__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 1.5rem;
+  border: 2px solid var(--color-transparent-wisp-10);
+  border-top: none;
+  border-left: none;
+  color: var(--color-wisp);
+  transition:
+    color var(--duration-normal) var(--ease-out-expo),
+    background-color var(--duration-normal) var(--ease-out-expo);
+}
+
+.workshop-row__link:hover {
+  color: var(--color-byte);
+  background: color-mix(in srgb, var(--color-wisp) 8%, transparent);
+}
+
+.workshop-row__link:focus-visible {
+  outline: 2px solid var(--color-byte);
+  outline-offset: -2px;
+}
+
+@media (min-width: 1280px) {
+  .workshop-row__link {
+    width: 7.5rem;
+  }
+}
+
+/* Mobile foot row */
+.workshop-row__mobile-foot {
+  display: flex;
+  align-items: stretch;
+}
+
+.workshop-row__mobile-foot .workshop-row__thumb {
+  border-left: none;
+  border-bottom: none;
+}
+
+.workshop-row__mobile-foot .workshop-row__when {
+  flex: 1;
+  border-bottom: none;
+}
+
+.workshop-row__mobile-foot .workshop-row__link {
+  border-bottom: none;
+}

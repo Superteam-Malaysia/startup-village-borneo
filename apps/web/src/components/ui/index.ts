@@ -1,6 +1,7 @@
 export { CtaButton } from "./CtaButton";
 export type { CtaButtonProps } from "./CtaButton";
 export { Eyebrow, SectionArticle, SectionHeading, SectionIntro } from "./Section";
+export type { SubheadAccent } from "./Section";
 export { StatDisplay } from "./StatDisplay";
 export { ActionCard } from "./ActionCard";
 export type { ActionCardProps } from "./ActionCard";

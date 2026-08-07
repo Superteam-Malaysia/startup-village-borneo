@@ -15,8 +15,8 @@ export function textField(text, W, createCanvas) {
   const o = createCanvas();
   const c = o.getContext('2d', { willReadFrequently: true });
   const setFont = (px) => {
-    c.font = `900 ${px}px "Helvetica Neue", "Arial Black", Inter, system-ui, sans-serif`;
-    try { c.letterSpacing = `${-px * 0.035}px`; } catch (e) {}
+    c.font = `800 ${px}px Syne, "Helvetica Neue", "Arial Black", system-ui, sans-serif`;
+    try { c.letterSpacing = `${-px * 0.03}px`; } catch (e) {}
   };
   // width scales linearly with size (tracking is proportional), so one measure fits it
   setFont(400);

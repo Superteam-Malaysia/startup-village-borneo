@@ -23,14 +23,13 @@ export function SvbHibiscusLogo({
     >
       <title>{title}</title>
       <defs>
-        <linearGradient id={`${id}-grad`} x1="10%" y1="8%" x2="92%" y2="96%">
-          <stop offset="0%" stopColor="#6d28d9" />
-          <stop offset="40%" stopColor="#ab66fd" />
-          <stop offset="75%" stopColor="#d946ef" />
-          <stop offset="100%" stopColor="#f472b6" />
+        <linearGradient id={`${id}-grad`} x1="8%" y1="10%" x2="92%" y2="92%">
+          <stop offset="0%" stopColor="#2450e6" />
+          <stop offset="45%" stopColor="#b91c2e" />
+          <stop offset="100%" stopColor="#d4a82a" />
         </linearGradient>
         <pattern id={`${id}-dots`} width="2.4" height="2.4" patternUnits="userSpaceOnUse">
-          <circle cx="1.2" cy="1.2" r="0.55" fill="#e7d2f9" opacity="0.55" />
+          <circle cx="1.2" cy="1.2" r="0.55" fill="#ffffff" opacity="0.45" />
         </pattern>
         <clipPath id={`${id}-clip`}>
           <path d="M28 7 C21 12 17 18 20 24 C14 22 10 28 14 34 C18 38 24 36 28 33 C32 36 38 38 42 34 C46 28 42 22 36 24 C39 18 35 12 28 7 Z" />
@@ -76,8 +75,8 @@ export function SvbHibiscusLogo({
       </g>
 
       {/* Center cup */}
-      <circle cx="28" cy="24" r="2.4" fill="#11081b" opacity="0.55" />
-      <circle cx="28" cy="24" r="1.1" fill="#f472b6" opacity="0.85" />
+      <circle cx="28" cy="24" r="2.4" fill="var(--svb-color-midnight)" opacity="0.55" />
+      <circle cx="28" cy="24" r="1.1" fill="#d4a82a" opacity="0.9" />
     </svg>
   );
 }

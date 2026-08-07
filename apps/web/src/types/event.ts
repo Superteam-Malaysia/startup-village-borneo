@@ -49,4 +49,10 @@ export type Partner = {
   name: string;
   role: "anchor" | "confirmed" | "pending";
   workshops?: boolean;
+  /** Path under /public, e.g. /partners/foo.svg */
+  logo?: string;
+  /** How to render on dark footer-style surfaces (Breakpoint sponsor grid). */
+  logoStyle?: "light" | "color" | "invert";
+  /** Square/circular badge — tighter inset so it doesn't dominate the 16:9 cell */
+  logoFit?: "default" | "icon";
 };

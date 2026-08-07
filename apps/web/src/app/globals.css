@@ -5,9 +5,15 @@
 @import "../styles/experience.css";
 @import "../styles/taste-polish.css";
 @import "../styles/unslop.css";
+@import "../styles/hero-reveal.css";
 @import "../styles/halftone-surfaces.css";
 @import "../styles/site-nav.css";
 @import "../styles/breakpoint-footer.css";
+@import "../styles/footer-scramble.css";
+@import "../styles/photo-strip.css";
+@import "../styles/workshop-rows.css";
+@import "../styles/breakout-subhead.css";
+@import "../styles/partner-logo-wall.css";
 
 @theme inline {
   --font-sans: var(--font-sans);
@@ -29,10 +35,40 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--site-nav-height);
+  min-height: 100%;
+  background-color: var(--color-null);
+}
+
+/*
+ * Fixed viewport backdrop — one continuous gradient + grain layer.
+ * Avoids per-section seams from scroll-attached body backgrounds.
+ */
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-color: var(--color-null);
+  background-image: var(--svb-gradient-bg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+html::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--svb-noise-opacity);
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
 }
 
 body {
-  background: var(--color-null);
+  background: transparent;
   color: var(--color-wisp);
   font-family: var(--font-sans);
   font-size: 1.0625rem;

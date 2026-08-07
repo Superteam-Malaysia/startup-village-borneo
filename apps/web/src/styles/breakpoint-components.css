@@ -113,7 +113,7 @@
   width: 100%;
   padding: var(--space-xs);
   color: var(--color-wisp);
-  background: var(--color-null);
+  background: transparent;
 }
 
 @media (min-width: 768px) {
@@ -155,7 +155,7 @@
 }
 
 .bp-card--null {
-  background: var(--color-null);
+  background: color-mix(in srgb, var(--color-null) 55%, transparent);
   color: var(--color-wisp);
 }
 
@@ -187,15 +187,15 @@
 }
 
 .status-chip--approved {
-  background: #14f1951a;
-  color: var(--color-bg-accent);
-  border-color: #14f1954d;
+  background: color-mix(in srgb, var(--svb-color-gold) 12%, transparent);
+  color: var(--svb-color-gold);
+  border-color: color-mix(in srgb, var(--svb-color-gold) 35%, transparent);
 }
 
 .status-chip--pending {
-  background: #f59e0b1a;
-  color: #f59e0b;
-  border-color: #f59e0b4d;
+  background: color-mix(in srgb, var(--svb-color-gold) 10%, transparent);
+  color: var(--svb-color-gold);
+  border-color: color-mix(in srgb, var(--svb-color-gold) 30%, transparent);
 }
 
 .status-chip--locked {

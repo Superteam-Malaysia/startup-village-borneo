@@ -1,0 +1,91 @@
+/**
+ * Breakpoint-style photo strip — infinite pan + glitch cells.
+ */
+
+.pre-footer-band {
+  width: 100%;
+  overflow: hidden;
+}
+
+.photo-strip {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 0;
+  padding-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .photo-strip {
+    padding-top: 3rem;
+  }
+}
+
+.photo-strip__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: photo-strip-pan 50s linear infinite;
+}
+
+.photo-strip__row {
+  display: flex;
+  flex-shrink: 0;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .photo-strip__row {
+    gap: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.glitch-photo {
+  position: relative;
+  flex-shrink: 0;
+  width: 200px;
+  height: 240px;
+  overflow: hidden;
+  background: #141519;
+}
+
+@media (min-width: 768px) {
+  .glitch-photo {
+    width: 280px;
+    height: 320px;
+  }
+
+  .photo-strip__cell--md {
+    width: 320px;
+  }
+
+  .photo-strip__cell--lg {
+    width: 400px;
+  }
+
+  .photo-strip__cell--wide {
+    width: 569px;
+  }
+}
+
+.glitch-photo__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes photo-strip-pan {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-strip__track {
+    animation: none;
+  }
+}

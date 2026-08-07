@@ -20,7 +20,8 @@
   right: 0;
   z-index: var(--z-nav);
   border-bottom: 1px solid var(--color-transparent-wisp-10);
-  background: var(--color-null);
+  background: color-mix(in srgb, var(--color-null) 55%, transparent);
+  backdrop-filter: blur(12px);
 }
 
 .site-nav__bar {
@@ -55,26 +56,15 @@
 
 .site-nav__logo-mark {
   display: block;
-  width: 2.5rem;
-  height: auto;
+  height: 2rem;
+  width: auto;
   flex-shrink: 0;
 }
 
 @media (min-width: 768px) {
   .site-nav__logo-mark {
-    width: 2.75rem;
+    height: 2.25rem;
   }
-}
-
-.site-nav__logo-text {
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-}
-
-.site-nav__logo:hover .site-nav__logo-text {
-  color: var(--color-byte);
 }
 
 .site-nav__desktop {
@@ -124,7 +114,8 @@
   inset-inline: 0;
   top: 100%;
   border-bottom: 1px solid var(--color-transparent-wisp-10);
-  background: var(--color-null);
+  background: color-mix(in srgb, var(--color-null) 55%, transparent);
+  backdrop-filter: blur(12px);
   box-shadow: 0 12px 40px color-mix(in srgb, var(--color-null) 60%, transparent);
 }
 

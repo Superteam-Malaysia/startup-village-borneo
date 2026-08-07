@@ -1,0 +1,1 @@
+export { PartnerLogoWall } from "./PartnerLogoWall";
