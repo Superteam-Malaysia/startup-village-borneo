@@ -51,6 +51,9 @@
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --duration-normal: 300ms;
 
+  --z-nav: 50;
+  --site-nav-height: 3.5rem;
+
   /* Halftone UI ink palette (read by HalftoneProvider from CSS custom properties) */
   --ink: var(--color-wisp);
   --purple: var(--svb-color-breakpoint-purple);

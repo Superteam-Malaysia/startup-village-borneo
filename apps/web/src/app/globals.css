@@ -6,6 +6,7 @@
 @import "../styles/taste-polish.css";
 @import "../styles/unslop.css";
 @import "../styles/halftone-surfaces.css";
+@import "../styles/site-nav.css";
 
 @theme inline {
   --font-sans: var(--font-sans);
@@ -26,6 +27,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--site-nav-height);
 }
 
 body {
