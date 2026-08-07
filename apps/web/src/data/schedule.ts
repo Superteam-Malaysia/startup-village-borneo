@@ -25,6 +25,8 @@ export type ScheduleDay = {
   title: string;
   /** Short line for cards — typically the calendar date */
   subtitle: string;
+  /** Homepage card image — from Superteam MY announce post */
+  cardImage?: string;
   venueNote?: string;
   events: ScheduleEvent[];
 };
@@ -36,6 +38,7 @@ export const SCHEDULE_DAYS: ScheduleDay[] = [
     date: "Sat 5 Sept",
     title: "Arrive & Explore Kuching",
     subtitle: "Sat 5 Sept",
+    cardImage: "/schedule/days/day-1.jpg",
     events: [
       {
         id: "d1-explore",
@@ -68,6 +71,7 @@ export const SCHEDULE_DAYS: ScheduleDay[] = [
     date: "Sun 6 Sept",
     title: "Opening & Problem Framing",
     subtitle: "Sun 6 Sept",
+    cardImage: "/schedule/days/day-2.jpg",
     venueNote: "Workshops at Voco from Day 2",
     events: [
       {
@@ -163,6 +167,7 @@ export const SCHEDULE_DAYS: ScheduleDay[] = [
     date: "Mon 7 Sept",
     title: "Build & Traction",
     subtitle: "Mon 7 Sept",
+    cardImage: "/schedule/days/day-3.jpg",
     venueNote: "Workshops at Voco",
     events: [
       {
@@ -220,6 +225,7 @@ export const SCHEDULE_DAYS: ScheduleDay[] = [
     date: "Tue 8 Sept",
     title: "Storytelling & Pitch",
     subtitle: "Tue 8 Sept",
+    cardImage: "/schedule/days/day-4.jpg",
     venueNote: "Workshops at Voco",
     events: [
       {
@@ -283,6 +289,7 @@ export const SCHEDULE_DAYS: ScheduleDay[] = [
     date: "Wed 9 Sept",
     title: "Demo Day",
     subtitle: "Wed 9 Sept",
+    cardImage: "/schedule/days/day-5-demo-day.jpg", // Superteam MY Demo Day — x.com/SuperteamMY/status/2082366956288758235
     venueNote: "Sheraton Kuching",
     events: [
       {

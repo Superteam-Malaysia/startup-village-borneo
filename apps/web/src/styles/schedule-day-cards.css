@@ -1,0 +1,116 @@
+/**
+ * Schedule day cards — Breakpoint ecosystem event card pattern.
+ * @see https://solana.com/breakpoint
+ */
+
+.schedule-day-cards {
+  display: flex;
+  gap: 1rem;
+  margin: 3rem 0 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  scrollbar-width: none;
+}
+
+.schedule-day-cards::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .schedule-day-cards {
+    gap: 2rem;
+    margin-right: 0;
+    padding-right: 0;
+  }
+}
+
+.schedule-day-cards__item {
+  display: block;
+  flex: 0 0 280px;
+  width: 280px;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+  .schedule-day-cards__item {
+    flex-basis: calc((100% - 4rem) / 3);
+    width: calc((100% - 4rem) / 3);
+    min-width: 300px;
+  }
+}
+
+.schedule-day-cards__link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.schedule-day-cards__link:focus-visible {
+  outline: 2px solid var(--color-wisp);
+  outline-offset: 4px;
+}
+
+.schedule-day-cards__media {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--color-wisp) 22%, transparent);
+  background: color-mix(in srgb, var(--color-null) 88%, var(--color-wisp) 12%);
+}
+
+.schedule-day-cards__image {
+  object-fit: cover;
+  transition: transform 300ms var(--ease-out-expo);
+}
+
+.schedule-day-cards__link:hover .schedule-day-cards__image,
+.schedule-day-cards__link:focus-visible .schedule-day-cards__image {
+  transform: scale(1.05);
+}
+
+.schedule-day-cards__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 8rem;
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--color-wisp) 22%, transparent);
+  border-top: none;
+}
+
+.schedule-day-cards__title {
+  color: var(--color-wisp);
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  transition: opacity 200ms var(--ease-out-expo);
+}
+
+.schedule-day-cards__link:hover .schedule-day-cards__title,
+.schedule-day-cards__link:focus-visible .schedule-day-cards__title {
+  opacity: 0.7;
+}
+
+.schedule-day-cards__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
+  margin-top: 0.5rem;
+  color: color-mix(in srgb, var(--color-wisp) 58%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
