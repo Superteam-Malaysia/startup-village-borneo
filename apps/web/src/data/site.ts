@@ -9,6 +9,9 @@ export const SITE = {
     "Sessions start at 10:00. Hard stop 17:00–17:30. Evenings are free for building at the hotel.",
   cutoff: "Day 4 · 18:00 — Amazing Race & deck submission cutoff",
   email: "hello@superteam.my",
+  announcementTweetUrl:
+    "https://x.com/SuperteamMY/status/2082421174773178540",
+  announcementVideoSrc: "/hero/svb-announce.mp4?v=3",
 };
 
 export const NAV_LINKS = [

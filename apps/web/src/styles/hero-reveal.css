@@ -12,6 +12,7 @@
   letter-spacing: -0.03em;
   color: var(--color-wisp);
   white-space: pre-line;
+  text-shadow: 0 2px 24px color-mix(in srgb, var(--color-null) 65%, transparent);
 }
 
 .decode-text__char {

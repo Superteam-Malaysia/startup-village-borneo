@@ -6,6 +6,7 @@ import {
   HomeRaceTeaserStats,
 } from "@/components/halftone";
 import { HeroRevealMeta, HeroRevealTitle } from "@/components/shell/HeroRevealTitle";
+import { HeroVideoBackdrop } from "@/components/shell/HeroVideoBackdrop";
 import { PreFooterBand } from "@/components/shell/PreFooterBand";
 import { WorkshopRowList } from "@/components/speakers";
 import {
@@ -33,7 +34,11 @@ export default function HomePage() {
     <main>
       {/* Hero — Breakpoint-style letter reveal */}
       <section className="home-hero relative border-b border-[color:var(--color-transparent-wisp-10)]">
-        <div className="home-hero__inner max-w-[90rem] mx-auto px-4 md:px-8">
+        <HeroVideoBackdrop
+          src={SITE.announcementVideoSrc}
+          tweetUrl={SITE.announcementTweetUrl}
+        />
+        <div className="home-hero__inner relative z-10 max-w-[90rem] mx-auto px-4 md:px-8">
           <HeroRevealTitle lines={["Startup Village", "Borneo"]} />
           <HeroRevealMeta
             text={`${SITE.dates} · Solana Foundation · SOCOE · Kuching`}

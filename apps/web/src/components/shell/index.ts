@@ -10,5 +10,6 @@ export { GlitchPhotoCell } from "./GlitchPhotoCell";
 export { HeroGlitch } from "./HeroGlitch";
 export { HeroRevealMeta, HeroRevealTitle } from "./HeroRevealTitle";
 export { DecodeText } from "./HeroRevealTitle";
+export { HeroVideoBackdrop } from "./HeroVideoBackdrop";
 export { PageHeader } from "./PageHeader";
 export { MobileNavMenu } from "./MobileNavMenu";
