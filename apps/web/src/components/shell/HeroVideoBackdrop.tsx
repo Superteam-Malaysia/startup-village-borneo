@@ -1,3 +1,10 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
+/** Hard cap — matches trimmed hero asset length. */
+const HERO_VIDEO_MAX_SECONDS = 9;
+
 /** Full-bleed hero video from the Superteam MY launch post on X. */
 export function HeroVideoBackdrop({
   src,
@@ -8,9 +15,26 @@ export function HeroVideoBackdrop({
   poster?: string;
   tweetUrl: string;
 }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const capAtNineSeconds = () => {
+      if (video.currentTime >= HERO_VIDEO_MAX_SECONDS) {
+        video.currentTime = 0;
+      }
+    };
+
+    video.addEventListener("timeupdate", capAtNineSeconds);
+    return () => video.removeEventListener("timeupdate", capAtNineSeconds);
+  }, []);
+
   return (
     <div className="home-hero__backdrop" aria-hidden="true">
       <video
+        ref={videoRef}
         className="home-hero__video"
         src={src}
         poster={poster}
@@ -18,7 +42,7 @@ export function HeroVideoBackdrop({
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
       />
       <div className="home-hero__backdrop-overlay" />
       <a

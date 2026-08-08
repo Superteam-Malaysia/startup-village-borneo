@@ -11,7 +11,7 @@ export const SITE = {
   email: "hello@superteam.my",
   announcementTweetUrl:
     "https://x.com/SuperteamMY/status/2082421174773178540",
-  announcementVideoSrc: "/hero/svb-announce.mp4?v=3",
+  announcementVideoSrc: "/hero/svb-announce-9s.mp4",
 };
 
 export const NAV_LINKS = [
