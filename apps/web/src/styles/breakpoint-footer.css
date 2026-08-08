@@ -41,13 +41,13 @@
 .bp-footer__inner {
   max-width: 90rem;
   margin-inline: auto;
-  padding: 1rem 1rem 0;
+  padding: 1rem clamp(1.5rem, 4vw, 3.5rem) 0;
   background: var(--svb-color-blue);
 }
 
 @media (min-width: 768px) {
   .bp-footer__inner {
-    padding: 1.25rem 2rem 0;
+    padding-top: 1.25rem;
   }
 }
 
