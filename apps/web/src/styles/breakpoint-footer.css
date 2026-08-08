@@ -39,15 +39,16 @@
 }
 
 .bp-footer__inner {
-  max-width: 90rem;
-  margin-inline: auto;
-  padding: 1rem clamp(1.5rem, 4vw, 3.5rem) 0;
+  /* Full-bleed blue — inset is from the real viewport edges */
+  width: 100%;
+  /* Keep social / links clear of the blue block edges */
+  padding: 1.25rem clamp(2rem, 7vw, 5.5rem) 0;
   background: var(--svb-color-blue);
 }
 
 @media (min-width: 768px) {
   .bp-footer__inner {
-    padding-top: 1.25rem;
+    padding-top: 1.5rem;
   }
 }
 
