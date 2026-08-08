@@ -38,16 +38,16 @@ export default function HomePage() {
           <div className="home-hero__inner relative z-10 max-w-[90rem] mx-auto px-4 md:px-8">
             <HeroWordmark />
           </div>
+          <div className="home-hero__separator relative z-10">
+            <CtaButton href={SITE.applyUrl} variant="azure" size="md" external>
+              Apply
+            </CtaButton>
+          </div>
         </div>
         <FooterScrambleTicker
           variant="azure"
-          className="footer-scramble--hero"
+          className="footer-scramble--divider"
         />
-        <div className="home-hero__separator">
-          <CtaButton href={SITE.applyUrl} variant="azure" size="md" external>
-            Apply
-          </CtaButton>
-        </div>
       </section>
 
       {/* Schedule preview */}

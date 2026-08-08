@@ -55,30 +55,6 @@
   color: var(--color-azure);
 }
 
-.footer-scramble--hero {
-  flex-shrink: 0;
-  padding: 0.875rem 0;
-  border: none;
-  background:
-    radial-gradient(
-      ellipse 90% 120% at 18% 50%,
-      color-mix(in srgb, var(--color-azure) 22%, transparent),
-      transparent 62%
-    ),
-    linear-gradient(
-      to right,
-      color-mix(in srgb, var(--color-null) 88%, var(--color-azure) 12%),
-      color-mix(in srgb, var(--color-bg-secondary) 94%, var(--color-azure) 6%) 50%,
-      color-mix(in srgb, var(--color-null) 90%, var(--color-azure) 10%)
-    );
-}
-
-@media (min-width: 768px) {
-  .footer-scramble--hero {
-    padding: 1rem 0;
-  }
-}
-
 .footer-scramble__noise {
   color: color-mix(in srgb, var(--color-wisp) 38%, transparent);
 }
