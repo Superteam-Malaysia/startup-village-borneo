@@ -9,32 +9,20 @@ export const SITE = {
     "Sessions start at 10:00. Hard stop 17:00–17:30. Evenings are free for building at the hotel.",
   cutoff: "Day 4 · 18:00 — Amazing Race & deck submission cutoff",
   email: "hello@superteam.my",
+  telegram: "https://t.me/semi_infiknight",
+  applyUrl: "https://luma.com/bpn4ndl8",
   announcementTweetUrl:
     "https://x.com/SuperteamMY/status/2082421174773178540",
   announcementVideoSrc: "/hero/svb-announce-9s.mp4",
+  announcementVideoPoster: "/hero/svb-announce-poster.jpg",
 };
 
 export const NAV_LINKS = [
-  { href: "/#overview", label: "Overview" },
   { href: "/schedule", label: "Schedule" },
   { href: "/speakers", label: "Speakers" },
-  { href: "/amazing-race", label: "Amazing Race" },
-  { href: "/leaderboard", label: "Leaderboard" },
   { href: "/prizes", label: "Prizes" },
-  { href: "/travel", label: "Travel" },
-  { href: "/faq", label: "FAQ" },
-] as const;
-
-export const FOOTER_LINKS = [
-  { href: "/leaderboard", label: "Leaderboard" },
-  { href: "/submissions", label: "Submissions" },
-  { href: "/demo-day", label: "Demo Day" },
-  { href: "/wallet", label: "Wallet onboarding" },
-  { href: "/sustainability", label: "Sustainability track" },
-  { href: "/content-awards", label: "Content Award" },
-  { href: "/venue", label: "Venue" },
-  { href: "/get-involved", label: "Get involved" },
-  { href: "/partners", label: "Partners" },
-  { href: "/code-of-conduct", label: "Code of conduct" },
-  { href: "/design-system", label: "Design system" },
+  { href: "/amazing-race", label: "Amazing Race", comingSoon: true },
+  { href: "/teams", label: "Teams", comingSoon: true },
+  { href: "/demo-day", label: "Demo Day", comingSoon: true },
+  { href: "/travel", label: "Travel", comingSoon: true },
 ] as const;

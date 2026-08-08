@@ -1,4 +1,4 @@
-import { JUDGES } from "@/data/prizes";
+export { DEMO_DAY_JUDGES } from "@/data/judges";
 
 export const DEMO_DAY = {
   date: "Wed 9 Sept 2026",
@@ -38,5 +38,3 @@ export const PITCH_REQUIREMENTS = [
   "Keep demos tight — organizers will share exact time limits at rehearsal.",
   "Sustainability track teams: be ready to explain your SOCOE-aligned angle.",
 ] as const;
-
-export const DEMO_DAY_JUDGES = JUDGES;

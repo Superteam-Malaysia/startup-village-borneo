@@ -36,7 +36,7 @@ export type FaqItem = {
   id: string;
   question: string;
   answer: string;
-  category: "general" | "race" | "teams" | "submissions" | "wallet";
+  category: "general" | "race" | "teams" | "submissions" | "wallet" | "travel";
 };
 
 export type PrizeRow = {

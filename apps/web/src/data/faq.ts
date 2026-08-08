@@ -71,4 +71,32 @@ export const FAQ_ITEMS: FaqItem[] = [
     answer:
       "Sessions hard-stop by 17:30. Evenings are free for building at the hotel. The Amazing Race runs in gaps — your product build comes first.",
   },
+  {
+    id: "mdac",
+    category: "travel",
+    question: "Do I need a digital arrival card for Sarawak?",
+    answer:
+      "Most foreign visitors must complete the Malaysia Digital Arrival Card (MDAC) before landing — including flights into Kuching (KCH). Submit it free at imigresen-online.imi.gov.my/mdac/main within 3 days of your arrival date and keep the confirmation handy for immigration. Singapore citizens and Malaysian permanent residents are exempt. The old EnterSarawak app is no longer required.",
+  },
+  {
+    id: "visa",
+    category: "travel",
+    question: "Do I need a visa to enter Malaysia?",
+    answer:
+      "Check entry requirements for your passport before booking. Many nationalities get visa-free or e-visa access to Malaysia. MDAC is separate from visa — you may need both. When in doubt, confirm with your nearest Malaysian embassy or consulate.",
+  },
+  {
+    id: "kch-sheraton",
+    category: "travel",
+    question: "How do I get from KCH to Sheraton?",
+    answer:
+      "Kuching International Airport is ~11 km south of downtown — about 15 minutes in light traffic. Download Grab before you land and pin KCH for pickup outside arrivals. Airport taxis also run from the official counter. Save Sheraton Kuching as a favourite before Day 1.",
+  },
+  {
+    id: "travel-whatsapp",
+    category: "travel",
+    question: "What should I do before leaving the airport?",
+    answer:
+      "Join your team WhatsApp group, grab a local SIM or eSIM at arrivals (Celcom, Digi, Maxis), and confirm your MDAC if required. The Amazing Race brief drops on arrival — ops run on WhatsApp, not email.",
+  },
 ];
