@@ -11,10 +11,3 @@ export const PRIZE_ROWS: PrizeRow[] = [
   { label: "Content prizes (10 × $100)", amount: "$1,000", note: "Judged after event" },
   { label: "Amazing Race (2 × $500)", amount: "$1,000" },
 ];
-
-export const JUDGES = [
-  "SOCOE — Sam",
-  "Solana Foundation — Chaerin, Seraphim",
-  "Superscrypt — Jacob",
-  "+ one more",
-];

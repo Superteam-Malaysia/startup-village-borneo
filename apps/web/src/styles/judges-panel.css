@@ -1,0 +1,100 @@
+/**
+ * Judges panel — Solana Summit Serbia speaker card layout on SVB dark theme.
+ * @see https://solanasummit.rs/
+ */
+
+.judges-panel {
+  position: relative;
+  width: 100%;
+  margin-top: 3rem;
+  padding: 0;
+  color: var(--color-wisp);
+}
+
+.judges-panel__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.judges-panel__title .section-intro {
+  margin-bottom: 0;
+}
+
+.judges-panel__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 1rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .judges-panel__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem 1.25rem;
+  }
+}
+
+.judges-panel__card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.judges-panel__photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-transparent-wisp-10);
+}
+
+.judges-panel__photo-image {
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 400ms ease, filter 400ms ease;
+}
+
+.judges-panel__card:hover .judges-panel__photo-image {
+  transform: scale(1.03);
+  filter: saturate(1.05);
+}
+
+.judges-panel__name {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-wisp);
+}
+
+@media (min-width: 768px) {
+  .judges-panel__name {
+    font-size: 1.125rem;
+  }
+}
+
+.judges-panel__org {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-wisp) 55%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .judges-panel__photo-image {
+    transition: none;
+  }
+
+  .judges-panel__card:hover .judges-panel__photo-image {
+    transform: none;
+    filter: none;
+  }
+}

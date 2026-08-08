@@ -1,6 +1,7 @@
 import { ActionCard, CtaButton, SectionArticle, SectionIntro } from "@/components/ui";
+import { JudgesPanel } from "@/components/prizes";
 import { PageHeader } from "@/components/shell";
-import { JUDGES, PRIZE_ROWS, PRIZE_TOTAL } from "@/data/prizes";
+import { PRIZE_ROWS, PRIZE_TOTAL } from "@/data/prizes";
 import { CONTENT_AWARD, SUSTAINABILITY_TRACK } from "@/data/tracks";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -12,22 +13,23 @@ export const metadata = pageMetadata({
 
 export default function PrizesPage() {
   return (
-    <main className="site-main">
+    <main className="site-main prizes-page">
       <PageHeader
         title={`${PRIZE_TOTAL} prize pool`}
         lead="Prizes are settled off-app per event operations. This site is the program bible — not a payment portal."
       />
       <SectionArticle>
-        <table className="mt-12 w-full max-w-2xl text-left border-collapse">
-          <thead>
-            <tr className="text-label text-label-muted border-b border-[color:var(--color-transparent-wisp-10)]">
-              <th className="pb-4">Award</th>
-              <th className="pb-4 text-right">Amount</th>
+        <SectionIntro title="Prize breakdown" accent="byte" />
+        <table className="mt-6 w-full max-w-2xl text-left border-collapse">
+          <thead className="sr-only">
+            <tr>
+              <th scope="col">Award</th>
+              <th scope="col">Amount</th>
             </tr>
           </thead>
           <tbody>
             {PRIZE_ROWS.map((row) => (
-              <tr key={row.label} className="border-t border-[color:var(--color-transparent-wisp-10)]">
+              <tr key={row.label} className="border-t border-[color:var(--color-transparent-wisp-10)] first:border-t-0">
                 <td className="py-4 font-[family-name:var(--font-mono)] text-sm">{row.label}</td>
                 <td className="py-4 text-right font-[family-name:var(--font-display)] text-xl">
                   {row.amount}
@@ -66,16 +68,11 @@ export default function PrizesPage() {
             </li>
           </ul>
         </div>
-        <div className="mt-12">
-          <h3 className="text-label">Demo Day judges</h3>
-          <ul className="mt-4 list-none flex flex-col gap-2 text-[var(--color-wisp)]/75">
-            {JUDGES.map((j) => (
-              <li key={j}>{j}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="mt-10">
-          <CtaButton href="/amazing-race" variant="byte" size="md">Amazing Race prizes</CtaButton>
+        <JudgesPanel />
+      </SectionArticle>
+      <SectionArticle>
+        <div className="mt-0">
+          <CtaButton href="/submissions" variant="byte" size="md">Submission rules</CtaButton>
         </div>
       </SectionArticle>
     </main>

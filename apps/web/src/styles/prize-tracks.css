@@ -1,0 +1,323 @@
+/**
+ * Prize tracks panel — adapted from Solana Summit Serbia tracks section.
+ * @see https://solanasummit.rs/
+ */
+
+@keyframes prize-tracks-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes prize-tracks-kitten-jump {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  35% {
+    transform: translateY(-18px) rotate(-4deg);
+  }
+  55% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+.prize-tracks {
+  position: relative;
+  overflow: hidden;
+}
+
+.prize-tracks__intro {
+  padding: 0;
+}
+
+.prize-tracks__title {
+  margin: 0;
+  color: var(--color-wisp);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.prize-tracks__title-highlight {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+  padding: 0 0.04em;
+  white-space: nowrap;
+}
+
+.prize-tracks__title-highlight-bg {
+  position: absolute;
+  inset: 0.1em 0 0;
+  z-index: -1;
+  transform: scaleX(1);
+  transform-origin: left center;
+  background: var(--color-byte);
+}
+
+.prize-tracks__marquee {
+  display: flex;
+  width: 100%;
+  margin-top: 2rem;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.prize-tracks__marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 1.125rem;
+  width: max-content;
+  animation: prize-tracks-marquee-scroll 120s linear infinite;
+}
+
+.prize-tracks__marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.125rem;
+}
+
+.prize-tracks__knot {
+  display: block;
+  flex-shrink: 0;
+  width: 2.9375rem;
+  height: auto;
+}
+
+.prize-tracks__kitten {
+  display: block;
+  flex-shrink: 0;
+  width: 9.625rem;
+  height: auto;
+  transform-origin: bottom center;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.prize-tracks__kitten:hover {
+  animation: prize-tracks-kitten-jump 0.5s ease-out;
+}
+
+@media (max-width: 767px) {
+  .prize-tracks__knot {
+    width: 2.9375rem;
+  }
+
+  .prize-tracks__kitten {
+    width: 9.625rem;
+  }
+}
+
+.prize-tracks__panels {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .prize-tracks__panels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .prize-tracks__panels {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    min-height: 28rem;
+  }
+}
+
+.prize-tracks__panel {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 16rem;
+  padding: 2rem 1rem 3rem 1.625rem;
+  border-top: 1px solid var(--color-transparent-wisp-10);
+}
+
+@media (min-width: 768px) {
+  .prize-tracks__panel {
+    padding: 2rem 1.25rem 3rem 1.625rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .prize-tracks__panel {
+    min-height: 28rem;
+    padding: 0 1.625rem 3rem;
+    border-top: none;
+  }
+
+  .prize-tracks__panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    background: var(--color-transparent-wisp-10);
+    transform: scaleY(1);
+    transform-origin: top center;
+  }
+}
+
+.prize-tracks__panel-line {
+  position: absolute;
+  top: 2rem;
+  bottom: 2rem;
+  left: 1rem;
+  width: 2px;
+  background: var(--color-wisp);
+  transform: scaleY(1);
+  transform-origin: bottom center;
+}
+
+@media (min-width: 1024px) {
+  .prize-tracks__panel-line {
+    top: auto;
+    bottom: calc(2.77778vh + 14rem);
+    left: 0;
+    height: 14rem;
+  }
+}
+
+.prize-tracks__panel-head {
+  position: relative;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+  .prize-tracks__panel-head {
+    position: absolute;
+    top: calc(100% - 14rem - 2.77778vh);
+    left: 1.625rem;
+    right: 1rem;
+    margin-top: 0;
+  }
+}
+
+.prize-tracks__panel-title {
+  margin: 0;
+  color: var(--color-wisp);
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.prize-tracks__panel-amount {
+  margin: 0.75rem 0 0;
+  color: var(--color-lime);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.prize-tracks__panel-desc {
+  position: relative;
+  max-width: 17.5rem;
+  margin: 1rem 0 0;
+  color: color-mix(in srgb, var(--color-wisp) 58%, transparent);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+@media (min-width: 1024px) {
+  .prize-tracks__panel-desc {
+    position: absolute;
+    bottom: 3rem;
+    left: 1.625rem;
+    right: 1rem;
+    margin: 0;
+  }
+}
+
+.prize-tracks__breakdown {
+  padding: 2rem 1rem 2.5rem;
+  border-top: 1px solid var(--color-transparent-wisp-10);
+}
+
+@media (min-width: 768px) {
+  .prize-tracks__breakdown {
+    padding: 2rem 2rem 2.5rem;
+  }
+}
+
+.prize-tracks__breakdown-label {
+  margin: 0 0 1rem;
+  color: color-mix(in srgb, var(--color-wisp) 55%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.prize-tracks__breakdown-list {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 42rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.prize-tracks__breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-transparent-wisp-10);
+  color: color-mix(in srgb, var(--color-wisp) 82%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+}
+
+.prize-tracks__breakdown-row span:last-child {
+  color: var(--color-wisp);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prize-tracks__marquee-track {
+    animation: none;
+  }
+
+  .prize-tracks__kitten:hover {
+    animation: none;
+  }
+}
+
+/* /prizes — tighter gap between hero lead and breakdown table */
+.prizes-page .page-header {
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .prizes-page .page-header {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.prizes-page .bp-article {
+  padding-top: 0;
+}
+
+.prizes-page .section-intro {
+  margin-bottom: 0;
+}
