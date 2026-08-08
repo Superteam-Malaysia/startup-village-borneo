@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { CtaButton } from "@/components/ui";
 import { NAV_LINKS, SITE } from "@/data/site";
 import { MobileNavMenu } from "./MobileNavMenu";
+import { SiteNavDesktopItem } from "./SiteNavItem";
 
 export function SiteNav() {
   return (
@@ -20,17 +20,12 @@ export function SiteNav() {
 
         <nav className="site-nav__desktop" aria-label="Primary">
           {NAV_LINKS.map((link) => (
-            <Link key={link.href} href={link.href} className="site-nav__desktop-link">
-              {link.label}
-            </Link>
+            <SiteNavDesktopItem key={link.href} link={link} />
           ))}
         </nav>
 
         <div className="site-nav__actions">
           <MobileNavMenu />
-          <CtaButton href="/amazing-race" variant="byte" size="sm" showArrow={false}>
-            Race
-          </CtaButton>
         </div>
       </div>
     </header>

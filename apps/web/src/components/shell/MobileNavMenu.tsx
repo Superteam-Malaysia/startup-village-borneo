@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 import { NAV_LINKS } from "@/data/site";
+import { SiteNavMobileItem } from "./SiteNavItem";
 
 export function MobileNavMenu() {
   const [open, setOpen] = useState(false);
@@ -27,13 +27,7 @@ export function MobileNavMenu() {
           <ul className="site-nav__mobile-list">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="site-nav__mobile-link"
-                  onClick={() => setOpen(false)}
-                >
-                  {link.label}
-                </Link>
+                <SiteNavMobileItem link={link} onNavigate={() => setOpen(false)} />
               </li>
             ))}
           </ul>

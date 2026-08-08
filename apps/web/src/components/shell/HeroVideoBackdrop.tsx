@@ -27,9 +27,22 @@ export function HeroVideoBackdrop({
       }
     };
 
+    const tryPlay = () => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      void video.play().catch(() => {
+        /* autoplay blocked — poster still visible */
+      });
+    };
+
     video.addEventListener("timeupdate", capAtNineSeconds);
-    return () => video.removeEventListener("timeupdate", capAtNineSeconds);
-  }, []);
+    video.addEventListener("loadeddata", tryPlay);
+    tryPlay();
+
+    return () => {
+      video.removeEventListener("timeupdate", capAtNineSeconds);
+      video.removeEventListener("loadeddata", tryPlay);
+    };
+  }, [src]);
 
   return (
     <div className="home-hero__backdrop" aria-hidden="true">

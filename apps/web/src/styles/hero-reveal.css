@@ -16,6 +16,55 @@
   text-shadow: 0 2px 24px color-mix(in srgb, var(--color-null) 65%, transparent);
 }
 
+/*
+ * Poster wordmark — official stacked SVG lockup from launch artwork.
+ */
+.hero-wordmark {
+  --wordmark-scale: 0.75;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.hero-wordmark__logo {
+  display: block;
+  width: min(calc(92vw * var(--wordmark-scale)), calc(38rem * var(--wordmark-scale)));
+  height: auto;
+  aspect-ratio: 721 / 477;
+  max-height: min(calc(46vh * var(--wordmark-scale)), calc(26rem * var(--wordmark-scale)));
+  overflow: visible;
+  filter: drop-shadow(0 2px 24px color-mix(in srgb, var(--color-null) 65%, transparent));
+}
+
+.decode-svg__block {
+  fill: color-mix(in srgb, var(--color-wisp) 92%, transparent);
+}
+
+.decode-svg__glyph text {
+  pointer-events: none;
+  user-select: none;
+}
+
+.decode-svg__segment {
+  cursor: default;
+}
+
+.hero-wordmark__logo--interactive .decode-svg__segment {
+  cursor: default;
+}
+
+.decode-svg__hit {
+  pointer-events: all;
+}
+
+@media (min-width: 768px) {
+  .hero-wordmark__logo {
+    width: min(calc(88vw * var(--wordmark-scale)), calc(44rem * var(--wordmark-scale)));
+    max-height: min(calc(42vh * var(--wordmark-scale)), calc(28rem * var(--wordmark-scale)));
+  }
+}
+
 .decode-text__char {
   display: inline;
 }

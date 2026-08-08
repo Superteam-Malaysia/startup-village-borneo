@@ -5,14 +5,15 @@ import {
   useEffect,
   useRef,
   useState,
+  type CSSProperties,
   type ElementType,
 } from "react";
 
 /** Breakpoint hero decode charset (module 37442, solana.com/breakpoint). */
-const DECODE_CHARSET =
+export const DECODE_CHARSET =
   "!<>-_\\/[]{}—=+*^?#ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-const DECODE_COLORS = [
+export const DECODE_COLORS = [
   "var(--color-wisp)",
   "#ab66fd",
   "#14f195",
@@ -61,16 +62,23 @@ function buildDecodeFrames(
 export type DecodeTextProps = {
   text: string;
   durationMs?: number;
+  delayMs?: number;
   className?: string;
+  style?: CSSProperties;
   as?: ElementType;
+  /** Set false when an ancestor already labels the text for assistive tech. */
+  srOnlyLabel?: boolean;
 };
 
 /** Breakpoint hero headline decode — scramble chars resolve left-to-right. */
 export function DecodeText({
   text,
   durationMs = 1000,
+  delayMs = 0,
   className,
+  style,
   as: Tag = "span",
+  srOnlyLabel = true,
 }: DecodeTextProps) {
   const [frames, setFrames] = useState<DecodeFrame[]>(() =>
     buildDecodeFrames(text, 0, 0, false),
@@ -90,7 +98,16 @@ export function DecodeText({
 
     const loop = (now: number) => {
       if (start === null) start = now;
-      const progress = Math.min(1, (now - start) / durationMs);
+      const elapsed = now - start - delayMs;
+
+      if (elapsed < 0) {
+        tickRef.current += 1;
+        setFrames(buildDecodeFrames(text, 0, tickRef.current, false));
+        raf = requestAnimationFrame(loop);
+        return;
+      }
+
+      const progress = Math.min(1, elapsed / durationMs);
       const revealed = Math.floor(progress * text.length);
       tickRef.current += 1;
       setFrames(buildDecodeFrames(text, revealed, tickRef.current, false));
@@ -105,12 +122,12 @@ export function DecodeText({
     setFrames(buildDecodeFrames(text, 0, 0, false));
     raf = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(raf);
-  }, [text, durationMs]);
+  }, [text, durationMs, delayMs]);
 
   return createElement(
     Tag,
-    { className },
-    createElement("span", { className: "sr-only" }, text),
+    { className, style },
+    srOnlyLabel ? createElement("span", { className: "sr-only" }, text) : null,
     createElement(
       "span",
       { "aria-hidden": true },
