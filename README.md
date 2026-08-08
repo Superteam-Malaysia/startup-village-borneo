@@ -38,20 +38,17 @@ cd apps/web && npm install && npm run dev
 | `/` | Breakpoint-style home — overview, schedule preview, race, prizes, partners, FAQ |
 | `/schedule` | Five-day **calendar** view (time-axis per day) |
 | `/speakers` | Workshop leaders & on-stage sessions by day |
-| `/amazing-race` | Full task catalog + Halftone theme meters |
-| `/leaderboard` | Sample Halftone leaderboard preview |
+| `/amazing-race` | Full task catalog + Halftone theme meters (coming soon) |
+| `/teams` | Sample Halftone team standings preview (coming soon) |
 | `/submissions` | Race, deck, and content submission rules |
 | `/prizes` | USD $10k breakdown + judges |
-| `/demo-day` | Day 5 pitch schedule, judges, deck cutoff |
-| `/wallet` | Wallet onboarding ethos + Amazing Race task #15 |
+| `/demo-day` | Day 5 pitch schedule, judges, deck cutoff (coming soon) |
 | `/sustainability` | SOCOE sustainability track criteria |
 | `/content-awards` | Content Award tasks and rules |
-| `/travel` | Kuching logistics — airport, hotels, local tips |
+| `/travel` | Kuching logistics — airport, hotels, venue plan (coming soon) |
 | `/venue` | Sheraton / Voco + interactive map UI |
 | `/faq` | Full FAQ from program |
 | `/partners` | Anchor + confirmed partners |
-| `/get-involved` | Builder / sponsor / press / content cards |
-| `/code-of-conduct` | Community standards + wallet task rules |
 | `/design-system` | Component lab (internal) |
 
 Program content is sourced from `docs/blueprint/01-event-context.md` and the official PDF via `apps/web/src/data/`.

@@ -24,14 +24,14 @@ export function LeaderboardPageContent() {
   return (
     <div className="flex flex-col gap-16 md:gap-24">
       <PageHeader
-        meta="Amazing Race · standings"
-        title="Leaderboard"
+        meta="Amazing Race · teams"
+        title="Teams"
         lead="Team points across Kuching stations — updated live during the event via the companion dApp. Until then, explore sample standings and momentum charts below."
       />
 
       <div className="companion-banner" role="status">
-        <span className="companion-banner__tag">Preview</span>
-        Live data ships with the companion dApp — this table uses sample teams for layout only.
+        <span className="companion-banner__tag">Coming soon</span>
+        Live team standings ship with the companion dApp — sample data below is for layout preview only.
       </div>
 
       <SectionArticle className="border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-8">

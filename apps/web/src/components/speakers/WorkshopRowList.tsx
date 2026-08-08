@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { WorkshopPreview } from "@/data/speakers";
 
 const THUMB_ACCENTS = ["workshop-row__thumb--azure", "workshop-row__thumb--byte", "workshop-row__thumb--lime"] as const;
@@ -11,6 +12,42 @@ function speakerInitials(speaker: string) {
   return (speaker.slice(0, 2) || "?").toUpperCase();
 }
 
+function SpeakerThumb({
+  session,
+  index,
+  size = "md",
+}: {
+  session: WorkshopPreview;
+  index: number;
+  size?: "md" | "sm";
+}) {
+  const accent = THUMB_ACCENTS[index % THUMB_ACCENTS.length];
+  const className = [
+    "workshop-row__thumb",
+    size === "sm" ? "workshop-row__thumb--sm" : "",
+    session.avatar ? "workshop-row__thumb--photo" : accent,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return (
+    <div className={className} aria-hidden={session.avatar ? undefined : true}>
+      {session.avatar ? (
+        <Image
+          src={session.avatar}
+          alt=""
+          width={400}
+          height={400}
+          className="workshop-row__thumb-image"
+          sizes={size === "sm" ? "5rem" : "9rem"}
+        />
+      ) : (
+        <span>{speakerInitials(session.speaker)}</span>
+      )}
+    </div>
+  );
+}
+
 function WorkshopRow({ session, index }: { session: WorkshopPreview; index: number }) {
   const scheduleHref = `/schedule?day=${session.dayIndex}`;
   const when = `${session.date} · ${session.start}`;
@@ -20,15 +57,7 @@ function WorkshopRow({ session, index }: { session: WorkshopPreview; index: numb
     <article className="workshop-row group">
       {/* Desktop — Colosseum Breakout livestream row */}
       <div className="workshop-row__desktop hidden md:flex">
-        <div
-          className={[
-            "workshop-row__thumb",
-            THUMB_ACCENTS[index % THUMB_ACCENTS.length],
-          ].join(" ")}
-          aria-hidden
-        >
-          <span>{speakerInitials(session.speaker)}</span>
-        </div>
+        <SpeakerThumb session={session} index={index} />
 
         <div className="workshop-row__body">
           <h3 className="workshop-row__title">{session.title}</h3>
@@ -51,33 +80,24 @@ function WorkshopRow({ session, index }: { session: WorkshopPreview; index: numb
         </div>
       </div>
 
-      {/* Mobile — stacked Breakout variant */}
-      <div className="workshop-row__mobile flex flex-col md:hidden">
+      {/* Mobile — compact single row: thumb · body · link */}
+      <div className="workshop-row__mobile flex md:hidden">
+        <SpeakerThumb session={session} index={index} size="sm" />
+
         <div className="workshop-row__body workshop-row__body--mobile">
           <h3 className="workshop-row__title">{session.title}</h3>
           <p className="workshop-row__speaker workshop-row__speaker--stack">
             <span>{session.speaker}</span>
             <span>{org}</span>
           </p>
+          <p className="workshop-row__when-inline">
+            <time dateTime={`2026-09-0${session.dayIndex}T${session.start}`}>{when}</time>
+          </p>
         </div>
 
-        <div className="workshop-row__mobile-foot">
-          <div
-            className={[
-              "workshop-row__thumb workshop-row__thumb--sm",
-              THUMB_ACCENTS[index % THUMB_ACCENTS.length],
-            ].join(" ")}
-            aria-hidden
-          >
-            <span>{speakerInitials(session.speaker)}</span>
-          </div>
-          <div className="workshop-row__when">
-            <time dateTime={`2026-09-0${session.dayIndex}T${session.start}`}>{when}</time>
-          </div>
-          <Link href={scheduleHref} className="workshop-row__link" aria-label={`${session.title} on schedule`}>
-            <IconArrowDiagonal />
-          </Link>
-        </div>
+        <Link href={scheduleHref} className="workshop-row__link" aria-label={`${session.title} on schedule`}>
+          <IconArrowDiagonal />
+        </Link>
       </div>
     </article>
   );

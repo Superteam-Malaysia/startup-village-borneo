@@ -71,6 +71,73 @@
   padding: 1.25rem 1.5rem;
   border: 1px solid var(--color-transparent-wisp-10);
   min-height: 12rem;
+  background: transparent;
+}
+
+.overview-stat-meter {
+  margin-top: auto;
+  height: 0.625rem;
+  border: 1px solid var(--color-transparent-wisp-10);
+  background: color-mix(in srgb, var(--color-wisp) 6%, transparent);
+  overflow: hidden;
+}
+
+.overview-stat-meter__fill {
+  height: 100%;
+  transition: width var(--duration-normal) var(--ease-out-expo);
+}
+
+.overview-stat-meter__fill--azure {
+  background: var(--color-azure);
+}
+
+.overview-stat-meter__fill--byte {
+  background: var(--color-byte);
+}
+
+.overview-prize-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 7.5rem;
+  padding-top: 0.5rem;
+}
+
+.overview-prize-chart__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.overview-prize-chart__bar-wrap {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 3.5rem;
+  height: 6rem;
+}
+
+.overview-prize-chart__bar {
+  width: 100%;
+  min-height: 0.5rem;
+  background: var(--color-byte);
+  border: 1px solid color-mix(in srgb, var(--color-byte) 55%, transparent);
+}
+
+.overview-prize-chart__label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: color-mix(in srgb, var(--color-wisp) 72%, transparent);
+}
+
+.overview-prize-chart__caption {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: color-mix(in srgb, var(--color-wisp) 60%, transparent);
 }
 
 .halftone-title {

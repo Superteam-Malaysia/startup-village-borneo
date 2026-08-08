@@ -160,6 +160,20 @@ export function mount(el, spec, ctx) {
     s.raf = requestAnimationFrame(tick);
   };
 
+  // press-out: ramp pr 1->0 over ms (mirror of pressIn — used for hover-leave on CTAs).
+  s.pressOut = (ms = spec.pressMs) => {
+    const gen = ++s.gen;
+    if (ctx.reduced || s.stale) { s.pr = 0; if (!s.stale) s.draw(); return; }
+    const t0 = (typeof performance !== 'undefined' ? performance : Date).now();
+    const tick = (t) => {
+      if (s.gen !== gen || s.dead) return;
+      s.pr = Math.max(0, 1 - (t - t0) / ms);
+      if (!s.stale) s.draw();
+      if (s.pr > 0) s.raf = requestAnimationFrame(tick);
+    };
+    s.raf = requestAnimationFrame(tick);
+  };
+
   // set: merge a patch. Geometry-affecting keys force a rebuild; anything else just repaints.
   function notifyReady() {
     if (s.stale || s.dead) return;
@@ -201,6 +215,7 @@ export function mount(el, spec, ctx) {
     rebuild: () => { s.rebuild(); s.draw(); notifyReady(); },
     set: (patch) => s.set(patch),
     pressIn: (ms) => s.pressIn(ms),
+    pressOut: (ms) => s.pressOut(ms),
     proof: () => s.proof(),
     destroy: () => s.destroy(),
     get spec() { return spec; },

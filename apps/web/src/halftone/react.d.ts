@@ -10,6 +10,7 @@ declare module "@/halftone/react/index.js" {
   };
 
   export function HalftoneProvider(props: HalftoneComponentProps): JSX.Element;
+  export function Surface(props: HalftoneComponentProps & { pressRef?: { current: { pressIn?: () => void; pressOut?: () => void } | null } }): JSX.Element;
   export function Button(props: HalftoneComponentProps): JSX.Element;
   export function Meter(props: HalftoneComponentProps): JSX.Element;
   export function Card(props: HalftoneComponentProps): JSX.Element;

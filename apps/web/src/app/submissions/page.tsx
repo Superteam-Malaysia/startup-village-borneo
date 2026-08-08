@@ -190,8 +190,8 @@ export default function SubmissionsPage() {
             <CtaButton variant="byte" size="lg" disabled showArrow={false}>
               Open companion dApp
             </CtaButton>
-            <CtaButton href="/leaderboard" variant="ghost-wisp" size="lg" showArrow={false}>
-              Preview leaderboard
+            <CtaButton href="/teams" variant="ghost-wisp" size="lg" showArrow={false}>
+              View teams
             </CtaButton>
           </div>
         </SectionArticle>

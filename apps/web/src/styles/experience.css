@@ -364,8 +364,6 @@
   position: sticky;
   top: 3.5rem;
   z-index: 10;
-  background: color-mix(in srgb, var(--color-null) 45%, transparent);
-  backdrop-filter: blur(10px);
   padding-bottom: 0.5rem;
 }
 

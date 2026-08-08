@@ -19,9 +19,9 @@ export default function SustainabilityPage() {
         lead={SUSTAINABILITY_TRACK.summary}
       />
 
-      <SectionArticle className="bg-[var(--color-azure)] text-[var(--color-null)] p-8 md:p-10">
+      <SectionArticle className="bg-[var(--color-azure)] text-[var(--color-wisp)] p-8 md:p-10">
         <SectionIntro title={`${SUSTAINABILITY_TRACK.prizes.count}×${SUSTAINABILITY_TRACK.prizes.amount}`} />
-        <p className="mt-4 text-[var(--color-null)]/80">{SUSTAINABILITY_TRACK.total} total · judged on Demo Day</p>
+        <p className="mt-4 text-[var(--color-wisp)]/80">{SUSTAINABILITY_TRACK.total} total · judged on Demo Day</p>
       </SectionArticle>
 
       <SectionArticle>

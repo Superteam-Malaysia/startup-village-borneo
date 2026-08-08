@@ -89,8 +89,8 @@
   position: relative;
   min-height: min(85vh, 42rem);
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: column;
+  align-items: stretch;
   overflow: hidden;
   isolation: isolate;
 }
@@ -100,9 +100,13 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  overflow: hidden;
 }
 
 .home-hero__video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -112,48 +116,56 @@
 .home-hero__backdrop-overlay {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background:
     linear-gradient(
       to bottom,
-      color-mix(in srgb, var(--color-null) 78%, transparent) 0%,
-      color-mix(in srgb, var(--color-null) 42%, transparent) 22%,
-      transparent 38%
+      color-mix(in srgb, var(--color-null) 52%, transparent) 0%,
+      color-mix(in srgb, var(--color-null) 18%, transparent) 18%,
+      transparent 32%
     ),
     linear-gradient(
       to top,
-      color-mix(in srgb, var(--color-null) 55%, transparent) 0%,
-      transparent 42%
-    ),
-    linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--color-null) 28%, transparent),
-      color-mix(in srgb, var(--color-byte) 12%, transparent)
+      color-mix(in srgb, var(--color-null) 38%, transparent) 0%,
+      transparent 36%
     );
 }
 
 @media (prefers-reduced-motion: reduce) {
   .home-hero__video {
-    display: none;
-  }
-
-  .home-hero__backdrop-overlay {
-    background: var(--svb-gradient-bg);
+    /* Keep poster/first frame visible — do not hide the video element */
+    animation: none;
   }
 }
 
 .home-hero__inner {
+  flex: 1;
   width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
   text-align: center;
-  padding-top: clamp(2.75rem, 11vh, 5.5rem);
-  padding-bottom: clamp(10rem, 28vh, 16rem);
+  /* Fixed gap below sticky nav (.site-content already clears nav height) */
+  padding-top: 20px;
+  padding-bottom: 0;
+}
+
+.home-hero__separator {
+  flex-shrink: 0;
+  /* Sit just below video burn-in subtitles — leave them visible above this band */
+  margin-top: clamp(2.75rem, 8vh, 4.25rem);
+  padding: 0 1rem 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .home-hero__meta {
-  margin-top: 1.25rem;
-  max-width: 36rem;
-  margin-inline: auto;
+  margin: 0 auto;
+  max-width: 48rem;
   font-family: var(--font-mono);
   font-size: 0.8125rem;
-  color: color-mix(in srgb, var(--color-wisp) 72%, transparent);
-  text-shadow: 0 1px 12px color-mix(in srgb, var(--color-null) 55%, transparent);
+  letter-spacing: 0.04em;
+  color: color-mix(in srgb, var(--color-wisp) 78%, transparent);
+  text-shadow: none;
 }

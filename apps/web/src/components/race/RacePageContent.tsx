@@ -30,6 +30,11 @@ export function RacePageContent() {
         lead="Kuching is the course — laksa pilgrimages, waterfront sampan rides, cat statues, and a wallet mission that teaches real users. You may not finish every station. Choose well."
       />
 
+      <div className="companion-banner" role="status">
+        <span className="companion-banner__tag">Coming soon</span>
+        Live race tracking ships with the companion dApp at the event — task catalog below is for preview only.
+      </div>
+
       <div className="cutoff-banner">
         {RACE_CUTOFF.label} · {RACE_CUTOFF.time} — Amazing Race & deck cutoff. Nothing after.
       </div>

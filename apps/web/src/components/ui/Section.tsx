@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
+import { BreakoutSubhead, type SubheadAccent } from "./BreakoutSubhead";
 
-/** Breakout offset-shadow accent (colosseum.com/breakout). */
-export type SubheadAccent = "lime" | "azure" | "byte" | "green";
+export type { SubheadAccent };
 
 /** @deprecated Prefer SectionIntro title-only; avoid standalone kickers. */
 export function Eyebrow({ children }: { children: ReactNode }) {
@@ -33,9 +33,7 @@ export function SectionHeading({
 }) {
   return (
     <h2 className="section-heading">
-      <span className={["breakout-subhead", `breakout-subhead--${accent}`].join(" ")}>
-        {children}
-      </span>
+      <BreakoutSubhead accent={accent}>{children}</BreakoutSubhead>
     </h2>
   );
 }

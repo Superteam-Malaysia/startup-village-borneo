@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, Meter } from "@/halftone/react/index.js";
+import { Meter } from "@/halftone/react/index.js";
 import { HalftoneFrame } from "./HalftoneFrame";
 
 type HalftoneStatTileProps = {
@@ -15,18 +15,11 @@ export function HalftoneStatTile({
   value,
   label,
   meter,
-  color = "purple",
 }: HalftoneStatTileProps) {
   return (
     <HalftoneFrame ghost="tile">
       {({ onReady }) => (
-        <Card
-          className="halftone-stat-tile"
-          color={color}
-          screen="am"
-          surfaceH={104}
-          onReady={onReady}
-        >
+        <div className="halftone-stat-tile">
           <span className="halftone-stat-tile__value tabular-nums">{value}</span>
           <span className="halftone-stat-tile__label">{label}</span>
           {meter ? (
@@ -36,9 +29,10 @@ export function HalftoneStatTile({
               color={meter.color ?? "green"}
               h={10}
               className="halftone-stat-tile__meter"
+              onReady={onReady}
             />
           ) : null}
-        </Card>
+        </div>
       )}
     </HalftoneFrame>
   );

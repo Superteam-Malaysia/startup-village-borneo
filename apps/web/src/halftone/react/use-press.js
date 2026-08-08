@@ -34,7 +34,7 @@ export function usePress(ref, opts = {}, deps = []) {
       if (cancelled || !ref.current) return;
       handle = mount(el, resolvePress(optsRef.current, ctx), ctx);
       handleRef.current = handle;
-      if (optsRef.current.animate) handle.pressIn();
+      if (optsRef.current.animate && !optsRef.current.deferPressIn) handle.pressIn();
       if (handle.stale && typeof ResizeObserver !== 'undefined') {
         ro = new ResizeObserver(() => {
           if (!handle || cancelled) return;
@@ -80,6 +80,7 @@ export function usePress(ref, opts = {}, deps = []) {
     // be wasted work.
     draw: () => handleRef.current?.draw(),
     pressIn: (ms) => handleRef.current?.pressIn(ms),
+    pressOut: (ms) => handleRef.current?.pressOut(ms),
     proof: () => handleRef.current?.proof() ?? null,
   }), []);
 }

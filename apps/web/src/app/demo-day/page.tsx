@@ -28,6 +28,11 @@ export default function DemoDayPage() {
         {DEMO_DAY.venue} · {DEMO_DAY.morningNote}
       </p>
 
+      <div className="companion-banner" role="status">
+        <span className="companion-banner__tag">Coming soon</span>
+        Pitch schedule and judging details will be published closer to the event.
+      </div>
+
       <div className="cutoff-banner">
         Deck upload cutoff: {RACE_CUTOFF.label} · {RACE_CUTOFF.time} — same hard stop as Amazing Race
         threads.
@@ -71,7 +76,9 @@ export default function DemoDayPage() {
         <SectionIntro title="Demo Day panel" />
         <ul className="mt-8 list-none flex flex-col gap-2 text-[var(--color-wisp)]/75">
           {DEMO_DAY_JUDGES.map((j) => (
-            <li key={j}>{j}</li>
+            <li key={j.id}>
+              {j.role} — {j.name}
+            </li>
           ))}
         </ul>
       </SectionArticle>

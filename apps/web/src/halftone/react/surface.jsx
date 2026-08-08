@@ -26,6 +26,7 @@ export function Surface({
   onReadyRef.current = onReady;
   const opts = {
     field, screen, scale, r, ink, wash, roll, h, seed, color, animate, pressMs,
+    deferPressIn: !!pressRef,
     onReady: () => onReadyRef.current?.(),
   };
   // Default dep list = the scalar dials. `field` identity is intentionally excluded (it is usually a

@@ -48,25 +48,39 @@
   }
 }
 
-.cta--byte {
-  background: var(--color-byte);
-  color: var(--color-null);
-  border: none;
-}
-
-.cta--byte:hover {
-  background: var(--color-wisp);
-  color: var(--color-null);
-}
-
+.cta--byte,
 .cta--azure {
-  background: var(--color-azure);
-  color: var(--color-null);
-  border: none;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: transparent;
+  color: var(--color-wisp);
+  border: 1px solid var(--color-wisp);
+  font-weight: 700;
 }
 
+.cta--byte:hover,
 .cta--azure:hover {
-  background: var(--color-wisp);
+  background: transparent;
+  color: var(--color-wisp);
+  border-color: var(--color-wisp);
+}
+
+.cta--byte:disabled,
+.cta--azure:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.cta__halftone-label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: inherit;
+  font-weight: inherit;
+  -webkit-font-smoothing: antialiased;
 }
 
 .cta--ghost-wisp {

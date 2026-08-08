@@ -1,4 +1,4 @@
-import { CtaButton, SectionArticle, SectionIntro } from "@/components/ui";
+import { SectionArticle, SectionIntro } from "@/components/ui";
 import { PageHeader } from "@/components/shell";
 import { CONTENT_AWARD } from "@/data/tracks";
 import { pageMetadata } from "@/lib/metadata";
@@ -18,9 +18,9 @@ export default function ContentAwardsPage() {
         lead={CONTENT_AWARD.summary}
       />
 
-      <SectionArticle className="bg-[var(--color-azure)] text-[var(--color-null)] p-8 md:p-10">
+      <SectionArticle className="bg-[var(--color-azure)] text-[var(--color-wisp)] p-8 md:p-10">
         <SectionIntro title={`${CONTENT_AWARD.prizes.count}×${CONTENT_AWARD.prizes.amount}`} />
-        <p className="mt-4 text-[var(--color-null)]/80">{CONTENT_AWARD.judged}</p>
+        <p className="mt-4 text-[var(--color-wisp)]/80">{CONTENT_AWARD.judged}</p>
         <p className="mt-4 font-[family-name:var(--font-mono)] text-sm">Tag {CONTENT_AWARD.tags.join(" · ")}</p>
       </SectionArticle>
 
@@ -48,11 +48,6 @@ export default function ContentAwardsPage() {
           ))}
         </ul>
       </SectionArticle>
-
-      <div className="flex flex-wrap gap-4">
-        <CtaButton href="/submissions" variant="byte" size="md">Submission rules</CtaButton>
-        <CtaButton href="/amazing-race" variant="ghost-wisp" size="md" showArrow={false}>Race tasks</CtaButton>
-      </div>
     </main>
   );
 }
