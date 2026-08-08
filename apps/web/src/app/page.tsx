@@ -39,7 +39,7 @@ export default function HomePage() {
             <HeroWordmark />
           </div>
           <div className="home-hero__separator relative z-10">
-            <CtaButton href={SITE.applyUrl} variant="azure" size="md" external>
+            <CtaButton href={SITE.applyUrl} variant="azure" size="sm" external>
               Apply
             </CtaButton>
           </div>

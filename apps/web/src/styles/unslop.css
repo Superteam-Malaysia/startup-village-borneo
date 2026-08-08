@@ -158,9 +158,9 @@
 
 .home-hero__separator {
   flex-shrink: 0;
-  /* Sit just below video burn-in subtitles — leave them visible above this band */
-  margin-top: clamp(2.75rem, 8vh, 4.25rem);
-  padding: 0 1rem 1.25rem;
+  /* Pin to bottom of video stage — clears burn-in subtitles above */
+  margin-top: auto;
+  padding: 0 1rem clamp(1rem, 2.5vh, 1.5rem);
   display: flex;
   justify-content: center;
   align-items: center;
