@@ -1,5 +1,6 @@
 import { PartnerLogoWall } from "@/components/partners";
 import { PrizeTracksPanel } from "@/components/prizes";
+import { FooterScrambleTicker } from "@/components/shell/FooterScrambleTicker";
 import { HeroVideoBackdrop } from "@/components/shell/HeroVideoBackdrop";
 import { HeroWordmark } from "@/components/shell/HeroWordmark";
 import { PreFooterBand } from "@/components/shell/PreFooterBand";
@@ -27,16 +28,22 @@ export default function HomePage() {
   return (
     <main>
       {/* Hero — Breakpoint-style letter reveal */}
-      <section className="home-hero relative">
-        <HeroVideoBackdrop
-          src={SITE.announcementVideoSrc}
-          poster={SITE.announcementVideoPoster}
-          tweetUrl={SITE.announcementTweetUrl}
-        />
-        <div className="home-hero__inner relative z-10 max-w-[90rem] mx-auto px-4 md:px-8">
-          <HeroWordmark />
+      <section className="home-hero">
+        <div className="home-hero__stage">
+          <HeroVideoBackdrop
+            src={SITE.announcementVideoSrc}
+            poster={SITE.announcementVideoPoster}
+            tweetUrl={SITE.announcementTweetUrl}
+          />
+          <div className="home-hero__inner relative z-10 max-w-[90rem] mx-auto px-4 md:px-8">
+            <HeroWordmark />
+          </div>
         </div>
-        <div className="home-hero__separator relative z-10">
+        <FooterScrambleTicker
+          variant="azure"
+          className="footer-scramble--hero"
+        />
+        <div className="home-hero__separator">
           <CtaButton href={SITE.applyUrl} variant="azure" size="md" external>
             Apply
           </CtaButton>

@@ -49,12 +49,28 @@ function ScrambleCycle({ prefix }: { prefix: string }) {
   );
 }
 
-/** Breakpoint-style glitch ticker — purple keywords + decoding noise band. */
-export function FooterScrambleTicker({ className }: { className?: string }) {
+type FooterScrambleVariant = "purple" | "azure";
+
+/** Breakpoint-style glitch ticker — keyword highlights + decoding noise band. */
+export function FooterScrambleTicker({
+  className,
+  variant = "purple",
+}: {
+  className?: string;
+  variant?: FooterScrambleVariant;
+}) {
   const readable = `${FOOTER_SCRAMBLE_READABLE} · ${FOOTER_SCRAMBLE_READABLE}`;
 
   return (
-    <div className={["footer-scramble", className].filter(Boolean).join(" ")}>
+    <div
+      className={[
+        "footer-scramble",
+        variant === "azure" ? "footer-scramble--azure" : undefined,
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
       <span className="sr-only">{readable}</span>
       <div className="footer-scramble__viewport" aria-hidden="true">
         <div className="footer-scramble__track">
