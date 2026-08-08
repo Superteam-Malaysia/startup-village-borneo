@@ -24,6 +24,7 @@ export const KCH_AIRPORT_DETAILS = {
   driveToSheraton: "~15 minutes in light traffic (11 km north to downtown)",
   driveToVoco: "~5 minutes — Voco sits on Jalan Lapangan Terbang Baru near the airport",
   arrivalFlow: [
+    "Complete your Malaysia Digital Arrival Card (MDAC) within 3 days of landing if required — imigresen-online.imi.gov.my/mdac/main. Singapore citizens and Malaysian PRs are exempt.",
     "Immigration & baggage claim on the ground floor for international arrivals.",
     "ATMs and telco counters (Celcom, Digi, Maxis) in arrivals — grab a local SIM or eSIM before Grab.",
     "Grab pickup bay is signed outside arrivals; airport taxis also operate from the official counter.",
@@ -38,9 +39,6 @@ export const GRAB_TIPS = [
   "Save both Sheraton Kuching and voco Kuching as favourites before Day 2 morning rush.",
   "Morning Sheraton → Voco runs ~15–20 min; allow buffer so the 10:00 hard start isn't missed.",
 ];
-
-export const RACE_GEOGRAPHY_NOTE =
-  "The Amazing Race spans all of Kuching — but geography clusters. Waterfront stations (Darul Hana bridge, KUCHING sign, sampan, flagpole, Old Court House) are walkable from Sheraton in one evening. Food tasks scatter wider: Choon Hui Cafe, Mama Su, Sam's ice cream, and the Ceylonese restaurant each need a dedicated trip. You won't finish every task — choose stations near each other and run the race in evenings and gaps, never during workshop hours.";
 
 export const TRAVEL_SECTIONS: TravelSection[] = [
   {
@@ -129,6 +127,7 @@ export const TRAVEL_SECTIONS: TravelSection[] = [
 ];
 
 export const TRAVEL_TIPS = [
+  "Complete your Malaysia Digital Arrival Card (MDAC) within 3 days of landing if required — free at imigresen-online.imi.gov.my/mdac/main.",
   "Land with your team WhatsApp group ready — race brief goes out on arrival.",
   "Book Sheraton early; Demo Day week fills quickly.",
   "Grab > hailing — saves negotiating in the heat.",
