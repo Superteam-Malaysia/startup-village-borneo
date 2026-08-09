@@ -55,6 +55,14 @@ export const rootMetadata: Metadata = {
     "Amazing Race",
     "Superteam Malaysia",
   ],
+  // STMY mark — shared favicon with stmy.fun root (app/ + public/ icons)
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     title: `${SITE_NAME} 2026`,
     description: DEFAULT_DESCRIPTION,
