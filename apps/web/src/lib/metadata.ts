@@ -5,7 +5,7 @@ const DEFAULT_DESCRIPTION =
   "Solana-first hackathon in Kuching, Sarawak — 5–9 September 2026. Schedule, Amazing Race, prizes, and the full builder experience.";
 
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://startup-village-borneo.superteam.my";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://stmy.fun/borneo";
 
 export function pageMetadata({
   title,
