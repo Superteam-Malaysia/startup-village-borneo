@@ -78,7 +78,9 @@ export function GlitchPhotoCell({
       setReady(true);
     };
     img.onerror = () => setReady(false);
-    img.src = src;
+    img.src = src.startsWith("/") && !src.startsWith("/borneo")
+      ? `/borneo${src}`
+      : src;
     return () => {
       imgRef.current = null;
       setReady(false);

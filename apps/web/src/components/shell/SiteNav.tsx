@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { NAV_LINKS, SITE } from "@/data/site";
+import { withBasePath } from "@/lib/base-path";
 import { MobileNavMenu } from "./MobileNavMenu";
 import { SiteNavDesktopItem } from "./SiteNavItem";
 
@@ -9,7 +10,7 @@ export function SiteNav() {
       <div className="site-nav__bar">
         <Link href="/" className="site-nav__logo">
           <img
-            src="/brand/svb-nav-logo.png"
+            src={withBasePath("/brand/svb-nav-logo.png")}
             alt={SITE.name}
             className="site-nav__logo-mark"
             width={310}

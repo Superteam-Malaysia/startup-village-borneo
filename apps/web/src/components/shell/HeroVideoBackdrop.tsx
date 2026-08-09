@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { withBasePath } from "@/lib/base-path";
 
 /** Hard cap — matches trimmed hero asset length. */
 const HERO_VIDEO_MAX_SECONDS = 9;
@@ -16,6 +17,8 @@ export function HeroVideoBackdrop({
   tweetUrl: string;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const videoSrc = withBasePath(src);
+  const posterSrc = poster ? withBasePath(poster) : undefined;
 
   useEffect(() => {
     const video = videoRef.current;
@@ -42,15 +45,15 @@ export function HeroVideoBackdrop({
       video.removeEventListener("timeupdate", capAtNineSeconds);
       video.removeEventListener("loadeddata", tryPlay);
     };
-  }, [src]);
+  }, [videoSrc]);
 
   return (
     <div className="home-hero__backdrop" aria-hidden="true">
       <video
         ref={videoRef}
         className="home-hero__video"
-        src={src}
-        poster={poster}
+        src={videoSrc}
+        poster={posterSrc}
         autoPlay
         muted
         loop

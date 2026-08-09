@@ -1,3 +1,5 @@
+import { withBasePath } from "@/lib/base-path";
+
 /**
  * Footer skyline silhouette — designer vector SVG (588×147).
  * Source: public/brand/footer-skyline.svg
@@ -10,7 +12,7 @@ export function KuchingSkyline({ className }: { className?: string }) {
     <div className={className} aria-hidden>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/brand/footer-skyline.svg"
+        src={withBasePath("/brand/footer-skyline.svg")}
         alt=""
         width={SKYLINE_WIDTH}
         height={SKYLINE_HEIGHT}

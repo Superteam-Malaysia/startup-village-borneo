@@ -1,20 +1,16 @@
 import type { NextConfig } from "next";
 
+const BASE_PATH = "/borneo";
+
 const nextConfig: NextConfig = {
   // Live at https://stmy.fun/borneo
-  basePath: "/borneo",
+  basePath: BASE_PATH,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: BASE_PATH,
+  },
   devIndicators: false,
   async redirects() {
-    return [
-      // Root of the domain → event site
-      {
-        source: "/",
-        destination: "/borneo",
-        permanent: false,
-        basePath: false,
-      },
-      { source: "/venue", destination: "/travel", permanent: true },
-    ];
+    return [{ source: "/venue", destination: "/travel", permanent: true }];
   },
 };
 

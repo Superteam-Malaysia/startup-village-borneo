@@ -1,8 +1,9 @@
 import { PRIZE_TRACKS } from "@/data/prize-tracks";
 import { PRIZE_ROWS, PRIZE_TOTAL } from "@/data/prizes";
+import { withBasePath } from "@/lib/base-path";
 
-const KITTEN = "/brand/summit-tracks/kitten.webp";
-const KNOT = "/brand/summit-tracks/knot-symbol.svg";
+const KITTEN = withBasePath("/brand/summit-tracks/kitten.webp");
+const KNOT = withBasePath("/brand/summit-tracks/knot-symbol.svg");
 
 const MARQUEE_ITEMS = 12;
 
