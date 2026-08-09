@@ -1,3 +1,5 @@
+import { withBasePath } from "@/lib/base-path";
+
 export const SITE = {
   name: "Startup Village Borneo",
   shortName: "SVB",
@@ -13,8 +15,8 @@ export const SITE = {
   applyUrl: "https://luma.com/bpn4ndl8",
   announcementTweetUrl:
     "https://x.com/SuperteamMY/status/2082421174773178540",
-  announcementVideoSrc: "/hero/svb-announce-9s.mp4",
-  announcementVideoPoster: "/hero/svb-announce-poster.jpg",
+  announcementVideoSrc: withBasePath("/hero/svb-announce-9s.mp4"),
+  announcementVideoPoster: withBasePath("/hero/svb-announce-poster.jpg"),
 };
 
 export const NAV_LINKS = [

@@ -2,6 +2,8 @@
  * On-stage program — sourced from official Startup Village Borneo PDF.
  */
 
+import { withBasePath } from "@/lib/base-path";
+
 export type SpeakerSession = {
   id: string;
   title: string;
@@ -251,18 +253,36 @@ export const WORKSHOP_LEADER_PROFILES: Record<
   string,
   { avatar: string; twitter?: string; linkedin?: string }
 > = {
-  "s2-elfa": { avatar: "/speakers/hypetris.jpg", twitter: "hypetris_" },
-  "s2-semi": { avatar: "/speakers/semi.jpg", twitter: "semiii" },
-  "s2-virtuals": { avatar: "/speakers/virtuals.jpg", twitter: "virtuals_io" },
-  "s3-magic": { avatar: "/speakers/magicblock.jpg", twitter: "magicblock" },
-  "s3-sid": { avatar: "/speakers/simon.jpg", twitter: "simonmolitor" },
-  "s3-monke": { avatar: "/speakers/jemmy.jpg", twitter: "jemmmyjemm" },
+  "s2-elfa": { avatar: withBasePath("/speakers/hypetris.jpg"), twitter: "hypetris_" },
+  "s2-semi": { avatar: withBasePath("/speakers/semi.jpg"), twitter: "semiii" },
+  "s2-virtuals": {
+    avatar: withBasePath("/speakers/virtuals.jpg"),
+    twitter: "virtuals_io",
+  },
+  "s3-magic": {
+    avatar: withBasePath("/speakers/magicblock.jpg"),
+    twitter: "magicblock",
+  },
+  "s3-sid": {
+    avatar: withBasePath("/speakers/simon.jpg"),
+    twitter: "simonmolitor",
+  },
+  "s3-monke": {
+    avatar: withBasePath("/speakers/jemmy.jpg"),
+    twitter: "jemmmyjemm",
+  },
   "s4-super": {
-    avatar: "/speakers/jacob-ko.jpg",
+    avatar: withBasePath("/speakers/jacob-ko.jpg"),
     linkedin: "jacob-ko-10989b24",
   },
-  "s4-rarible": { avatar: "/speakers/shuen-rui.jpg", twitter: "shuenrui" },
-  "s4-content": { avatar: "/speakers/nikkideyy.jpg", twitter: "nikkideyy" },
+  "s4-rarible": {
+    avatar: withBasePath("/speakers/shuen-rui.jpg"),
+    twitter: "shuenrui",
+  },
+  "s4-content": {
+    avatar: withBasePath("/speakers/nikkideyy.jpg"),
+    twitter: "nikkideyy",
+  },
 };
 
 /** On-stage workshops — Breakout livestream row layout (title · speaker · slot). */
