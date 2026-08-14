@@ -93,8 +93,8 @@ export const PARTNERS: Partner[] = [
     name: "Sanctum",
     role: "confirmed",
     workshops: true,
-    logo: withBasePath("/partners/sanctum.svg"),
-    logoStyle: "light",
+    logo: withBasePath("/partners/sanctum.png"),
+    logoStyle: "color",
   },
   {
     name: "Kyzzen",
