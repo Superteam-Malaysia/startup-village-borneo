@@ -6,7 +6,7 @@ export function MerchDrop() {
   return (
     <SectionArticle>
       <SectionIntro
-        title="What's in the bag"
+        title="Gear"
         lead="Every accepted builder gets a Startup Village kit for the week — jersey, carry, hydration, and the basics for five days in Kuching."
         accent="lime"
       />
