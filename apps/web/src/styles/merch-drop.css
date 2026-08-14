@@ -1,0 +1,86 @@
+/**
+ * Homepage merch drop — official Superteam MY kit graphic + kit list.
+ */
+
+.merch-drop {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .merch-drop {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: 3rem;
+    align-items: end;
+  }
+}
+
+.merch-drop__media {
+  display: block;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--color-wisp) 22%, transparent);
+  background: color-mix(in srgb, var(--color-null) 88%, var(--color-wisp) 12%);
+}
+
+.merch-drop__media:focus-visible {
+  outline: 2px solid var(--color-wisp);
+  outline-offset: 4px;
+}
+
+.merch-drop__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.merch-drop__kit {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.merch-drop__item {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 1rem 0;
+  border-top: 1px solid var(--color-transparent-wisp-10);
+}
+
+.merch-drop__item:last-child {
+  border-bottom: 1px solid var(--color-transparent-wisp-10);
+}
+
+.merch-drop__index {
+  color: var(--color-byte);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+.merch-drop__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.merch-drop__name {
+  color: var(--color-wisp);
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.merch-drop__note {
+  color: color-mix(in srgb, var(--color-wisp) 70%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+}

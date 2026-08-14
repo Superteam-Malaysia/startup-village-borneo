@@ -1,3 +1,4 @@
+import { MerchDrop } from "@/components/merch";
 import { PartnerLogoWall } from "@/components/partners";
 import { PrizeTracksPanel } from "@/components/prizes";
 import { FooterScrambleTicker } from "@/components/shell/FooterScrambleTicker";
@@ -73,6 +74,13 @@ export default function HomePage() {
               <CtaButton href="/speakers" variant="ghost-wisp" size="md">All sessions</CtaButton>
             </div>
           </SectionArticle>
+        </div>
+      </section>
+
+      {/* Merch drop — Superteam MY kit sneak peek */}
+      <section id="merch" className="border-b border-[color:var(--color-transparent-wisp-10)]">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24">
+          <MerchDrop />
         </div>
       </section>
 
