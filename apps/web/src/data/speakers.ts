@@ -1,5 +1,5 @@
 /**
- * On-stage program — sourced from official Startup Village Borneo PDF.
+ * On-stage program — sourced from official Startup Village Borneo agenda.
  */
 
 import { withBasePath } from "@/lib/base-path";
@@ -30,7 +30,7 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
     theme: "Opening & Problem Framing",
     sessions: [
       { id: "s2-open", title: "Opening", speaker: "Superteam MY", kind: "opening", start: "10:00", end: "10:10" },
-      { id: "s2-sam", title: "SOCOE welcome", speaker: "Sam", organization: "SOCOE", kind: "keynote", start: "10:10", end: "10:20" },
+      { id: "s2-socoe", title: "SOCOE welcome", speaker: "Edvin", organization: "SOCOE · Director", kind: "keynote", start: "10:10", end: "10:20" },
       {
         id: "s2-sf",
         title: "Solana Foundation keynote",
@@ -68,8 +68,8 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
       },
       {
         id: "s2-virtuals",
-        title: "Virtuals — agent economies",
-        speaker: "Virtuals",
+        title: "Building the agent economy — AI agents & autonomous payments via EconomyOS",
+        speaker: "Joey",
         organization: "Virtuals",
         kind: "workshop",
         start: "13:30",
@@ -80,8 +80,8 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
         title: "Roast My Pitch — round 1",
         speaker: "Mentors",
         kind: "program",
-        start: "16:30",
-        end: "17:30",
+        start: "16:00",
+        end: "17:00",
       },
     ],
   },
@@ -92,22 +92,22 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
     theme: "Build & Traction",
     sessions: [
       {
-        id: "s3-magic",
-        title: "MagicBlock — on-chain performance",
-        speaker: "Dhruv",
-        organization: "MagicBlock",
+        id: "s3-ecosystem",
+        title: "Solana Ecosystem Call",
+        speaker: "Simon",
+        organization: "Solana ID",
         kind: "workshop",
         start: "10:00",
         end: "10:45",
       },
       {
-        id: "s3-sid",
-        title: "Solana ID — identity on Solana",
-        speaker: "Simon",
-        organization: "Solana ID",
+        id: "s3-sanctum",
+        title: "Sanctum",
+        speaker: "Nic",
+        organization: "Sanctum",
         kind: "workshop",
         start: "10:45",
-        end: "11:30",
+        end: "11:15",
       },
       {
         id: "s3-monke",
@@ -115,16 +115,34 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
         speaker: "Jemmy",
         organization: "MonkeDAO",
         kind: "workshop",
-        start: "11:30",
+        start: "11:15",
+        end: "11:45",
+      },
+      {
+        id: "s3-meteora",
+        title: "Meteora Ecosystem",
+        speaker: "Vesper",
+        organization: "Meteora",
+        kind: "workshop",
+        start: "11:45",
         end: "12:15",
+      },
+      {
+        id: "s3-kyzzen",
+        title: "Kyzzen",
+        speaker: "OhMeOhMy",
+        organization: "Kyzzen",
+        kind: "workshop",
+        start: "13:30",
+        end: "14:15",
       },
       {
         id: "s3-users",
         title: "Teams go out for first 10 users",
         speaker: "All teams",
         kind: "program",
-        start: "13:30",
-        end: "17:00",
+        start: "14:15",
+        end: "16:30",
       },
     ],
   },
@@ -185,35 +203,43 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
     theme: "Demo Day",
     sessions: [
       {
-        id: "s5-rehearsal",
-        title: "Rehearsal & tech check",
+        id: "s5-tech",
+        title: "Tech check",
         speaker: "Ops",
         kind: "program",
-        start: "09:15",
-        end: "10:00",
+        start: "10:00",
+        end: "10:15",
+      },
+      {
+        id: "s5-opening",
+        title: "Opening address",
+        speaker: "Ops",
+        kind: "opening",
+        start: "10:15",
+        end: "10:30",
       },
       {
         id: "s5-demo",
         title: "Public Demo Day — live pitches + Q&A",
         speaker: "All teams",
         kind: "keynote",
-        start: "10:00",
-        end: "12:00",
+        start: "10:30",
+        end: "12:30",
       },
       {
         id: "s5-judging",
         title: "Judging deliberation",
         speaker: "Judges",
         kind: "program",
-        start: "12:00",
-        end: "12:30",
+        start: "12:30",
+        end: "12:45",
       },
       {
         id: "s5-prizes",
         title: "Prizes, group photo, closing",
         speaker: "Everyone",
         kind: "keynote",
-        start: "12:30",
+        start: "12:45",
         end: "13:00",
       },
     ],
@@ -222,13 +248,15 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
 
 /** Flat list for homepage preview — featured workshop leaders */
 export const FEATURED_SPEAKERS = [
-  { name: "Sam", org: "SOCOE" },
+  { name: "Edvin", org: "SOCOE" },
   { name: "Seraphim / Chaerin", org: "Solana Foundation" },
   { name: "Tristan", org: "Elfa AI" },
   { name: "Semi", org: "solana.new" },
-  { name: "Dhruv", org: "MagicBlock" },
+  { name: "Nic", org: "Sanctum" },
   { name: "Simon", org: "Solana ID" },
   { name: "Jemmy", org: "MonkeDAO" },
+  { name: "Vesper", org: "Meteora" },
+  { name: "OhMeOhMy", org: "Kyzzen" },
   { name: "Jacob", org: "Superscrypt" },
   { name: "Shuen Rui", org: "Impossible Finance / Rarible" },
   { name: "Nikki", org: "Content" },
@@ -259,11 +287,8 @@ export const WORKSHOP_LEADER_PROFILES: Record<
     avatar: withBasePath("/speakers/virtuals.jpg"),
     twitter: "virtuals_io",
   },
-  "s3-magic": {
-    avatar: withBasePath("/speakers/magicblock.jpg"),
-    twitter: "magicblock",
-  },
-  "s3-sid": {
+  // "s3-magic": MagicBlock session removed from the Aug 2026 agenda.
+  "s3-ecosystem": {
     avatar: withBasePath("/speakers/simon.jpg"),
     twitter: "simonmolitor",
   },

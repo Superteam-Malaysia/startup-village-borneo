@@ -155,7 +155,7 @@ export default function SubmissionsPage() {
               <ActionCard
                 title="Onboarding ethos"
                 tone="azure"
-                description="Help someone use Jupiter, a wallet, or RedotPay. Note what confused them — that's product research, not a sales pitch."
+                description="Help someone use Jupiter, a wallet, RedotPay, or Sanctum. Note what confused them — that's product research, not a sales pitch."
               >
                 <p className="font-[family-name:var(--font-mono)] text-xs text-[var(--color-wisp)]/50 leading-relaxed">
                   Never ask for money, investments, or token purchases. Document the learning moment

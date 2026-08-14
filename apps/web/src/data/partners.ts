@@ -67,13 +67,14 @@ export const PARTNERS: Partner[] = [
     logo: withBasePath("/partners/elfa-ai.png"),
     logoStyle: "light",
   },
-  {
-    name: "MagicBlock",
-    role: "confirmed",
-    workshops: true,
-    logo: withBasePath("/partners/magicblock.svg"),
-    logoStyle: "light",
-  },
+  // MagicBlock — dropped from the Aug 2026 confirmed partner list (no workshop).
+  // {
+  //   name: "MagicBlock",
+  //   role: "confirmed",
+  //   workshops: true,
+  //   logo: withBasePath("/partners/magicblock.svg"),
+  //   logoStyle: "light",
+  // },
   {
     name: "TankDAO",
     role: "confirmed",
@@ -89,17 +90,42 @@ export const PARTNERS: Partner[] = [
     logoStyle: "color",
   },
   {
+    name: "Sanctum",
+    role: "confirmed",
+    workshops: true,
+    logo: withBasePath("/partners/sanctum.svg"),
+    logoStyle: "light",
+  },
+  {
+    name: "Kyzzen",
+    role: "confirmed",
+    workshops: true,
+    logo: withBasePath("/partners/kyzzen.png"),
+    logoStyle: "color",
+    logoFit: "icon",
+  },
+  {
+    name: "Meteora",
+    role: "confirmed",
+    workshops: true,
+    logo: withBasePath("/partners/meteora.svg"),
+    logoStyle: "light",
+  },
+  {
     name: "RedotPay",
-    role: "pending",
+    role: "confirmed",
+    workshops: false,
     logo: withBasePath("/partners/redotpay.svg"),
     logoStyle: "color",
   },
-  {
-    name: "DWFLabs",
-    role: "pending",
-    logo: withBasePath("/partners/dwflabs.svg"),
-    logoStyle: "light",
-  },
+  // DWFLabs — no longer pending on the Aug 2026 agenda. Do not show until re-confirmed.
+  // {
+  //   name: "DWFLabs",
+  //   role: "pending",
+  //   logo: withBasePath("/partners/dwflabs.svg"),
+  //   logoStyle: "light",
+  // },
+  // No Limit Holdings — pending. Agenda: do not show until confirmed.
 ];
 
 export const ANCHOR_PARTNERS = PARTNERS.filter((p) => p.role === "anchor");

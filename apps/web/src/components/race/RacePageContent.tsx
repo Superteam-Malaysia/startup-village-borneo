@@ -25,7 +25,7 @@ export function RacePageContent() {
   return (
     <div className="flex flex-col gap-16 md:gap-24">
       <PageHeader
-        meta="15+ stations · points-weighted"
+        meta="16 stations · points-weighted"
         title="The Amazing Race"
         lead="Kuching is the course — laksa pilgrimages, waterfront sampan rides, cat statues, and a wallet mission that teaches real users. You may not finish every station. Choose well."
       />
@@ -48,7 +48,7 @@ export function RacePageContent() {
             {getThemePointsSummary().map(({ theme, max }) => (
               <li key={theme}>
                 <p className="text-label mb-2">{THEME_LABELS[theme]}</p>
-                <HalftoneMeter value={max} max={25} color={THEME_METER_COLORS[theme]} h={12} priority="immediate" />
+                <HalftoneMeter value={max} max={30} color={THEME_METER_COLORS[theme]} h={12} priority="immediate" />
                 <p className="mt-2 font-[family-name:var(--font-mono)] text-xs text-[var(--color-wisp)]/50">
                   up to {max} pts
                 </p>
@@ -84,7 +84,7 @@ export function RacePageContent() {
               </label>
               <label className="text-sm text-[var(--color-wisp)]/70">
                 Stations completed (sample)
-                <HalftoneMeter value={7} max={15} color="green" h={14} className="mt-2" priority="deferred" />
+                <HalftoneMeter value={7} max={16} color="green" h={14} className="mt-2" priority="deferred" />
               </label>
             </div>
           </div>

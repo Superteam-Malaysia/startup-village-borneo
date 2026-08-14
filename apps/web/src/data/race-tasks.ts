@@ -1,5 +1,5 @@
 /**
- * Amazing Race task catalog — sourced from Startup Village Borneo program PDF
+ * Amazing Race task catalog — sourced from the official Startup Village Borneo agenda
  * (see docs/blueprint/01-event-context.md).
  */
 
@@ -76,9 +76,9 @@ export const RACE_TASKS: RaceTask[] = [
     shortDescription:
       "Team photo at Choon Hui Cafe and a laksa ranking — Kuching vs West Malaysia.",
     details: [
+      "Find Choon Hui Cafe and get a team photo outside. It's a morning spot so it may be shut — that's part of the game.",
+      "Then hunt down a laksa you can actually eat, and rank it against a West Malaysian laksa (Johor, Penang, etc.).",
       "Submit via one Twitter thread tagging every team member.",
-      "Film or photograph your laksa verdict — be honest, be spicy.",
-      "Rank a Kuching laksa against a West Malaysian laksa in your thread.",
       "One team submission per task.",
     ],
     pointsBase: 6,
@@ -292,16 +292,33 @@ export const RACE_TASKS: RaceTask[] = [
     number: 15,
     title: "Onboard a real user",
     shortDescription:
-      "Teach someone a crypto product — wallet, Jupiter, RedotPay — and document what was hard.",
+      "Teach someone a crypto product — a wallet like Jupiter or RedotPay, or Sanctum — and document what was hard.",
     details: [
       "Teach, don't sell — no pitching investments or asking for money.",
-      "Use a real product (e.g. Jupiter swap, RedotPay, or another Solana wallet flow).",
+      "Use a real product (a wallet like Jupiter or RedotPay, or Sanctum).",
       "Document what confused your learner — that's gold for your build.",
-      "This task doubles as live Solana onboarding for the ecosystem.",
+      "If they aren't interested, thank them and move on.",
     ],
     pointsBase: 10,
     category: "wallet",
     theme: "wallet",
+  },
+  {
+    id: "race-photobooth",
+    number: 16,
+    title: "Photobooth",
+    shortDescription:
+      "Team photo at the Superteam MY x Solana x SOCOE photobooth at Voco — Day 2 only.",
+    details: [
+      "The photobooth is at Voco on Sunday 6 September.",
+      "One team shot in the Superteam MY x Solana x SOCOE booth.",
+      "Submit via your team Twitter thread tagging every member.",
+    ],
+    pointsBase: 3,
+    category: "race",
+    theme: "culture",
+    location: "Voco Kuching",
+    deadline: "6 Sept 2026",
   },
 ];
 
@@ -328,7 +345,7 @@ export const SUMMARY_THEME_ORDER: TaskTheme[] = [
 export const THEME_MAX_POINTS: Record<TaskTheme, number> = {
   content: 10,
   food: 17,
-  culture: 23,
+  culture: 27,
   waterfront: 15,
   wallet: 10,
 };

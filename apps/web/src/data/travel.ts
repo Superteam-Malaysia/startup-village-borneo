@@ -1,5 +1,5 @@
 /**
- * Travel & logistics for Kuching — practical companion to the program PDF.
+ * Travel & logistics for Kuching — practical companion to the official agenda.
  */
 
 export type TravelSection = {
@@ -74,12 +74,12 @@ export const TRAVEL_SECTIONS: TravelSection[] = [
       {
         label: "voco Kuching",
         detail:
-          "Jalan Lapangan Terbang Baru, 93350 Kuching — workshop venue Day 2–5. Breakfast at Sheraton, then Grab or shuttle to Voco for 10:00 sessions.",
+          "Jalan Lapangan Terbang Baru, 93350 Kuching — workshop venue Day 2–5. Breakfast at Sheraton, then the 09:30 bus to Voco for 10:00 sessions.",
       },
       {
         label: "Rhythm",
         detail:
-          "Sessions hard stop 17:00–17:30. Evenings are free for building at the hotel. Day 5: check out of Sheraton, Demo Day at Voco.",
+          "Sessions hard stop 17:00–17:30. Evenings are free for building at the hotel. Day 4 dinner is at Fable (race & deck cutoff 18:00). Day 5: check out of Sheraton, Demo Day at Voco.",
       },
     ],
   },

@@ -1,5 +1,5 @@
 /**
- * Program tracks — sustainability and content awards (official program PDF).
+ * Program tracks — sustainability and content awards (official agenda).
  */
 
 export const SUSTAINABILITY_TRACK = {

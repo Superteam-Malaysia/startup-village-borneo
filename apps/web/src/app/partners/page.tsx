@@ -14,7 +14,7 @@ export default function PartnersPage() {
     <main className="site-main">
       <PageHeader
         title="Partners"
-        lead="Partners not on stage receive logo placement and office hours access (e.g. BESarawak, TankDAO)."
+        lead="Partners not on stage receive logo placement and office hours access (BESarawak, TankDAO, RedotPay)."
       />
       <SectionArticle>
         <PartnerLogoWall

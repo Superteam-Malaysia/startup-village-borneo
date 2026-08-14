@@ -41,7 +41,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     category: "wallet",
     question: "What counts for the wallet onboarding task?",
     answer:
-      "Teach someone to use a real crypto product — a wallet, Jupiter, RedotPay, or an exchange. Document what was confusing. Teach, don't sell. Never pressure anyone about money or investment.",
+      "Teach someone to use a real crypto product — a wallet like Jupiter or RedotPay, or Sanctum. Document what was confusing. Teach, don't sell. Never pressure anyone about money or investment.",
   },
   {
     id: "content-award",

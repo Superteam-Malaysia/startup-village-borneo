@@ -1,25 +1,27 @@
 # 01 — Event Context
 
-> Source of truth distilled from the official program:
-> `Startup Village Borneo Program` (see the uploaded PDF). If the PDF and this
+> Source of truth distilled from the official program agenda
+> (Startup Village Borneo Google Doc, August 2026). If the agenda and this
 > document ever disagree, reconcile here and note the change.
 
 ## Overview
 
 - **Name:** Startup Village Borneo
 - **Dates:** 5–9 September 2026
-- **Venue:** Sheraton Kuching, Sarawak (workshops travel to Voco from Day 2)
+- **Venue:** Sheraton Kuching, Sarawak (accommodation) + Voco Kuching (sessions from Day 2, including Demo Day)
 - **Anchor partners:** Solana Foundation, SOCOE
 - **Confirmed partners:** BESarawak, Solana ID / Solana Ecosystem Call,
   Superscrypt, Impossible Finance, Rarible, MonkeDAO / MonkeFoundry, Elfa AI,
-  MagicBlock, TankDAO, Virtuals
-- **Pending partners:** RedotPay, DWFLabs
-- **Note:** TankDAO and BESarawak run no workshops.
+  TankDAO, Virtuals, Sanctum, Kyzzen, Meteora, RedotPay
+- **Pending partners:** No Limit Holdings (do not show until confirmed)
+- **Note:** TankDAO, RedotPay, and BESarawak run no workshops.
+- **Dropped vs prior draft:** MagicBlock, DWFLabs
 
 ## Daily rhythm
 
 - Sessions start at 10:00am with a hard stop between 5:00–5:30pm.
-- Evenings are free for building at the hotel.
+- Breakfast at Sheraton; 09:30 bus to Voco on Days 2–5.
+- Evenings are free for building at the hotel (Day 4 dinner is at Fable).
 - All talks are under 10 minutes; workshops are 30–45 minutes max.
 
 ## Prize pool — USD 10,000
@@ -40,28 +42,39 @@
 ### Day 1 — Sat 5 Sept · Arrive & Explore Kuching
 - Teams assigned before arrival and placed into WhatsApp groups; the race starts on landing.
 - By 6:00pm all teams back at Sheraton Kuching.
-- 6:30pm welcome dinner: results and current points standings; team formation begins.
+- 6:30pm welcome dinner at Sheraton Rooftop Bar with RedotsClub: results and current points standings; team formation begins.
 
 ### Day 2 — Sun 6 Sept · Opening & Problem Framing
-- 10:00 Opening (Superteam MY) → 10:10 SOCOE → 10:20 Solana Foundation keynote → 10:30 Minister address.
-- 11:15 Workshop: Elfa AI — finding real problems, user research, market framing.
+- 09:30 bus to Voco.
+- 10:00 Opening (Superteam MY) → 10:10 SOCOE (Edvin, Director) → 10:20 Solana Foundation keynote (Seraphim / Chaerin) → 10:30 Minister address + launch (if confirmed) → 10:45 break.
+- 11:15 Workshop: Elfa AI (Tristan) — finding real problems, user research, market framing.
 - 11:45 Workshop: solana.new with Semi — from idea to running code.
 - 12:30 Lunch + team formation (solo founders matched).
-- 13:30 Workshop: Virtuals.
-- 14:15 Build begins → 15:30 mentorship → 16:30 Roast My Pitch round 1 (90s, no slides).
+- 13:30 Workshop: Virtuals (Joey) — building the agent economy with AI agents and autonomous payments via EconomyOS.
+- 14:15 Build begins (define your problem and first user) + mentorship / office hours → 16:00 Roast My Pitch round 1 (90s, no slides).
+- 17:00 bus back to Sheraton. Buffet dinner. Building continues after dinner.
 
 ### Day 3 — Mon 7 Sept · Build & Traction
-- 10:00 MagicBlock → 10:45 Solana ID → 11:30 MonkeDAO.
-- 13:30 Office hours; teams go out to get their first 10 users.
-- 17:00 Regroup: what did you learn from real users?
+- 09:30 bus to Voco.
+- 10:00 Solana Ecosystem Call (Simon) → 10:45 Sanctum (Nic) → 11:15 MonkeDAO (Jemmy) → 11:45 Meteora Ecosystem (Vesper).
+- 12:15 Lunch → 13:30 Kyzzen (OhMeOhMy).
+- 14:15 Office hours; teams go out to get their first 10 users.
+- 16:30 Regroup: what did you learn from real users?
+- 17:00 bus back to Sheraton. Free-and-easy evening; roam Kuching for dinner.
+- 18:30 Monke Meetup.
 
 ### Day 4 — Tue 8 Sept · Storytelling & Pitch
-- 10:00 Superscrypt → 10:45 Impossible Finance / Rarible → 11:30 Contentmaxxing.
-- 13:30 Deck clinic → 15:00 Roast My Pitch round 2 (full dry run).
-- **18:00 HARD CUTOFF: Amazing Race & deck submission. Nothing accepted after this.**
+- 09:30 bus to Voco.
+- 10:00 Superscrypt (Jacob) — what investors look for, what kills a pitch in 30 seconds.
+- 10:45 Impossible Finance / Rarible (Shuen Rui) — go-to-market and distribution.
+- 11:30 Contentmaxxing (Nikki) → 12:00 build and deck work → 12:30 lunch.
+- 13:30 Deck clinic → 15:00 Roast My Pitch round 2 (full dry run) → 17:30 wrap.
+- **18:00 HARD CUTOFF: Amazing Race & deck submission. Nothing accepted after this. Dinner at Fable.**
+- 21:00 bus back to Sheraton.
 
 ### Day 5 — Wed 9 Sept · Demo Day
-- 09:15 Rehearsal → 10:00 Public Demo Day (live pitches + Q&A) → 12:00 judging → 12:30 prizes.
+- Breakfast at Sheraton, check-out, then 09:30 bus to Voco.
+- 10:00 Tech check → 10:15 Opening address → 10:30 Public Demo Day (live pitches + Q&A) → 12:30 judging → 12:45 prizes, group photo, closing → 13:00 lunch → 15:00 bus back to Sheraton.
 - **Judges:** SOCOE (Sam), Solana Foundation (Chaerin, Seraphim), Superscrypt (Jacob), + one more.
 
 ## The Amazing Race
@@ -74,7 +87,7 @@ Teams are told upfront they may not finish everything — choose well.
 2. Overall impressions — video/collage on X on 10 Sept, same tags. **[no points, counts toward Content Award]**
 
 **Amazing Race tasks (team submission via a Twitter thread tagging all members):**
-3. The Bourdain pilgrimage — team photo at Choon Hui Cafe; rank a Kuching laksa vs a West Malaysian one. **[6 pts]**
+3. The Bourdain pilgrimage — team photo at Choon Hui Cafe (morning spot; may be shut); rank a Kuching laksa vs a West Malaysian one. **[6 pts]**
 4. Kek lapis at Mama Su — taste, film first bite, buy a favourite. **[4 pts]**
 5. Sam's ice cream — photo eating, name the flavour of the day. **[3 pts]**
 6. Ceylonese restaurant — "best cheese naan in town"; film the longest cheese pull. **[4 pts]**
@@ -86,7 +99,8 @@ Teams are told upfront they may not finish everything — choose well.
 12. Old Court House — team photo. **[3 pts]**
 13. Brooke's Dockyard Heritage Museum — photo with the biggest anchor. **[3 pts]**
 14. Traditional attire — photograph five Sarawakian outfits. **[5 pts, 1 per attire]**
-15. Onboard a real user — teach someone a crypto product (wallet like Jupiter or RedotPay); document what was hard. Teach, don't sell. **[10 pts]**
+15. Onboard a real user — teach someone a crypto product (wallet like Jupiter or RedotPay, or Sanctum); document what was hard. Teach, don't sell. **[10 pts]**
+16. Photobooth — Superteam MY x Solana x SOCOE photobooth at Voco on 6 Sept. **[3 pts]**
 
 ## Ops notes
 

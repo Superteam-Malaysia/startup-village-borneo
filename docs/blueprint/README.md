@@ -9,7 +9,7 @@ event and the product vision.
 
 | # | Document | What it covers |
 | - | -------- | -------------- |
-| 1 | [`01-event-context.md`](./01-event-context.md) | The Startup Village Borneo event: dates, partners, schedule, the Amazing Race, prizes, and ops rules — the source of truth distilled from the program PDF. |
+| 1 | [`01-event-context.md`](./01-event-context.md) | The Startup Village Borneo event: dates, partners, schedule, the Amazing Race, prizes, and ops rules — the source of truth distilled from the official agenda. |
 | 2 | [`02-product-vision.md`](./02-product-vision.md) | The companion product this repo builds: goals, target users, primary flows, and non-goals. |
 | 3 | [`03-architecture.md`](./03-architecture.md) | Proposed technical architecture, including the Solana components and off-chain services. |
 | 4 | [`04-spec-kit-workflow.md`](./04-spec-kit-workflow.md) | How to drive development with Spec Kit in this repo (constitution → specify → plan → tasks → implement). |

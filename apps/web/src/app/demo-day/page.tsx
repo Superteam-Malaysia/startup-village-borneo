@@ -12,7 +12,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Demo Day",
   description:
-    "Day 5 at Startup Village Borneo — rehearsal, live pitches, judging, and prizes at Voco Kuching.",
+    "Day 5 at Startup Village Borneo — tech check, live pitches, judging, and prizes at Voco Kuching.",
   path: "/demo-day",
 });
 

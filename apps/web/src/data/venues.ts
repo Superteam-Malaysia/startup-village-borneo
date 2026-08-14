@@ -1,6 +1,6 @@
 /**
  * Sheraton & Voco venue details — Startup Village Borneo program.
- * Source: official program PDF + public hotel listings.
+ * Source: official agenda + public hotel listings.
  */
 
 export type VenueId = "sheraton" | "voco";
@@ -48,7 +48,7 @@ export const VENUES: Record<VenueId, Venue> = {
     checkInNote:
       "Standard check-in from 15:00. SVB teams are assigned before arrival — head to reception, collect your key, and join your team WhatsApp group. The Amazing Race starts the moment you land.",
     breakfastNote:
-      "Buffet breakfast at the hotel on workshop days (Day 2–5). Eat before 09:00 — coaches leave for Voco around 09:15 so sessions can start at 10:00.",
+      "Buffet breakfast at the hotel on workshop days (Day 2–5). Eat before 09:00 — coaches leave for Voco at 09:30 so sessions can start at 10:00.",
     phone: "+60 82-423 111",
     mapsQuery: "Sheraton+Kuching+Jalan+Tunku+Abdul+Rahman",
   },
@@ -65,14 +65,14 @@ export const VENUES: Record<VenueId, Venue> = {
     ],
     role: "Workshop venue — opening day through Demo Day (Day 2–5)",
     checkInNote:
-      "Not a residential hotel for SVB — you visit for daytime programming. Arrive by 09:45 for the 10:00 hard start. Day 5: check out of Sheraton first, then head straight to Voco for rehearsal and Demo Day.",
+      "Not a residential hotel for SVB — you visit for daytime programming. Arrive by 09:45 for the 10:00 hard start. Day 5: check out of Sheraton first, then the 09:30 bus to Voco for tech check and Demo Day.",
     phone: "+60 82-537 666",
     mapsQuery: "voco+Kuching+Jalan+Lapangan+Terbang+Baru",
   },
 };
 
 export const BREAKFAST_RHYTHM =
-  "Breakfast at Sheraton every workshop morning (Day 2–5). Grab food before 09:00, meet your team in the lobby, then Grab or shuttle to Voco for a 10:00 session start. Day 5 adds check-out — bags with concierge or in the coach, then straight to Voco for rehearsal.";
+  "Breakfast at Sheraton every workshop morning (Day 2–5). Grab food before 09:00, meet your team in the lobby, then the 09:30 bus to Voco for a 10:00 session start. Day 5 adds check-out — bags with concierge or in the coach, then straight to Voco for tech check.";
 
 export const WHATSAPP_OPS_NOTE =
   "Teams are placed in WhatsApp groups before landing. Your race brief drops on arrival — ops updates, shuttle timing, and mentor office hours all run through the group. Save the hotel front desk number, but check WhatsApp first for SVB-specific moves.";
@@ -96,14 +96,14 @@ export const VENUE_DAY_PLAN: VenueDayPlan[] = [
     venueId: "city",
     headline: "Arrive & explore Kuching",
     detail:
-      "Check in at Sheraton, join your WhatsApp group, race across the city. All teams back by 18:00; welcome dinner at Sheraton 18:30.",
+      "Check in at Sheraton, join your WhatsApp group, race across the city. All teams back by 18:00; welcome dinner at the Sheraton Rooftop Bar with RedotsClub at 18:30.",
   },
   {
     day: "Day 2",
     date: "Sun 6 Sept",
     venueId: "voco",
     headline: "Opening & problem framing",
-    detail: "Breakfast at Sheraton → Voco for workshops 10:00–17:30. Evening building back at the hotel.",
+    detail: "Breakfast at Sheraton → 09:30 bus to Voco for workshops 10:00–17:00. Buffet dinner back at the hotel.",
   },
   {
     day: "Day 3",
@@ -111,7 +111,7 @@ export const VENUE_DAY_PLAN: VenueDayPlan[] = [
     venueId: "voco",
     headline: "Build & traction",
     detail:
-      "Breakfast at Sheraton → Voco sessions. Teams may head into the city for user research; regroup at Voco by 17:00.",
+      "Breakfast at Sheraton → 09:30 bus to Voco. Teams go out for first 10 users after lunch; regroup at Voco by 16:30. Monke Meetup 18:30.",
   },
   {
     day: "Day 4",
@@ -119,7 +119,7 @@ export const VENUE_DAY_PLAN: VenueDayPlan[] = [
     venueId: "voco",
     headline: "Storytelling & pitch",
     detail:
-      "Breakfast at Sheraton → Voco for deck clinic and Roast My Pitch. Hard cutoff 18:00 — race & deck submissions.",
+      "Breakfast at Sheraton → 09:30 bus to Voco for deck clinic and Roast My Pitch. Hard cutoff 18:00 — race & deck submissions, then dinner at Fable. Bus back to Sheraton at 21:00.",
   },
   {
     day: "Day 5",
@@ -127,7 +127,7 @@ export const VENUE_DAY_PLAN: VenueDayPlan[] = [
     venueId: "voco",
     headline: "Demo Day",
     detail:
-      "Breakfast at Sheraton, check out, then Voco for rehearsal (09:15), public Demo Day (10:00), prizes, and farewell lunch.",
+      "Breakfast at Sheraton, check out, then 09:30 bus to Voco for tech check (10:00), public Demo Day (10:30), prizes, lunch, and the 15:00 bus back.",
   },
 ];
 
