@@ -292,9 +292,21 @@ export const WORKSHOP_LEADER_PROFILES: Record<
     avatar: withBasePath("/speakers/simon.jpg"),
     twitter: "simonmolitor",
   },
+  "s3-sanctum": {
+    avatar: withBasePath("/speakers/nic.jpg"),
+    twitter: "NicFury",
+  },
   "s3-monke": {
     avatar: withBasePath("/speakers/jemmy.jpg"),
     twitter: "jemmmyjemm",
+  },
+  "s3-meteora": {
+    avatar: withBasePath("/speakers/vesper.jpg"),
+    twitter: "vesper792",
+  },
+  "s3-kyzzen": {
+    avatar: withBasePath("/speakers/ohmeohmy.jpg"),
+    twitter: "OhMeOhMy_Sol",
   },
   "s4-super": {
     avatar: withBasePath("/speakers/jacob-ko.jpg"),
