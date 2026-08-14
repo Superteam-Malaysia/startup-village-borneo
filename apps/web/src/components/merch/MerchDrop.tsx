@@ -1,43 +1,42 @@
 import Image from "next/image";
-import { CtaButton, SectionArticle, SectionIntro } from "@/components/ui";
-import { MERCH_IMAGE, MERCH_ITEMS, MERCH_TWEET_URL } from "@/data/merch";
+import { SectionArticle, SectionIntro } from "@/components/ui";
+import { MERCH_IMAGE, MERCH_ITEMS } from "@/data/merch";
 
 export function MerchDrop() {
   return (
     <SectionArticle>
-      <SectionIntro title="What's in the bag" accent="lime" />
+      <SectionIntro
+        title="What's in the bag"
+        lead="Every accepted builder gets a Startup Village kit for the week — jersey, carry, hydration, and the basics for five days in Kuching."
+        accent="lime"
+      />
       <div className="merch-drop">
-        <a
-          className="merch-drop__media"
-          href={MERCH_TWEET_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Image
-            src={MERCH_IMAGE.src}
-            alt={MERCH_IMAGE.alt}
-            width={MERCH_IMAGE.width}
-            height={MERCH_IMAGE.height}
-            className="merch-drop__image"
-            sizes="(min-width: 768px) 52vw, 100vw"
-          />
-        </a>
-        <ol className="merch-drop__kit">
-          {MERCH_ITEMS.map((item, index) => (
-            <li key={item.id} className="merch-drop__item">
-              <span className="merch-drop__index">{String(index + 1).padStart(2, "0")}</span>
-              <span className="merch-drop__copy">
+        <figure className="merch-drop__figure">
+          <div className="merch-drop__frame">
+            <Image
+              src={MERCH_IMAGE.src}
+              alt={MERCH_IMAGE.alt}
+              width={MERCH_IMAGE.width}
+              height={MERCH_IMAGE.height}
+              className="merch-drop__image"
+              sizes="(min-width: 768px) min(52vw, 640px), 100vw"
+              priority={false}
+            />
+          </div>
+          <figcaption className="merch-drop__caption">Startup Village Borneo kit</figcaption>
+        </figure>
+
+        <div className="merch-drop__manifest">
+          <p className="merch-drop__manifest-label">Kit manifest</p>
+          <ul className="merch-drop__kit">
+            {MERCH_ITEMS.map((item) => (
+              <li key={item.id} className="merch-drop__item">
                 <span className="merch-drop__name">{item.name}</span>
                 <span className="merch-drop__note">{item.note}</span>
-              </span>
-            </li>
-          ))}
-        </ol>
-      </div>
-      <div className="mt-10">
-        <CtaButton href={MERCH_TWEET_URL} variant="ghost-wisp" size="md" external>
-          Sneak peek on X
-        </CtaButton>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </SectionArticle>
   );

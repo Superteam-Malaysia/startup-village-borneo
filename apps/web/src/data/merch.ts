@@ -1,8 +1,8 @@
 import { withBasePath } from "@/lib/base-path";
 
 /** Kit list from Superteam MY merch sneak peek (14 Aug 2026). */
-export const MERCH_TWEET_URL =
-  "https://x.com/SuperteamMY/status/2088094672359190838";
+// export const MERCH_TWEET_URL =
+//   "https://x.com/SuperteamMY/status/2088094672359190838";
 
 export const MERCH_IMAGE = {
   src: withBasePath("/merch/svb-merch-drop.png"),

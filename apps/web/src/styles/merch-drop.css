@@ -1,5 +1,5 @@
 /**
- * Homepage merch drop — official Superteam MY kit graphic + kit list.
+ * Homepage merch drop — kit graphic + manifest panel.
  */
 
 .merch-drop {
@@ -10,28 +10,60 @@
 
 @media (min-width: 768px) {
   .merch-drop {
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-    gap: 3rem;
-    align-items: end;
+    grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
+    gap: 2.5rem;
+    align-items: center;
   }
 }
 
-.merch-drop__media {
-  display: block;
-  overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--color-wisp) 22%, transparent);
-  background: color-mix(in srgb, var(--color-null) 88%, var(--color-wisp) 12%);
+@media (min-width: 1024px) {
+  .merch-drop {
+    gap: 3.5rem;
+  }
 }
 
-.merch-drop__media:focus-visible {
-  outline: 2px solid var(--color-wisp);
-  outline-offset: 4px;
+.merch-drop__figure {
+  margin: 0;
+  min-width: 0;
+}
+
+.merch-drop__frame {
+  overflow: hidden;
+  border: 2px solid var(--color-transparent-wisp-10);
+  background: #050505;
 }
 
 .merch-drop__image {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.merch-drop__caption {
+  margin-top: 0.75rem;
+  color: color-mix(in srgb, var(--color-wisp) 52%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.merch-drop__manifest {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 2px solid var(--color-transparent-wisp-10);
+}
+
+.merch-drop__manifest-label {
+  margin: 0;
+  padding: 0.875rem 1rem;
+  border-bottom: 2px solid var(--color-transparent-wisp-10);
+  color: color-mix(in srgb, var(--color-wisp) 58%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .merch-drop__kit {
@@ -44,43 +76,34 @@
 
 .merch-drop__item {
   display: grid;
-  grid-template-columns: 2.5rem 1fr;
-  gap: 1rem;
-  align-items: baseline;
-  padding: 1rem 0;
-  border-top: 1px solid var(--color-transparent-wisp-10);
+  gap: 0.35rem;
+  padding: 1.125rem 1rem;
+  border-bottom: 2px solid var(--color-transparent-wisp-10);
+  transition: background-color var(--duration-normal) var(--ease-out-expo);
 }
 
 .merch-drop__item:last-child {
-  border-bottom: 1px solid var(--color-transparent-wisp-10);
+  border-bottom: none;
 }
 
-.merch-drop__index {
-  color: var(--color-byte);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-}
-
-.merch-drop__copy {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+.merch-drop__item:hover {
+  background: color-mix(in srgb, var(--color-wisp) 5%, transparent);
 }
 
 .merch-drop__name {
   color: var(--color-wisp);
   font-family: var(--font-display);
-  font-size: 1.375rem;
+  font-size: clamp(1.25rem, 2.2vw, 1.625rem);
   font-weight: 800;
   letter-spacing: -0.02em;
-  line-height: 1.1;
+  line-height: 1.05;
   text-transform: uppercase;
 }
 
 .merch-drop__note {
-  color: color-mix(in srgb, var(--color-wisp) 70%, transparent);
+  color: color-mix(in srgb, var(--color-wisp) 72%, transparent);
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   letter-spacing: 0.02em;
+  line-height: 1.45;
 }
