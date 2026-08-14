@@ -284,8 +284,9 @@ export const WORKSHOP_LEADER_PROFILES: Record<
   "s2-elfa": { avatar: withBasePath("/speakers/hypetris.jpg"), twitter: "hypetris_" },
   "s2-semi": { avatar: withBasePath("/speakers/semi.jpg"), twitter: "semiii" },
   "s2-virtuals": {
-    avatar: withBasePath("/speakers/virtuals.jpg"),
-    twitter: "virtuals_io",
+    avatar: withBasePath("/speakers/joey.jpg"),
+    twitter: "joeylaujy",
+    // avatar: withBasePath("/speakers/virtuals.jpg"), twitter: "virtuals_io",
   },
   // "s3-magic": MagicBlock session removed from the Aug 2026 agenda.
   "s3-ecosystem": {
