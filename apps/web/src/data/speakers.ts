@@ -327,6 +327,10 @@ export const WORKSHOP_LEADER_PROFILES: Record<
     avatar: withBasePath("/speakers/shuen-rui.jpg"),
     twitter: "shuenrui",
   },
+  "s4-nolimit": {
+    avatar: withBasePath("/speakers/chris-ling.jpg"),
+    linkedin: "chris-ling-5a7963209",
+  },
   "s4-content": {
     avatar: withBasePath("/speakers/nikkideyy.jpg"),
     twitter: "nikkideyy",
