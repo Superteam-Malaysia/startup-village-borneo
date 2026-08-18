@@ -1,0 +1,21 @@
+---
+description: Keep verification lightweight for small data-only changes — no GUI walks or heavy artifact generation
+alwaysApply: true
+---
+
+# Verification — keep it light (global)
+
+For **small, data-only changes** (syncing `src/data/*`, docs, copy, config
+constants), do **not** run token-heavy verification:
+
+- No browser / computer-use walks
+- No screenshots, screen recordings, or video review subagents
+- No exhaustive curl + HTML scraping across every page
+
+**Enough for data-only syncs:**
+
+1. `npm run build` in `apps/web` (or confirm types compile)
+2. Quick sanity check that edited files contain the expected strings (grep/read)
+
+Reserve manual UI testing for actual UI/component changes or non-trivial
+behavior that data files alone cannot prove.
