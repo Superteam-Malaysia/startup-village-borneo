@@ -122,7 +122,8 @@ export const PARTNERS: Partner[] = [
     name: "No Limit Holdings",
     role: "confirmed",
     workshops: true,
-    logoStyle: "light",
+    logo: withBasePath("/partners/no-limit-holdings.png"),
+    logoStyle: "color",
   },
   // DWFLabs — no longer pending on the Aug 2026 agenda. Do not show until re-confirmed.
   // {
