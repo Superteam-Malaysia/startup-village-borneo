@@ -118,6 +118,12 @@ export const PARTNERS: Partner[] = [
     logo: withBasePath("/partners/redotpay.svg"),
     logoStyle: "color",
   },
+  {
+    name: "No Limit Holdings",
+    role: "confirmed",
+    workshops: true,
+    logoStyle: "light",
+  },
   // DWFLabs — no longer pending on the Aug 2026 agenda. Do not show until re-confirmed.
   // {
   //   name: "DWFLabs",
@@ -125,7 +131,6 @@ export const PARTNERS: Partner[] = [
   //   logo: withBasePath("/partners/dwflabs.svg"),
   //   logoStyle: "light",
   // },
-  // No Limit Holdings — pending. Agenda: do not show until confirmed.
 ];
 
 export const ANCHOR_PARTNERS = PARTNERS.filter((p) => p.role === "anchor");

@@ -310,7 +310,7 @@ export const RACE_TASKS: RaceTask[] = [
     shortDescription:
       "Team photo at the Superteam MY x Solana x SOCOE photobooth at Voco — Day 2 only.",
     details: [
-      "The photobooth is at Voco on Sunday 6 September.",
+      "The photobooth is at Voco Hotel on Sunday 6 September.",
       "One team shot in the Superteam MY x Solana x SOCOE booth.",
       "Submit via your team Twitter thread tagging every member.",
     ],
