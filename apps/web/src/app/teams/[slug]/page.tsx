@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CtaButton, SectionArticle } from "@/components/ui";
-import { PageHeader } from "@/components/shell";
 import { getParticipantForSession } from "@/lib/auth/participant";
 import { canEditTeam, getTeamMembership } from "@/lib/teams/access";
 import { getPublicTeamBySlug } from "@/lib/teams/public-teams";
@@ -18,6 +17,20 @@ function teamInitials(name: string): string {
   if (parts.length === 0) return "?";
   if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
   return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+}
+
+function ExternalIcon() {
+  return (
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M7 17L17 7M17 7H9M17 7V15"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
 }
 
 export async function generateMetadata({ params }: TeamDetailPageProps): Promise<Metadata> {
@@ -40,96 +53,111 @@ export default async function TeamDetailPage({ params }: TeamDetailPageProps) {
     ? await getTeamMembership(team.id, participant.id)
     : null;
   const canEdit = canEditTeam(membership?.role);
+  const category = team.category ?? "Other";
 
   return (
     <main className="site-main site-main--stack">
-      <PageHeader
-        meta={team.category ?? "Team"}
-        title={team.name}
-        lead={team.tagline ?? undefined}
-      />
-
-      <SectionArticle>
-        <div className="team-detail">
-          <div className="team-detail__hero">
-            <div className="team-detail__logo" aria-hidden="true">
-              {teamInitials(team.name)}
-            </div>
-            <div>
-              <div className="team-detail__meta">
-                <span className="team-card__category">{team.category ?? "Other"}</span>
-                <span className="team-card__members">
-                  {team.memberCount} {team.memberCount === 1 ? "member" : "members"}
-                </span>
-              </div>
-              {(team.websiteUrl || team.proofUrl) && (
-                <div className="team-detail__links mt-3">
-                  {team.websiteUrl ? (
-                    <a
-                      href={team.websiteUrl}
-                      className="team-detail__link"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Website
-                    </a>
-                  ) : null}
-                  {team.proofUrl ? (
-                    <a
-                      href={team.proofUrl}
-                      className="team-detail__link"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Proof of work
-                    </a>
-                  ) : null}
-                </div>
-              )}
-            </div>
-          </div>
-
-          {team.description ? (
-            <p className="team-detail__description">{team.description}</p>
-          ) : null}
-
-          <section className="team-detail__members">
-            <h2 className="font-mono text-sm uppercase tracking-wider text-[color:color-mix(in_srgb,var(--color-wisp)_72%,transparent)]">
-              Members
-            </h2>
-            <ul className="team-detail__members-list">
-              {team.members.map((member) => (
-                <li key={member.id}>
-                  <span className="team-member-chip">
-                    <span className="team-member-chip__avatar" aria-hidden="true">
-                      {member.initials}
-                    </span>
-                    <span className="team-member-chip__name">{member.name}</span>
-                    <span className="team-member-chip__role">{member.role}</span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <div className="flex flex-wrap gap-4">
-            {canEdit ? (
-              <CtaButton href={`/teams/${slug}/edit`} variant="byte" size="md">
-                Edit team
-              </CtaButton>
-            ) : null}
-            <CtaButton href="/teams" variant="ghost-wisp" size="md" showArrow={false}>
-              All teams
-            </CtaButton>
-            <Link
-              href="/teams?tab=builders"
-              className="font-mono text-sm text-[var(--color-byte)] hover:underline self-center"
-            >
-              Browse builders
+      <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24 w-full">
+        <SectionArticle>
+          <div className="team-detail">
+            <Link href="/teams" className="team-detail__back">
+              <span aria-hidden="true">&lt;</span> Back to teams
             </Link>
+
+            <div className="team-detail__hero">
+              <div className="team-detail__logo-frame">
+                <span className="team-detail__logo-corner team-detail__logo-corner--tl" />
+                <span className="team-detail__logo-corner team-detail__logo-corner--tr" />
+                <span className="team-detail__logo-corner team-detail__logo-corner--bl" />
+                <span className="team-detail__logo-corner team-detail__logo-corner--br" />
+                <div className="team-detail__logo" aria-hidden="true">
+                  {teamInitials(team.name)}
+                </div>
+              </div>
+
+              <div>
+                <h1 className="team-detail__title">{team.name}</h1>
+                <p className="team-detail__meta">
+                  <span className="team-detail__badge">{category}</span>
+                  <span aria-hidden="true">·</span>
+                  <span>
+                    {team.memberCount} {team.memberCount === 1 ? "member" : "members"}
+                  </span>
+                </p>
+
+                {(team.websiteUrl || team.proofUrl) && (
+                  <div className="team-detail__links">
+                    {team.websiteUrl ? (
+                      <a
+                        href={team.websiteUrl}
+                        className="team-detail__link-btn"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Website
+                        <ExternalIcon />
+                      </a>
+                    ) : null}
+                    {team.proofUrl ? (
+                      <a
+                        href={team.proofUrl}
+                        className="team-detail__link-btn team-detail__link-btn--muted"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Proof of work
+                        <ExternalIcon />
+                      </a>
+                    ) : null}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {(team.description || team.tagline) && (
+              <p className="team-detail__description">
+                {team.description?.trim() || team.tagline}
+              </p>
+            )}
+
+            <section>
+              <h2 className="team-detail__section-label">Team</h2>
+              <ul className="team-detail__members-list">
+                {team.members.map((member) => (
+                  <li key={member.id}>
+                    <div className="team-detail__member-card">
+                      <span className="team-detail__member-avatar" aria-hidden="true">
+                        {member.initials}
+                      </span>
+                      <div className="team-detail__member-info">
+                        <span className="team-detail__member-name">{member.name}</span>
+                        <span className="team-detail__member-role">{member.role}</span>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <div className="flex flex-wrap gap-4">
+              {canEdit ? (
+                <CtaButton href={`/teams/${slug}/edit`} variant="byte" size="md">
+                  Edit team
+                </CtaButton>
+              ) : null}
+              <CtaButton href="/teams" variant="ghost-wisp" size="md" showArrow={false}>
+                All teams
+              </CtaButton>
+              <Link
+                href="/teams?tab=builders"
+                className="font-mono text-sm text-[var(--team-colosseum-accent,#6ee7a8)] hover:underline self-center"
+              >
+                Browse builders
+              </Link>
+            </div>
           </div>
-        </div>
-      </SectionArticle>
+        </SectionArticle>
+      </div>
     </main>
   );
 }

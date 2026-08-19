@@ -64,7 +64,7 @@ export default async function TeamsPage() {
       <PageHeader
         meta="SVB 2026 · ecosystem"
         title="Teams & builders"
-        lead="Explore hackathon teams in Base ecosystem style, or browse every registered builder to find collaborators."
+        lead="Explore hackathon teams Colosseum-style, or browse every registered builder to find collaborators."
       />
 
       <Suspense fallback={null}>
