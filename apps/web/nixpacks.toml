@@ -1,11 +1,12 @@
 [phases.setup]
 nixPkgs = ["nodejs_22"]
 
+# Default install runs before full source copy — run ci in build instead.
 [phases.install]
-cmds = ["npm ci --include=dev"]
+cmds = []
 
 [phases.build]
-cmds = ["npm run build"]
+cmds = ["npm ci --include=dev", "npm run build"]
 
 [start]
 cmd = "npm run db:migrate && npm run db:import-guests && npm run db:seed-teams && npm run db:seed-staff && npm run start"
