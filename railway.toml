@@ -1,3 +1,5 @@
+# Repo-root config when Railway builds from monorepo root.
+# Prefer setting the service root directory to apps/web in Railway dashboard.
 [build]
 builder = "NIXPACKS"
 buildCommand = "cd apps/web && npm ci && npm run build"
