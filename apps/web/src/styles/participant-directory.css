@@ -261,6 +261,10 @@
   padding: 0;
 }
 
+.mentor-card {
+  height: auto;
+}
+
 .mentor-card__photo {
   width: 100%;
   height: 100%;

@@ -57,27 +57,6 @@ export function mentorConnectLabel(mentor: PublicMentor): string {
   return "Connect";
 }
 
-export function mentorRoleLabel(mentor: PublicMentor): string {
-  if (mentor.isWorkshopLeader && mentor.isJudge) return "Workshop · Judge";
-  if (mentor.isJudge) return "Demo Day judge";
-  return "Workshop leader";
-}
-
-export function mentorPrimaryLine(mentor: PublicMentor): string {
-  if (mentor.workshops.length > 0) {
-    return mentor.workshops[0].title;
-  }
-  return mentor.judgeRole ?? mentor.organization ?? "SVB 2026 mentor";
-}
-
-export function mentorSecondaryLine(mentor: PublicMentor): string {
-  if (mentor.workshops.length > 0) {
-    const slot = mentor.workshops[0];
-    return `${slot.dayLabel} · ${slot.date} · ${slot.start}`;
-  }
-  return mentor.organization ?? mentor.judgeRole ?? "Demo Day";
-}
-
 /** Workshop leaders + Demo Day judges for the mentors directory. */
 export function getPublicMentors(): PublicMentor[] {
   const byId = new Map<string, PublicMentor>();
