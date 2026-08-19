@@ -39,9 +39,14 @@ function ExternalIcon() {
 export async function generateStaticParams() {
   if (!process.env.DATABASE_URL) return [];
 
-  const db = getDb();
-  const rows = await db.select({ slug: teams.slug }).from(teams);
-  return rows.map((row) => ({ slug: row.slug }));
+  try {
+    const db = getDb();
+    const rows = await db.select({ slug: teams.slug }).from(teams);
+    return rows.map((row) => ({ slug: row.slug }));
+  } catch {
+    // Build may run before Postgres is reachable or migrated — ISR fills in at runtime.
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: TeamDetailPageProps): Promise<Metadata> {
