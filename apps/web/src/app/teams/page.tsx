@@ -32,7 +32,6 @@ export default async function TeamsPage({ searchParams }: TeamsPageProps) {
   return (
     <main className="site-main site-main--stack">
       <PageHeader
-        meta="SVB 2026 · ecosystem"
         title="Teams, builders & mentors"
         lead="Explore hackathon teams, registered builders, and workshop leaders plus Demo Day judges."
       />
