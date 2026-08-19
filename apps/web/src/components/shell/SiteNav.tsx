@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { NAV_LINKS, SITE } from "@/data/site";
+import { AUTH_LINK, NAV_LINKS, SITE } from "@/data/site";
 import { withBasePath } from "@/lib/base-path";
 import { MobileNavMenu } from "./MobileNavMenu";
 import { SiteNavDesktopItem } from "./SiteNavItem";
@@ -26,6 +26,9 @@ export function SiteNav() {
         </nav>
 
         <div className="site-nav__actions">
+          <Link href={AUTH_LINK.href} className="site-nav__auth-link">
+            {AUTH_LINK.label}
+          </Link>
           <MobileNavMenu />
         </div>
       </div>
