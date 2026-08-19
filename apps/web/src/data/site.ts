@@ -28,4 +28,5 @@ export const NAV_LINKS = [
   { href: "/teams", label: "Teams", comingSoon: true },
   { href: "/demo-day", label: "Demo Day", comingSoon: true },
   { href: "/travel", label: "Travel", comingSoon: true },
+  { href: "/login", label: "Sign in" },
 ] as const;

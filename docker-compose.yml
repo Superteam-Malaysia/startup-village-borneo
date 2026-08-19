@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: svb
+      POSTGRES_PASSWORD: svb
+      POSTGRES_DB: svb
+    ports:
+      - "5432:5432"
+    volumes:
+      - svb_pg_data:/var/lib/postgresql/data
+
+volumes:
+  svb_pg_data:

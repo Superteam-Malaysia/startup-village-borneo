@@ -53,6 +53,8 @@ cd apps/web && npm install && npm run dev
 
 Program content is sourced from `docs/blueprint/01-event-context.md` and the official PDF via `apps/web/src/data/`.
 
+**Participant login (Railway + Postgres):** see [`docs/railway-setup.md`](./docs/railway-setup.md).
+
 ## Spec-driven workflow
 
 Run these slash commands inside Cursor (details in
