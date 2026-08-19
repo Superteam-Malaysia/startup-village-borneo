@@ -260,7 +260,7 @@ export const FEATURED_SPEAKERS = [
   { name: "Edvin", org: "SOCOE" },
   { name: "Seraphim / Chaerin", org: "Solana Foundation" },
   { name: "Tristan", org: "Elfa AI" },
-  { name: "Semi", org: "solana.new" },
+  { name: "Semi", org: "stmy" },
   { name: "Nic", org: "Sanctum" },
   { name: "Simon", org: "Solana ID" },
   { name: "Jemmy", org: "MonkeDAO" },
@@ -269,7 +269,7 @@ export const FEATURED_SPEAKERS = [
   { name: "Jacob", org: "Superscrypt" },
   { name: "Chris", org: "No Limit Holdings" },
   { name: "Shuen Rui", org: "Impossible Finance / Rarible" },
-  { name: "Nikki", org: "Content" },
+  { name: "Nikki", org: "stmy" },
 ];
 
 export type WorkshopPreview = {

@@ -5,11 +5,18 @@ import type { PublicMentor, PublicMentorWorkshop } from "@/lib/mentors/types";
 
 export type { PublicMentor, PublicMentorWorkshop } from "@/lib/mentors/types";
 
-/** Extra contact fields not in the speakers schedule export. */
-const MENTOR_CONTACT: Record<string, { email?: string; telegram?: string }> = {
+/** Extra contact / directory fields not in the speakers schedule export. */
+const MENTOR_CONTACT: Record<
+  string,
+  { email?: string; telegram?: string; organization?: string }
+> = {
   semi: {
     email: "semi@sendarcade.fun",
     telegram: "semi_infiknight",
+    organization: "stmy",
+  },
+  nikki: {
+    organization: "stmy",
   },
 };
 
@@ -127,6 +134,11 @@ export function getPublicMentors(): PublicMentor[] {
       email: contact?.email ?? null,
       initials: participantInitials(judge.name),
     });
+  }
+
+  for (const mentor of byId.values()) {
+    const contact = MENTOR_CONTACT[mentor.id];
+    if (contact?.organization) mentor.organization = contact.organization;
   }
 
   return [...byId.values()].sort((a, b) => a.name.localeCompare(b.name));
