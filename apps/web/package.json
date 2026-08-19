@@ -17,6 +17,7 @@
     "db:seed-staff": "tsx scripts/seed-staff.ts"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4",
     "csv-parse": "^7.0.2",
     "drizzle-orm": "^0.45.2",
     "jose": "^6.2.9",
@@ -26,18 +27,17 @@
     "react-dom": "19.2.8",
     "react-zoom-pan-pinch": "^4.0.4",
     "resend": "^6.20.0",
-    "tsx": "^4.23.12"
+    "tailwindcss": "^4",
+    "tsx": "^4.23.12",
+    "typescript": "^5"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
+    "@types/node": "20.19.43",
+    "@types/react": "19.2.18",
     "@types/react-dom": "^19",
     "dotenv": "^17.4.2",
     "drizzle-kit": "^0.31.10",
     "eslint": "^9",
-    "eslint-config-next": "16.3.0",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "eslint-config-next": "16.3.0"
   }
 }
