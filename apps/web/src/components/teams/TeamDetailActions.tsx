@@ -40,10 +40,10 @@ export function TeamDetailActions({ slug }: TeamDetailActionsProps) {
         All teams
       </CtaButton>
       <Link
-        href="/teams?tab=builders"
+        href="/teams#team-not-yet-defined"
         className="font-mono text-sm text-[var(--team-colosseum-accent,#6ee7a8)] hover:underline self-center"
       >
-        Browse builders
+        Browse unassigned builders
       </Link>
     </div>
   );

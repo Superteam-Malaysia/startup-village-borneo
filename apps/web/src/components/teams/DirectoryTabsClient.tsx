@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { MentorDirectoryClient } from "@/components/directory/MentorDirectoryClient";
-import { ParticipantDirectoryClient } from "@/components/directory/ParticipantDirectoryClient";
 import { TeamEcosystemClient } from "@/components/teams/TeamEcosystemClient";
+import { UnassignedBuildersSection } from "@/components/teams/UnassignedBuildersSection";
 import { CtaButton, SectionArticle } from "@/components/ui";
 import type { PublicMentor } from "@/lib/mentors/types";
+import { getUnassignedBuilders } from "@/lib/participants/unassigned-builders";
 import type { PublicParticipant } from "@/lib/participants/types";
 import type { PublicTeam } from "@/lib/teams/types";
 import { withBasePath } from "@/lib/base-path";
@@ -45,6 +46,7 @@ export function DirectoryTabsClient({
   isSignedIn,
 }: DirectoryTabsClientProps) {
   const [tab, setTabState] = useState<DirectoryTab>(initialTab);
+  const unassigned = useMemo(() => getUnassignedBuilders(people), [people]);
 
   const setTab = useCallback((next: DirectoryTab) => {
     setTabState(next);
@@ -57,12 +59,12 @@ export function DirectoryTabsClient({
 
   useEffect(() => {
     if (!window.location.hash.startsWith("#builder-")) return;
-    setTabState("builders");
+    setTabState("teams");
     window.requestAnimationFrame(scrollToBuilderHash);
   }, []);
 
   useEffect(() => {
-    if (tab === "builders" && window.location.hash.startsWith("#builder-")) {
+    if (tab === "teams" && window.location.hash.startsWith("#builder-")) {
       window.requestAnimationFrame(scrollToBuilderHash);
     }
   }, [tab]);
@@ -84,20 +86,6 @@ export function DirectoryTabsClient({
             onClick={() => setTab("teams")}
           >
             Teams
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={tab === "builders"}
-            className={[
-              "directory-tabs__tab",
-              tab === "builders" ? "directory-tabs__tab--active" : "",
-            ]
-              .filter(Boolean)
-              .join(" ")}
-            onClick={() => setTab("builders")}
-          >
-            Builders
           </button>
           <button
             type="button"
@@ -149,25 +137,12 @@ export function DirectoryTabsClient({
             <TeamEcosystemClient teams={teams} />
           </SectionArticle>
         )}
-      </div>
 
-      <div
-        className="directory-panel"
-        role="tabpanel"
-        hidden={tab !== "builders"}
-        aria-hidden={tab !== "builders"}
-      >
-        {people.length === 0 ? (
-          <SectionArticle className="builder-directory__empty">
-            <p className="text-sm text-[var(--color-wisp)]/60 max-w-xl">
-              Participant directory syncs from Luma registration. Check back once imports are live.
-            </p>
+        {unassigned.length > 0 ? (
+          <SectionArticle className="team-ecosystem__unassigned-wrap">
+            <UnassignedBuildersSection people={unassigned} />
           </SectionArticle>
-        ) : (
-          <SectionArticle>
-            <ParticipantDirectoryClient people={people} />
-          </SectionArticle>
-        )}
+        ) : null}
       </div>
 
       <div
