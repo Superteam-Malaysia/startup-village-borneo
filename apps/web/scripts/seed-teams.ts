@@ -107,6 +107,7 @@ const SEED_TEAMS: SeedTeam[] = [
     members: [
       { email: "mark@sirachventures.com", role: "owner" },
       { email: "luma@mvn.xyz", role: "editor" },
+      { email: "eirie.luma@mvn.xyz", role: "editor" },
     ],
   },
   {
@@ -435,6 +436,17 @@ const SEED_TEAMS: SeedTeam[] = [
       "A solution for B2B and B2C consumers — dedicated software for organisations to find their business or direct consumers.",
     category: "Consumer",
     members: [{ email: "nilesh@morr.my", role: "owner" }],
+  },
+  {
+    slug: "loofta-pay",
+    name: "Loofta Pay",
+    tagline: "Payment app with earning options",
+    description:
+      "Loofta Pay — a payment app with earning options for everyday users.",
+    category: "Consumer",
+    websiteUrl: "https://loofta.xyz",
+    proofUrl: "https://loofta.xyz",
+    members: [{ email: "lisa.bechina@gmail.com", role: "owner" }],
   },
   {
     slug: "sanctum",
