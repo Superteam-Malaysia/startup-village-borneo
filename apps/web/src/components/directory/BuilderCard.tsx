@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { firstUrl, telegramHref, type PublicParticipant } from "@/lib/participants/types";
+import { telegramHref, type PublicParticipant } from "@/lib/participants/types";
 import { teamCategoryLabel } from "@/lib/participants/team-categories";
 import { builderProfileHref } from "@/lib/participants/profile-links";
 
@@ -78,7 +78,6 @@ export function BuilderCard({
   variant = "default",
 }: BuilderCardProps) {
   const tg = telegramHref(person.telegram);
-  const proofUrl = firstUrl(person.proofOfWork);
   const profileHref = linkToProfile ? builderProfileHref(person.id) : null;
   const isTeamSection = variant === "team-section";
   const teamLinks = person.hackathonTeams;
@@ -131,17 +130,6 @@ export function BuilderCard({
           )}
         </li>
       </ul>
-
-      {proofUrl ? (
-        <Link
-          href={proofUrl}
-          className="builder-card__proof"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Proof of work
-        </Link>
-      ) : null}
     </article>
   );
 }

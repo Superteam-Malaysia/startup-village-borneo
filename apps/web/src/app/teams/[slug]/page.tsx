@@ -58,6 +58,7 @@ export default async function TeamDetailPage({ params }: TeamDetailPageProps) {
   const category = team.category ?? "Other";
   const memberIds = team.members.map((m) => m.id);
   const memberProfiles = await getPublicParticipantsByIds(memberIds);
+  const websiteUrl = team.websiteUrl ?? team.proofUrl;
 
   return (
     <main className="site-main site-main--stack">
@@ -89,32 +90,19 @@ export default async function TeamDetailPage({ params }: TeamDetailPageProps) {
                   </span>
                 </p>
 
-                {(team.websiteUrl || team.proofUrl) && (
+                {websiteUrl ? (
                   <div className="team-detail__links">
-                    {team.websiteUrl ? (
-                      <a
-                        href={team.websiteUrl}
-                        className="team-detail__link-btn"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Website
-                        <ExternalIcon />
-                      </a>
-                    ) : null}
-                    {team.proofUrl ? (
-                      <a
-                        href={team.proofUrl}
-                        className="team-detail__link-btn team-detail__link-btn--muted"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Proof of work
-                        <ExternalIcon />
-                      </a>
-                    ) : null}
+                    <a
+                      href={websiteUrl}
+                      className="team-detail__link-btn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Website
+                      <ExternalIcon />
+                    </a>
                   </div>
-                )}
+                ) : null}
               </div>
             </div>
 
