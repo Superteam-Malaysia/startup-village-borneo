@@ -2,10 +2,7 @@
 
 import Link from "next/link";
 import { firstUrl, telegramHref, type PublicParticipant } from "@/lib/participants/types";
-import {
-  formatJoinedDate,
-  teamCategoryLabel,
-} from "@/lib/participants/team-categories";
+import { teamCategoryLabel } from "@/lib/participants/team-categories";
 import { builderProfileHref } from "@/lib/participants/profile-links";
 
 function BriefcaseIcon() {
@@ -35,19 +32,6 @@ function UsersIcon() {
   );
 }
 
-function CalendarIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M6 5v2M18 5v2M4 9h16M6 5h12a2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V7a2 2 0 012-2z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
 function ConnectIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -63,20 +47,42 @@ function ConnectIcon() {
 
 export type BuilderCardProps = {
   person: PublicParticipant;
-  /** Overrides the team-setup row — e.g. owner/editor on a hackathon team. */
-  teamRole?: string | null;
   /** Link name to builder directory entry. Defaults to on when unset. */
   linkToProfile?: boolean;
+  /** Team detail member cards — hide project row; team description covers it. */
+  variant?: "default" | "team-section";
 };
 
-export function BuilderCard({ person, teamRole, linkToProfile = true }: BuilderCardProps) {
+function TeamLinks({ teams }: { teams: PublicParticipant["hackathonTeams"] }) {
+  if (teams.length === 0) {
+    return <span className="builder-card__muted">No team yet</span>;
+  }
+
+  return (
+    <span className="builder-card__team-links">
+      {teams.map((team, index) => (
+        <span key={team.slug}>
+          {index > 0 ? ", " : null}
+          <Link href={`/teams/${team.slug}`} className="builder-card__team-link">
+            {team.name}
+          </Link>
+        </span>
+      ))}
+    </span>
+  );
+}
+
+export function BuilderCard({
+  person,
+  linkToProfile = true,
+  variant = "default",
+}: BuilderCardProps) {
   const tg = telegramHref(person.telegram);
   const proofUrl = firstUrl(person.proofOfWork);
-  const joined = formatJoinedDate(person.joinedAt);
-  const teamLabel =
-    teamRole?.trim() ||
-    teamCategoryLabel(person.teamCategory, person.teamSetup);
   const profileHref = linkToProfile ? builderProfileHref(person.id) : null;
+  const isTeamSection = variant === "team-section";
+  const teamLinks = person.hackathonTeams;
+  const fallbackTeamLabel = teamCategoryLabel(person.teamCategory, person.teamSetup);
 
   return (
     <article className="builder-card" id={`builder-${person.id}`}>
@@ -108,22 +114,22 @@ export function BuilderCard({ person, teamRole, linkToProfile = true }: BuilderC
       )}
 
       <ul className="builder-card__meta">
-        <li>
-          <BriefcaseIcon />
-          <span className={person.projectIdea ? undefined : "builder-card__muted"}>
-            {person.projectIdea ?? "Project details coming soon."}
-          </span>
-        </li>
-        <li>
-          <UsersIcon />
-          <span>{teamLabel}</span>
-        </li>
-        {joined ? (
+        {!isTeamSection ? (
           <li>
-            <CalendarIcon />
-            <span>{joined}</span>
+            <BriefcaseIcon />
+            <span className={person.projectIdea ? undefined : "builder-card__muted"}>
+              {person.projectIdea ?? "Project details coming soon."}
+            </span>
           </li>
         ) : null}
+        <li>
+          <UsersIcon />
+          {teamLinks.length > 0 ? (
+            <TeamLinks teams={teamLinks} />
+          ) : (
+            <span>{fallbackTeamLabel}</span>
+          )}
+        </li>
       </ul>
 
       {proofUrl ? (

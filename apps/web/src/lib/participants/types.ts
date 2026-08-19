@@ -1,5 +1,10 @@
 import type { TeamCategory } from "./team-categories";
 
+export type PublicParticipantTeam = {
+  name: string;
+  slug: string;
+};
+
 export type PublicParticipant = {
   id: string;
   name: string;
@@ -10,6 +15,7 @@ export type PublicParticipant = {
   proofOfWork: string | null;
   joinedAt: string | null;
   initials: string;
+  hackathonTeams: PublicParticipantTeam[];
 };
 
 export function firstUrl(text: string | null | undefined): string | null {

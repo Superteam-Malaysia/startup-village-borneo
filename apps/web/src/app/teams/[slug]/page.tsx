@@ -58,7 +58,6 @@ export default async function TeamDetailPage({ params }: TeamDetailPageProps) {
   const category = team.category ?? "Other";
   const memberIds = team.members.map((m) => m.id);
   const memberProfiles = await getPublicParticipantsByIds(memberIds);
-  const memberRoles = Object.fromEntries(team.members.map((m) => [m.id, m.role]));
 
   return (
     <main className="site-main site-main--stack">
@@ -127,7 +126,7 @@ export default async function TeamDetailPage({ params }: TeamDetailPageProps) {
 
             <section>
               <h2 className="team-detail__section-label">Team</h2>
-              <TeamMemberCards members={memberProfiles} roles={memberRoles} />
+              <TeamMemberCards members={memberProfiles} />
             </section>
 
             <div className="flex flex-wrap gap-4">

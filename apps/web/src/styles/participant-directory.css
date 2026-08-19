@@ -224,6 +224,19 @@
   color: color-mix(in srgb, var(--color-wisp) 42%, transparent);
 }
 
+.builder-card__team-links {
+  display: inline;
+}
+
+.builder-card__team-link {
+  color: var(--color-byte);
+  text-decoration: none;
+}
+
+.builder-card__team-link:hover {
+  text-decoration: underline;
+}
+
 .builder-card__proof {
   margin-top: auto;
   font-family: var(--font-mono);
