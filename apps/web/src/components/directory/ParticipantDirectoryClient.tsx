@@ -9,7 +9,7 @@ export function ParticipantDirectoryClient({ people }: { people: PublicParticipa
       <ul className="builder-directory__grid">
         {people.map((person) => (
           <li key={person.id}>
-            <BuilderCard person={person} linkToProfile={false} />
+            <BuilderCard person={person} />
           </li>
         ))}
       </ul>

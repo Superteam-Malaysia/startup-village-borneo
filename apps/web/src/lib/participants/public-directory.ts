@@ -5,6 +5,7 @@ import {
   normalizeTeamCategory,
   participantInitials,
 } from "./team-categories";
+import { builderSocialLinks } from "./social-links";
 import type { PublicParticipant } from "./types";
 
 export type { PublicParticipant } from "./types";
@@ -27,6 +28,7 @@ type ParticipantRow = {
   projectIdea: string | null;
   teamSetup: string | null;
   telegram: string | null;
+  proofOfWork: string | null;
   lumaCreatedAt: Date | null;
 };
 
@@ -35,6 +37,10 @@ function toPublicParticipant(
   hackathonTeams: PublicParticipant["hackathonTeams"] = [],
 ): PublicParticipant {
   const name = displayName(row);
+  const social = builderSocialLinks({
+    proofOfWork: row.proofOfWork,
+    projectIdea: row.projectIdea,
+  });
   return {
     id: row.id,
     name,
@@ -42,6 +48,8 @@ function toPublicParticipant(
     teamSetup: row.teamSetup,
     teamCategory: normalizeTeamCategory(row.teamSetup),
     telegram: row.telegram,
+    twitter: social.twitter,
+    linkedin: social.linkedin,
     joinedAt: row.lumaCreatedAt?.toISOString() ?? null,
     initials: participantInitials(name),
     hackathonTeams,
@@ -83,6 +91,7 @@ const participantSelect = {
   projectIdea: participants.projectIdea,
   teamSetup: participants.teamSetup,
   telegram: participants.telegram,
+  proofOfWork: participants.proofOfWork,
   lumaCreatedAt: participants.lumaCreatedAt,
 };
 

@@ -12,6 +12,8 @@ export type PublicParticipant = {
   teamSetup: string | null;
   teamCategory: TeamCategory;
   telegram: string | null;
+  twitter: string | null;
+  linkedin: string | null;
   joinedAt: string | null;
   initials: string;
   hackathonTeams: PublicParticipantTeam[];

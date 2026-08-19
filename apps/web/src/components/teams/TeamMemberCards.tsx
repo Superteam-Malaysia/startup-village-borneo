@@ -12,7 +12,7 @@ export function TeamMemberCards({ members }: TeamMemberCardsProps) {
     <ul className="builder-directory__grid">
       {members.map((person) => (
         <li key={person.id}>
-          <BuilderCard person={person} variant="team-section" />
+          <BuilderCard person={person} />
         </li>
       ))}
     </ul>
