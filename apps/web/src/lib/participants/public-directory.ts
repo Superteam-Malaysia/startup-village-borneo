@@ -27,7 +27,6 @@ type ParticipantRow = {
   projectIdea: string | null;
   teamSetup: string | null;
   telegram: string | null;
-  proofOfWork: string | null;
   lumaCreatedAt: Date | null;
 };
 
@@ -43,7 +42,6 @@ function toPublicParticipant(
     teamSetup: row.teamSetup,
     teamCategory: normalizeTeamCategory(row.teamSetup),
     telegram: row.telegram,
-    proofOfWork: row.proofOfWork,
     joinedAt: row.lumaCreatedAt?.toISOString() ?? null,
     initials: participantInitials(name),
     hackathonTeams,
@@ -85,7 +83,6 @@ const participantSelect = {
   projectIdea: participants.projectIdea,
   teamSetup: participants.teamSetup,
   telegram: participants.telegram,
-  proofOfWork: participants.proofOfWork,
   lumaCreatedAt: participants.lumaCreatedAt,
 };
 

@@ -237,7 +237,10 @@
   text-decoration: underline;
 }
 
-/* .builder-card__proof — removed; team website covers proof links */
+/* Proof-of-work links removed from directory cards */
+.builder-card__proof {
+  display: none !important;
+}
 
 .builder-directory__empty {
   border: 1px solid var(--color-transparent-wisp-10);
