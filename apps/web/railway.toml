@@ -3,7 +3,7 @@ builder = "DOCKERFILE"
 dockerfilePath = "Dockerfile"
 
 [deploy]
-startCommand = "npm run db:migrate && npm run db:import-guests && npm run db:seed-teams && npm run db:seed-staff && npm run start"
+startCommand = "scripts/start-production.sh"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
 

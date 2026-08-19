@@ -42,6 +42,7 @@ function parseDate(value: string | undefined): Date | null {
 }
 
 async function main() {
+  console.log("Importing guests...");
   const csvPath = process.argv[2] ?? CSV_DEFAULT;
   const db = getDb();
   const rows: Record<string, string>[] = [];

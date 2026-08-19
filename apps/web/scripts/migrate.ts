@@ -21,7 +21,9 @@ async function main() {
     console.log("Migration applied:", file);
   }
 
-  await db.end({ timeout: 5 });
+  // Don't block deploy on pool teardown; a fresh container starts next boot.
+  void db.end({ timeout: 0 }).catch(() => undefined);
+  process.exit(0);
 }
 
 main()
