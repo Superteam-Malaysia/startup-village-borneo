@@ -4,6 +4,7 @@ import { PrizeTracksPanel } from "@/components/prizes";
 import { FooterScrambleTicker } from "@/components/shell/FooterScrambleTicker";
 import { HeroVideoBackdrop } from "@/components/shell/HeroVideoBackdrop";
 import { HeroWordmark } from "@/components/shell/HeroWordmark";
+import { LumaApplyButton } from "@/components/shell/LumaApplyButton";
 import { PreFooterBand } from "@/components/shell/PreFooterBand";
 import { ScheduleDayCards } from "@/components/schedule";
 import { WorkshopRowList } from "@/components/speakers";
@@ -40,9 +41,7 @@ export default function HomePage() {
             <HeroWordmark />
           </div>
           <div className="home-hero__separator relative z-10">
-            <CtaButton href={SITE.applyUrl} variant="azure" size="sm" external>
-              Apply
-            </CtaButton>
+            <LumaApplyButton />
           </div>
         </div>
         <FooterScrambleTicker

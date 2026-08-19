@@ -13,6 +13,7 @@ export const SITE = {
   email: "hello@superteam.my",
   telegram: "https://t.me/semi_infiknight",
   applyUrl: "https://luma.com/bpn4ndl8",
+  lumaEventId: "evt-PNnLJgncbcmYquI",
   announcementTweetUrl:
     "https://x.com/SuperteamMY/status/2082421174773178540",
   announcementVideoSrc: withBasePath("/hero/svb-announce-9s.mp4"),

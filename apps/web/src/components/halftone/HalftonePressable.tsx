@@ -21,6 +21,8 @@ type HalftonePressableProps = {
   external?: boolean;
   disabled?: boolean;
   onClick?: () => void;
+  /** Opens Luma checkout overlay instead of navigating. */
+  lumaEventId?: string;
 };
 
 function usesDesktopHover() {
@@ -49,6 +51,7 @@ export function HalftonePressable({
   external,
   disabled,
   onClick,
+  lumaEventId,
 }: HalftonePressableProps) {
   const router = useRouter();
   const press = useRef<PressRef>(null);
@@ -116,6 +119,19 @@ export function HalftonePressable({
     onPointerEnter: handlePointerEnter,
     onPointerLeave: handlePointerLeave,
   };
+
+  if (lumaEventId && !disabled) {
+    return (
+      <button
+        type="button"
+        data-luma-action="checkout"
+        data-luma-event-id={lumaEventId}
+        {...shared}
+      >
+        {inner}
+      </button>
+    );
+  }
 
   if (href && !disabled) {
     const isExternal = external ?? href.startsWith("http");
