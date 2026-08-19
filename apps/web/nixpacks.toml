@@ -1,11 +1,11 @@
-[phases.setup]
-nixPkgs = ["nodejs_22"]
-
-[phases.install]
-cmds = ["npm ci --include=dev"]
-
-[phases.build]
-cmds = ["npm run build"]
-
-[start]
-cmd = "npm run db:migrate && npm run db:import-guests && npm run db:seed-teams && npm run db:seed-staff && npm run start"
+# Superseded by Dockerfile for Railway builds (install-after-copy ordering).
+# Kept for reference if switching back to Nixpacks.
+#
+# [phases.setup]
+# nixPkgs = ["nodejs_22"]
+#
+# [phases.build]
+# cmds = ["npm ci --include=dev && npm run build"]
+#
+# [start]
+# cmd = "npm run db:migrate && npm run db:import-guests && npm run db:seed-teams && npm run db:seed-staff && npm run start"

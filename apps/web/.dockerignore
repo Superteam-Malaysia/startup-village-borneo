@@ -1,0 +1,9 @@
+node_modules
+.next
+.git
+.env*
+.railway
+npm-debug.log*
+coverage
+out
+build
