@@ -123,6 +123,206 @@ const SEED_TEAMS: SeedTeam[] = [
       { email: "chinbingyong@gmail.com", role: "editor" },
     ],
   },
+  {
+    slug: "mypengu",
+    name: "mypengu",
+    tagline: "Where locals go in Sarawak",
+    description:
+      "A marketplace gathering Sarawak local-made shops so tourists and locals know where to go — a site where everyone knows where local goes.",
+    category: "Consumer",
+    websiteUrl: "https://mypengu.com",
+    proofUrl: "https://mypengu.com",
+    members: [
+      { email: "cheryl.l@pudgypenguins.io", role: "owner" },
+      { email: "huaipoh@gmail.com", role: "editor" },
+    ],
+  },
+  {
+    slug: "contentdc",
+    name: "ContentDC",
+    tagline: "Creator distribution channel powered by performance prediction",
+    description:
+      "A new distribution channel with content creators, powered by performance prediction — turning millions of creators across socials into one allocatable channel with smart-contract micro-payments.",
+    category: "Consumer",
+    websiteUrl: "https://contentdc.com",
+    proofUrl: "https://contentdc.com/business/",
+    members: [
+      { email: "chuhninaann@gmail.com", role: "owner" },
+      { email: "antony.peech@gmail.com", role: "editor" },
+    ],
+  },
+  {
+    slug: "rewardy-wallet",
+    name: "Rewardy Wallet",
+    tagline: "Loyalty points and rewards in one Web3 wallet",
+    description:
+      "An app that consolidates loyalty points, coupons, and cashback from multiple brands into a single digital wallet — converting daily activities into on-chain transparent rewards.",
+    category: "Consumer",
+    websiteUrl: "https://www.rewardywallet.com",
+    proofUrl: "https://www.rewardywallet.com",
+    members: [
+      { email: "cleverlee@rewardywallet.com", role: "owner" },
+      { email: "xkwh530@gmail.com", role: "owner" },
+    ],
+  },
+  {
+    slug: "oneplan",
+    name: "OnePlan",
+    tagline: "AI-powered group travel planning",
+    description:
+      "An AI-powered group travel platform to discover destinations from short-form content, plan itineraries collaboratively, and manage shared expenses — with on-chain payments and shared trip wallets.",
+    category: "Consumer",
+    websiteUrl: "https://www.oneplan.space",
+    proofUrl: "https://www.oneplan.space",
+    members: [
+      { email: "namdinh252000@gmail.com", role: "owner" },
+      { email: "giavy1115@gmail.com", role: "editor" },
+    ],
+  },
+  {
+    slug: "mermail",
+    name: "Mermail",
+    tagline: "Identity, email, and payments for AI agents",
+    description:
+      "Identity, email, and payment infrastructure for AI agents — enabling agents to communicate, verify accounts, and transact on behalf of users, with Solana wallet and agentic commerce workflows.",
+    category: "Consumer",
+    websiteUrl: "https://mermail.app",
+    proofUrl: "https://mermail.app",
+    members: [
+      { email: "toanbk21096@gmail.com", role: "owner" },
+      { email: "nathan.nguyennhat@gmail.com", role: "owner" },
+    ],
+  },
+  {
+    slug: "foresight",
+    name: "Foresight",
+    tagline: "Prize-linked savings with skill-and-chance mini-games",
+    description:
+      "A principal-protected savings pool where weekly yield is awarded by draw, and players compete in skill-and-chance mini-games to increase their odds — never their capital.",
+    category: "DeFi",
+    websiteUrl: "https://foresight.now",
+    proofUrl: "https://foresight.now",
+    members: [
+      { email: "menghong6988@gmail.com", role: "owner" },
+      { email: "echai2905@gmail.com", role: "editor" },
+    ],
+  },
+  {
+    slug: "senimatik",
+    name: "Senimatik",
+    tagline: "Southeast Asia's global IP art marketplace",
+    description:
+      "Building Southeast Asia's leading global IP art marketplace — connecting artists, collectors and brands through blockchain-powered ownership, licensing and royalties, starting in Malaysia.",
+    category: "Consumer",
+    websiteUrl: "https://senimatik.com",
+    proofUrl: "https://senimatik.com",
+    members: [
+      { email: "abdazharee@gmail.com", role: "owner" },
+      { email: "mudennn94@gmail.com", role: "editor" },
+    ],
+  },
+  {
+    slug: "tuc",
+    name: "TUC",
+    tagline: "Verified on-chain sustainability for events",
+    description:
+      "Turns sustainability actions at events into verified on-chain proof on Solana — solving unverifiable ESG reporting for event organisers, sponsors and venues, beginning with Sarawak's events industry.",
+    category: "Consumer",
+    websiteUrl: "https://linktr.ee/tucswk",
+    proofUrl: "https://upcycle-collective.vercel.app",
+    members: [
+      { email: "venessa@madisevents.com", role: "owner" },
+      { email: "kuehtzenan1995@gmail.com", role: "editor" },
+    ],
+  },
+  {
+    slug: "physical-ai",
+    name: "Physical AI",
+    tagline: "Bring AI into physical life",
+    description: "Bring AI in to physical life.",
+    category: "Consumer",
+    members: [
+      { email: "luuminhquyen610@gmail.com", role: "owner" },
+      { email: "vennluuu@gmail.com", role: "editor" },
+    ],
+  },
+  {
+    slug: "anneal",
+    name: "Anneal",
+    tagline: "Options DEX with quotes for any contract",
+    description:
+      "An options DEX on Solana where you can get a price for any contract you want instead of picking from a listed menu — for traders who know the hedge they need but can't get quoted.",
+    category: "DeFi",
+    websiteUrl: "https://annealfi.io",
+    proofUrl: "https://annealfi.io",
+    members: [{ email: "zheweng001@e.ntu.edu.sg", role: "owner" }],
+  },
+  {
+    slug: "janamat",
+    name: "Janamat",
+    tagline: "Verified civic participation for Nepal and its diaspora",
+    description:
+      "A verified civic participation platform where citizens vote on governance polls, sign petitions, and back MP campaigns — every vote recorded on-chain for tamper-proof, publicly auditable results.",
+    category: "Consumer",
+    websiteUrl: "https://janamat.app",
+    proofUrl: "https://janamat.app",
+    members: [{ email: "ronak01.raj@gmail.com", role: "owner" }],
+  },
+  {
+    slug: "vello",
+    name: "Vello",
+    tagline: "AI media infrastructure for zero-employee agencies",
+    description:
+      "Media infrastructure for zero-employee agencies — fully automating video creation, editing, and distribution via AI agents for solo operators managing enterprise-grade brand campaigns.",
+    category: "Consumer",
+    websiteUrl: "https://velloagents.com",
+    proofUrl: "https://velloagents.com",
+    members: [{ email: "zufairyk@gmail.com", role: "owner" }],
+  },
+  {
+    slug: "myhomecrowd",
+    name: "MyHomeCrowd",
+    tagline: "Tokenized mortgage crowdlending for millennials",
+    description:
+      "Tokenized mortgage crowdlending platform helping deserving millennials achieve home ownership — connecting borrowers to investors seeking fixed returns and impact staking rewards.",
+    category: "DeFi",
+    websiteUrl: "https://myhomecrowd.com",
+    proofUrl: "https://myhomecrowd.com",
+    members: [{ email: "dave.chew@myhomecrowd.com", role: "owner" }],
+  },
+  {
+    slug: "aqua0",
+    name: "Aqua0",
+    tagline: "Cross-chain shared liquidity for stablecoin issuers",
+    description:
+      "Cross-chain shared liquidity infrastructure for stablecoin issuers — one deposit backs liquidity across Uniswap V4 pools and 1inch Aqua strategies on multiple chains simultaneously.",
+    category: "DeFi",
+    websiteUrl: "https://aqua0.xyz",
+    proofUrl: "https://app.aqua0.xyz",
+    members: [{ email: "yudhishthra@aqua0.xyz", role: "owner" }],
+  },
+  {
+    slug: "fractionax",
+    name: "Fractionax",
+    tagline: "Agentic RWA investment infrastructure",
+    description:
+      "Agentic real-world asset investment infrastructure using AI agents to source, evaluate, structure, and manage tokenized opportunities across real estate, private credit, businesses, and commodities.",
+    category: "DeFi",
+    websiteUrl: "https://fractionax.app",
+    proofUrl: "https://fractionax.app",
+    members: [{ email: "nizarsyahmi37@gmail.com", role: "owner" }],
+  },
+  {
+    slug: "dgen",
+    name: "dgen",
+    tagline: "Crypto card and non-custodial Solana wallet",
+    description:
+      "Crypto card to load with crypto and spend, plus a non-custodial crypto wallet with full Solana support — private swaps across 3,500+ assets on 320 blockchains.",
+    category: "Consumer",
+    websiteUrl: "https://card.dgentech.io",
+    proofUrl: "https://card.dgentech.io",
+    members: [{ email: "goodwin.icon@gmail.com", role: "owner" }],
+  },
 ];
 
 async function participantIdByEmail(db: ReturnType<typeof getDb>, email: string) {
