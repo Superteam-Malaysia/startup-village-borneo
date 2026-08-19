@@ -1,0 +1,27 @@
+import type { TeamCategory } from "./team-categories";
+
+export type PublicParticipant = {
+  id: string;
+  name: string;
+  projectIdea: string | null;
+  teamSetup: string | null;
+  teamCategory: TeamCategory;
+  telegram: string | null;
+  proofOfWork: string | null;
+  joinedAt: string | null;
+  initials: string;
+};
+
+export function firstUrl(text: string | null | undefined): string | null {
+  if (!text?.trim()) return null;
+  const match = text.match(/https?:\/\/[^\s,)"']+/i);
+  return match?.[0] ?? null;
+}
+
+export function telegramHref(value: string | null | undefined): string | null {
+  if (!value?.trim()) return null;
+  const trimmed = value.trim();
+  if (/^https?:\/\//i.test(trimmed)) return trimmed;
+  const handle = trimmed.replace(/^@/, "");
+  return handle ? `https://t.me/${handle}` : null;
+}

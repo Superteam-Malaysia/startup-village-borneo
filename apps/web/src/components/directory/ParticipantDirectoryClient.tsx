@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { firstUrl, telegramHref, type PublicParticipant } from "@/lib/participants/public-directory";
+import { firstUrl, telegramHref, type PublicParticipant } from "@/lib/participants/types";
 import {
   formatJoinedDate,
   TEAM_FILTER_TABS,
