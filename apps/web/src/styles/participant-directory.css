@@ -271,7 +271,6 @@
   margin: -0.35rem 0 0;
   font-family: var(--font-mono);
   font-size: 0.625rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.06em;
   color: color-mix(in srgb, var(--color-lime) 78%, var(--color-wisp));
 }

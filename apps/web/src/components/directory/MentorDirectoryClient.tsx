@@ -6,7 +6,6 @@ import {
   mentorConnectHref,
   mentorConnectLabel,
   mentorPrimaryLine,
-  mentorRoleLabel,
   mentorSecondaryLine,
   type PublicMentor,
 } from "@/data/mentors";
@@ -19,19 +18,6 @@ function MicIcon() {
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function OrgIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M8 7V6a2 2 0 012-2h4a2 2 0 012 2v1M4 9h16v10a2 2 0 01-2 2H6a2 2 0 01-2-2V9z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
       />
     </svg>
   );
@@ -104,19 +90,15 @@ function MentorCard({ mentor }: { mentor: PublicMentor }) {
       </div>
 
       <h2 className="builder-card__name">{mentor.name}</h2>
-      <p className="mentor-card__role">{mentorRoleLabel(mentor)}</p>
+      {mentor.organization ? (
+        <p className="mentor-card__role">{mentor.organization}</p>
+      ) : null}
 
       <ul className="builder-card__meta">
         <li>
           <MicIcon />
           <span>{mentorPrimaryLine(mentor)}</span>
         </li>
-        {mentor.organization ? (
-          <li>
-            <OrgIcon />
-            <span>{mentor.organization}</span>
-          </li>
-        ) : null}
         {hasWorkshop ? (
           <li>
             <CalendarIcon />
