@@ -5,22 +5,29 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { ReactNode, useCallback } from "react";
 import { CtaButton } from "@/components/ui";
 
-type TabId = "teams" | "builders";
+type TabId = "teams" | "builders" | "mentors";
 
 type DirectoryTabsClientProps = {
   teamsPanel: ReactNode;
   buildersPanel: ReactNode;
+  mentorsPanel: ReactNode;
   isSignedIn: boolean;
 };
+
+function parseTab(value: string | null): TabId {
+  if (value === "builders" || value === "mentors") return value;
+  return "teams";
+}
 
 export function DirectoryTabsClient({
   teamsPanel,
   buildersPanel,
+  mentorsPanel,
   isSignedIn,
 }: DirectoryTabsClientProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const tab = (searchParams.get("tab") === "builders" ? "builders" : "teams") as TabId;
+  const tab = parseTab(searchParams.get("tab"));
 
   const setTab = useCallback(
     (next: TabId) => {
@@ -68,6 +75,20 @@ export function DirectoryTabsClient({
           >
             Builders
           </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={tab === "mentors"}
+            className={[
+              "directory-tabs__tab",
+              tab === "mentors" ? "directory-tabs__tab--active" : "",
+            ]
+              .filter(Boolean)
+              .join(" ")}
+            onClick={() => setTab("mentors")}
+          >
+            Mentors
+          </button>
         </div>
 
         {tab === "teams" && isSignedIn ? (
@@ -93,6 +114,15 @@ export function DirectoryTabsClient({
         aria-hidden={tab !== "builders"}
       >
         {buildersPanel}
+      </div>
+
+      <div
+        className="directory-panel"
+        role="tabpanel"
+        hidden={tab !== "mentors"}
+        aria-hidden={tab !== "mentors"}
+      >
+        {mentorsPanel}
       </div>
 
       {!isSignedIn && tab === "teams" ? (

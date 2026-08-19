@@ -27,6 +27,7 @@ SVB participant data lives in **Postgres on Railway**. Builders sign in with the
    railway run npm run db:migrate
    railway run npm run db:import-guests
    railway run npm run db:seed-teams
+   railway run npm run db:seed-staff
    ```
 
    CSV source: `data/imports/guests-2026-08-19.csv` (63 Luma guests).

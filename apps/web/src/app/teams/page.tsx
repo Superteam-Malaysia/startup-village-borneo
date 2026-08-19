@@ -1,25 +1,28 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { MentorDirectoryClient } from "@/components/directory/MentorDirectoryClient";
 import { ParticipantDirectoryClient } from "@/components/directory/ParticipantDirectoryClient";
 import { DirectoryTabsClient, TeamEcosystemClient } from "@/components/teams";
 import { CtaButton, SectionArticle } from "@/components/ui";
 import { PageHeader } from "@/components/shell";
+import { getPublicMentors } from "@/data/mentors";
 import { getParticipantForSession } from "@/lib/auth/participant";
 import { getPublicParticipants } from "@/lib/participants/public-directory";
 import { getPublicTeams } from "@/lib/teams/public-teams";
 
 export const metadata: Metadata = {
-  title: "Teams & Builders",
+  title: "Teams, Builders & Mentors",
   description:
-    "Hackathon teams and registered builders for Startup Village Borneo — find projects and collaborators before Day 1.",
+    "Hackathon teams, registered builders, and on-stage mentors for Startup Village Borneo.",
 };
 
 export const dynamic = "force-dynamic";
 
 export default async function TeamsPage() {
-  const [teams, people, participant] = await Promise.all([
+  const [teams, people, mentors, participant] = await Promise.all([
     getPublicTeams(),
     getPublicParticipants(),
+    Promise.resolve(getPublicMentors()),
     getParticipantForSession(),
   ]);
 
@@ -59,18 +62,25 @@ export default async function TeamsPage() {
       </SectionArticle>
     );
 
+  const mentorsPanel = (
+    <SectionArticle>
+      <MentorDirectoryClient mentors={mentors} />
+    </SectionArticle>
+  );
+
   return (
     <main className="site-main site-main--stack">
       <PageHeader
         meta="SVB 2026 · ecosystem"
-        title="Teams & builders"
-        lead="Explore hackathon teams Colosseum-style, or browse every registered builder to find collaborators."
+        title="Teams, builders & mentors"
+        lead="Explore hackathon teams, registered builders, and workshop leaders plus Demo Day judges."
       />
 
       <Suspense fallback={null}>
         <DirectoryTabsClient
           teamsPanel={teamsPanel}
           buildersPanel={buildersPanel}
+          mentorsPanel={mentorsPanel}
           isSignedIn={!!participant}
         />
       </Suspense>

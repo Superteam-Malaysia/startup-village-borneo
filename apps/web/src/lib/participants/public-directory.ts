@@ -1,4 +1,4 @@
-import { asc, eq } from "drizzle-orm";
+import { and, asc, eq, notLike } from "drizzle-orm";
 import { getDb } from "@/lib/db";
 import { participants } from "@/lib/db/schema";
 import {
@@ -37,7 +37,7 @@ export async function getPublicParticipants(): Promise<PublicParticipant[]> {
       lumaCreatedAt: participants.lumaCreatedAt,
     })
     .from(participants)
-    .where(eq(participants.approvalStatus, "approved"))
+    .where(and(eq(participants.approvalStatus, "approved"), notLike(participants.guestId, "staff-%")))
     .orderBy(asc(participants.name));
 
   return rows.map((row) => {
