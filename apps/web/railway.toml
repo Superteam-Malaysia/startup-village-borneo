@@ -1,7 +1,5 @@
 [build]
 builder = "NIXPACKS"
-buildCommand = "npm ci && npm run build"
-watchPatterns = ["**"]
 
 [deploy]
 startCommand = "npm run db:migrate && npm run db:import-guests && npm run start"
