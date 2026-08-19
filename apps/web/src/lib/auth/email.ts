@@ -15,11 +15,8 @@ export async function sendMagicLinkEmail({
   const from = process.env.EMAIL_FROM ?? "Startup Village Borneo <hello@superteam.my>";
 
   if (!apiKey) {
-    if (process.env.NODE_ENV === "production") {
-      throw new Error("RESEND_API_KEY is required in production");
-    }
-    console.info("[dev] Magic link for", email, verifyUrl);
-    return { sent: false, previewUrl: verifyUrl };
+    console.info("[auth] Magic link (no RESEND_API_KEY):", email, verifyUrl);
+    return { sent: false, previewUrl: process.env.NODE_ENV === "production" ? undefined : verifyUrl };
   }
 
   const resend = new Resend(apiKey);
