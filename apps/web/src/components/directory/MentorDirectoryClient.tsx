@@ -2,18 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
 import {
-  filterMentors,
   mentorConnectHref,
   mentorConnectLabel,
   mentorPrimaryLine,
   mentorRoleLabel,
   mentorSecondaryLine,
-  MENTOR_FILTER_TABS,
   type PublicMentor,
 } from "@/data/mentors";
-import type { MentorFilter } from "@/lib/mentors/types";
 
 function MicIcon() {
   return (
@@ -133,63 +129,15 @@ function MentorCard({ mentor }: { mentor: PublicMentor }) {
 }
 
 export function MentorDirectoryClient({ mentors }: { mentors: PublicMentor[] }) {
-  const [filter, setFilter] = useState<MentorFilter>("all");
-
-  const counts = useMemo(() => {
-    const map = new Map<MentorFilter, number>();
-    map.set("all", mentors.length);
-    map.set("workshop", mentors.filter((m) => m.isWorkshopLeader).length);
-    map.set("judge", mentors.filter((m) => m.isJudge).length);
-    return map;
-  }, [mentors]);
-
-  const filtered = useMemo(() => filterMentors(mentors, filter), [mentors, filter]);
-
-  const activeTab = MENTOR_FILTER_TABS.find((tab) => tab.id === filter);
-
   return (
     <div className="builder-directory">
-      <div className="builder-directory__tabs" role="tablist" aria-label="Filter mentors">
-        {MENTOR_FILTER_TABS.map((tab) => {
-          const count = counts.get(tab.id) ?? 0;
-          const active = filter === tab.id;
-          return (
-            <button
-              key={tab.id}
-              type="button"
-              role="tab"
-              aria-selected={active}
-              className={[
-                "builder-directory__tab",
-                active ? "builder-directory__tab--active" : "",
-              ]
-                .filter(Boolean)
-                .join(" ")}
-              onClick={() => setFilter(tab.id)}
-            >
-              {tab.label}
-              <span className="builder-directory__tab-count">{count}</span>
-            </button>
-          );
-        })}
-      </div>
-
-      <p className="builder-directory__summary">
-        {filtered.length} of {mentors.length} mentors
-        {filter !== "all" && activeTab ? ` · ${activeTab.label}` : ""}
-      </p>
-
-      {filtered.length === 0 ? (
-        <p className="builder-directory__empty-results">No mentors in this category.</p>
-      ) : (
-        <ul className="builder-directory__grid">
-          {filtered.map((mentor) => (
-            <li key={mentor.id}>
-              <MentorCard mentor={mentor} />
-            </li>
-          ))}
-        </ul>
-      )}
+      <ul className="builder-directory__grid">
+        {mentors.map((mentor) => (
+          <li key={mentor.id}>
+            <MentorCard mentor={mentor} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

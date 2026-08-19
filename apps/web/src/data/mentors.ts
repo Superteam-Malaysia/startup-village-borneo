@@ -1,9 +1,9 @@
 import { DEMO_DAY_JUDGES } from "@/data/judges";
 import { WORKSHOP_SESSIONS } from "@/data/speakers";
 import { participantInitials } from "@/lib/participants/team-categories";
-import type { MentorFilter, PublicMentor, PublicMentorWorkshop } from "@/lib/mentors/types";
+import type { PublicMentor, PublicMentorWorkshop } from "@/lib/mentors/types";
 
-export type { MentorFilter, PublicMentor, PublicMentorWorkshop } from "@/lib/mentors/types";
+export type { PublicMentor, PublicMentorWorkshop } from "@/lib/mentors/types";
 
 /** Extra contact fields not in the speakers schedule export. */
 const MENTOR_CONTACT: Record<string, { email?: string; telegram?: string }> = {
@@ -151,18 +151,4 @@ export function getPublicMentors(): PublicMentor[] {
   }
 
   return [...byId.values()].sort((a, b) => a.name.localeCompare(b.name));
-}
-
-export const MENTOR_FILTER_TABS: { id: MentorFilter; label: string }[] = [
-  { id: "all", label: "All" },
-  { id: "workshop", label: "Workshops" },
-  { id: "judge", label: "Judges" },
-];
-
-export function filterMentors(mentors: PublicMentor[], filter: MentorFilter): PublicMentor[] {
-  return mentors.filter((mentor) => {
-    if (filter === "workshop" && !mentor.isWorkshopLeader) return false;
-    if (filter === "judge" && !mentor.isJudge) return false;
-    return true;
-  });
 }

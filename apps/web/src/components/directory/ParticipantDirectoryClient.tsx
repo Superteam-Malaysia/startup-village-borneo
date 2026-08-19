@@ -1,13 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
 import { firstUrl, telegramHref, type PublicParticipant } from "@/lib/participants/types";
 import {
   formatJoinedDate,
-  TEAM_FILTER_TABS,
   teamCategoryLabel,
-  type TeamCategory,
 } from "@/lib/participants/team-categories";
 
 function BriefcaseIcon() {
@@ -125,73 +122,16 @@ function ParticipantCard({ person }: { person: PublicParticipant }) {
   );
 }
 
-function filterParticipants(people: PublicParticipant[], category: TeamCategory): PublicParticipant[] {
-  return people.filter((person) => category === "all" || person.teamCategory === category);
-}
-
 export function ParticipantDirectoryClient({ people }: { people: PublicParticipant[] }) {
-  const [category, setCategory] = useState<TeamCategory>("all");
-
-  const counts = useMemo(() => {
-    const map = new Map<TeamCategory, number>();
-    map.set("all", people.length);
-    for (const person of people) {
-      map.set(person.teamCategory, (map.get(person.teamCategory) ?? 0) + 1);
-    }
-    return map;
-  }, [people]);
-
-  const visibleTabs = useMemo(
-    () =>
-      TEAM_FILTER_TABS.filter((tab) => tab.id === "all" || (counts.get(tab.id) ?? 0) > 0),
-    [counts],
-  );
-
-  const filtered = useMemo(() => filterParticipants(people, category), [people, category]);
-
   return (
     <div className="builder-directory">
-      <div className="builder-directory__tabs" role="tablist" aria-label="Filter by team setup">
-        {visibleTabs.map((tab) => {
-          const count = counts.get(tab.id) ?? 0;
-          const active = category === tab.id;
-          return (
-            <button
-              key={tab.id}
-              type="button"
-              role="tab"
-              aria-selected={active}
-              className={[
-                "builder-directory__tab",
-                active ? "builder-directory__tab--active" : "",
-              ]
-                .filter(Boolean)
-                .join(" ")}
-              onClick={() => setCategory(tab.id)}
-            >
-              {tab.label}
-              <span className="builder-directory__tab-count">{count}</span>
-            </button>
-          );
-        })}
-      </div>
-
-      <p className="builder-directory__summary">
-        {filtered.length} of {people.length} builders
-        {category !== "all" ? ` · ${teamCategoryLabel(category, null)}` : ""}
-      </p>
-
-      {filtered.length === 0 ? (
-        <p className="builder-directory__empty-results">No builders in this category.</p>
-      ) : (
-        <ul className="builder-directory__grid">
-          {filtered.map((person) => (
-            <li key={person.id}>
-              <ParticipantCard person={person} />
-            </li>
-          ))}
-        </ul>
-      )}
+      <ul className="builder-directory__grid">
+        {people.map((person) => (
+          <li key={person.id}>
+            <ParticipantCard person={person} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
