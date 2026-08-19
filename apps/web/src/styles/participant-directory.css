@@ -229,7 +229,7 @@
 }
 
 .builder-card__team-link {
-  color: var(--color-byte);
+  color: inherit;
   text-decoration: none;
 }
 

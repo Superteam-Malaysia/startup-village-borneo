@@ -37,8 +37,3 @@ export function builderConnectLabel(person: PublicParticipant): string {
   if (telegramHref(person.telegram)) return "Telegram";
   return "Connect";
 }
-
-export function builderTeamSubtext(person: PublicParticipant): string | null {
-  if (person.hackathonTeams.length === 0) return null;
-  return person.hackathonTeams.map((team) => team.name).join(", ");
-}

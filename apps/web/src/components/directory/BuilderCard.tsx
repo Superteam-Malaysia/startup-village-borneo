@@ -4,7 +4,6 @@ import Link from "next/link";
 import {
   builderConnectHref,
   builderConnectLabel,
-  builderTeamSubtext,
 } from "@/lib/participants/social-links";
 import type { PublicParticipant } from "@/lib/participants/types";
 
@@ -28,7 +27,7 @@ export type BuilderCardProps = {
 export function BuilderCard({ person }: BuilderCardProps) {
   const connectHref = builderConnectHref(person);
   const connectLabel = builderConnectLabel(person);
-  const teamLabel = builderTeamSubtext(person);
+  const teams = person.hackathonTeams;
 
   return (
     <article className="builder-card mentor-card" id={`builder-${person.id}`}>
@@ -52,7 +51,18 @@ export function BuilderCard({ person }: BuilderCardProps) {
       </div>
 
       <h2 className="builder-card__name">{person.name}</h2>
-      {teamLabel ? <p className="mentor-card__role">{teamLabel}</p> : null}
+      {teams.length > 0 ? (
+        <p className="mentor-card__role builder-card__team-subtext">
+          {teams.map((team, index) => (
+            <span key={team.slug}>
+              {index > 0 ? ", " : null}
+              <Link href={`/teams/${team.slug}`} className="builder-card__team-link">
+                {team.name}
+              </Link>
+            </span>
+          ))}
+        </p>
+      ) : null}
     </article>
   );
 }
