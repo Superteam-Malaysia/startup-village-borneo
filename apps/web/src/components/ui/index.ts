@@ -9,3 +9,4 @@ export { Accordion } from "./Accordion";
 export type { AccordionItem } from "./Accordion";
 export { StatusChip } from "./StatusChip";
 export * from "./icons";
+export * from "./social-icons";
