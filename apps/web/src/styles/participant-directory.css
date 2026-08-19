@@ -103,20 +103,24 @@
   }
 }
 
-/* NS-inspired card — SVB dark surfaces */
+/* NS-inspired card — transparent grid like team cards */
 .builder-card {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
   height: 100%;
   padding: 1rem 1rem 1.1rem;
-  border: 1px solid var(--color-transparent-wisp-10);
-  background: color-mix(in srgb, var(--color-null) 28%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-wisp) 12%, transparent);
+  background-color: transparent;
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--color-wisp) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-wisp) 5%, transparent) 1px, transparent 1px);
+  background-size: 18px 18px;
   transition: border-color 0.15s ease;
 }
 
 .builder-card:hover {
-  border-color: color-mix(in srgb, var(--color-azure) 40%, transparent);
+  border-color: color-mix(in srgb, var(--team-colosseum-accent, #6ee7a8) 35%, transparent);
 }
 
 .builder-card__top {
@@ -132,8 +136,8 @@
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--color-azure) 35%, transparent);
-  background: color-mix(in srgb, var(--color-azure) 12%, var(--color-null));
+  border: 1px solid color-mix(in srgb, var(--color-wisp) 14%, transparent);
+  background: color-mix(in srgb, var(--color-null) 35%, transparent);
   font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.04em;

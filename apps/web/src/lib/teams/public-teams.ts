@@ -1,4 +1,5 @@
-import { asc, eq, sql } from "drizzle-orm";
+import { asc, eq, inArray, sql } from "drizzle-orm";
+import { cache } from "react";
 import { getDb } from "@/lib/db";
 import { participants, teamMembers, teams } from "@/lib/db/schema";
 import { participantInitials } from "@/lib/participants/team-categories";
@@ -16,56 +17,94 @@ function displayName(row: {
   return row.name?.trim() || fromParts || "Builder";
 }
 
+function mapMember(row: {
+  id: string;
+  name: string | null;
+  firstName: string | null;
+  lastName: string | null;
+  role: string;
+}): PublicTeamMember {
+  const name = displayName(row);
+  return {
+    id: row.id,
+    name,
+    initials: participantInitials(name),
+    role: row.role,
+  };
+}
+
+function mapTeamRow(
+  team: typeof teams.$inferSelect,
+  members: PublicTeamMember[],
+): PublicTeam {
+  return {
+    id: team.id,
+    slug: team.slug,
+    name: team.name,
+    tagline: team.tagline,
+    description: team.description,
+    category: team.category,
+    websiteUrl: team.websiteUrl,
+    proofUrl: team.proofUrl,
+    memberCount: members.length,
+    members,
+  };
+}
+
+async function fetchMembersByTeamIds(teamIds: string[]) {
+  if (!process.env.DATABASE_URL || teamIds.length === 0) {
+    return new Map<string, PublicTeamMember[]>();
+  }
+
+  const db = getDb();
+  const rows = await db
+    .select({
+      teamId: teamMembers.teamId,
+      id: participants.id,
+      name: participants.name,
+      firstName: participants.firstName,
+      lastName: participants.lastName,
+      role: teamMembers.role,
+    })
+    .from(teamMembers)
+    .innerJoin(participants, eq(teamMembers.participantId, participants.id))
+    .where(inArray(teamMembers.teamId, teamIds))
+    .orderBy(asc(participants.name));
+
+  const membersByTeam = new Map<string, PublicTeamMember[]>();
+  for (const row of rows) {
+    const list = membersByTeam.get(row.teamId) ?? [];
+    list.push(mapMember(row));
+    membersByTeam.set(row.teamId, list);
+  }
+
+  return membersByTeam;
+}
+
 export async function getPublicTeams(): Promise<PublicTeam[]> {
   if (!process.env.DATABASE_URL) return [];
 
   const db = getDb();
   const teamRows = await db.select().from(teams).orderBy(asc(teams.name));
+  if (teamRows.length === 0) return [];
 
-  const result: PublicTeam[] = [];
-  for (const team of teamRows) {
-    const members = await db
-      .select({
-        id: participants.id,
-        name: participants.name,
-        firstName: participants.firstName,
-        lastName: participants.lastName,
-        role: teamMembers.role,
-      })
-      .from(teamMembers)
-      .innerJoin(participants, eq(teamMembers.participantId, participants.id))
-      .where(eq(teamMembers.teamId, team.id))
-      .orderBy(asc(participants.name));
+  const membersByTeam = await fetchMembersByTeamIds(teamRows.map((team) => team.id));
 
-    result.push({
-      id: team.id,
-      slug: team.slug,
-      name: team.name,
-      tagline: team.tagline,
-      description: team.description,
-      category: team.category,
-      websiteUrl: team.websiteUrl,
-      proofUrl: team.proofUrl,
-      memberCount: members.length,
-      members: members.map((m) => {
-        const name = displayName(m);
-        return {
-          id: m.id,
-          name,
-          initials: participantInitials(name),
-          role: m.role,
-        };
-      }),
-    });
-  }
-
-  return result;
+  return teamRows.map((team) =>
+    mapTeamRow(team, membersByTeam.get(team.id) ?? []),
+  );
 }
 
-export async function getPublicTeamBySlug(slug: string): Promise<PublicTeam | null> {
-  const all = await getPublicTeams();
-  return all.find((t) => t.slug === slug) ?? null;
-}
+export const getPublicTeamBySlug = cache(async (slug: string): Promise<PublicTeam | null> => {
+  if (!process.env.DATABASE_URL) return null;
+
+  const db = getDb();
+  const [team] = await db.select().from(teams).where(eq(teams.slug, slug)).limit(1);
+  if (!team) return null;
+
+  const membersByTeam = await fetchMembersByTeamIds([team.id]);
+  return mapTeamRow(team, membersByTeam.get(team.id) ?? []);
+});
 
 export async function getTeamRecordBySlug(slug: string) {
   if (!process.env.DATABASE_URL) return null;

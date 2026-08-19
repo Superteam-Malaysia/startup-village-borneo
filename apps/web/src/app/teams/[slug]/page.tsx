@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { TeamDetailActions } from "@/components/teams/TeamDetailActions";
 import { TeamMemberCards } from "@/components/teams/TeamMemberCards";
-import { CtaButton, SectionArticle } from "@/components/ui";
-import { getParticipantForSession } from "@/lib/auth/participant";
+import { SectionArticle } from "@/components/ui";
 import { getPublicParticipantsByIds } from "@/lib/participants/public-directory";
-import { canEditTeam, getTeamMembership } from "@/lib/teams/access";
 import { getPublicTeamBySlug } from "@/lib/teams/public-teams";
+import { getDb } from "@/lib/db";
+import { teams } from "@/lib/db/schema";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 type TeamDetailPageProps = {
   params: Promise<{ slug: string }>;
@@ -35,6 +36,14 @@ function ExternalIcon() {
   );
 }
 
+export async function generateStaticParams() {
+  if (!process.env.DATABASE_URL) return [];
+
+  const db = getDb();
+  const rows = await db.select({ slug: teams.slug }).from(teams);
+  return rows.map((row) => ({ slug: row.slug }));
+}
+
 export async function generateMetadata({ params }: TeamDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
   const team = await getPublicTeamBySlug(slug);
@@ -50,11 +59,6 @@ export default async function TeamDetailPage({ params }: TeamDetailPageProps) {
   const team = await getPublicTeamBySlug(slug);
   if (!team) notFound();
 
-  const participant = await getParticipantForSession();
-  const membership = participant
-    ? await getTeamMembership(team.id, participant.id)
-    : null;
-  const canEdit = canEditTeam(membership?.role);
   const category = team.category ?? "Other";
   const memberIds = team.members.map((m) => m.id);
   const memberProfiles = await getPublicParticipantsByIds(memberIds);
@@ -117,22 +121,7 @@ export default async function TeamDetailPage({ params }: TeamDetailPageProps) {
               <TeamMemberCards members={memberProfiles} />
             </section>
 
-            <div className="flex flex-wrap gap-4">
-              {canEdit ? (
-                <CtaButton href={`/teams/${slug}/edit`} variant="byte" size="md">
-                  Edit team
-                </CtaButton>
-              ) : null}
-              <CtaButton href="/teams" variant="ghost-wisp" size="md" showArrow={false}>
-                All teams
-              </CtaButton>
-              <Link
-                href="/teams?tab=builders"
-                className="font-mono text-sm text-[var(--team-colosseum-accent,#6ee7a8)] hover:underline self-center"
-              >
-                Browse builders
-              </Link>
-            </div>
+            <TeamDetailActions slug={slug} />
           </div>
         </SectionArticle>
       </div>
