@@ -1,47 +1,54 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
-import { ReactNode, useCallback } from "react";
-import { CtaButton } from "@/components/ui";
+import { useCallback, useEffect, useState } from "react";
+import { MentorDirectoryClient } from "@/components/directory/MentorDirectoryClient";
+import { ParticipantDirectoryClient } from "@/components/directory/ParticipantDirectoryClient";
+import { TeamEcosystemClient } from "@/components/teams/TeamEcosystemClient";
+import { CtaButton, SectionArticle } from "@/components/ui";
+import type { PublicMentor } from "@/lib/mentors/types";
+import type { PublicParticipant } from "@/lib/participants/types";
+import type { PublicTeam } from "@/lib/teams/types";
+import { withBasePath } from "@/lib/base-path";
 
 type TabId = "teams" | "builders" | "mentors";
 
 type DirectoryTabsClientProps = {
-  teamsPanel: ReactNode;
-  buildersPanel: ReactNode;
-  mentorsPanel: ReactNode;
+  initialTab: TabId;
+  teams: PublicTeam[];
+  people: PublicParticipant[];
+  mentors: PublicMentor[];
   isSignedIn: boolean;
 };
 
-function parseTab(value: string | null): TabId {
-  if (value === "builders" || value === "mentors") return value;
-  return "teams";
+function syncTabUrl(tab: TabId) {
+  if (typeof window === "undefined") return;
+  const url = new URL(window.location.href);
+  if (tab === "teams") url.searchParams.delete("tab");
+  else url.searchParams.set("tab", tab);
+  const next = `${url.pathname}${url.search}`;
+  if (`${window.location.pathname}${window.location.search}` !== next) {
+    window.history.replaceState(window.history.state, "", next);
+  }
 }
 
 export function DirectoryTabsClient({
-  teamsPanel,
-  buildersPanel,
-  mentorsPanel,
+  initialTab,
+  teams,
+  people,
+  mentors,
   isSignedIn,
 }: DirectoryTabsClientProps) {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const tab = parseTab(searchParams.get("tab"));
+  const [tab, setTabState] = useState<TabId>(initialTab);
 
-  const setTab = useCallback(
-    (next: TabId) => {
-      const params = new URLSearchParams(searchParams.toString());
-      if (next === "teams") {
-        params.delete("tab");
-      } else {
-        params.set("tab", next);
-      }
-      const qs = params.toString();
-      router.replace(qs ? `/teams?${qs}` : "/teams", { scroll: false });
-    },
-    [router, searchParams],
-  );
+  const setTab = useCallback((next: TabId) => {
+    setTabState(next);
+    syncTabUrl(next);
+  }, []);
+
+  useEffect(() => {
+    syncTabUrl(tab);
+  }, [tab]);
 
   return (
     <>
@@ -104,7 +111,27 @@ export function DirectoryTabsClient({
         hidden={tab !== "teams"}
         aria-hidden={tab !== "teams"}
       >
-        {teamsPanel}
+        {teams.length === 0 ? (
+          <SectionArticle className="team-ecosystem__empty">
+            <p className="text-sm text-[var(--color-wisp)]/60 max-w-xl">
+              No teams yet.{" "}
+              {isSignedIn ? (
+                <>Create one to showcase your project.</>
+              ) : (
+                <>
+                  <Link href="/login" className="text-[var(--color-byte)] hover:underline">
+                    Sign in
+                  </Link>{" "}
+                  to create a team.
+                </>
+              )}
+            </p>
+          </SectionArticle>
+        ) : (
+          <SectionArticle>
+            <TeamEcosystemClient teams={teams} />
+          </SectionArticle>
+        )}
       </div>
 
       <div
@@ -113,7 +140,17 @@ export function DirectoryTabsClient({
         hidden={tab !== "builders"}
         aria-hidden={tab !== "builders"}
       >
-        {buildersPanel}
+        {people.length === 0 ? (
+          <SectionArticle className="builder-directory__empty">
+            <p className="text-sm text-[var(--color-wisp)]/60 max-w-xl">
+              Participant directory syncs from Luma registration. Check back once imports are live.
+            </p>
+          </SectionArticle>
+        ) : (
+          <SectionArticle>
+            <ParticipantDirectoryClient people={people} />
+          </SectionArticle>
+        )}
       </div>
 
       <div
@@ -122,12 +159,14 @@ export function DirectoryTabsClient({
         hidden={tab !== "mentors"}
         aria-hidden={tab !== "mentors"}
       >
-        {mentorsPanel}
+        <SectionArticle>
+          <MentorDirectoryClient mentors={mentors} />
+        </SectionArticle>
       </div>
 
       {!isSignedIn && tab === "teams" ? (
         <p className="mt-6 text-sm text-[color:color-mix(in_srgb,var(--color-wisp)_65%,transparent)]">
-          <Link href="/login" className="text-[var(--color-byte)] hover:underline">
+          <Link href={withBasePath("/login")} className="text-[var(--color-byte)] hover:underline">
             Sign in
           </Link>{" "}
           to create a team and add builders from the directory.
@@ -135,4 +174,9 @@ export function DirectoryTabsClient({
       ) : null}
     </>
   );
+}
+
+export function parseDirectoryTab(value: string | undefined | null): TabId {
+  if (value === "builders" || value === "mentors") return value;
+  return "teams";
 }

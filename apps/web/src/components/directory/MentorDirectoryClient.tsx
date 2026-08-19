@@ -15,15 +15,6 @@ import {
 } from "@/data/mentors";
 import type { MentorFilter } from "@/lib/mentors/types";
 
-function SearchIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M20 20l-3.5-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-
 function MicIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -142,7 +133,6 @@ function MentorCard({ mentor }: { mentor: PublicMentor }) {
 }
 
 export function MentorDirectoryClient({ mentors }: { mentors: PublicMentor[] }) {
-  const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<MentorFilter>("all");
 
   const counts = useMemo(() => {
@@ -153,51 +143,35 @@ export function MentorDirectoryClient({ mentors }: { mentors: PublicMentor[] }) 
     return map;
   }, [mentors]);
 
-  const filtered = useMemo(
-    () => filterMentors(mentors, query, filter),
-    [mentors, query, filter],
-  );
+  const filtered = useMemo(() => filterMentors(mentors, filter), [mentors, filter]);
 
   const activeTab = MENTOR_FILTER_TABS.find((tab) => tab.id === filter);
 
   return (
     <div className="builder-directory">
-      <div className="builder-directory__toolbar">
-        <label className="builder-directory__search">
-          <SearchIcon />
-          <input
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search mentors, workshops, orgs"
-            aria-label="Search mentors"
-          />
-        </label>
-
-        <div className="builder-directory__tabs" role="tablist" aria-label="Filter mentors">
-          {MENTOR_FILTER_TABS.map((tab) => {
-            const count = counts.get(tab.id) ?? 0;
-            const active = filter === tab.id;
-            return (
-              <button
-                key={tab.id}
-                type="button"
-                role="tab"
-                aria-selected={active}
-                className={[
-                  "builder-directory__tab",
-                  active ? "builder-directory__tab--active" : "",
-                ]
-                  .filter(Boolean)
-                  .join(" ")}
-                onClick={() => setFilter(tab.id)}
-              >
-                {tab.label}
-                <span className="builder-directory__tab-count">{count}</span>
-              </button>
-            );
-          })}
-        </div>
+      <div className="builder-directory__tabs" role="tablist" aria-label="Filter mentors">
+        {MENTOR_FILTER_TABS.map((tab) => {
+          const count = counts.get(tab.id) ?? 0;
+          const active = filter === tab.id;
+          return (
+            <button
+              key={tab.id}
+              type="button"
+              role="tab"
+              aria-selected={active}
+              className={[
+                "builder-directory__tab",
+                active ? "builder-directory__tab--active" : "",
+              ]
+                .filter(Boolean)
+                .join(" ")}
+              onClick={() => setFilter(tab.id)}
+            >
+              {tab.label}
+              <span className="builder-directory__tab-count">{count}</span>
+            </button>
+          );
+        })}
       </div>
 
       <p className="builder-directory__summary">
@@ -206,7 +180,7 @@ export function MentorDirectoryClient({ mentors }: { mentors: PublicMentor[] }) 
       </p>
 
       {filtered.length === 0 ? (
-        <p className="builder-directory__empty-results">No mentors match this search.</p>
+        <p className="builder-directory__empty-results">No mentors in this category.</p>
       ) : (
         <ul className="builder-directory__grid">
           {filtered.map((mentor) => (

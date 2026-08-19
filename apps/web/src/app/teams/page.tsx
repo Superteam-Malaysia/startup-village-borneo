@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
-import { MentorDirectoryClient } from "@/components/directory/MentorDirectoryClient";
-import { ParticipantDirectoryClient } from "@/components/directory/ParticipantDirectoryClient";
-import { DirectoryTabsClient, TeamEcosystemClient } from "@/components/teams";
-import { CtaButton, SectionArticle } from "@/components/ui";
+import { DirectoryTabsClient, parseDirectoryTab } from "@/components/teams/DirectoryTabsClient";
+import { CtaButton } from "@/components/ui";
 import { PageHeader } from "@/components/shell";
 import { getPublicMentors } from "@/data/mentors";
 import { getParticipantForSession } from "@/lib/auth/participant";
@@ -18,55 +15,18 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
-export default async function TeamsPage() {
+type TeamsPageProps = {
+  searchParams: Promise<{ tab?: string }>;
+};
+
+export default async function TeamsPage({ searchParams }: TeamsPageProps) {
+  const params = await searchParams;
   const [teams, people, mentors, participant] = await Promise.all([
     getPublicTeams(),
     getPublicParticipants(),
     Promise.resolve(getPublicMentors()),
     getParticipantForSession(),
   ]);
-
-  const teamsPanel =
-    teams.length === 0 ? (
-      <SectionArticle className="team-ecosystem__empty">
-        <p className="text-sm text-[var(--color-wisp)]/60 max-w-xl">
-          No teams yet.{" "}
-          {participant ? (
-            <>Create one to showcase your project.</>
-          ) : (
-            <>
-              <a href="/login" className="text-[var(--color-byte)] hover:underline">
-                Sign in
-              </a>{" "}
-              to create a team.
-            </>
-          )}
-        </p>
-      </SectionArticle>
-    ) : (
-      <SectionArticle>
-        <TeamEcosystemClient teams={teams} />
-      </SectionArticle>
-    );
-
-  const buildersPanel =
-    people.length === 0 ? (
-      <SectionArticle className="builder-directory__empty">
-        <p className="text-sm text-[var(--color-wisp)]/60 max-w-xl">
-          Participant directory syncs from Luma registration. Check back once imports are live.
-        </p>
-      </SectionArticle>
-    ) : (
-      <SectionArticle>
-        <ParticipantDirectoryClient people={people} />
-      </SectionArticle>
-    );
-
-  const mentorsPanel = (
-    <SectionArticle>
-      <MentorDirectoryClient mentors={mentors} />
-    </SectionArticle>
-  );
 
   return (
     <main className="site-main site-main--stack">
@@ -76,14 +36,13 @@ export default async function TeamsPage() {
         lead="Explore hackathon teams, registered builders, and workshop leaders plus Demo Day judges."
       />
 
-      <Suspense fallback={null}>
-        <DirectoryTabsClient
-          teamsPanel={teamsPanel}
-          buildersPanel={buildersPanel}
-          mentorsPanel={mentorsPanel}
-          isSignedIn={!!participant}
-        />
-      </Suspense>
+      <DirectoryTabsClient
+        initialTab={parseDirectoryTab(params.tab)}
+        teams={teams}
+        people={people}
+        mentors={mentors}
+        isSignedIn={!!participant}
+      />
 
       <div className="flex flex-wrap gap-4">
         {!participant ? (

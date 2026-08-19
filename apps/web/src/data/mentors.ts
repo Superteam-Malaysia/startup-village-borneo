@@ -159,25 +159,10 @@ export const MENTOR_FILTER_TABS: { id: MentorFilter; label: string }[] = [
   { id: "judge", label: "Judges" },
 ];
 
-export function filterMentors(mentors: PublicMentor[], query: string, filter: MentorFilter): PublicMentor[] {
-  const q = query.trim().toLowerCase();
-
+export function filterMentors(mentors: PublicMentor[], filter: MentorFilter): PublicMentor[] {
   return mentors.filter((mentor) => {
     if (filter === "workshop" && !mentor.isWorkshopLeader) return false;
     if (filter === "judge" && !mentor.isJudge) return false;
-    if (!q) return true;
-
-    const haystack = [
-      mentor.name,
-      mentor.organization,
-      mentor.judgeRole,
-      mentorRoleLabel(mentor),
-      ...mentor.workshops.map((w) => `${w.title} ${w.dayLabel} ${w.date}`),
-    ]
-      .filter(Boolean)
-      .join(" ")
-      .toLowerCase();
-
-    return haystack.includes(q);
+    return true;
   });
 }

@@ -10,15 +10,6 @@ import {
   type TeamCategory,
 } from "@/lib/participants/team-categories";
 
-function SearchIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M20 20l-3.5-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-
 function BriefcaseIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -134,33 +125,11 @@ function ParticipantCard({ person }: { person: PublicParticipant }) {
   );
 }
 
-function filterParticipants(
-  people: PublicParticipant[],
-  query: string,
-  category: TeamCategory,
-): PublicParticipant[] {
-  const q = query.trim().toLowerCase();
-
-  return people.filter((person) => {
-    if (category !== "all" && person.teamCategory !== category) return false;
-    if (!q) return true;
-
-    const haystack = [
-      person.name,
-      person.projectIdea,
-      person.teamSetup,
-      teamCategoryLabel(person.teamCategory, person.teamSetup),
-    ]
-      .filter(Boolean)
-      .join(" ")
-      .toLowerCase();
-
-    return haystack.includes(q);
-  });
+function filterParticipants(people: PublicParticipant[], category: TeamCategory): PublicParticipant[] {
+  return people.filter((person) => category === "all" || person.teamCategory === category);
 }
 
 export function ParticipantDirectoryClient({ people }: { people: PublicParticipant[] }) {
-  const [query, setQuery] = useState("");
   const [category, setCategory] = useState<TeamCategory>("all");
 
   const counts = useMemo(() => {
@@ -178,49 +147,33 @@ export function ParticipantDirectoryClient({ people }: { people: PublicParticipa
     [counts],
   );
 
-  const filtered = useMemo(
-    () => filterParticipants(people, query, category),
-    [people, query, category],
-  );
+  const filtered = useMemo(() => filterParticipants(people, category), [people, category]);
 
   return (
     <div className="builder-directory">
-      <div className="builder-directory__toolbar">
-        <label className="builder-directory__search">
-          <SearchIcon />
-          <input
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search by name, project, or team"
-            aria-label="Search builders"
-          />
-        </label>
-
-        <div className="builder-directory__tabs" role="tablist" aria-label="Filter by team setup">
-          {visibleTabs.map((tab) => {
-            const count = counts.get(tab.id) ?? 0;
-            const active = category === tab.id;
-            return (
-              <button
-                key={tab.id}
-                type="button"
-                role="tab"
-                aria-selected={active}
-                className={[
-                  "builder-directory__tab",
-                  active ? "builder-directory__tab--active" : "",
-                ]
-                  .filter(Boolean)
-                  .join(" ")}
-                onClick={() => setCategory(tab.id)}
-              >
-                {tab.label}
-                <span className="builder-directory__tab-count">{count}</span>
-              </button>
-            );
-          })}
-        </div>
+      <div className="builder-directory__tabs" role="tablist" aria-label="Filter by team setup">
+        {visibleTabs.map((tab) => {
+          const count = counts.get(tab.id) ?? 0;
+          const active = category === tab.id;
+          return (
+            <button
+              key={tab.id}
+              type="button"
+              role="tab"
+              aria-selected={active}
+              className={[
+                "builder-directory__tab",
+                active ? "builder-directory__tab--active" : "",
+              ]
+                .filter(Boolean)
+                .join(" ")}
+              onClick={() => setCategory(tab.id)}
+            >
+              {tab.label}
+              <span className="builder-directory__tab-count">{count}</span>
+            </button>
+          );
+        })}
       </div>
 
       <p className="builder-directory__summary">
@@ -229,7 +182,7 @@ export function ParticipantDirectoryClient({ people }: { people: PublicParticipa
       </p>
 
       {filtered.length === 0 ? (
-        <p className="builder-directory__empty-results">No builders match this search.</p>
+        <p className="builder-directory__empty-results">No builders in this category.</p>
       ) : (
         <ul className="builder-directory__grid">
           {filtered.map((person) => (
