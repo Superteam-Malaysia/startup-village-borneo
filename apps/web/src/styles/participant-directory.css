@@ -1,0 +1,118 @@
+/**
+ * Participant directory — /teams
+ */
+
+.participant-directory__count {
+  margin: 0 0 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-wisp) 55%, transparent);
+}
+
+.participant-directory__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .participant-directory__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .participant-directory__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.participant-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid var(--color-transparent-wisp-10);
+  background: color-mix(in srgb, var(--color-null) 30%, transparent);
+  transition: border-color 0.15s ease;
+}
+
+.participant-card:hover {
+  border-color: color-mix(in srgb, var(--color-byte) 45%, transparent);
+}
+
+.participant-card__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 0.75rem;
+}
+
+.participant-card__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  line-height: 1.25;
+  color: var(--color-wisp);
+}
+
+.participant-card__team {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.45rem;
+  border: 1px solid var(--color-transparent-wisp-10);
+  color: color-mix(in srgb, var(--color-wisp) 70%, transparent);
+}
+
+.participant-card__idea {
+  margin: 0;
+  flex: 1;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--color-wisp) 72%, transparent);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.participant-card__idea--empty {
+  font-style: italic;
+  color: color-mix(in srgb, var(--color-wisp) 45%, transparent);
+}
+
+.participant-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin-top: auto;
+  padding-top: 0.25rem;
+}
+
+.participant-card__link {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-byte);
+  text-decoration: none;
+}
+
+.participant-card__link:hover {
+  text-decoration: underline;
+}
+
+.participant-directory__empty {
+  border: 1px solid var(--color-transparent-wisp-10);
+  padding: 1.5rem;
+}

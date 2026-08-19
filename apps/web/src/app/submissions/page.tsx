@@ -191,7 +191,7 @@ export default function SubmissionsPage() {
               Open companion dApp
             </CtaButton>
             <CtaButton href="/teams" variant="ghost-wisp" size="lg" showArrow={false}>
-              View teams
+              Builder directory
             </CtaButton>
           </div>
         </SectionArticle>

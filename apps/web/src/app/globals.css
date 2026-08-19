@@ -19,6 +19,7 @@
 @import "../styles/judges-panel.css";
 @import "../styles/schedule-day-cards.css";
 @import "../styles/brand-assets.css";
+@import "../styles/participant-directory.css";
 
 @theme inline {
   --font-sans: var(--font-sans);
