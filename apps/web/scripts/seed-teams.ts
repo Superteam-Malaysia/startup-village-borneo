@@ -109,6 +109,20 @@ const SEED_TEAMS: SeedTeam[] = [
       { email: "luma@mvn.xyz", role: "editor" },
     ],
   },
+  {
+    slug: "shoqi-io",
+    name: "Shoqi.io",
+    tagline: "BaZi and Feng Shui guidance for career and life decisions",
+    description:
+      "Modern Chinese metaphysics platform that turns BaZi and Feng Shui into practical, personalised guidance for career, business and major life decisions — making traditional metaphysics easier to understand and actionable.",
+    category: "Consumer",
+    websiteUrl: "https://shoqi.io",
+    proofUrl: "https://shoqi.io",
+    members: [
+      { email: "justthur111@gmail.com", role: "owner" },
+      { email: "chinbingyong@gmail.com", role: "editor" },
+    ],
+  },
 ];
 
 async function participantIdByEmail(db: ReturnType<typeof getDb>, email: string) {
