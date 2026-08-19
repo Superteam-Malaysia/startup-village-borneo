@@ -25,7 +25,6 @@ export function RacePageContent() {
   return (
     <div className="flex flex-col gap-16 md:gap-24">
       <PageHeader
-        meta="16 stations · points-weighted"
         title="The Amazing Race"
         lead="Kuching is the course — laksa pilgrimages, waterfront sampan rides, cat statues, and a wallet mission that teaches real users. You may not finish every station. Choose well."
       />

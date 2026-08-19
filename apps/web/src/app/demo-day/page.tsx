@@ -20,7 +20,6 @@ export default function DemoDayPage() {
   return (
     <main className="site-main site-main--stack">
       <PageHeader
-        meta={`Day 5 · ${DEMO_DAY.date}`}
         title="Demo Day"
         lead={DEMO_DAY.summary}
       />

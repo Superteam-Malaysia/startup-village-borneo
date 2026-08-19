@@ -13,7 +13,6 @@ export default function ContentAwardsPage() {
   return (
     <main className="site-main site-main--stack">
       <PageHeader
-        meta="10×$100 · judged after event"
         title="Content Award"
         lead={CONTENT_AWARD.summary}
       />

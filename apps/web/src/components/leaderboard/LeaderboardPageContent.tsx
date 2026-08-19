@@ -24,7 +24,6 @@ export function LeaderboardPageContent() {
   return (
     <div className="flex flex-col gap-16 md:gap-24">
       <PageHeader
-        meta="Amazing Race · teams"
         title="Teams"
         lead="Team points across Kuching stations — updated live during the event via the companion dApp. Until then, explore sample standings and momentum charts below."
       />

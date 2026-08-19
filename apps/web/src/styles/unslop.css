@@ -14,6 +14,7 @@
   }
 }
 
+/* .page-header__meta — removed; no upper kickers on page headers
 .page-header__meta {
   margin-bottom: 0.75rem;
   font-family: var(--font-mono);
@@ -22,6 +23,7 @@
   letter-spacing: 0.02em;
   color: color-mix(in srgb, var(--color-wisp) 55%, transparent);
 }
+*/
 
 .page-header__title {
   font-family: var(--font-display);

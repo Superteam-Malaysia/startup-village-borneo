@@ -30,7 +30,6 @@ export default function TravelPage() {
     <main className="site-main site-main--stack">
       <header className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-end">
         <PageHeader
-          meta="Kuching · Sarawak"
           title="Travel & venue"
           lead="Land at KCH, check into Sheraton, and the program starts the moment you arrive. Evenings at the hotel; workshops at Voco from Day 2 — this page covers all logistics."
         />

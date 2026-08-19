@@ -14,7 +14,6 @@ export default function SustainabilityPage() {
   return (
     <main className="site-main site-main--stack">
       <PageHeader
-        meta="SOCOE · opt in on Day 2"
         title="Sustainability track"
         lead={SUSTAINABILITY_TRACK.summary}
       />

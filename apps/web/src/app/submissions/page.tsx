@@ -32,7 +32,6 @@ export default function SubmissionsPage() {
     <main className="site-main">
       <div className="flex flex-col gap-16 md:gap-24">
         <PageHeader
-          meta="Race · decks · content"
           title="Submissions"
           lead="Everything you need to log Amazing Race threads, pitch decks, and content tasks — before the companion dApp goes live on-site."
         />

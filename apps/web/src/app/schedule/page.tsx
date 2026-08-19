@@ -1,6 +1,5 @@
 import { ScheduleExplorer } from "@/components/schedule";
 import { PageHeader } from "@/components/shell";
-import { SITE } from "@/data/site";
 
 export const metadata = {
   title: "Schedule",
@@ -18,7 +17,7 @@ export default async function SchedulePage({
 
   return (
     <main className="site-main">
-      <PageHeader meta={SITE.dates} title="Program schedule" />
+      <PageHeader title="Program schedule" />
       <ScheduleExplorer initialDay={initialDay} />
     </main>
   );

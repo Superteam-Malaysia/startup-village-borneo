@@ -5,7 +5,7 @@ import { CtaButton } from "@/components/ui";
 export default function NotFound() {
   return (
     <main className="site-main">
-      <PageHeader meta="404" title="Page not found" lead="This route isn't on the program map. Head home or jump to the schedule." />
+      <PageHeader title="Page not found" lead="This route isn't on the program map. Head home or jump to the schedule." />
       <div className="flex flex-wrap gap-4">
         <CtaButton href="/" variant="byte" size="md">Home</CtaButton>
         <CtaButton href="/schedule" variant="ghost-wisp" size="md" showArrow={false}>Schedule</CtaButton>

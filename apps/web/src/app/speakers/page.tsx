@@ -18,7 +18,6 @@ export default function SpeakersPage() {
   return (
     <main className="site-main site-main--stack">
       <PageHeader
-        meta="On stage · Voco workshops"
         title="Speakers and sessions"
         lead="Talks under ten minutes. Workshops thirty to forty-five minutes max. Day 1 is the race — programming begins Day 2 at Voco."
       />
