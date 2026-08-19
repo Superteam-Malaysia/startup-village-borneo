@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p ${PORT:-3000}",
+    "start": "next start -H 0.0.0.0 -p ${PORT:-3000}",
     "lint": "eslint",
     "unslop:scan": "python3 ../../.cursor/skills/unslop-ui/scripts/devibe_scan.py src",
     "db:migrate": "tsx scripts/migrate.ts",

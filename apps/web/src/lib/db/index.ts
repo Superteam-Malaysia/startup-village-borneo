@@ -21,7 +21,7 @@ export function getDb() {
 
 export async function closeDb() {
   if (client) {
-    await client.end();
+    await client.end({ timeout: 5 });
     client = null;
   }
 }

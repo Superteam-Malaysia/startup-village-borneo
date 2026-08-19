@@ -21,10 +21,12 @@ async function main() {
     console.log("Migration applied:", file);
   }
 
-  await db.end();
+  await db.end({ timeout: 5 });
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+main()
+  .then(() => process.exit(0))
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
