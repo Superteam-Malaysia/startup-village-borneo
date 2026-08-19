@@ -1,21 +1,22 @@
 ---
-description: Keep verification lightweight for small data-only changes — no GUI walks or heavy artifact generation
+description: Skip verification entirely for small data/CSS/layout fixes — no build, no GUI, no artifacts
 alwaysApply: true
 ---
 
-# Verification — keep it light (global)
+# Verification — skip for small changes (global)
 
-For **small, data-only changes** (syncing `src/data/*`, docs, copy, config
-constants), do **not** run token-heavy verification:
+For **small, low-risk changes** — data syncs (`src/data/*`), docs, copy,
+config constants, and **small CSS/layout tweaks** (e.g. moving one nav item,
+spacing, alignment) — **skip verification entirely**:
 
+- No `npm run build` (unless CI will catch it and you want a sanity check)
+- No grep/read sanity checks
 - No browser / computer-use walks
 - No screenshots, screen recordings, or video review subagents
-- No exhaustive curl + HTML scraping across every page
+- No dev servers started just to verify
 
-**Enough for data-only syncs:**
+Make the edit, commit, and move on.
 
-1. `npm run build` in `apps/web` (or confirm types compile)
-2. Quick sanity check that edited files contain the expected strings (grep/read)
-
-Reserve manual UI testing for actual UI/component changes or non-trivial
-behavior that data files alone cannot prove.
+**Verify only for non-trivial work:** new pages, new components, auth flows,
+API behavior, multi-file refactors, or anything where runtime behavior is
+uncertain and not obvious from the diff alone.
