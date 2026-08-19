@@ -173,6 +173,20 @@
   color: var(--color-wisp);
 }
 
+.builder-card__name-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.builder-card__name-link:hover .builder-card__name {
+  color: var(--color-byte);
+}
+
+.builder-card:target {
+  border-color: color-mix(in srgb, var(--color-byte) 55%, transparent);
+  scroll-margin-top: 6rem;
+}
+
 .builder-card__meta {
   list-style: none;
   margin: 0;

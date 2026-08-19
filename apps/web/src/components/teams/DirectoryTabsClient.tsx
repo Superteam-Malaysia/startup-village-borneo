@@ -10,7 +10,6 @@ import type { PublicMentor } from "@/lib/mentors/types";
 import type { PublicParticipant } from "@/lib/participants/types";
 import type { PublicTeam } from "@/lib/teams/types";
 import { withBasePath } from "@/lib/base-path";
-
 import type { DirectoryTab } from "@/lib/directory/tabs";
 
 type DirectoryTabsClientProps = {
@@ -32,6 +31,12 @@ function syncTabUrl(tab: DirectoryTab) {
   }
 }
 
+function scrollToBuilderHash() {
+  const hash = window.location.hash;
+  if (!hash.startsWith("#builder-")) return;
+  document.querySelector(hash)?.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
 export function DirectoryTabsClient({
   initialTab,
   teams,
@@ -48,6 +53,18 @@ export function DirectoryTabsClient({
 
   useEffect(() => {
     syncTabUrl(tab);
+  }, [tab]);
+
+  useEffect(() => {
+    if (!window.location.hash.startsWith("#builder-")) return;
+    setTabState("builders");
+    window.requestAnimationFrame(scrollToBuilderHash);
+  }, []);
+
+  useEffect(() => {
+    if (tab === "builders" && window.location.hash.startsWith("#builder-")) {
+      window.requestAnimationFrame(scrollToBuilderHash);
+    }
   }, [tab]);
 
   return (

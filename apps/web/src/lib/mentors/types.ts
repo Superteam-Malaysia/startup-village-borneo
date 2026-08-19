@@ -20,5 +20,3 @@ export type PublicMentor = {
   email: string | null;
   initials: string;
 };
-
-export type MentorFilter = "all" | "workshop" | "judge";

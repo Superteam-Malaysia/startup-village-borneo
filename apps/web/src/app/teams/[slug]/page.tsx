@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { TeamMemberCards } from "@/components/teams/TeamMemberCards";
 import { CtaButton, SectionArticle } from "@/components/ui";
 import { getParticipantForSession } from "@/lib/auth/participant";
+import { getPublicParticipantsByIds } from "@/lib/participants/public-directory";
 import { canEditTeam, getTeamMembership } from "@/lib/teams/access";
 import { getPublicTeamBySlug } from "@/lib/teams/public-teams";
 
@@ -54,6 +56,9 @@ export default async function TeamDetailPage({ params }: TeamDetailPageProps) {
     : null;
   const canEdit = canEditTeam(membership?.role);
   const category = team.category ?? "Other";
+  const memberIds = team.members.map((m) => m.id);
+  const memberProfiles = await getPublicParticipantsByIds(memberIds);
+  const memberRoles = Object.fromEntries(team.members.map((m) => [m.id, m.role]));
 
   return (
     <main className="site-main site-main--stack">
@@ -122,21 +127,7 @@ export default async function TeamDetailPage({ params }: TeamDetailPageProps) {
 
             <section>
               <h2 className="team-detail__section-label">Team</h2>
-              <ul className="team-detail__members-list">
-                {team.members.map((member) => (
-                  <li key={member.id}>
-                    <div className="team-detail__member-card">
-                      <span className="team-detail__member-avatar" aria-hidden="true">
-                        {member.initials}
-                      </span>
-                      <div className="team-detail__member-info">
-                        <span className="team-detail__member-name">{member.name}</span>
-                        <span className="team-detail__member-role">{member.role}</span>
-                      </div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+              <TeamMemberCards members={memberProfiles} roles={memberRoles} />
             </section>
 
             <div className="flex flex-wrap gap-4">
