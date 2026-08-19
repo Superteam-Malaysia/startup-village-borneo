@@ -32,7 +32,7 @@ export function builderConnectHref(person: PublicParticipant): string | null {
 }
 
 export function builderConnectLabel(person: PublicParticipant): string {
-  if (person.twitter) return "Connect";
+  if (person.twitter) return "Twitter";
   if (person.linkedin) return "LinkedIn";
   if (telegramHref(person.telegram)) return "Telegram";
   return "Connect";

@@ -57,7 +57,7 @@ export function mentorConnectHref(mentor: PublicMentor): string | null {
 }
 
 export function mentorConnectLabel(mentor: PublicMentor): string {
-  if (twitterHref(mentor.twitter)) return "Connect";
+  if (twitterHref(mentor.twitter)) return "Twitter";
   if (telegramHref(mentor.telegram)) return "Telegram";
   if (linkedinHref(mentor.linkedin)) return "LinkedIn";
   if (mentor.email) return "Email";
