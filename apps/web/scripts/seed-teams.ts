@@ -323,6 +323,129 @@ const SEED_TEAMS: SeedTeam[] = [
     proofUrl: "https://card.dgentech.io",
     members: [{ email: "goodwin.icon@gmail.com", role: "owner" }],
   },
+  {
+    slug: "problemsight",
+    name: "ProblemSight",
+    tagline: "Discover validated real-world problems before building",
+    description:
+      "ProblemSight is a platform that helps founders, builders, and hackathon participants discover validated real-world problems before building solutions. Instead of launching products, users share pain points, validate demand, and uncover opportunities worth solving through community insights and AI-powered analysis. Launched at Product Hunt.",
+    category: "Consumer",
+    websiteUrl: "https://problemsight.com",
+    proofUrl: "https://www.producthunt.com/products/problem-sight",
+    members: [{ email: "53845tianbelulok@gmail.com", role: "owner" }],
+  },
+  {
+    slug: "breeze-pocket",
+    name: "Breeze Pocket",
+    tagline: "Options trading as a simple prediction-market experience",
+    description:
+      "A consumer-friendly mobile app that turns complex options trading into a simple prediction-market experience — users predict whether an asset's price will rise or fall, earn option premiums, and can buy, sell, or reclaim committed funds.",
+    category: "DeFi",
+    members: [{ email: "skky5687@gmail.com", role: "owner" }],
+  },
+  {
+    slug: "project-arbor",
+    name: "Project Arbor",
+    tagline: "Explainable AI for financial risk analysis",
+    description:
+      "A web-based Explainable AI framework that visualizes the reasoning pathways of AI models during financial risk analysis — converting unstructured inferences into interactive node-link visualizations.",
+    category: "Consumer",
+    websiteUrl: "https://projectarbor.com",
+    proofUrl: "https://projectarbor.com",
+    members: [{ email: "rafieqrafizie@gmail.com", role: "owner" }],
+  },
+  {
+    slug: "operator-uplift",
+    name: "Operator Uplift",
+    tagline: "AI-verified accountability with real stakes",
+    description:
+      "AI-verified accountability software where users stake money, submit daily proof, and forfeit if they don't follow through — for people who've tried every habit tracker and still can't stick to commitments because badges and streaks don't create real consequences.",
+    category: "Consumer",
+    websiteUrl: "https://operatoruplift.com",
+    proofUrl: "https://operatoruplift.com",
+    members: [{ email: "operatoruplift@gmail.com", role: "owner" }],
+  },
+  {
+    slug: "kurtosis-ratings",
+    name: "Kurtosis Ratings",
+    tagline: "Due diligence ratings for Solana fixed-income primitives",
+    description:
+      "Helps crypto funds do proper due diligence on newer fixed-income primitives in Solana — rating the risk profiles of holding positions separately even when they share the same underlying token.",
+    category: "DeFi",
+    proofUrl: "https://superteam.fun/earn/listing/ranger-build-a-bear-hackathon-main-track",
+    members: [{ email: "kai@kurtosis-labs.com", role: "owner" }],
+  },
+  {
+    slug: "cardsjp",
+    name: "CardsJP",
+    tagline: "Reselling Pokémon cards from Akihabara to the world",
+    description:
+      "Reselling Pokémon cards from Akihabara Tokyo — collaborating with shop owners to reach collectors worldwide.",
+    category: "Consumer",
+    websiteUrl: "https://cardsjp.com",
+    proofUrl: "https://cardsjp.com",
+    members: [{ email: "emailsolah@gmail.com", role: "owner" }],
+  },
+  {
+    slug: "hypebiscus",
+    name: "Hypebiscus",
+    tagline: "Fraud detection without changing user habits",
+    description:
+      "A fraud detector that works without changing users' habits — executing trade or DeFi transactions on the spot with built-in protection.",
+    category: "DeFi",
+    proofUrl: "https://hypebiscus.xyz",
+    members: [{ email: "wanaqilre@gmail.com", role: "owner" }],
+  },
+  {
+    slug: "withmiautomation",
+    name: "WithMIA Automation",
+    tagline: "Web3 and AI education for everyone",
+    description:
+      "An education platform about Web3 and AI where everyone — even parents new to crypto — can learn on top of the Solana network.",
+    category: "Consumer",
+    websiteUrl: "https://www.withmiautomation.com",
+    proofUrl: "https://www.withmiautomation.com",
+    members: [{ email: "fahmiiireza@gmail.com", role: "owner" }],
+  },
+  {
+    slug: "diabetes-companion",
+    name: "Diabetes Companion",
+    tagline: "Track sugar intake and manage diabetic-friendly meals",
+    description:
+      "Helps people with diabetes track sugar intake using predefined foods or AI-powered photo estimation, manage medications, monitor progress, and access past sugar levels — all in one place.",
+    category: "Consumer",
+    proofUrl: "https://chat.ilmu.ai/artifacts/30bcdb27",
+    members: [{ email: "hpy5c8whjc@privaterelay.appleid.com", role: "owner" }],
+  },
+  {
+    slug: "sea-digital-markets",
+    name: "SEA Digital Markets",
+    tagline: "Solana access to digital markets for Southeast Asia",
+    description:
+      "Access to digital markets for Southeast Asia using Solana — for businesses and entities that want to penetrate digital markets in the region.",
+    category: "Consumer",
+    proofUrl: "https://github.com/RafaTahir",
+    members: [{ email: "rafaeitahir@hotmail.com", role: "owner" }],
+  },
+  {
+    slug: "morr-platform",
+    name: "Morr Platform",
+    tagline: "B2B and B2C discovery for organisations and consumers",
+    description:
+      "A solution for B2B and B2C consumers — dedicated software for organisations to find their business or direct consumers.",
+    category: "Consumer",
+    members: [{ email: "nilesh@morr.my", role: "owner" }],
+  },
+  {
+    slug: "sanctum",
+    name: "Sanctum",
+    tagline: "Liquid staking on Solana",
+    description: "Sanctum — liquid staking infrastructure on Solana.",
+    category: "DeFi",
+    websiteUrl: "https://sanctum.so",
+    proofUrl: "https://sanctum.so",
+    members: [{ email: "nicfuryyy@gmail.com", role: "owner" }],
+  },
 ];
 
 async function participantIdByEmail(db: ReturnType<typeof getDb>, email: string) {
