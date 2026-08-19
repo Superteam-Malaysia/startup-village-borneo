@@ -12,7 +12,8 @@
     "lint": "eslint",
     "unslop:scan": "python3 ../../.cursor/skills/unslop-ui/scripts/devibe_scan.py src",
     "db:migrate": "tsx scripts/migrate.ts",
-    "db:import-guests": "tsx scripts/import-guests.ts"
+    "db:import-guests": "tsx scripts/import-guests.ts",
+    "db:seed-teams": "tsx scripts/seed-teams.ts"
   },
   "dependencies": {
     "csv-parse": "^7.0.2",

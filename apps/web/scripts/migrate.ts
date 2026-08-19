@@ -1,6 +1,6 @@
 #!/usr/bin/env tsx
 import "dotenv/config";
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import postgres from "postgres";
 
@@ -8,12 +8,19 @@ async function main() {
   const url = process.env.DATABASE_URL;
   if (!url) throw new Error("DATABASE_URL is not set");
 
-  const sqlPath = resolve(__dirname, "../drizzle/0000_participants.sql");
-  const migration = readFileSync(sqlPath, "utf8");
+  const dir = resolve(__dirname, "../drizzle");
+  const files = readdirSync(dir)
+    .filter((f) => f.endsWith(".sql"))
+    .sort();
+
   const db = postgres(url, { max: 1 });
 
-  await db.unsafe(migration);
-  console.log("Migration applied:", sqlPath);
+  for (const file of files) {
+    const migration = readFileSync(resolve(dir, file), "utf8");
+    await db.unsafe(migration);
+    console.log("Migration applied:", file);
+  }
+
   await db.end();
 }
 

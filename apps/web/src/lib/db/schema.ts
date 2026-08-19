@@ -3,6 +3,7 @@ import {
   pgTable,
   text,
   timestamp,
+  unique,
   uuid,
 } from "drizzle-orm/pg-core";
 
@@ -52,5 +53,42 @@ export const authTokens = pgTable("auth_tokens", {
     .defaultNow(),
 });
 
+/** Hackathon team — Base ecosystem-style project directory entry. */
+export const teams = pgTable("teams", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  slug: text("slug").notNull().unique(),
+  name: text("name").notNull(),
+  tagline: text("tagline"),
+  description: text("description"),
+  category: text("category"),
+  websiteUrl: text("website_url"),
+  proofUrl: text("proof_url"),
+  createdBy: uuid("created_by").references(() => participants.id, {
+    onDelete: "set null",
+  }),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
+export const teamMembers = pgTable(
+  "team_members",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    teamId: uuid("team_id")
+      .notNull()
+      .references(() => teams.id, { onDelete: "cascade" }),
+    participantId: uuid("participant_id")
+      .notNull()
+      .references(() => participants.id, { onDelete: "cascade" }),
+    role: text("role").notNull().default("member"),
+    joinedAt: timestamp("joined_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [unique("team_members_team_participant_unique").on(table.teamId, table.participantId)],
+);
+
 export type Participant = typeof participants.$inferSelect;
 export type NewParticipant = typeof participants.$inferInsert;
+export type Team = typeof teams.$inferSelect;
+export type NewTeam = typeof teams.$inferInsert;
+export type TeamMember = typeof teamMembers.$inferSelect;
+export type TeamMemberRole = "owner" | "editor" | "member";
