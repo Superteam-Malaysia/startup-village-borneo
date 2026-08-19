@@ -2,4 +2,4 @@
 nixPkgs = ["nodejs_22"]
 
 [start]
-cmd = "npm run db:migrate && npm run db:import-guests && npm run start"
+cmd = "npm run db:migrate && npm run db:import-guests && npm run db:seed-teams && npm run start"
