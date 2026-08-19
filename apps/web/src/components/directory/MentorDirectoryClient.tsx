@@ -2,39 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {
-  mentorConnectHref,
-  mentorConnectLabel,
-  mentorPrimaryLine,
-  mentorSecondaryLine,
-  type PublicMentor,
-} from "@/data/mentors";
-
-function MicIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M12 14a3 3 0 003-3V6a3 3 0 10-6 0v5a3 3 0 003 3zM6 11a6 6 0 0012 0M12 17v3"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function CalendarIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M6 5v2M18 5v2M4 9h16M6 5h12a2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V7a2 2 0 012-2z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
+import { mentorConnectHref, mentorConnectLabel, type PublicMentor } from "@/data/mentors";
 
 function ConnectIcon() {
   return (
@@ -68,7 +36,6 @@ function MentorAvatar({ mentor }: { mentor: PublicMentor }) {
 function MentorCard({ mentor }: { mentor: PublicMentor }) {
   const connectHref = mentorConnectHref(mentor);
   const connectLabel = mentorConnectLabel(mentor);
-  const hasWorkshop = mentor.workshops.length > 0;
 
   return (
     <article className="builder-card mentor-card">
@@ -93,19 +60,6 @@ function MentorCard({ mentor }: { mentor: PublicMentor }) {
       {mentor.organization ? (
         <p className="mentor-card__role">{mentor.organization}</p>
       ) : null}
-
-      <ul className="builder-card__meta">
-        <li>
-          <MicIcon />
-          <span>{mentorPrimaryLine(mentor)}</span>
-        </li>
-        {hasWorkshop ? (
-          <li>
-            <CalendarIcon />
-            <span>{mentorSecondaryLine(mentor)}</span>
-          </li>
-        ) : null}
-      </ul>
     </article>
   );
 }
