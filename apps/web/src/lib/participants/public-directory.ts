@@ -1,14 +1,22 @@
 import { asc, eq } from "drizzle-orm";
 import { getDb } from "@/lib/db";
 import { participants } from "@/lib/db/schema";
+import {
+  normalizeTeamCategory,
+  participantInitials,
+  type TeamCategory,
+} from "./team-categories";
 
 export type PublicParticipant = {
   id: string;
   name: string;
   projectIdea: string | null;
   teamSetup: string | null;
+  teamCategory: TeamCategory;
   telegram: string | null;
   proofOfWork: string | null;
+  joinedAt: string | null;
+  initials: string;
 };
 
 function displayName(row: {
@@ -35,19 +43,26 @@ export async function getPublicParticipants(): Promise<PublicParticipant[]> {
       teamSetup: participants.teamSetup,
       telegram: participants.telegram,
       proofOfWork: participants.proofOfWork,
+      lumaCreatedAt: participants.lumaCreatedAt,
     })
     .from(participants)
     .where(eq(participants.approvalStatus, "approved"))
     .orderBy(asc(participants.name));
 
-  return rows.map((row) => ({
-    id: row.id,
-    name: displayName(row),
-    projectIdea: row.projectIdea,
-    teamSetup: row.teamSetup,
-    telegram: row.telegram,
-    proofOfWork: row.proofOfWork,
-  }));
+  return rows.map((row) => {
+    const name = displayName(row);
+    return {
+      id: row.id,
+      name,
+      projectIdea: row.projectIdea,
+      teamSetup: row.teamSetup,
+      teamCategory: normalizeTeamCategory(row.teamSetup),
+      telegram: row.telegram,
+      proofOfWork: row.proofOfWork,
+      joinedAt: row.lumaCreatedAt?.toISOString() ?? null,
+      initials: participantInitials(name),
+    };
+  });
 }
 
 export function firstUrl(text: string | null | undefined): string | null {
