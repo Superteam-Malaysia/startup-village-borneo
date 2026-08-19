@@ -20,6 +20,7 @@
 @import "../styles/schedule-day-cards.css";
 @import "../styles/brand-assets.css";
 @import "../styles/participant-directory.css";
+@import "../styles/team-ecosystem.css";
 
 @theme inline {
   --font-sans: var(--font-sans);
