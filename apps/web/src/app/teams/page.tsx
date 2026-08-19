@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { DirectoryTabsClient, parseDirectoryTab } from "@/components/teams/DirectoryTabsClient";
+import { DirectoryTabsClient } from "@/components/teams/DirectoryTabsClient";
+import { parseDirectoryTab } from "@/lib/directory/tabs";
 import { CtaButton } from "@/components/ui";
 import { PageHeader } from "@/components/shell";
 import { getPublicMentors } from "@/data/mentors";

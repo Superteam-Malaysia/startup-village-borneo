@@ -11,17 +11,17 @@ import type { PublicParticipant } from "@/lib/participants/types";
 import type { PublicTeam } from "@/lib/teams/types";
 import { withBasePath } from "@/lib/base-path";
 
-type TabId = "teams" | "builders" | "mentors";
+import type { DirectoryTab } from "@/lib/directory/tabs";
 
 type DirectoryTabsClientProps = {
-  initialTab: TabId;
+  initialTab: DirectoryTab;
   teams: PublicTeam[];
   people: PublicParticipant[];
   mentors: PublicMentor[];
   isSignedIn: boolean;
 };
 
-function syncTabUrl(tab: TabId) {
+function syncTabUrl(tab: DirectoryTab) {
   if (typeof window === "undefined") return;
   const url = new URL(window.location.href);
   if (tab === "teams") url.searchParams.delete("tab");
@@ -39,9 +39,9 @@ export function DirectoryTabsClient({
   mentors,
   isSignedIn,
 }: DirectoryTabsClientProps) {
-  const [tab, setTabState] = useState<TabId>(initialTab);
+  const [tab, setTabState] = useState<DirectoryTab>(initialTab);
 
-  const setTab = useCallback((next: TabId) => {
+  const setTab = useCallback((next: DirectoryTab) => {
     setTabState(next);
     syncTabUrl(next);
   }, []);
@@ -174,9 +174,4 @@ export function DirectoryTabsClient({
       ) : null}
     </>
   );
-}
-
-export function parseDirectoryTab(value: string | undefined | null): TabId {
-  if (value === "builders" || value === "mentors") return value;
-  return "teams";
 }
