@@ -581,3 +581,107 @@
   border-top: 1px solid var(--color-transparent-wisp-10);
   padding-top: 1rem;
 }
+
+/* Race thread submissions */
+.race-submissions-panel__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.race-submissions-panel__row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-transparent-wisp-10);
+}
+
+.race-submissions-panel__task {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+}
+
+.race-submissions-panel__form {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .race-submissions-panel__form {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+}
+
+.race-submissions-panel__link {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-byte);
+}
+
+.race-submissions-panel__success {
+  font-size: 0.875rem;
+  color: var(--color-byte);
+  margin-bottom: 0.5rem;
+}
+
+.admin-submissions-table-wrap {
+  overflow-x: auto;
+}
+
+.admin-submissions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.admin-submissions-table th,
+.admin-submissions-table td {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-transparent-wisp-10);
+  vertical-align: top;
+}
+
+.admin-submissions-table th {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-wisp) 55%, transparent);
+}
+
+.admin-submissions-table__team {
+  color: var(--color-byte);
+  font-weight: 500;
+}
+
+.admin-submissions-table__thread {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-byte);
+  white-space: nowrap;
+}
+
+.admin-submissions-table__task-num {
+  font-family: var(--font-mono);
+  color: color-mix(in srgb, var(--color-wisp) 45%, transparent);
+}
+
+.admin-submissions-table__email {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: color-mix(in srgb, var(--color-wisp) 50%, transparent);
+}
+
+.admin-submissions-table__when {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: color-mix(in srgb, var(--color-wisp) 55%, transparent);
+  white-space: nowrap;
+}

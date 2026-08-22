@@ -36,16 +36,23 @@ export default function SubmissionsPage() {
           lead="Everything you need to log Amazing Race threads, pitch decks, and content tasks — before the companion dApp goes live on-site."
         />
 
-        <div className="companion-banner" role="status">
-          <span className="companion-banner__tag">Coming soon</span>
-          Upload forms and live validation ship with the companion dApp — this page is your rulebook
-          for now.
-        </div>
-
         <div className="cutoff-banner">
           {RACE_CUTOFF.label} · {RACE_CUTOFF.time} — Amazing Race threads & pitch deck cutoff. Nothing
           accepted after.
         </div>
+
+        <SectionArticle className="border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-8">
+          <SectionIntro title="Submit race threads" />
+          <p className="mt-4 text-sm text-[var(--color-wisp)]/70 max-w-xl">
+            Paste one X/Twitter thread URL per Amazing Race station on the task page. Sign in with
+            your registration email and be on a team to submit.
+          </p>
+          <div className="mt-6">
+            <CtaButton href="/amazing-race" variant="byte" size="md">
+              Open Amazing Race submissions
+            </CtaButton>
+          </div>
+        </SectionArticle>
 
         <SectionArticle>
           <SectionIntro title="Three ways to submit" />
@@ -179,15 +186,14 @@ export default function SubmissionsPage() {
         </SectionArticle>
 
         <SectionArticle className="bg-[var(--color-byte)]/5 border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-10">
-          <SectionIntro title="Uploads open at the event" />
+          <SectionIntro title="Race thread uploads" />
           <p className="mt-6 max-w-xl text-[var(--color-wisp)]/75 leading-relaxed">
-            Thread URLs, deck files, and live validation land in the SVB companion dApp — same spirit
-            as Breakpoint registration and on-site check-in. Bookmark this page for rules; watch for
-            the dApp link from your team lead.
+            Submit thread URLs on the Amazing Race page — one link per station, tagging every
+            teammate in the thread.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <CtaButton variant="byte" size="lg" disabled showArrow={false}>
-              Open companion dApp
+            <CtaButton href="/amazing-race" variant="byte" size="lg">
+              Submit race threads
             </CtaButton>
             <CtaButton href="/teams" variant="ghost-wisp" size="lg" showArrow={false}>
               Builder directory

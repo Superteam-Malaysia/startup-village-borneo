@@ -6,8 +6,6 @@ import {
   unique,
   uuid,
 } from "drizzle-orm/pg-core";
-
-/** Luma guest / SVB participant — imported from registration CSV. */
 export const participants = pgTable("participants", {
   id: uuid("id").defaultRandom().primaryKey(),
   guestId: text("guest_id").notNull().unique(),
@@ -86,9 +84,30 @@ export const teamMembers = pgTable(
   (table) => [unique("team_members_team_participant_unique").on(table.teamId, table.participantId)],
 );
 
+/** Amazing Race thread URL — one per team per task. */
+export const raceSubmissions = pgTable(
+  "race_submissions",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    teamId: uuid("team_id")
+      .notNull()
+      .references(() => teams.id, { onDelete: "cascade" }),
+    taskId: text("task_id").notNull(),
+    threadUrl: text("thread_url").notNull(),
+    submittedBy: uuid("submitted_by").references(() => participants.id, {
+      onDelete: "set null",
+    }),
+    submittedAt: timestamp("submitted_at", { withTimezone: true }).notNull().defaultNow(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [unique("race_submissions_team_task_unique").on(table.teamId, table.taskId)],
+);
+
 export type Participant = typeof participants.$inferSelect;
 export type NewParticipant = typeof participants.$inferInsert;
 export type Team = typeof teams.$inferSelect;
 export type NewTeam = typeof teams.$inferInsert;
 export type TeamMember = typeof teamMembers.$inferSelect;
 export type TeamMemberRole = "owner" | "editor" | "member";
+export type RaceSubmission = typeof raceSubmissions.$inferSelect;
+export type NewRaceSubmission = typeof raceSubmissions.$inferInsert;

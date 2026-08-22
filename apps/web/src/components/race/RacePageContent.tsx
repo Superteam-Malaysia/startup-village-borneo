@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   HalftoneBarChart,
   HalftoneMeter,
@@ -16,10 +17,33 @@ import {
   groupRaceTasksByTheme,
 } from "@/data/race-tasks";
 import { RaceTaskCard } from "./RaceTaskCard";
+import {
+  RaceSubmissionsPanel,
+  type ParticipantTeamOption,
+} from "./RaceSubmissionsPanel";
 import { PageHeader } from "@/components/shell";
 import { SectionArticle, SectionIntro } from "@/components/ui";
+import type { PublicRaceSubmission } from "@/lib/race/submissions";
+import { withBasePath } from "@/lib/base-path";
 
-export function RacePageContent() {
+type RaceSubmissionContext = {
+  teams: ParticipantTeamOption[];
+  initialTeamSlug: string | null;
+  initialSubmissions: PublicRaceSubmission[];
+  cutoffPassed: boolean;
+};
+
+type RacePageContentProps = {
+  isSignedIn?: boolean;
+  isOrganizer?: boolean;
+  submission?: RaceSubmissionContext | null;
+};
+
+export function RacePageContent({
+  isSignedIn = false,
+  isOrganizer = false,
+  submission = null,
+}: RacePageContentProps) {
   const themed = groupRaceTasksByTheme();
 
   return (
@@ -29,14 +53,44 @@ export function RacePageContent() {
         lead="Kuching is the course — laksa pilgrimages, waterfront sampan rides, cat statues, and a wallet mission that teaches real users. You may not finish every station. Choose well."
       />
 
-      <div className="companion-banner" role="status">
-        <span className="companion-banner__tag">Coming soon</span>
-        Live race tracking ships with the companion dApp at the event — task catalog below is for preview only.
-      </div>
-
       <div className="cutoff-banner">
         {RACE_CUTOFF.label} · {RACE_CUTOFF.time} — Amazing Race & deck cutoff. Nothing after.
       </div>
+
+      <SectionArticle className="border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-8">
+        <SectionIntro title="Submit your threads" />
+        <p className="mt-4 text-sm text-[var(--color-wisp)]/60 max-w-2xl">
+          One X/Twitter thread per race station — tag every teammate in the opening post. Paste the
+          thread URL below for each task you complete.
+        </p>
+        <div className="mt-8">
+          {isSignedIn && submission ? (
+            <RaceSubmissionsPanel
+              teams={submission.teams}
+              initialTeamSlug={submission.initialTeamSlug}
+              initialSubmissions={submission.initialSubmissions}
+              cutoffPassed={submission.cutoffPassed}
+            />
+          ) : (
+            <p className="text-sm text-[var(--color-wisp)]/70">
+              <Link href={withBasePath("/login")} className="text-[var(--color-byte)] hover:underline">
+                Sign in
+              </Link>{" "}
+              with your registration email to submit thread links for your team.
+            </p>
+          )}
+        </div>
+        {isOrganizer ? (
+          <p className="mt-6 text-sm">
+            <Link
+              href={withBasePath("/admin/submissions")}
+              className="text-[var(--color-byte)] hover:underline font-[family-name:var(--font-mono)]"
+            >
+              Review all submissions →
+            </Link>
+          </p>
+        ) : null}
+      </SectionArticle>
 
       <SectionArticle className="border border-[color:var(--color-transparent-wisp-10)] p-6 md:p-8">
           <SectionIntro title="Max points per theme" />
