@@ -1,0 +1,16 @@
+---
+description: Never delegate to Task subagents — do all work directly in the main agent
+alwaysApply: true
+---
+
+# Subagents — never use (global)
+
+Do **not** use the Task tool or any subagent workflow for this project:
+
+- No explore / generalPurpose / debug / computerUse / videoReview subagents
+- No parallel or background subagents
+- No single subagent “to speed things up”
+
+Work directly: Grep, Read, Shell, edit files, run tests/build yourself.
+
+If a task feels large, break it into steps in the main thread — do not spawn subagents.
