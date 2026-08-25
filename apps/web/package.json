@@ -6,7 +6,8 @@
     "node": ">=20"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "tsx scripts/generate-schedule-ics.ts && next dev",
+    "prebuild": "tsx scripts/generate-schedule-ics.ts",
     "build": "next build",
     "start": "next start -H 0.0.0.0 -p ${PORT:-3000}",
     "lint": "eslint",

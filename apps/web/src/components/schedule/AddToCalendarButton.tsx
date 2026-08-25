@@ -4,13 +4,13 @@ import { useCallback, useEffect, useState } from "react";
 import { CtaButton } from "@/components/ui";
 import { withBasePath } from "@/lib/base-path";
 import {
-  generateScheduleIcs,
   googleCalendarSubscribeUrl,
   SCHEDULE_ICS_FILENAME,
+  SCHEDULE_ICS_PUBLIC_PATH,
 } from "@/lib/calendar/schedule-ics";
 
-function icsFeedUrl(): string {
-  return `${window.location.origin}${withBasePath("/api/calendar/schedule")}`;
+function publicIcsUrl(): string {
+  return `${window.location.origin}${withBasePath(SCHEDULE_ICS_PUBLIC_PATH)}`;
 }
 
 /** Add the full SVB program to Google Calendar or download an .ics file. */
@@ -18,19 +18,14 @@ export function AddToCalendarButton() {
   const [googleHref, setGoogleHref] = useState<string | null>(null);
 
   useEffect(() => {
-    setGoogleHref(googleCalendarSubscribeUrl(icsFeedUrl()));
+    setGoogleHref(googleCalendarSubscribeUrl(publicIcsUrl()));
   }, []);
 
   const downloadIcs = useCallback(() => {
-    const blob = new Blob([generateScheduleIcs()], {
-      type: "text/calendar;charset=utf-8",
-    });
-    const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
-    link.href = url;
+    link.href = publicIcsUrl();
     link.download = SCHEDULE_ICS_FILENAME;
     link.click();
-    URL.revokeObjectURL(url);
   }, []);
 
   return (

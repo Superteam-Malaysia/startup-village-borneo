@@ -130,9 +130,13 @@ export function generateScheduleIcs(days: ScheduleDay[] = SCHEDULE_DAYS): string
   ].join("\r\n");
 }
 
-/** Google Calendar subscribes to a public iCal feed via `cid`. */
+/** Google Calendar subscribes to a public iCal feed via `cid` (webcal URL). */
 export function googleCalendarSubscribeUrl(icsFeedUrl: string): string {
-  return `https://calendar.google.com/calendar/render?cid=${encodeURIComponent(icsFeedUrl)}`;
+  const webcal = icsFeedUrl.replace(/^https?:/i, "webcal");
+  return `https://calendar.google.com/calendar/render?cid=${encodeURIComponent(webcal)}`;
 }
 
 export const SCHEDULE_ICS_FILENAME = "startup-village-borneo-2026.ics";
+
+/** Public path (under basePath) for the static iCal file generated at build time. */
+export const SCHEDULE_ICS_PUBLIC_PATH = `/${SCHEDULE_ICS_FILENAME}`;
