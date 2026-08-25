@@ -1,6 +1,7 @@
 import { SITE } from "@/data/site";
 import type { ScheduleDay, ScheduleEvent } from "@/data/schedule";
 import { SCHEDULE_DAYS } from "@/data/schedule";
+import { SITE_URL } from "@/lib/metadata";
 
 /** ISO calendar dates for SVB 2026 (matches schedule day labels). */
 const DAY_ISO_DATES: Record<number, string> = {
@@ -13,8 +14,16 @@ const DAY_ISO_DATES: Record<number, string> = {
 
 const TIMEZONE = "Asia/Kuching";
 
-function escapeIcs(value: string): string {
+function normalizeIcsText(value: string): string {
   return value
+    .replace(/\u2014/g, "-")
+    .replace(/\u2013/g, "-")
+    .replace(/\u00b7/g, " - ")
+    .replace(/\u2194/g, "<->");
+}
+
+function escapeIcs(value: string): string {
+  return normalizeIcsText(value)
     .replace(/\\/g, "\\\\")
     .replace(/;/g, "\\;")
     .replace(/,/g, "\\,")
@@ -120,20 +129,28 @@ export function generateScheduleIcs(days: ScheduleDay[] = SCHEDULE_DAYS): string
     "VERSION:2.0",
     "PRODID:-//Superteam MY//Startup Village Borneo//EN",
     "CALSCALE:GREGORIAN",
-    "METHOD:PUBLISH",
     foldLine(`X-WR-CALNAME:${escapeIcs(SITE.name)} 2026`),
-    foldLine(`X-WR-CALDESC:${escapeIcs(`${SITE.name} program — ${SITE.dates}`)}`),
-    `X-WR-TIMEZONE:${TIMEZONE}`,
+    foldLine(`X-WR-CALDESC:${escapeIcs(`${SITE.name} program - ${SITE.dates}`)}`),
+    "X-WR-TIMEZONE:Asia/Kuching",
+    "REFRESH-INTERVAL;VALUE=DURATION:PT24H",
+    "X-PUBLISHED-TTL:PT24H",
     VTIMEZONE,
     ...events,
     "END:VCALENDAR",
   ].join("\r\n");
 }
 
+/** Canonical public HTTPS URL for the static schedule feed. */
+export function scheduleIcsPublicUrl(): string {
+  const base = SITE_URL.replace(/\/$/, "");
+  return `${base}${SCHEDULE_ICS_PUBLIC_PATH}`;
+}
+
 /** Google Calendar subscribes to a public iCal feed via `cid` (webcal URL). */
 export function googleCalendarSubscribeUrl(icsFeedUrl: string): string {
-  const webcal = icsFeedUrl.replace(/^https?:/i, "webcal");
-  return `https://calendar.google.com/calendar/render?cid=${encodeURIComponent(webcal)}`;
+  const webcal = icsFeedUrl.replace(/^https?:\/\//i, "webcal://");
+  // Google rejects many https:// cid values; webcal:// on /calendar/r is the reliable form.
+  return `https://calendar.google.com/calendar/r?cid=${webcal}`;
 }
 
 export const SCHEDULE_ICS_FILENAME = "startup-village-borneo-2026.ics";

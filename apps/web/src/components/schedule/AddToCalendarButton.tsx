@@ -1,15 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { withBasePath } from "@/lib/base-path";
 import {
   googleCalendarSubscribeUrl,
-  SCHEDULE_ICS_PUBLIC_PATH,
+  scheduleIcsPublicUrl,
 } from "@/lib/calendar/schedule-ics";
 
-function publicIcsUrl(): string {
-  return `${window.location.origin}${withBasePath(SCHEDULE_ICS_PUBLIC_PATH)}`;
-}
+const GOOGLE_CALENDAR_HREF = googleCalendarSubscribeUrl(scheduleIcsPublicUrl());
 
 function CalendarCheckIcon() {
   return (
@@ -35,23 +31,15 @@ function CalendarCheckIcon() {
 
 /** Subscribe to the full SVB program in Google Calendar. */
 export function AddToCalendarButton() {
-  const [googleHref, setGoogleHref] = useState<string | null>(null);
-
-  useEffect(() => {
-    setGoogleHref(googleCalendarSubscribeUrl(publicIcsUrl()));
-  }, []);
-
   return (
     <div className="schedule-add-calendar">
       <span className="schedule-add-calendar__ripple" aria-hidden />
       <span className="schedule-add-calendar__ripple schedule-add-calendar__ripple--2" aria-hidden />
       <a
         className="schedule-add-calendar__pill"
-        href={googleHref ?? undefined}
+        href={GOOGLE_CALENDAR_HREF}
         target="_blank"
         rel="noopener noreferrer"
-        aria-disabled={!googleHref}
-        tabIndex={googleHref ? undefined : -1}
       >
         <CalendarCheckIcon />
         <span>Add to Calendar</span>
