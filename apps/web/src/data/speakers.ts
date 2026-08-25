@@ -34,7 +34,7 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
       {
         id: "s2-sf",
         title: "Solana Foundation keynote",
-        speaker: "Seraphim / Chaerin",
+        speaker: "Chaerin",
         organization: "Solana Foundation",
         kind: "keynote",
         start: "10:20",
@@ -58,10 +58,10 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
         end: "11:45",
       },
       {
-        id: "s2-semi",
-        title: "solana.new — from idea to running code",
-        speaker: "Semi",
-        organization: "Solana",
+        id: "s2-meteora",
+        title: "Meteora Ecosystem",
+        speaker: "Vesper",
+        organization: "Meteora",
         kind: "workshop",
         start: "11:45",
         end: "12:30",
@@ -92,10 +92,10 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
     theme: "Build & Traction",
     sessions: [
       {
-        id: "s3-ecosystem",
-        title: "Solana Ecosystem Call",
-        speaker: "Simon",
-        organization: "Solana ID",
+        id: "s3-monke",
+        title: "MonkeDAO — community-led building",
+        speaker: "Jemmy",
+        organization: "MonkeDAO",
         kind: "workshop",
         start: "10:00",
         end: "10:45",
@@ -110,19 +110,19 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
         end: "11:15",
       },
       {
-        id: "s3-monke",
-        title: "MonkeDAO — community-led building",
-        speaker: "Jemmy",
-        organization: "MonkeDAO",
+        id: "s3-getblock",
+        title: "GetBlock",
+        speaker: "Vasily",
+        organization: "GetBlock",
         kind: "workshop",
         start: "11:15",
         end: "11:45",
       },
       {
-        id: "s3-meteora",
-        title: "Meteora Ecosystem",
-        speaker: "Vesper",
-        organization: "Meteora",
+        id: "s3-sf-rwa",
+        title: "RWA & Insti",
+        speaker: "Seraphim",
+        organization: "Solana Foundation",
         kind: "workshop",
         start: "11:45",
         end: "12:15",
@@ -134,14 +134,23 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
         organization: "Kyzzen",
         kind: "workshop",
         start: "13:30",
-        end: "14:15",
+        end: "14:00",
+      },
+      {
+        id: "s3-elfa-sales",
+        title: "Using AI for sales process",
+        speaker: "Ming Yang",
+        organization: "Elfa AI",
+        kind: "workshop",
+        start: "14:00",
+        end: "14:30",
       },
       {
         id: "s3-users",
         title: "Teams go out for first 10 users",
         speaker: "All teams",
         kind: "program",
-        start: "14:15",
+        start: "14:30",
         end: "16:30",
       },
     ],
@@ -172,7 +181,7 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
       },
       {
         id: "s4-virtuals",
-        title: "Building the agent economy — AI agents & autonomous payments via EconomyOS",
+        title: "Building the Agent Economy — AI agents & autonomous payments via EconomyOS",
         speaker: "Joey",
         organization: "Virtuals",
         kind: "workshop",
@@ -246,7 +255,7 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
       },
       {
         id: "s5-prizes",
-        title: "Prizes, group photo, closing",
+        title: "Prizes — Amazing Race, Demo Day, Meteora challenge",
         speaker: "Everyone",
         kind: "keynote",
         start: "12:45",
@@ -259,15 +268,16 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
 /** Flat list for homepage preview — featured workshop leaders */
 export const FEATURED_SPEAKERS = [
   { name: "Edvin", org: "SOCOE" },
-  { name: "Seraphim / Chaerin", org: "Solana Foundation" },
+  { name: "Chaerin", org: "Solana Foundation" },
   { name: "Tristan", org: "Elfa AI" },
-  { name: "Semi", org: "solana.new" },
-  { name: "Nic", org: "Sanctum" },
-  { name: "Simon", org: "Solana ID" },
-  { name: "Jemmy", org: "MonkeDAO" },
   { name: "Vesper", org: "Meteora" },
-  { name: "OhMeOhMy", org: "Kyzzen" },
   { name: "Jacob", org: "Superscrypt" },
+  { name: "Jemmy", org: "MonkeDAO" },
+  { name: "Nic", org: "Sanctum" },
+  { name: "Vasily", org: "GetBlock" },
+  { name: "Seraphim", org: "Solana Foundation" },
+  { name: "OhMeOhMy", org: "Kyzzen" },
+  { name: "Ming Yang", org: "Elfa AI" },
   { name: "Joey", org: "Virtuals" },
   { name: "Chris", org: "No Limit Holdings" },
   { name: "Shuen Rui", org: "Impossible Finance / Rarible" },
@@ -294,31 +304,31 @@ export const WORKSHOP_LEADER_PROFILES: Record<
   { avatar: string; twitter?: string; linkedin?: string }
 > = {
   "s2-elfa": { avatar: withBasePath("/speakers/hypetris.jpg"), twitter: "hypetris_" },
-  "s2-semi": { avatar: withBasePath("/speakers/semi.jpg"), twitter: "semiii" },
+  "s2-meteora": { avatar: withBasePath("/speakers/vesper.jpg"), twitter: "vesper792" },
   "s2-superscrypt": {
     avatar: withBasePath("/speakers/jacob-ko.jpg"),
     linkedin: "jacob-ko-10989b24",
-  },
-  // "s3-magic": MagicBlock session removed from the Aug 2026 agenda.
-  "s3-ecosystem": {
-    avatar: withBasePath("/speakers/simon.jpg"),
-    twitter: "simonmolitor",
-  },
-  "s3-sanctum": {
-    avatar: withBasePath("/speakers/nic.jpg"),
-    twitter: "NicFury",
   },
   "s3-monke": {
     avatar: withBasePath("/speakers/jemmy.jpg"),
     twitter: "jemmmyjemm",
   },
-  "s3-meteora": {
-    avatar: withBasePath("/speakers/vesper.jpg"),
-    twitter: "vesper792",
+  "s3-sanctum": {
+    avatar: withBasePath("/speakers/nic.jpg"),
+    twitter: "NicFury",
+  },
+  "s3-getblock": {
+    avatar: withBasePath("/speakers/magicblock.jpg"),
+  },
+  "s3-sf-rwa": {
+    avatar: withBasePath("/judges/seraphim.jpg"),
   },
   "s3-kyzzen": {
     avatar: withBasePath("/speakers/ohmeohmy.jpg"),
     twitter: "OhMeOhMy_Sol",
+  },
+  "s3-elfa-sales": {
+    avatar: withBasePath("/speakers/hypetris.jpg"),
   },
   "s4-virtuals": {
     avatar: withBasePath("/speakers/joey.jpg"),

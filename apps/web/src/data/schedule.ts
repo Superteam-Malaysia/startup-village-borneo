@@ -1,6 +1,6 @@
 /**
  * Startup Village Borneo program schedule — Sept 5–9 2026.
- * Source: official agenda (Google Doc, Aug 2026) + docs/blueprint/01-event-context.md.
+ * Source: official agenda Google Doc (1TzDzEcqziytHEnogOBAXrXvEP5TJi1lkklY-Ed01QWI).
  */
 
 import { withBasePath } from "@/lib/base-path";
@@ -104,7 +104,7 @@ export const SCHEDULE_DAYS: ScheduleDay[] = [
         title: "Solana Foundation keynote",
         start: "10:20",
         end: "10:30",
-        speaker: "Seraphim / Chaerin",
+        speaker: "Chaerin",
         color: "wisp",
       },
       {
@@ -132,12 +132,11 @@ export const SCHEDULE_DAYS: ScheduleDay[] = [
         color: "azure",
       },
       {
-        id: "d2-solana-new",
-        title: "Workshop · solana.new",
+        id: "d2-meteora",
+        title: "Workshop · Meteora Ecosystem",
         start: "11:45",
         end: "12:30",
-        speaker: "Semi",
-        description: "From idea to running code.",
+        speaker: "Vesper · Meteora",
         color: "azure",
       },
       {
@@ -145,7 +144,7 @@ export const SCHEDULE_DAYS: ScheduleDay[] = [
         title: "Lunch + team formation",
         start: "12:30",
         end: "13:30",
-        description: "Solo founders matched. Formation closes at lunch.",
+        description: "Solo founders welcome — we help match anyone who wants a team.",
         color: "wisp",
       },
       {
@@ -170,7 +169,7 @@ export const SCHEDULE_DAYS: ScheduleDay[] = [
         title: "Roast My Pitch · Round 1",
         start: "16:00",
         end: "17:00",
-        description: "90 seconds, problem and solution only. No slides.",
+        description: "90 seconds, problem and solution only. One slide.",
         color: "byte",
       },
       {
@@ -183,7 +182,7 @@ export const SCHEDULE_DAYS: ScheduleDay[] = [
       {
         id: "d2-dinner",
         title: "Buffet dinner at Sheraton",
-        start: "17:30",
+        start: "18:00",
         end: "19:30",
         description: "Building continues after dinner.",
         color: "byte",
@@ -207,11 +206,11 @@ export const SCHEDULE_DAYS: ScheduleDay[] = [
         color: "wisp",
       },
       {
-        id: "d3-ecosystem",
-        title: "Workshop · Solana Ecosystem Call",
+        id: "d3-monkedao",
+        title: "Workshop · MonkeDAO",
         start: "10:00",
         end: "10:45",
-        speaker: "Simon · Solana ID",
+        speaker: "Jemmy · MonkeDAO",
         color: "azure",
       },
       {
@@ -223,19 +222,19 @@ export const SCHEDULE_DAYS: ScheduleDay[] = [
         color: "azure",
       },
       {
-        id: "d3-monkedao",
-        title: "Workshop · MonkeDAO",
+        id: "d3-getblock",
+        title: "Workshop · GetBlock",
         start: "11:15",
         end: "11:45",
-        speaker: "Jemmy · MonkeDAO",
+        speaker: "Vasily · GetBlock",
         color: "azure",
       },
       {
-        id: "d3-meteora",
-        title: "Workshop · Meteora Ecosystem",
+        id: "d3-sf-rwa",
+        title: "Workshop · RWA & Insti",
         start: "11:45",
         end: "12:15",
-        speaker: "Vesper · Meteora",
+        speaker: "Seraphim · Solana Foundation",
         color: "azure",
       },
       {
@@ -249,16 +248,24 @@ export const SCHEDULE_DAYS: ScheduleDay[] = [
         id: "d3-kyzzen",
         title: "Workshop · Kyzzen",
         start: "13:30",
-        end: "14:15",
+        end: "14:00",
         speaker: "OhMeOhMy · Kyzzen",
+        color: "azure",
+      },
+      {
+        id: "d3-elfa-sales",
+        title: "Workshop · Using AI for sales process",
+        start: "14:00",
+        end: "14:30",
+        speaker: "Ming Yang · Elfa AI",
         color: "azure",
       },
       {
         id: "d3-office-hours",
         title: "Office hours · First 10 users",
-        start: "14:15",
+        start: "14:30",
         end: "16:30",
-        description: "Teams go out to get their first 10 users.",
+        description: "Teams go out to get their first 10 users / feedback.",
         color: "azure",
       },
       {
@@ -279,7 +286,7 @@ export const SCHEDULE_DAYS: ScheduleDay[] = [
       },
       {
         id: "d3-monke-meetup",
-        title: "Monke Meetup",
+        title: "Monke Meetup · KANTIN at Granary",
         start: "18:30",
         end: "20:00",
         speaker: "MonkeDAO",
@@ -326,7 +333,8 @@ export const SCHEDULE_DAYS: ScheduleDay[] = [
         start: "11:30",
         end: "12:15",
         speaker: "Joey · Virtuals",
-        description: "Building the agent economy with AI agents and autonomous payments via EconomyOS.",
+        description:
+          "Building the Agent Economy with AI Agents and Autonomous Payments via EconomyOS.",
         color: "azure",
       },
       {
@@ -443,6 +451,7 @@ export const SCHEDULE_DAYS: ScheduleDay[] = [
         title: "Prizes, group photo, closing",
         start: "12:45",
         end: "13:00",
+        description: "Amazing Race, Demo Day, and Meteora challenge winners announced.",
         color: "byte",
       },
       {

@@ -38,7 +38,7 @@ export const DEMO_DAY_SCHEDULE = [
   {
     time: "12:45",
     title: "Prizes, group photo, closing",
-    detail: "Winners announced, then lunch before the 15:00 bus back to Sheraton.",
+    detail: "Amazing Race, Demo Day, and Meteora challenge winners announced, then lunch before the 15:00 bus back to Sheraton.",
   },
   {
     time: "13:00",

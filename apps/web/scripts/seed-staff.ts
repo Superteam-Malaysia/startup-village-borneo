@@ -24,8 +24,8 @@ const STAFF: StaffSeed[] = [
     email: "semi@sendarcade.fun",
     name: "Semi",
     telegram: "semi_infiknight",
-    projectIdea: "solana.new — from idea to running code (Day 2 workshop)",
-    teamSetup: "Mentor · Workshop leader",
+    projectIdea: "solana.new — builder tooling & mentorship",
+    teamSetup: "Mentor",
   },
 ];
 

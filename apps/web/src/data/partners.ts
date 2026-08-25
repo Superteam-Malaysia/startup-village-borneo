@@ -67,7 +67,14 @@ export const PARTNERS: Partner[] = [
     logo: withBasePath("/partners/elfa-ai.png"),
     logoStyle: "light",
   },
-  // MagicBlock — dropped from the Aug 2026 confirmed partner list (no workshop).
+  {
+    name: "GetBlock",
+    role: "confirmed",
+    workshops: true,
+    logo: withBasePath("/partners/magicblock.svg"),
+    logoStyle: "light",
+  },
+  // MagicBlock — replaced on stage by GetBlock (Aug 2026 agenda).
   // {
   //   name: "MagicBlock",
   //   role: "confirmed",

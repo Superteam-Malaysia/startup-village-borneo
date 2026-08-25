@@ -38,7 +38,7 @@ export const CONTENT_TASKS: RaceTask[] = [
       "Share your team's first take on the city — video or collage on X before the opening day wraps.",
     details: [
       "Each team member posts individually; each qualifying post earns 10 points for the team.",
-      "Tag @superteamMY, @solana, and SOCOE on every post.",
+      "Tag @superteamMY, @solana, and @socoe_s on every post.",
       "Due by 6 September 2026 — capture arrival energy, street scenes, or first bites.",
       "Quality over polish — authentic reactions beat produced reels.",
     ],
@@ -55,7 +55,7 @@ export const CONTENT_TASKS: RaceTask[] = [
     shortDescription:
       "Reflect on the full SVB week — a final video or collage posted after Demo Day.",
     details: [
-      "Posted on 10 September 2026 with the same partner tags: @superteamMY, @solana, SOCOE.",
+      "Posted on 10 September 2026 with the same partner tags: @superteamMY, @solana, @socoe_s.",
       "No race points — submissions count toward the Content Award ($100 × 10 prizes).",
       "Show what you built, who you met, and what Kuching meant to your team.",
       "Judged remotely within 24 hours after the event.",
@@ -124,7 +124,7 @@ export const RACE_TASKS: RaceTask[] = [
       "Visit the Ceylonese restaurant and film the longest cheese pull in town.",
     details: [
       "Claim: best cheese naan in Kuching — prove it with footage.",
-      "Film the longest cheese pull your team can achieve (team effort counts).",
+      "Film the longest cheese pull your team can achieve — extra points for the longest pull.",
       "Keep it respectful — staff and other diners are not props.",
     ],
     pointsBase: 4,
@@ -170,9 +170,9 @@ export const RACE_TASKS: RaceTask[] = [
     id: "race-old-court-house",
     number: 12,
     title: "Old Court House",
-    shortDescription: "Classic team photo at the heritage Old Court House.",
+    shortDescription: "Team photo inside or outside the heritage Old Court House.",
     details: [
-      "Full team in frame at the Old Court House facade or courtyard.",
+      "Full team in frame at the Old Court House — inside or outside, best shot.",
       "Brief context in your thread — what did you notice about the architecture?",
       "Daytime lighting recommended for clarity.",
     ],
@@ -292,10 +292,10 @@ export const RACE_TASKS: RaceTask[] = [
     number: 15,
     title: "Onboard a real user",
     shortDescription:
-      "Teach someone a crypto product — a wallet like Jupiter or RedotPay, or Sanctum — and document what was hard.",
+      "Teach someone a blockchain product — a wallet like RedotPay — and document what was hard.",
     details: [
       "Teach, don't sell — no pitching investments or asking for money.",
-      "Use a real product (a wallet like Jupiter or RedotPay, or Sanctum).",
+      "Use a real product (a wallet like RedotPay).",
       "Document what confused your learner — that's gold for your build.",
       "If they aren't interested, thank them and move on.",
     ],
@@ -396,7 +396,7 @@ export const RACE_SUBMISSION_RULES = [
   "Submit via one Twitter thread per task, tagging every team member.",
   "Amazing Race and deck cutoff: Day 4 at 18:00 — nothing accepted after.",
   "Teach wallet users; never pressure anyone about money or investment.",
-  "Content posts must tag @superteamMY, @solana, and SOCOE.",
+  "Content posts must tag @superteamMY, @solana, and @socoe_s.",
   "Your build comes first — race runs in evenings and gaps.",
 ];
 
