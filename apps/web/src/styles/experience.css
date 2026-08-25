@@ -202,22 +202,114 @@
   }
 }
 
-.schedule-calendar-actions {
-  margin-top: 1.5rem;
-  padding: 1rem 1.25rem;
-  border: 1px solid var(--color-transparent-wisp-10);
-  background: color-mix(in srgb, var(--color-null) 88%, var(--color-byte) 12%);
+.schedule-explorer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
 }
 
-.schedule-calendar-actions__lead {
-  max-width: 42rem;
-}
-
-.schedule-calendar-actions__buttons {
+.schedule-explorer__calendar-mobile {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.schedule-explorer__aside {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  .schedule-explorer {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2.5rem 3rem;
+  }
+
+  .schedule-explorer__calendar-mobile {
+    display: none;
+  }
+
+  .schedule-explorer__aside {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 5rem;
+    padding-top: 0.25rem;
+  }
+}
+
+.schedule-add-calendar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+}
+
+.schedule-add-calendar__ripple {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: calc(100% + 1.5rem);
+  height: 3.25rem;
+  border: 1px solid color-mix(in srgb, var(--color-azure) 22%, transparent);
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.schedule-add-calendar__ripple--2 {
+  width: calc(100% + 3rem);
+  height: 4.25rem;
+  border-color: color-mix(in srgb, var(--color-azure) 12%, transparent);
+}
+
+.schedule-add-calendar__pill {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.875rem 1.5rem;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--color-null) 42%, var(--color-azure) 58%);
+  color: var(--color-wisp);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  text-decoration: none;
+  box-shadow:
+    0 4px 14px color-mix(in srgb, var(--color-null) 55%, transparent),
+    0 2px 6px color-mix(in srgb, var(--color-azure) 35%, transparent);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.schedule-add-calendar__pill:hover {
+  background: color-mix(in srgb, var(--color-null) 35%, var(--color-azure) 65%);
+  box-shadow:
+    0 6px 20px color-mix(in srgb, var(--color-null) 50%, transparent),
+    0 3px 10px color-mix(in srgb, var(--color-azure) 40%, transparent);
+  transform: translateY(-1px);
+}
+
+.schedule-add-calendar__pill:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-wisp) 70%, transparent);
+  outline-offset: 3px;
+}
+
+.schedule-add-calendar__pill[aria-disabled="true"] {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.schedule-add-calendar__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
 }
 
 /* Schedule calendar */
