@@ -118,13 +118,14 @@ export const PARTNERS: Partner[] = [
     logo: withBasePath("/partners/redotpay.svg"),
     logoStyle: "color",
   },
-  {
-    name: "No Limit Holdings",
-    role: "confirmed",
-    workshops: true,
-    logo: withBasePath("/partners/no-limit-holdings.png"),
-    logoStyle: "color",
-  },
+  // No Limit Holdings — pending on the Aug 2026 agenda. Do not show until confirmed.
+  // {
+  //   name: "No Limit Holdings",
+  //   role: "confirmed",
+  //   workshops: true,
+  //   logo: withBasePath("/partners/no-limit-holdings.png"),
+  //   logoStyle: "color",
+  // },
   // DWFLabs — no longer pending on the Aug 2026 agenda. Do not show until re-confirmed.
   // {
   //   name: "DWFLabs",

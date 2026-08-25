@@ -23,9 +23,9 @@ export const DEMO_DAY_JUDGES: Judge[] = [
     photo: withBasePath("/judges/seraphim.jpg"),
   },
   {
-    id: "anatoly",
-    name: "Anatoly",
-    role: "No Limit Holdings",
-    photo: withBasePath("/judges/anatoly.jpg"),
+    id: "jacob",
+    name: "Jacob",
+    role: "Superscrypt",
+    photo: withBasePath("/speakers/jacob-ko.jpg"),
   },
 ];
