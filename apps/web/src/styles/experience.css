@@ -202,6 +202,24 @@
   }
 }
 
+.schedule-calendar-actions {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--color-transparent-wisp-10);
+  background: color-mix(in srgb, var(--color-null) 88%, var(--color-byte) 12%);
+}
+
+.schedule-calendar-actions__lead {
+  max-width: 42rem;
+}
+
+.schedule-calendar-actions__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
 /* Schedule calendar */
 .schedule-calendar {
   --cal-start: 8;

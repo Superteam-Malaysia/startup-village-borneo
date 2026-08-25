@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { SCHEDULE_DAYS } from "@/data/schedule";
+import { AddToCalendarButton } from "./AddToCalendarButton";
 import { DayCalendar } from "./DayCalendar";
 import { SectionArticle, SectionHeading } from "@/components/ui";
 
@@ -26,6 +27,8 @@ export function ScheduleExplorer({ initialDay = 1 }: { initialDay?: number }) {
         {day.subtitle}
         {day.venueNote ? ` · ${day.venueNote}` : ""}
       </p>
+
+      <AddToCalendarButton />
 
       <div className="schedule-sticky-tabs mt-8">
         <div className="flex gap-2 overflow-x-auto pb-2">
