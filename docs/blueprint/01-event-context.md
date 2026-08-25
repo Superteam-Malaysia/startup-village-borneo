@@ -12,8 +12,7 @@
 - **Anchor partners:** Solana Foundation, SOCOE
 - **Confirmed partners:** BESarawak, Solana ID / Solana Ecosystem Call,
   Superscrypt, Impossible Finance, Rarible, MonkeDAO / MonkeFoundry, Elfa AI,
-  TankDAO, Virtuals, Sanctum, Kyzzen, Meteora, RedotPay
-- **Pending partners:** No Limit Holdings (do not show until confirmed)
+  TankDAO, Virtuals, Sanctum, Kyzzen, Meteora, RedotPay, No Limit Holdings
 - **Note:** TankDAO, RedotPay, and BESarawak run no workshops.
 - **Dropped vs prior draft:** MagicBlock, DWFLabs
 
@@ -50,14 +49,14 @@
 - 11:15 Workshop: Elfa AI (Tristan) — finding real problems, user research, market framing.
 - 11:45 Workshop: solana.new with Semi — from idea to running code.
 - 12:30 Lunch + team formation (solo founders matched).
-- 13:30 Workshop: Virtuals (Joey) — building the agent economy with AI agents and autonomous payments via EconomyOS.
+- 13:30 Workshop: Superscrypt (Jacob) — what investors look for, what kills a pitch in 30 seconds.
 - 14:15 Build begins (define your problem and first user) + mentorship / office hours → 16:00 Roast My Pitch round 1 (90s, no slides).
 - 17:00 bus back to Sheraton. Buffet dinner. Building continues after dinner.
 
 ### Day 3 — Mon 7 Sept · Build & Traction
 - 09:30 bus to Voco.
 - 10:00 Solana Ecosystem Call (Simon) → 10:45 Sanctum (Nic) → 11:15 MonkeDAO (Jemmy) → 11:45 Meteora Ecosystem (Vesper).
-- 12:15 Lunch → 13:30 Kyzzen (OhMeOhMy).
+- 12:15 Lunch → 13:30 Workshop: Kyzzen (OhMeOhMy).
 - 14:15 Office hours; teams go out to get their first 10 users.
 - 16:30 Regroup: what did you learn from real users?
 - 17:00 bus back to Sheraton. Free-and-easy evening; roam Kuching for dinner.
@@ -65,9 +64,10 @@
 
 ### Day 4 — Tue 8 Sept · Storytelling & Pitch
 - 09:30 bus to Voco.
-- 10:00 Superscrypt (Jacob) — what investors look for, what kills a pitch in 30 seconds.
-- 10:45 Impossible Finance / Rarible (Shuen Rui) — go-to-market and distribution.
-- 11:30 Contentmaxxing (Nikki) → 12:00 build and deck work → 12:30 lunch.
+- 10:00 Workshop: Impossible Finance / Rarible (Shuen Rui) — go-to-market and distribution.
+- 10:45 Workshop: No Limit Holdings (Chris).
+- 11:30 Workshop: Virtuals (Joey) — building the agent economy with AI agents and autonomous payments via EconomyOS.
+- 12:15 Workshop: Contentmaxxing (Nikki) → 12:45 lunch.
 - 13:30 Deck clinic → 15:00 Roast My Pitch round 2 (full dry run) → 17:30 wrap.
 - **18:00 HARD CUTOFF: Amazing Race & deck submission. Nothing accepted after this. Dinner at Fable.**
 - 21:00 bus back to Sheraton.
@@ -75,7 +75,7 @@
 ### Day 5 — Wed 9 Sept · Demo Day
 - Breakfast at Sheraton, check-out, then 09:30 bus to Voco.
 - 10:00 Tech check → 10:15 Opening address → 10:30 Public Demo Day (live pitches + Q&A) → 12:30 judging → 12:45 prizes, group photo, closing → 13:00 lunch → 15:00 bus back to Sheraton.
-- **Judges:** SOCOE (Sam), Solana Foundation (Chaerin, Seraphim), Superscrypt (Jacob), + one more.
+- **Judges:** SOCOE (Sam), Solana Foundation (Chaerin, Seraphim), No Limit Holdings (Anatoly), + one more.
 
 ## The Amazing Race
 

@@ -67,10 +67,10 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
         end: "12:30",
       },
       {
-        id: "s2-virtuals",
-        title: "Building the agent economy — AI agents & autonomous payments via EconomyOS",
-        speaker: "Joey",
-        organization: "Virtuals",
+        id: "s2-superscrypt",
+        title: "What investors look for — what kills a pitch in 30 seconds",
+        speaker: "Jacob",
+        organization: "Superscrypt",
         kind: "workshop",
         start: "13:30",
         end: "14:15",
@@ -153,30 +153,40 @@ export const SPEAKER_DAYS: SpeakerDay[] = [
     theme: "Storytelling & Pitch",
     sessions: [
       {
-        id: "s4-super",
-        title: "What investors look for — what kills a pitch in 30 seconds",
-        speaker: "Jacob",
-        organization: "Superscrypt",
-        kind: "workshop",
-        start: "10:00",
-        end: "10:45",
-      },
-      {
         id: "s4-rarible",
         title: "Go-to-market & distribution",
         speaker: "Shuen Rui",
         organization: "Impossible Finance / Rarible",
         kind: "workshop",
+        start: "10:00",
+        end: "10:45",
+      },
+      {
+        id: "s4-nolimit",
+        title: "No Limit Holdings",
+        speaker: "Chris",
+        organization: "No Limit Holdings",
+        kind: "workshop",
         start: "10:45",
         end: "11:30",
+      },
+      {
+        id: "s4-virtuals",
+        title: "Building the agent economy — AI agents & autonomous payments via EconomyOS",
+        speaker: "Joey",
+        organization: "Virtuals",
+        kind: "workshop",
+        start: "11:30",
+        end: "12:15",
       },
       {
         id: "s4-content",
         title: "Contentmaxxing",
         speaker: "Nikki",
+        organization: "Content",
         kind: "workshop",
-        start: "11:30",
-        end: "12:00",
+        start: "12:15",
+        end: "12:45",
       },
       {
         id: "s4-deck",
@@ -251,15 +261,17 @@ export const FEATURED_SPEAKERS = [
   { name: "Edvin", org: "SOCOE" },
   { name: "Seraphim / Chaerin", org: "Solana Foundation" },
   { name: "Tristan", org: "Elfa AI" },
-  { name: "Semi", org: "stmy" },
+  { name: "Semi", org: "solana.new" },
   { name: "Nic", org: "Sanctum" },
   { name: "Simon", org: "Solana ID" },
   { name: "Jemmy", org: "MonkeDAO" },
   { name: "Vesper", org: "Meteora" },
   { name: "OhMeOhMy", org: "Kyzzen" },
   { name: "Jacob", org: "Superscrypt" },
+  { name: "Joey", org: "Virtuals" },
+  { name: "Chris", org: "No Limit Holdings" },
   { name: "Shuen Rui", org: "Impossible Finance / Rarible" },
-  { name: "Nikki", org: "stmy" },
+  { name: "Nikki", org: "Content" },
 ];
 
 export type WorkshopPreview = {
@@ -283,9 +295,9 @@ export const WORKSHOP_LEADER_PROFILES: Record<
 > = {
   "s2-elfa": { avatar: withBasePath("/speakers/hypetris.jpg"), twitter: "hypetris_" },
   "s2-semi": { avatar: withBasePath("/speakers/semi.jpg"), twitter: "semiii" },
-  "s2-virtuals": {
-    avatar: withBasePath("/speakers/joey.jpg"),
-    twitter: "joeylaujy",
+  "s2-superscrypt": {
+    avatar: withBasePath("/speakers/jacob-ko.jpg"),
+    linkedin: "jacob-ko-10989b24",
   },
   // "s3-magic": MagicBlock session removed from the Aug 2026 agenda.
   "s3-ecosystem": {
@@ -308,9 +320,12 @@ export const WORKSHOP_LEADER_PROFILES: Record<
     avatar: withBasePath("/speakers/ohmeohmy.jpg"),
     twitter: "OhMeOhMy_Sol",
   },
-  "s4-super": {
-    avatar: withBasePath("/speakers/jacob-ko.jpg"),
-    linkedin: "jacob-ko-10989b24",
+  "s4-virtuals": {
+    avatar: withBasePath("/speakers/joey.jpg"),
+    twitter: "joeylaujy",
+  },
+  "s4-nolimit": {
+    avatar: withBasePath("/speakers/chris-ling.jpg"),
   },
   "s4-rarible": {
     avatar: withBasePath("/speakers/shuen-rui.jpg"),
