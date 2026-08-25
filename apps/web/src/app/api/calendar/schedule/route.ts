@@ -14,7 +14,6 @@ export function GET() {
   return new Response(body, {
     headers: {
       "Content-Type": "text/calendar; charset=utf-8",
-      "Content-Disposition": `attachment; filename="${SCHEDULE_ICS_FILENAME}"`,
       "Cache-Control": "public, max-age=3600",
       Link: `<${withBasePath(SCHEDULE_ICS_PUBLIC_PATH)}>; rel="alternate"`,
     },

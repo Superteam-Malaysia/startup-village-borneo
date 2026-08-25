@@ -240,10 +240,29 @@
 
 .schedule-add-calendar {
   position: relative;
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 0.75rem;
   padding: 0.75rem 1rem;
+  max-width: 16rem;
+}
+
+.schedule-add-calendar__hint {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  text-align: center;
+  color: color-mix(in srgb, var(--color-wisp) 72%, transparent);
+}
+
+.schedule-add-calendar__hint a {
+  color: var(--color-azure);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 .schedule-add-calendar__ripple {

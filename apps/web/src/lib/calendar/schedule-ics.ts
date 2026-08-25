@@ -57,7 +57,7 @@ function eventLocation(dayIndex: number, event: ScheduleEvent): string {
     return "Sheraton Kuching, Jalan Tunku Abdul Rahman, 93100 Kuching, Sarawak";
   }
   if (title.includes("bus")) {
-    return "Sheraton Kuching ↔ Voco Kuching, Sarawak";
+    return "Sheraton Kuching <-> Voco Kuching, Sarawak";
   }
   if (dayIndex === 1) return "Kuching, Sarawak";
   return "Voco Kuching, Jalan Lapangan Terbang Baru, 93350 Kuching, Sarawak";
@@ -146,11 +146,14 @@ export function scheduleIcsPublicUrl(): string {
   return `${base}${SCHEDULE_ICS_PUBLIC_PATH}`;
 }
 
+export const GOOGLE_CALENDAR_ADD_BY_URL =
+  "https://calendar.google.com/calendar/u/0/r/settings/addbyurl";
+
 /** Google Calendar subscribes to a public iCal feed via `cid` (webcal URL). */
 export function googleCalendarSubscribeUrl(icsFeedUrl: string): string {
   const webcal = icsFeedUrl.replace(/^https?:\/\//i, "webcal://");
-  // Google rejects many https:// cid values; webcal:// on /calendar/r is the reliable form.
-  return `https://calendar.google.com/calendar/r?cid=${webcal}`;
+  // Documented format: encoded webcal on google.com/calendar/render (not calendar.google.com/r).
+  return `https://www.google.com/calendar/render?cid=${encodeURIComponent(webcal)}`;
 }
 
 export const SCHEDULE_ICS_FILENAME = "startup-village-borneo-2026.ics";
