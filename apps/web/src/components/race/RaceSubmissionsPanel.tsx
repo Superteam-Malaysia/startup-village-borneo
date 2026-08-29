@@ -118,7 +118,7 @@ export function RaceSubmissionsPanel({
             Browse teams
           </Link>
           {" · "}
-          <Link href={withBasePath("/login")} className="text-[var(--color-byte)] hover:underline">
+          <Link href="/login" className="text-[var(--color-byte)] hover:underline">
             Sign in
           </Link>
         </p>

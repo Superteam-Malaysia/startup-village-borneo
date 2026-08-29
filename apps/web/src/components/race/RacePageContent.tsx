@@ -73,7 +73,7 @@ export function RacePageContent({
             />
           ) : (
             <p className="text-sm text-[var(--color-wisp)]/70">
-              <Link href={withBasePath("/login")} className="text-[var(--color-byte)] hover:underline">
+              <Link href="/login" className="text-[var(--color-byte)] hover:underline">
                 Sign in
               </Link>{" "}
               with your registration email to submit thread links for your team.

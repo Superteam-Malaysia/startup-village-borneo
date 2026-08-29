@@ -9,7 +9,7 @@ export function LogoutButton() {
 
   async function logout() {
     await fetch(withBasePath("/api/auth/logout"), { method: "POST" });
-    router.push(withBasePath("/login"));
+    router.push("/login");
     router.refresh();
   }
 
