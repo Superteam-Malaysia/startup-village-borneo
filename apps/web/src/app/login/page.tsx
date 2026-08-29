@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
 import { SectionArticle, SectionIntro } from "@/components/ui";
-import { LoginForm } from "@/components/auth/LoginForm";
+import { TelegramLoginButton } from "@/components/auth/TelegramLoginButton";
 
 export const metadata: Metadata = {
   title: "Sign in",
-  description: "Sign in with the email you used to register for Startup Village Borneo.",
+  description: "Sign in with Telegram using the account you registered for Startup Village Borneo.",
 };
 
 const ERROR_MESSAGES: Record<string, string> = {
-  missing_token: "Sign-in link was incomplete. Request a new one.",
-  invalid_token: "That sign-in link expired or was already used. Request a new one.",
-  not_registered: "We could not find a registration for that account.",
+  invalid_auth: "Telegram sign-in could not be verified. Try again.",
+  not_registered:
+    "That Telegram username is not on the guest list. Use the same @username you gave Luma.",
+  missing_telegram:
+    "Your Telegram account has no @username. Set one in Telegram settings, or contact the organizers.",
+  bot_not_configured: "Telegram sign-in is not configured on the server yet.",
 };
 
 type LoginPageProps = {
@@ -27,11 +30,14 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
         <SectionArticle>
           <SectionIntro
             title="Participant sign-in"
-            lead="Use the same email address you registered with on Luma. We will email you a one-time link — no password needed."
+            lead="Sign in with Telegram — the same account you used when registering on Luma. No password or email link needed."
             accent="azure"
           />
           <div className="mt-10">
-            <LoginForm error={error} />
+            {error ? (
+              <p className="mb-4 text-sm text-[var(--color-byte)]">{error}</p>
+            ) : null}
+            <TelegramLoginButton />
           </div>
         </SectionArticle>
       </div>

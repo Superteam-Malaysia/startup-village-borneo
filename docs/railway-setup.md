@@ -1,13 +1,16 @@
-# Railway — participant profiles & email login
+# Railway — participant profiles & Telegram login
 
-SVB participant data lives in **Postgres on Railway**. Builders sign in with the
-**same email they used on Luma** (magic link, no password).
+SVB participant data lives in **Postgres on Railway**. Builders sign in with
+**Telegram** — the same @username they registered on Luma.
 
 ## One-time setup
 
 1. Create a [Railway](https://railway.com) project and link this repo.
 2. Add a **PostgreSQL** plugin — Railway sets `DATABASE_URL` automatically.
-3. Set service variables (Railway → Variables):
+3. Create a Telegram bot via [@BotFather](https://t.me/BotFather):
+   - `/newbot` → note the bot username and token
+   - `/setdomain` → set `stmy.fun` (required for the Login Widget)
+4. Set service variables (Railway → Variables):
 
    | Variable | Value |
    | -------- | ----- |
@@ -15,12 +18,12 @@ SVB participant data lives in **Postgres on Railway**. Builders sign in with the
    | `AUTH_SECRET` | Random 32+ char string (`openssl rand -base64 32`) |
    | `APP_URL` | `https://stmy.fun` |
    | `NEXT_PUBLIC_BASE_PATH` | `/borneo` |
-   | `RESEND_API_KEY` | Resend API key (production email) |
-   | `EMAIL_FROM` | e.g. `Startup Village Borneo <hello@superteam.my>` |
+   | `TELEGRAM_BOT_TOKEN` | Bot token from BotFather |
+   | `NEXT_PUBLIC_TELEGRAM_BOT_USERNAME` | Bot username without `@`, e.g. `SVBBorneoBot` |
 
-4. Deploy — `railway.toml` runs migrations on start, then `next start`.
+5. Deploy — `railway.toml` runs migrations on start, then `next start`.
 
-5. **Import guests** (after first deploy, or from Railway shell):
+6. **Import guests** (after first deploy, or from Railway shell):
 
    ```bash
    cd apps/web
@@ -36,8 +39,8 @@ SVB participant data lives in **Postgres on Railway**. Builders sign in with the
 
 ```bash
 docker compose up -d postgres
-cp apps/web/.env.example apps/web/.env.local
-# edit AUTH_SECRET in .env.local
+# create apps/web/.env.local with AUTH_SECRET, TELEGRAM_BOT_TOKEN,
+# NEXT_PUBLIC_TELEGRAM_BOT_USERNAME, DATABASE_URL
 
 cd apps/web
 npm run db:migrate
@@ -46,14 +49,24 @@ npm run dev
 ```
 
 - Sign in: `/borneo/login`
-- Profile: `/borneo/profile` (after magic link)
+- Profile: `/borneo/profile` (after Telegram auth)
 
-Without `RESEND_API_KEY`, dev mode prints the magic link in the API response and server logs.
+For local Telegram widget testing, BotFather domain must allow your test host
+(or use a tunnel to `stmy.fun`).
 
 ## Auth flow
 
-1. User enters registration email on `/login`.
-2. If email exists in `participants`, a 30-minute magic link is emailed (or shown in dev).
-3. Link hits `/api/auth/verify?token=…` → session cookie → `/profile`.
+1. User clicks **Log in with Telegram** on `/login`.
+2. Telegram verifies identity and redirects to `/api/auth/telegram/callback`.
+3. Server checks the Telegram signature and matches the user to `participants`
+   by linked `telegram_user_id` or normalized Luma @username.
+4. Session cookie is set → `/profile`.
 
-Only emails present in the imported Luma CSV can sign in.
+Only guests in the imported Luma CSV with a matching Telegram username can sign in.
+Accounts without a Telegram @username cannot use the widget.
+
+## Legacy email login
+
+Email magic-link routes (`/api/auth/request-link`, `/api/auth/verify`) remain in
+the codebase but are no longer linked from the login page. Remove `RESEND_API_KEY`
+if you no longer need email sign-in.

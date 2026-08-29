@@ -23,6 +23,8 @@ export const participants = pgTable("participants", {
   passportFirstName: text("passport_first_name"),
   passportLastName: text("passport_last_name"),
   telegram: text("telegram"),
+  /** Linked Telegram user id after first successful login. */
+  telegramUserId: text("telegram_user_id"),
   projectIdea: text("project_idea"),
   proofOfWork: text("proof_of_work"),
   teamSetup: text("team_setup"),
