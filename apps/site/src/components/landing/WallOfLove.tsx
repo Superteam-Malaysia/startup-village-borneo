@@ -78,9 +78,9 @@ function normalizeTweetEntities(tweet: TweetData): TweetData {
     : undefined;
 
   return {
-    ...normalizeTweetBase({ ...tweet, entities }),
+    ...normalizeTweetBase({ ...tweet, entities: normalizeEntities(entities) }),
     quoted_tweet: quotedTweet,
-  };
+  } as TweetData;
 }
 
 function SafeTweet({ id }: { id: string }) {
