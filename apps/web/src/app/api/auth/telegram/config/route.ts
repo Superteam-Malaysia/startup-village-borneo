@@ -24,6 +24,7 @@ export async function GET() {
 
   return NextResponse.json({
     configured: true,
+    botId: lookup.bot.id,
     botUsername: lookup.bot.username,
     botName: lookup.bot.firstName,
   });
