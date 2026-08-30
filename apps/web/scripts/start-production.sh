@@ -17,6 +17,8 @@ echo "[startup] seed teams"
 npm run db:seed-teams
 echo "[startup] seed staff"
 npm run db:seed-staff
+echo "[startup] backfill telegram avatars"
+npm run db:backfill-telegram-avatars -- --skip-verify || echo "[startup] telegram avatar backfill skipped"
 echo "[startup] telegram webhook"
 npm run telegram:setup-webhook || echo "[startup] telegram webhook setup skipped"
 echo "[startup] next start"

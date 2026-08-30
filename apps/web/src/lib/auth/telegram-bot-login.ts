@@ -10,7 +10,10 @@ import {
   sendTelegramMessage,
 } from "@/lib/auth/telegram-api";
 import { appOrigin, withBasePath } from "@/lib/auth/session";
-import { telegramUserpicUrl } from "@/lib/uploads/image-url";
+import {
+  shouldBackfillTelegramAvatar,
+  telegramAvatarFromRegistration,
+} from "@/lib/uploads/telegram-avatar";
 
 const LOGIN_TTL_MS = 10 * 60 * 1000;
 
@@ -150,14 +153,17 @@ export async function completeTelegramAppLoginFromBot(params: {
       .where(eq(participants.id, participant.id));
   }
 
-  if (authUsername && !participant.avatarUrl?.trim()) {
-    await db
-      .update(participants)
-      .set({
-        avatarUrl: telegramUserpicUrl(authUsername),
-        updatedAt: new Date(),
-      })
-      .where(eq(participants.id, participant.id));
+  if (authUsername && shouldBackfillTelegramAvatar(participant.avatarUrl)) {
+    const avatarUrl = telegramAvatarFromRegistration(authUsername);
+    if (avatarUrl) {
+      await db
+        .update(participants)
+        .set({
+          avatarUrl,
+          updatedAt: new Date(),
+        })
+        .where(eq(participants.id, participant.id));
+    }
   }
 
   const finishUrl = `${appOrigin()}${withBasePath("/api/auth/telegram/finish")}?token=${finishToken}`;
