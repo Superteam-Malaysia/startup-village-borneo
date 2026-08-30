@@ -1,4 +1,17 @@
 {
+  "name": "superteammy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Superteam Malaysia monorepo — community site + Startup Village Borneo",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:site": "npm run dev -w apps/site",
+    "dev:borneo": "npm run dev -w apps/borneo",
+    "build:site": "npm run build -w apps/site",
+    "build:borneo": "npm run build -w apps/borneo"
+  },
   "devDependencies": {
     "unslop-preflight": "^1.15.2"
   }

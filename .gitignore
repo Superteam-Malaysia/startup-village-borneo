@@ -17,6 +17,8 @@ dist/
 build/
 target/
 .cache/
+.next/
+out/
 
 # Environment / secrets
 .env
@@ -37,3 +39,12 @@ tmp-bp*.js
 # Cursor agent-local credentials/artifacts (keep committed commands & skills)
 .cursor/**/credentials*
 .cursor/**/*.token
+
+# Dev artifacts (site)
+hero-initial.png
+hero-final.png
+screenshot-hero.js
+member-spotlight-backup-*.json
+member-credentials.csv
+pending-migrations.sql
+member-backup-*.json

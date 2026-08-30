@@ -1,0 +1,28 @@
+# Reverse proxy for my.superteam.fun
+# Railway env: SITE_UPSTREAM, BORNEO_UPSTREAM, PORT
+
+{
+	admin off
+	auto_https off
+}
+
+:{$PORT:8080} {
+	encode gzip
+
+	@borneo path /borneo /borneo/*
+	handle @borneo {
+		reverse_proxy https://{$BORNEO_UPSTREAM} {
+			header_up Host {upstream_hostport}
+			header_up X-Forwarded-Host {host}
+			header_up X-Forwarded-Proto https
+		}
+	}
+
+	handle {
+		reverse_proxy https://{$SITE_UPSTREAM} {
+			header_up Host {upstream_hostport}
+			header_up X-Forwarded-Host {host}
+			header_up X-Forwarded-Proto https
+		}
+	}
+}

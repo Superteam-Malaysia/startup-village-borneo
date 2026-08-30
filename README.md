@@ -1,69 +1,39 @@
-# startup-village-borneo
+# Superteam Malaysia monorepo
 
-Companion app for **Startup Village Borneo** — a Solana-first hackathon in
-Kuching, Sarawak (5–9 September 2026, anchored by the Solana Foundation and
-SOCOE). This repo is developed **spec-first** with
-[GitHub Spec Kit](https://github.com/github/spec-kit) and Cursor.
+Community site and **Startup Village Borneo** hackathon app, deployed together on Railway.
 
-## Start here
+| App | Path | Directory |
+| --- | ---- | --------- |
+| Superteam Malaysia site | `/` | `apps/site` |
+| Startup Village Borneo | `/borneo` | `apps/borneo` |
+| Edge reverse proxy | — | `services/edge` |
 
-- **Blueprint docs:** [`docs/blueprint/`](./docs/blueprint/README.md) — event
-  context, product vision, architecture, and the Spec Kit workflow.
-- **Design system:** [`docs/design/`](./docs/design/README.md) — Breakpoint layout +
-  Halftone UI data surfaces, element library, and CSS tokens.
-- **Project constitution:** [`.specify/memory/constitution.md`](./.specify/memory/constitution.md).
+**Production:** [my.superteam.fun](https://my.superteam.fun) · SVB at [my.superteam.fun/borneo](https://my.superteam.fun/borneo)
 
-## Development environment
-
-Toolchains: Node 22, Python 3.12, Rust/Cargo, Git (provided by the base image).
-The Cloud Agent `install` step (`.cursor/environment.json` → `.cursor/install.sh`)
-adds [`uv`](https://docs.astral.sh/uv/) and the Spec Kit CLI.
-
-To set up locally:
+## Quick start
 
 ```bash
-bash .cursor/install.sh      # installs uv + the `specify` CLI (idempotent)
-specify version              # sanity check
-specify check                # confirm the Cursor integration
+npm install          # optional root devDeps
+cd apps/site && npm install && npm run dev
+cd apps/borneo && npm install && npm run dev
 ```
 
-### Web experience site (program bible)
+## Deploy
 
-```bash
-cd apps/web && npm install && npm run dev
-```
+See [`docs/monorepo-railway.md`](./docs/monorepo-railway.md) for Railway service roots, DNS, and env vars.
 
-| Route | Purpose |
-| ----- | ------- |
-| `/` | Breakpoint-style home — overview, schedule preview, race, prizes, partners, FAQ |
-| `/schedule` | Five-day **calendar** view (time-axis per day) |
-| `/speakers` | Workshop leaders & on-stage sessions by day |
-| `/amazing-race` | Full task catalog + Halftone theme meters (coming soon) |
-| `/teams` | Sample Halftone team standings preview (coming soon) |
-| `/submissions` | Race, deck, and content submission rules |
-| `/prizes` | USD $10k breakdown + judges |
-| `/demo-day` | Day 5 pitch schedule, judges, deck cutoff (coming soon) |
-| `/sustainability` | SOCOE sustainability track criteria |
-| `/content-awards` | Content Award tasks and rules |
-| `/travel` | Kuching logistics — airport, hotels, venue plan (coming soon) |
-| `/venue` | Sheraton / Voco + interactive map UI |
-| `/faq` | Full FAQ from program |
-| `/partners` | Anchor + confirmed partners |
-| `/design-system` | Component lab (internal) |
+Participant login / Postgres: [`docs/railway-setup.md`](./docs/railway-setup.md).
 
-Program content is sourced from `docs/blueprint/01-event-context.md` and the official PDF via `apps/web/src/data/`.
-
-**Participant login (Railway + Postgres):** see [`docs/railway-setup.md`](./docs/railway-setup.md).
-
-## Spec-driven workflow
-
-Run these slash commands inside Cursor (details in
-[`docs/blueprint/04-spec-kit-workflow.md`](./docs/blueprint/04-spec-kit-workflow.md)):
+## Structure
 
 ```
-/speckit-constitution   # project principles (already seeded)
-/speckit-specify        # write a feature spec
-/speckit-plan           # turn a spec into a plan
-/speckit-tasks          # break a plan into tasks
-/speckit-implement      # build it
+apps/
+  site/      Superteam Malaysia (Next.js + Supabase)
+  borneo/    Startup Village Borneo (Next.js + Postgres/Drizzle)
+services/
+  edge/      Caddy — routes /borneo and /
+docs/        Blueprint, design, Railway guides
+data/        Shared CSV imports
 ```
+
+The former standalone repo `startup-village-borneo` lives here as `apps/borneo`.

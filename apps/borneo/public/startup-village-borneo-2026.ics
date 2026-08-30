@@ -1,0 +1,564 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Superteam MY//Startup Village Borneo//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Startup Village Borneo 2026
+X-WR-CALDESC:Startup Village Borneo program - 5-9 September 2026
+X-WR-TIMEZONE:Asia/Kuching
+REFRESH-INTERVAL;VALUE=DURATION:PT24H
+X-PUBLISHED-TTL:PT24H
+BEGIN:VTIMEZONE
+TZID:Asia/Kuching
+BEGIN:STANDARD
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:+08
+DTSTART:19700101T000000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:svb-2026-d1-explore@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260905T080000
+DTEND;TZID=Asia/Kuching:20260905T180000
+SUMMARY:Amazing Race  -  Explore Kuching
+DESCRIPTION:Day 1  -  Arrive & Explore Kuching\nTeams assigned before arr
+ ival. Race starts on landing.\nStartup Village Borneo
+LOCATION:Kuching\, Sarawak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d1-return@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260905T180000
+DTEND;TZID=Asia/Kuching:20260905T183000
+SUMMARY:All teams back at Sheraton Kuching
+DESCRIPTION:Day 1  -  Arrive & Explore Kuching\nStartup Village Borneo
+LOCATION:Sheraton Kuching\, Jalan Tunku Abdul Rahman\, 93100 Kuching\, Sa
+ rawak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d1-dinner@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260905T183000
+DTEND;TZID=Asia/Kuching:20260905T200000
+SUMMARY:Welcome dinner  -  Rooftop Bar
+DESCRIPTION:Day 1  -  Arrive & Explore Kuching\nSheraton Rooftop Bar with
+  RedotsClub. Race standings and team formation begins.\nStartup Village 
+ Borneo
+LOCATION:Sheraton Kuching\, Jalan Tunku Abdul Rahman\, 93100 Kuching\, Sa
+ rawak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d2-bus@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260906T093000
+DTEND;TZID=Asia/Kuching:20260906T100000
+SUMMARY:Bus to Voco
+DESCRIPTION:Day 2  -  Opening & Problem Framing\nBreakfast at Sheraton\, 
+ then bus to Voco\nStartup Village Borneo
+LOCATION:Sheraton Kuching <-> Voco Kuching\, Sarawak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d2-opening@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260906T100000
+DTEND;TZID=Asia/Kuching:20260906T101000
+SUMMARY:Opening - Superteam MY
+DESCRIPTION:Day 2  -  Opening & Problem Framing\nBreakfast at Sheraton\, 
+ then bus to Voco\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d2-socoe@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260906T101000
+DTEND;TZID=Asia/Kuching:20260906T102000
+SUMMARY:SOCOE - Edvin\, Director
+DESCRIPTION:Day 2  -  Opening & Problem Framing\nBreakfast at Sheraton\, 
+ then bus to Voco\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d2-solana-keynote@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260906T102000
+DTEND;TZID=Asia/Kuching:20260906T103000
+SUMMARY:Solana Foundation keynote - Chaerin
+DESCRIPTION:Day 2  -  Opening & Problem Framing\nBreakfast at Sheraton\, 
+ then bus to Voco\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d2-minister@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260906T103000
+DTEND;TZID=Asia/Kuching:20260906T104500
+SUMMARY:Minister address + launch
+DESCRIPTION:Day 2  -  Opening & Problem Framing\nBreakfast at Sheraton\, 
+ then bus to Voco\nIf confirmed.\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d2-break@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260906T104500
+DTEND;TZID=Asia/Kuching:20260906T111500
+SUMMARY:Break
+DESCRIPTION:Day 2  -  Opening & Problem Framing\nBreakfast at Sheraton\, 
+ then bus to Voco\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d2-elfa@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260906T111500
+DTEND;TZID=Asia/Kuching:20260906T114500
+SUMMARY:Workshop  -  Finding real problems - Tristan  -  Elfa AI
+DESCRIPTION:Day 2  -  Opening & Problem Framing\nBreakfast at Sheraton\, 
+ then bus to Voco\nUser research and market framing.\nStartup Village Bor
+ neo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d2-meteora@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260906T114500
+DTEND;TZID=Asia/Kuching:20260906T123000
+SUMMARY:Workshop  -  Meteora Ecosystem - Vesper  -  Meteora
+DESCRIPTION:Day 2  -  Opening & Problem Framing\nBreakfast at Sheraton\, 
+ then bus to Voco\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d2-lunch@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260906T123000
+DTEND;TZID=Asia/Kuching:20260906T133000
+SUMMARY:Lunch + team formation
+DESCRIPTION:Day 2  -  Opening & Problem Framing\nBreakfast at Sheraton\, 
+ then bus to Voco\nSolo founders welcome - we help match anyone who wants
+  a team.\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d2-superscrypt@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260906T133000
+DTEND;TZID=Asia/Kuching:20260906T141500
+SUMMARY:Workshop  -  Superscrypt - Jacob  -  Superscrypt
+DESCRIPTION:Day 2  -  Opening & Problem Framing\nBreakfast at Sheraton\, 
+ then bus to Voco\nWhat investors look for\, and what kills a pitch in 30
+  seconds.\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d2-build@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260906T141500
+DTEND;TZID=Asia/Kuching:20260906T160000
+SUMMARY:Build + mentorship
+DESCRIPTION:Day 2  -  Opening & Problem Framing\nBreakfast at Sheraton\, 
+ then bus to Voco\nDefine your problem and your first user. Office hours 
+ run alongside.\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d2-roast-1@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260906T160000
+DTEND;TZID=Asia/Kuching:20260906T170000
+SUMMARY:Roast My Pitch  -  Round 1
+DESCRIPTION:Day 2  -  Opening & Problem Framing\nBreakfast at Sheraton\, 
+ then bus to Voco\n90 seconds\, problem and solution only. One slide.\nSt
+ artup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d2-bus-back@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260906T170000
+DTEND;TZID=Asia/Kuching:20260906T173000
+SUMMARY:Bus back to Sheraton
+DESCRIPTION:Day 2  -  Opening & Problem Framing\nBreakfast at Sheraton\, 
+ then bus to Voco\nStartup Village Borneo
+LOCATION:Sheraton Kuching\, Jalan Tunku Abdul Rahman\, 93100 Kuching\, Sa
+ rawak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d2-dinner@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260906T180000
+DTEND;TZID=Asia/Kuching:20260906T193000
+SUMMARY:Buffet dinner at Sheraton
+DESCRIPTION:Day 2  -  Opening & Problem Framing\nBreakfast at Sheraton\, 
+ then bus to Voco\nBuilding continues after dinner.\nStartup Village Born
+ eo
+LOCATION:Sheraton Kuching\, Jalan Tunku Abdul Rahman\, 93100 Kuching\, Sa
+ rawak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d3-bus@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260907T093000
+DTEND;TZID=Asia/Kuching:20260907T100000
+SUMMARY:Bus to Voco
+DESCRIPTION:Day 3  -  Build & Traction\nBreakfast at Sheraton\, then bus 
+ to Voco\nStartup Village Borneo
+LOCATION:Sheraton Kuching <-> Voco Kuching\, Sarawak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d3-monkedao@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260907T100000
+DTEND;TZID=Asia/Kuching:20260907T104500
+SUMMARY:Workshop  -  MonkeDAO - Jemmy  -  MonkeDAO
+DESCRIPTION:Day 3  -  Build & Traction\nBreakfast at Sheraton\, then bus 
+ to Voco\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d3-sanctum@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260907T104500
+DTEND;TZID=Asia/Kuching:20260907T111500
+SUMMARY:Workshop  -  Sanctum - Nic  -  Sanctum
+DESCRIPTION:Day 3  -  Build & Traction\nBreakfast at Sheraton\, then bus 
+ to Voco\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d3-getblock@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260907T111500
+DTEND;TZID=Asia/Kuching:20260907T114500
+SUMMARY:Workshop  -  GetBlock - Vasily  -  GetBlock
+DESCRIPTION:Day 3  -  Build & Traction\nBreakfast at Sheraton\, then bus 
+ to Voco\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d3-sf-rwa@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260907T114500
+DTEND;TZID=Asia/Kuching:20260907T121500
+SUMMARY:Workshop  -  RWA & Insti - Seraphim  -  Solana Foundation
+DESCRIPTION:Day 3  -  Build & Traction\nBreakfast at Sheraton\, then bus 
+ to Voco\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d3-lunch@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260907T121500
+DTEND;TZID=Asia/Kuching:20260907T133000
+SUMMARY:Lunch
+DESCRIPTION:Day 3  -  Build & Traction\nBreakfast at Sheraton\, then bus 
+ to Voco\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d3-kyzzen@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260907T133000
+DTEND;TZID=Asia/Kuching:20260907T140000
+SUMMARY:Workshop  -  Kyzzen - OhMeOhMy  -  Kyzzen
+DESCRIPTION:Day 3  -  Build & Traction\nBreakfast at Sheraton\, then bus 
+ to Voco\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d3-elfa-sales@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260907T140000
+DTEND;TZID=Asia/Kuching:20260907T143000
+SUMMARY:Workshop  -  Using AI for sales process - Ming Yang  -  Elfa AI
+DESCRIPTION:Day 3  -  Build & Traction\nBreakfast at Sheraton\, then bus 
+ to Voco\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d3-office-hours@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260907T143000
+DTEND;TZID=Asia/Kuching:20260907T163000
+SUMMARY:Office hours  -  First 10 users
+DESCRIPTION:Day 3  -  Build & Traction\nBreakfast at Sheraton\, then bus 
+ to Voco\nTeams go out to get their first 10 users / feedback.\nStartup V
+ illage Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d3-regroup@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260907T163000
+DTEND;TZID=Asia/Kuching:20260907T170000
+SUMMARY:Regroup  -  User learnings
+DESCRIPTION:Day 3  -  Build & Traction\nBreakfast at Sheraton\, then bus 
+ to Voco\nWhat did you learn from real users?\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d3-bus-back@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260907T170000
+DTEND;TZID=Asia/Kuching:20260907T173000
+SUMMARY:Bus back to Sheraton
+DESCRIPTION:Day 3  -  Build & Traction\nBreakfast at Sheraton\, then bus 
+ to Voco\nFree-and-easy evening. Roam Kuching for dinner. Building contin
+ ues after.\nStartup Village Borneo
+LOCATION:Sheraton Kuching\, Jalan Tunku Abdul Rahman\, 93100 Kuching\, Sa
+ rawak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d3-monke-meetup@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260907T183000
+DTEND;TZID=Asia/Kuching:20260907T200000
+SUMMARY:Monke Meetup  -  KANTIN at Granary - MonkeDAO
+DESCRIPTION:Day 3  -  Build & Traction\nBreakfast at Sheraton\, then bus 
+ to Voco\nStartup Village Borneo
+LOCATION:KANTIN at Granary\, Kuching\, Sarawak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d4-bus@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260908T093000
+DTEND;TZID=Asia/Kuching:20260908T100000
+SUMMARY:Bus to Voco
+DESCRIPTION:Day 4  -  Storytelling & Pitch\nBreakfast at Sheraton\, then 
+ bus to Voco\nStartup Village Borneo
+LOCATION:Sheraton Kuching <-> Voco Kuching\, Sarawak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d4-impossible@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260908T100000
+DTEND;TZID=Asia/Kuching:20260908T104500
+SUMMARY:Workshop  -  Impossible Finance / Rarible - Shuen Rui
+DESCRIPTION:Day 4  -  Storytelling & Pitch\nBreakfast at Sheraton\, then 
+ bus to Voco\nGo-to-market and distribution.\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d4-nolimit@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260908T104500
+DTEND;TZID=Asia/Kuching:20260908T113000
+SUMMARY:Workshop  -  No Limit Holdings - Chris  -  No Limit Holdings
+DESCRIPTION:Day 4  -  Storytelling & Pitch\nBreakfast at Sheraton\, then 
+ bus to Voco\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d4-virtuals@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260908T113000
+DTEND;TZID=Asia/Kuching:20260908T121500
+SUMMARY:Workshop  -  Virtuals - Joey  -  Virtuals
+DESCRIPTION:Day 4  -  Storytelling & Pitch\nBreakfast at Sheraton\, then 
+ bus to Voco\nBuilding the Agent Economy with AI Agents and Autonomous Pa
+ yments via EconomyOS.\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d4-content@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260908T121500
+DTEND;TZID=Asia/Kuching:20260908T124500
+SUMMARY:Workshop  -  Contentmaxxing - Nikki
+DESCRIPTION:Day 4  -  Storytelling & Pitch\nBreakfast at Sheraton\, then 
+ bus to Voco\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d4-lunch@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260908T124500
+DTEND;TZID=Asia/Kuching:20260908T133000
+SUMMARY:Lunch
+DESCRIPTION:Day 4  -  Storytelling & Pitch\nBreakfast at Sheraton\, then 
+ bus to Voco\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d4-deck@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260908T133000
+DTEND;TZID=Asia/Kuching:20260908T150000
+SUMMARY:Deck clinic
+DESCRIPTION:Day 4  -  Storytelling & Pitch\nBreakfast at Sheraton\, then 
+ bus to Voco\nThe one-liner\, the story arc\, the demo.\nStartup Village 
+ Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d4-roast-2@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260908T150000
+DTEND;TZID=Asia/Kuching:20260908T173000
+SUMMARY:Roast My Pitch  -  Round 2
+DESCRIPTION:Day 4  -  Storytelling & Pitch\nBreakfast at Sheraton\, then 
+ bus to Voco\nFull dry run with mentors.\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d4-wrap@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260908T173000
+DTEND;TZID=Asia/Kuching:20260908T180000
+SUMMARY:Wrap
+DESCRIPTION:Day 4  -  Storytelling & Pitch\nBreakfast at Sheraton\, then 
+ bus to Voco\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d4-cutoff@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260908T180000
+DTEND;TZID=Asia/Kuching:20260908T183000
+SUMMARY:HARD CUTOFF  -  Amazing Race & deck submission
+DESCRIPTION:Day 4  -  Storytelling & Pitch\nBreakfast at Sheraton\, then 
+ bus to Voco\nNothing accepted after 18:00. Dinner at Fable follows.\nSta
+ rtup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d4-dinner@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260908T183000
+DTEND;TZID=Asia/Kuching:20260908T210000
+SUMMARY:Dinner at Fable
+DESCRIPTION:Day 4  -  Storytelling & Pitch\nBreakfast at Sheraton\, then 
+ bus to Voco\nStartup Village Borneo
+LOCATION:Fable\, Kuching\, Sarawak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d4-bus-back@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260908T210000
+DTEND;TZID=Asia/Kuching:20260908T213000
+SUMMARY:Bus back to Sheraton
+DESCRIPTION:Day 4  -  Storytelling & Pitch\nBreakfast at Sheraton\, then 
+ bus to Voco\nStartup Village Borneo
+LOCATION:Sheraton Kuching\, Jalan Tunku Abdul Rahman\, 93100 Kuching\, Sa
+ rawak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d5-bus@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260909T093000
+DTEND;TZID=Asia/Kuching:20260909T100000
+SUMMARY:Bus to Voco
+DESCRIPTION:Day 5  -  Demo Day\nCheck out of Sheraton\, then bus to Voco\
+ nStartup Village Borneo
+LOCATION:Sheraton Kuching <-> Voco Kuching\, Sarawak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d5-tech@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260909T100000
+DTEND;TZID=Asia/Kuching:20260909T101500
+SUMMARY:Tech check
+DESCRIPTION:Day 5  -  Demo Day\nCheck out of Sheraton\, then bus to Voco\
+ nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d5-opening@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260909T101500
+DTEND;TZID=Asia/Kuching:20260909T103000
+SUMMARY:Opening address
+DESCRIPTION:Day 5  -  Demo Day\nCheck out of Sheraton\, then bus to Voco\
+ nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d5-demo@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260909T103000
+DTEND;TZID=Asia/Kuching:20260909T123000
+SUMMARY:Public Demo Day
+DESCRIPTION:Day 5  -  Demo Day\nCheck out of Sheraton\, then bus to Voco\
+ nLive pitches + Q&A.\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d5-judging@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260909T123000
+DTEND;TZID=Asia/Kuching:20260909T124500
+SUMMARY:Judging deliberation
+DESCRIPTION:Day 5  -  Demo Day\nCheck out of Sheraton\, then bus to Voco\
+ nJudges: SOCOE (Sam)\, Solana Foundation (Chaerin\, Seraphim)\, No Limit
+  Holdings (Anatoly)\, + one more.\nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d5-prizes@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260909T124500
+DTEND;TZID=Asia/Kuching:20260909T130000
+SUMMARY:Prizes\, group photo\, closing
+DESCRIPTION:Day 5  -  Demo Day\nCheck out of Sheraton\, then bus to Voco\
+ nAmazing Race\, Demo Day\, and Meteora challenge winners announced.\nSta
+ rtup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d5-lunch@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260909T130000
+DTEND;TZID=Asia/Kuching:20260909T150000
+SUMMARY:Lunch
+DESCRIPTION:Day 5  -  Demo Day\nCheck out of Sheraton\, then bus to Voco\
+ nStartup Village Borneo
+LOCATION:Voco Kuching\, Jalan Lapangan Terbang Baru\, 93350 Kuching\, Sar
+ awak
+END:VEVENT
+BEGIN:VEVENT
+UID:svb-2026-d5-bus-back@superteam.my
+DTSTAMP:20260830T112435Z
+DTSTART;TZID=Asia/Kuching:20260909T150000
+DTEND;TZID=Asia/Kuching:20260909T153000
+SUMMARY:Bus back to Sheraton
+DESCRIPTION:Day 5  -  Demo Day\nCheck out of Sheraton\, then bus to Voco\
+ nStartup Village Borneo
+LOCATION:Sheraton Kuching\, Jalan Tunku Abdul Rahman\, 93100 Kuching\, Sa
+ rawak
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,14 @@
+# Startup Village Borneo — served at https://my.superteam.fun/borneo
+[build]
+builder = "NIXPACKS"
+buildCommand = "npm ci && npm run build"
+watchPatterns = ["**"]
+
+[deploy]
+startCommand = "bash scripts/start-production.sh"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+
+[deploy.healthcheck]
+path = "/borneo"
+timeout = 300

@@ -9,15 +9,16 @@ SVB participant data lives in **Postgres on Railway**. Builders sign in with
 2. Add a **PostgreSQL** plugin — Railway sets `DATABASE_URL` automatically.
 3. Create a Telegram bot via [@BotFather](https://t.me/BotFather):
    - `/newbot` → note the bot username and token
-   - `/setdomain` → set `stmy.fun` (required for the Login Widget)
+   - `/setdomain` → set `my.superteam.fun` (required for the Login Widget)
 4. Set service variables (Railway → Variables):
 
    | Variable | Value |
    | -------- | ----- |
    | `DATABASE_URL` | From Postgres plugin (auto) |
    | `AUTH_SECRET` | Random 32+ char string (`openssl rand -base64 32`) |
-   | `APP_URL` | `https://stmy.fun` |
+   | `APP_URL` | `https://my.superteam.fun` |
    | `NEXT_PUBLIC_BASE_PATH` | `/borneo` |
+   | `NEXT_PUBLIC_SITE_URL` | `https://my.superteam.fun/borneo` |
    | `TELEGRAM_BOT_TOKEN` | Bot token from BotFather |
    | `NEXT_PUBLIC_TELEGRAM_BOT_USERNAME` | Optional — bot username is resolved from the token at runtime |
 
@@ -51,7 +52,7 @@ npm run dev
 - Profile: `/borneo/profile` (after Telegram auth)
 
 For local Telegram widget testing, BotFather domain must allow your test host
-(or use a tunnel to `stmy.fun`).
+(or use a tunnel to `my.superteam.fun`).
 
 ## Auth flow
 

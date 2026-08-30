@@ -1,0 +1,1087 @@
+{
+  "version": "2.7",
+  "children": [
+    {
+      "type": "frame",
+      "id": "bi8Au",
+      "x": 0,
+      "y": 0,
+      "name": "Frame",
+      "clip": true,
+      "width": 800,
+      "height": 600,
+      "fill": "#FFFFFF",
+      "layout": "none"
+    },
+    {
+      "type": "frame",
+      "id": "ToJkW",
+      "x": 900,
+      "y": 0,
+      "name": "Landing Page - Desktop",
+      "clip": true,
+      "width": 1440,
+      "fill": "#0A0A1A",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "mHQPX",
+          "name": "Navbar",
+          "width": "fill_container",
+          "height": 80,
+          "fill": "#0A0A1A",
+          "padding": [
+            0,
+            80
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "h5Y2G",
+              "name": "logo",
+              "fill": "#FFFFFF",
+              "content": "SUPERTEAM MY",
+              "fontFamily": "Space Grotesk",
+              "fontSize": 22,
+              "fontWeight": "bold",
+              "letterSpacing": 2
+            },
+            {
+              "type": "frame",
+              "id": "HB4Sn",
+              "name": "navLinks",
+              "gap": 32,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "JgZq5",
+                  "name": "link1",
+                  "fill": "#A0A0B0",
+                  "content": "About",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "ozKsz",
+                  "name": "link2",
+                  "fill": "#A0A0B0",
+                  "content": "Events",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "aMmkO",
+                  "name": "link3",
+                  "fill": "#A0A0B0",
+                  "content": "Members",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "8W6jb",
+                  "name": "link4",
+                  "fill": "#A0A0B0",
+                  "content": "Community",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "frame",
+                  "id": "zBAfX",
+                  "name": "joinBtn",
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 90,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#9945FF",
+                        "position": 0
+                      },
+                      {
+                        "color": "#14F195",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 8,
+                  "padding": [
+                    12,
+                    28
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "tInZd",
+                      "name": "joinText",
+                      "fill": "#FFFFFF",
+                      "content": "Join Community",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "4YH7r",
+          "name": "Hero Section",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            120,
+            80,
+            100,
+            80
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "lser9",
+              "name": "badge",
+              "cornerRadius": 100,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#9945FF40"
+              },
+              "gap": 8,
+              "padding": [
+                8,
+                20
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "wvgxf",
+                  "name": "badgeDot",
+                  "fill": "#14F195",
+                  "width": 8,
+                  "height": 8
+                },
+                {
+                  "type": "text",
+                  "id": "dzoqr",
+                  "name": "badgeText",
+                  "fill": "#A0A0B0",
+                  "content": "The Home for Solana Builders in Malaysia",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "LeGM1",
+              "name": "headline",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 1000,
+              "content": "Build the Future of Web3 in Malaysia",
+              "lineHeight": 1.05,
+              "textAlign": "center",
+              "fontFamily": "Space Grotesk",
+              "fontSize": 72,
+              "fontWeight": "bold"
+            },
+            {
+              "type": "text",
+              "id": "kjliK",
+              "name": "subhead",
+              "fill": "#A0A0B0",
+              "textGrowth": "fixed-width",
+              "width": 700,
+              "content": "Superteam Malaysia connects builders, creators, and founders in the Solana ecosystem. Access grants, bounties, hackathons, and a global network of Web3 talent.",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 20
+            },
+            {
+              "type": "frame",
+              "id": "bJuF7",
+              "name": "ctaRow",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "psQ7L",
+                  "name": "cta1",
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 90,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#9945FF",
+                        "position": 0
+                      },
+                      {
+                        "color": "#14F195",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 10,
+                  "padding": [
+                    16,
+                    36
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ReIfj",
+                      "name": "cta1text",
+                      "fill": "#FFFFFF",
+                      "content": "Join Community",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "AN22s",
+                  "name": "cta2",
+                  "cornerRadius": 10,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#FFFFFF30"
+                  },
+                  "padding": [
+                    16,
+                    36
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "mrVLW",
+                      "name": "cta2text",
+                      "fill": "#FFFFFF",
+                      "content": "Explore Opportunities",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "K9ZRk",
+          "name": "Mission Section",
+          "width": "fill_container",
+          "fill": "#0D0D20",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": [
+            100,
+            80
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "ZBuYC",
+              "name": "missionLabel",
+              "fill": "#9945FF",
+              "content": "WHAT WE DO",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "600",
+              "letterSpacing": 3
+            },
+            {
+              "type": "text",
+              "id": "ubwQ2",
+              "name": "missionTitle",
+              "fill": "#FFFFFF",
+              "content": "Empowering Malaysia's Web3 Builders",
+              "textAlign": "center",
+              "fontFamily": "Space Grotesk",
+              "fontSize": 48,
+              "fontWeight": "bold"
+            },
+            {
+              "type": "text",
+              "id": "KZWTc",
+              "name": "missionSub",
+              "fill": "#A0A0B0",
+              "textGrowth": "fixed-width",
+              "width": 600,
+              "content": "We provide the tools, community, and opportunities to help you build on Solana",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "kZugI",
+              "name": "pillarsGrid",
+              "width": "fill_container",
+              "gap": 24,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "y4rix",
+                  "name": "p1",
+                  "width": 200,
+                  "fill": "#1A1A2E",
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#FFFFFF08"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 28,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "MvjpX",
+                      "name": "p1icon",
+                      "width": 32,
+                      "height": 32,
+                      "iconFontName": "code",
+                      "iconFontFamily": "lucide",
+                      "fill": "#14F195"
+                    },
+                    {
+                      "type": "text",
+                      "id": "7OxO1",
+                      "name": "p1title",
+                      "fill": "#FFFFFF",
+                      "content": "Builder Support",
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "dTp16",
+                      "name": "p1desc",
+                      "fill": "#A0A0B0",
+                      "textGrowth": "fixed-width",
+                      "width": 160,
+                      "content": "Mentorship and resources for Solana developers",
+                      "lineHeight": 1.5,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "en68H",
+                  "name": "p2",
+                  "width": 200,
+                  "fill": "#1A1A2E",
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#FFFFFF08"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 28,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "pgWnl",
+                      "name": "p2icon",
+                      "width": 32,
+                      "height": 32,
+                      "iconFontName": "calendar",
+                      "iconFontFamily": "lucide",
+                      "fill": "#14F195"
+                    },
+                    {
+                      "type": "text",
+                      "id": "33N37",
+                      "name": "p2title",
+                      "fill": "#FFFFFF",
+                      "content": "Events",
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "RKXQC",
+                      "name": "p2desc",
+                      "fill": "#A0A0B0",
+                      "textGrowth": "fixed-width",
+                      "width": 160,
+                      "content": "Hackathons, meetups, and workshops",
+                      "lineHeight": 1.5,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "cNnVV",
+                  "name": "p3",
+                  "width": 200,
+                  "fill": "#1A1A2E",
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#FFFFFF08"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 28,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "4yBlN",
+                      "name": "p3icon",
+                      "width": 32,
+                      "height": 32,
+                      "iconFontName": "coins",
+                      "iconFontFamily": "lucide",
+                      "fill": "#14F195"
+                    },
+                    {
+                      "type": "text",
+                      "id": "BXy0u",
+                      "name": "p3title",
+                      "fill": "#FFFFFF",
+                      "content": "Grants",
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "JzlbA",
+                      "name": "p3desc",
+                      "fill": "#A0A0B0",
+                      "textGrowth": "fixed-width",
+                      "width": 160,
+                      "content": "Funding access for builders and projects",
+                      "lineHeight": 1.5,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "AbxQV",
+                  "name": "p4",
+                  "width": 200,
+                  "fill": "#1A1A2E",
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#FFFFFF08"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 28,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "AeajN",
+                      "name": "p4icon",
+                      "width": 32,
+                      "height": 32,
+                      "iconFontName": "briefcase",
+                      "iconFontFamily": "lucide",
+                      "fill": "#14F195"
+                    },
+                    {
+                      "type": "text",
+                      "id": "HLSBO",
+                      "name": "p4title",
+                      "fill": "#FFFFFF",
+                      "content": "Jobs & Bounties",
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "OPHGD",
+                      "name": "p4desc",
+                      "fill": "#A0A0B0",
+                      "textGrowth": "fixed-width",
+                      "width": 160,
+                      "content": "Opportunities to earn in the Solana ecosystem",
+                      "lineHeight": 1.5,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "uc96L",
+                  "name": "p5",
+                  "width": 200,
+                  "fill": "#1A1A2E",
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#FFFFFF08"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 28,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "k4hUx",
+                      "name": "p5icon",
+                      "width": 32,
+                      "height": 32,
+                      "iconFontName": "graduation-cap",
+                      "iconFontFamily": "lucide",
+                      "fill": "#14F195"
+                    },
+                    {
+                      "type": "text",
+                      "id": "rnsbg",
+                      "name": "p5title",
+                      "fill": "#FFFFFF",
+                      "content": "Education",
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "RIo4t",
+                      "name": "p5desc",
+                      "fill": "#A0A0B0",
+                      "textGrowth": "fixed-width",
+                      "width": 160,
+                      "content": "Workshops and learning programs for builders",
+                      "lineHeight": 1.5,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ASap4",
+          "name": "Stats Section",
+          "width": "fill_container",
+          "fill": "#0A0A1A",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": 80,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "7ZaOT",
+              "name": "statsLabel",
+              "fill": "#14F195",
+              "content": "OUR IMPACT",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "600",
+              "letterSpacing": 3
+            },
+            {
+              "type": "text",
+              "id": "dOXoX",
+              "name": "statsTitle",
+              "fill": "#FFFFFF",
+              "content": "Growing the Solana Ecosystem in Malaysia",
+              "textAlign": "center",
+              "fontFamily": "Space Grotesk",
+              "fontSize": 40,
+              "fontWeight": "bold"
+            },
+            {
+              "type": "frame",
+              "id": "n69I3",
+              "name": "statsRow",
+              "width": "fill_container",
+              "gap": 32,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "9SWO1",
+                  "name": "s1",
+                  "width": "fill_container",
+                  "fill": "#1A1A2E",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 32,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "uM6U9",
+                      "name": "s1val",
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 90,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#9945FF",
+                            "position": 0
+                          },
+                          {
+                            "color": "#14F195",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "content": "500+",
+                      "fontFamily": "Space Grotesk",
+                      "fontSize": 48,
+                      "fontWeight": "bold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "DyxuX",
+                      "name": "s1label",
+                      "fill": "#A0A0B0",
+                      "content": "Community Members",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "4l2vg",
+                  "name": "s2",
+                  "width": "fill_container",
+                  "fill": "#1A1A2E",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 32,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "TMmgT",
+                      "name": "s2val",
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 90,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#9945FF",
+                            "position": 0
+                          },
+                          {
+                            "color": "#14F195",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "content": "20+",
+                      "fontFamily": "Space Grotesk",
+                      "fontSize": 48,
+                      "fontWeight": "bold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "OrVaU",
+                      "name": "s2label",
+                      "fill": "#A0A0B0",
+                      "content": "Events Hosted",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "1b4VK",
+                  "name": "s3",
+                  "width": "fill_container",
+                  "fill": "#1A1A2E",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 32,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "lC2ly",
+                      "name": "s3val",
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 90,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#9945FF",
+                            "position": 0
+                          },
+                          {
+                            "color": "#14F195",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "content": "50+",
+                      "fontFamily": "Space Grotesk",
+                      "fontSize": 48,
+                      "fontWeight": "bold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "R2HYk",
+                      "name": "s3label",
+                      "fill": "#A0A0B0",
+                      "content": "Projects Built",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "yBnbN",
+                  "name": "s4",
+                  "width": "fill_container",
+                  "fill": "#1A1A2E",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 32,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "lCqFu",
+                      "name": "s4val",
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 90,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#9945FF",
+                            "position": 0
+                          },
+                          {
+                            "color": "#14F195",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "content": "100+",
+                      "fontFamily": "Space Grotesk",
+                      "fontSize": 48,
+                      "fontWeight": "bold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "HoRyk",
+                      "name": "s4label",
+                      "fill": "#A0A0B0",
+                      "content": "Bounties Completed",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "AG3nB",
+          "name": "Join CTA Section",
+          "width": "fill_container",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 180,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#1A0A2E",
+                "position": 0
+              },
+              {
+                "color": "#0A0A1A",
+                "position": 1
+              }
+            ]
+          },
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            100,
+            80
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "YBzzL",
+              "name": "ctaTitle",
+              "fill": "#FFFFFF",
+              "content": "Ready to Build with Us?",
+              "textAlign": "center",
+              "fontFamily": "Space Grotesk",
+              "fontSize": 48,
+              "fontWeight": "bold"
+            },
+            {
+              "type": "text",
+              "id": "asRlm",
+              "name": "ctaSub",
+              "fill": "#A0A0B0",
+              "textGrowth": "fixed-width",
+              "width": 600,
+              "content": "Join Superteam Malaysia and be part of the fastest-growing Solana community in Southeast Asia",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "E6NsR",
+              "name": "ctaBtns",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Skevc",
+                  "name": "ctaBtn1",
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 90,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#9945FF",
+                        "position": 0
+                      },
+                      {
+                        "color": "#14F195",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 10,
+                  "gap": 8,
+                  "padding": [
+                    16,
+                    36
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ZqzsI",
+                      "name": "ctaBtn1Text",
+                      "fill": "#FFFFFF",
+                      "content": "Join Community",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Up02I",
+          "name": "Footer",
+          "width": "fill_container",
+          "fill": "#060612",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            48,
+            80
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "TuY1a",
+              "name": "footerTop",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "3j7bd",
+                  "name": "footerLogo",
+                  "fill": "#FFFFFF",
+                  "content": "SUPERTEAM MY",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 18,
+                  "fontWeight": "bold",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "frame",
+                  "id": "QmVdu",
+                  "name": "footerLinks",
+                  "gap": 32,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "LAP5v",
+                      "name": "fl1",
+                      "fill": "#A0A0B0",
+                      "content": "Twitter/X",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "6dFxg",
+                      "name": "fl2",
+                      "fill": "#A0A0B0",
+                      "content": "Telegram",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "NUVlE",
+                      "name": "fl4",
+                      "fill": "#A0A0B0",
+                      "content": "Superteam Global",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "dOxU7",
+              "name": "footerDivider",
+              "fill": "#FFFFFF10",
+              "width": "fill_container",
+              "height": 1
+            },
+            {
+              "type": "text",
+              "id": "oKTDp",
+              "name": "footerBottom",
+              "fill": "#64748B",
+              "content": "2025 Superteam Malaysia. Built on Solana.",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

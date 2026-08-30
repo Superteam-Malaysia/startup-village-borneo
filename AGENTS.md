@@ -26,4 +26,4 @@ These are injected via the Cursor environment (not committed to the repo):
 | `RAILWAY_TOKEN` | Project token for `svb` production — use `Project-Access-Token` header or `railway variable` |
 | `TELEGRAM_BOT_TOKEN` | Bot token for @superteamalaysiabot — local auth testing and Telegram API calls |
 
-Production web service already has `TELEGRAM_BOT_TOKEN` on Railway. BotFather `/setdomain` must be `stmy.fun`.
+Production web service already has `TELEGRAM_BOT_TOKEN` on Railway. BotFather `/setdomain` must be `my.superteam.fun`.

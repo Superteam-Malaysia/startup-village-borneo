@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["caddy"]
+
+[phases.build]
+cmds = ["echo 'Caddy edge proxy'"]
+
+[start]
+cmd = "caddy run --config Caddyfile --adapter caddyfile"
