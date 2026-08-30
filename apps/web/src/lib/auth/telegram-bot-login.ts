@@ -160,34 +160,72 @@ export async function completeTelegramAppLoginFromBot(params: {
   );
 }
 
-export async function consumeTelegramFinishToken(finishToken: string) {
+async function participantForTelegramLoginSession(session: {
+  id: string;
+  participantId: string | null;
+  status: string;
+}) {
+  if (!session.participantId) return null;
+  if (session.status !== "complete" && session.status !== "used") return null;
+
   const db = getDb();
-  const [session] = await db
-    .select()
-    .from(telegramLoginSessions)
-    .where(
-      and(
-        eq(telegramLoginSessions.finishToken, finishToken),
-        eq(telegramLoginSessions.status, "complete"),
-        gt(telegramLoginSessions.expiresAt, new Date()),
-      ),
-    )
-    .limit(1);
-
-  if (!session?.participantId) return null;
-
   const [participant] = await db
     .select()
     .from(participants)
     .where(eq(participants.id, session.participantId))
     .limit(1);
 
-  if (!participant) return null;
+  return participant ?? null;
+}
 
+async function markTelegramLoginSessionUsed(sessionId: string) {
+  const db = getDb();
   await db
     .update(telegramLoginSessions)
     .set({ status: "used", completedAt: new Date() })
-    .where(eq(telegramLoginSessions.id, session.id));
+    .where(eq(telegramLoginSessions.id, sessionId));
+}
+
+/** Resolve a completed bot login by poll token or finish token (idempotent once used). */
+export async function resolveTelegramLoginParticipant(params: {
+  startToken?: string;
+  finishToken?: string;
+}) {
+  const db = getDb();
+  const now = new Date();
+  const { startToken, finishToken } = params;
+
+  if (!startToken && !finishToken) return null;
+
+  const [session] = await db
+    .select()
+    .from(telegramLoginSessions)
+    .where(
+      and(
+        gt(telegramLoginSessions.expiresAt, now),
+        startToken
+          ? eq(telegramLoginSessions.startToken, startToken)
+          : eq(telegramLoginSessions.finishToken, finishToken!),
+      ),
+    )
+    .limit(1);
+
+  if (!session) return null;
+
+  const participant = await participantForTelegramLoginSession(session);
+  if (!participant) return null;
+
+  if (session.status === "complete") {
+    await markTelegramLoginSessionUsed(session.id);
+  }
 
   return participant;
+}
+
+export async function consumeTelegramFinishToken(finishToken: string) {
+  return resolveTelegramLoginParticipant({ finishToken });
+}
+
+export async function consumeTelegramStartToken(startToken: string) {
+  return resolveTelegramLoginParticipant({ startToken });
 }

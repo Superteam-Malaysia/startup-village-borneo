@@ -60,6 +60,11 @@ export async function getSession(): Promise<SessionPayload | null> {
   return verifySessionToken(token);
 }
 
+function sessionCookiePath(): string {
+  const base = process.env.NEXT_PUBLIC_BASE_PATH?.trim();
+  return base && base !== "/" ? base : "/";
+}
+
 export function sessionCookieOptions(token: string) {
   return {
     name: SESSION_COOKIE,
@@ -67,7 +72,7 @@ export function sessionCookieOptions(token: string) {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax" as const,
-    path: "/",
+    path: sessionCookiePath(),
     maxAge: SESSION_TTL_SEC,
   };
 }
@@ -79,7 +84,7 @@ export function clearSessionCookieOptions() {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax" as const,
-    path: "/",
+    path: sessionCookiePath(),
     maxAge: 0,
   };
 }

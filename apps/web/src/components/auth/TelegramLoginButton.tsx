@@ -61,7 +61,7 @@ export function TelegramLoginButton() {
       stopPolling(false);
       sessionStorage.setItem(POLL_STORAGE_KEY, pollToken);
       setPolling(true);
-      setAppMessage("Waiting in Telegram… tap Start, then “Open SVB profile”.");
+      setAppMessage("Waiting in Telegram… tap Start in the bot. This tab will sign you in automatically.");
 
       pollRef.current = window.setInterval(async () => {
         try {
@@ -74,9 +74,19 @@ export function TelegramLoginButton() {
             reason?: string;
           };
 
-          if (data.status === "complete" && data.finishUrl) {
-            stopPolling();
-            window.location.assign(data.finishUrl);
+          if (data.status === "complete") {
+            const completeRes = await fetch(withBasePath("/api/auth/telegram/complete"), {
+              method: "POST",
+              credentials: "same-origin",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ pollToken }),
+            });
+
+            if (completeRes.ok) {
+              stopPolling();
+              const complete = (await completeRes.json()) as { redirect?: string };
+              window.location.assign(complete.redirect ?? withBasePath("/profile"));
+            }
           } else if (data.status === "rejected") {
             stopPolling();
             setAppMessage(
@@ -171,7 +181,7 @@ export function TelegramLoginButton() {
         </p>
       ) : (
         <p className="mt-4 text-sm text-[color:color-mix(in_srgb,var(--color-wisp)_72%,transparent)]">
-          Opens @superteamalaysiabot in Telegram (app or desktop). Your @username must match Luma.
+          Keep this tab open while you tap Start in @superteamalaysiabot. Your @username must match Luma.
         </p>
       )}
 
