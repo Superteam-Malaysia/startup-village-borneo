@@ -22,6 +22,8 @@ type TeamFormProps = {
   logoUrl?: string | null;
   logoFallback?: string;
   initial?: Partial<TeamFormValues>;
+  /** When true, save refreshes in place (no cancel link). Used on team detail page. */
+  inline?: boolean;
 };
 
 const EMPTY: TeamFormValues = {
@@ -33,20 +35,23 @@ const EMPTY: TeamFormValues = {
   proofUrl: "",
 };
 
-export function TeamForm({ mode, slug, logoUrl, logoFallback, initial }: TeamFormProps) {
+export function TeamForm({ mode, slug, logoUrl, logoFallback, initial, inline }: TeamFormProps) {
   const router = useRouter();
   const [values, setValues] = useState<TeamFormValues>({ ...EMPTY, ...initial });
   const [error, setError] = useState<string | null>(null);
+  const [saved, setSaved] = useState(false);
   const [saving, setSaving] = useState(false);
 
   function update(field: keyof TeamFormValues, value: string) {
     setValues((prev) => ({ ...prev, [field]: value }));
+    setSaved(false);
   }
 
   async function onSubmit(event: FormEvent) {
     event.preventDefault();
     setSaving(true);
     setError(null);
+    setSaved(false);
 
     const url =
       mode === "create"
@@ -68,6 +73,14 @@ export function TeamForm({ mode, slug, logoUrl, logoFallback, initial }: TeamFor
       return;
     }
 
+    setSaving(false);
+
+    if (inline && mode === "edit") {
+      setSaved(true);
+      router.refresh();
+      return;
+    }
+
     const nextSlug = data.team?.slug ?? slug;
     router.push(`/teams/${nextSlug}`);
     router.refresh();
@@ -76,6 +89,7 @@ export function TeamForm({ mode, slug, logoUrl, logoFallback, initial }: TeamFor
   return (
     <form onSubmit={onSubmit} className="team-form">
       {error ? <p className="team-form__error">{error}</p> : null}
+      {saved ? <p className="profile-form__saved">Team saved.</p> : null}
 
       {mode === "edit" && slug ? (
         <ImageUploadField
@@ -167,14 +181,16 @@ export function TeamForm({ mode, slug, logoUrl, logoFallback, initial }: TeamFor
         >
           {saving ? "Saving…" : mode === "create" ? "Create team" : "Save changes"}
         </button>
-        <CtaButton
-          href={mode === "edit" && slug ? `/teams/${slug}` : "/teams"}
-          variant="ghost-wisp"
-          size="md"
-          showArrow={false}
-        >
-          Cancel
-        </CtaButton>
+        {!inline ? (
+          <CtaButton
+            href={mode === "edit" && slug ? `/teams/${slug}` : "/teams"}
+            variant="ghost-wisp"
+            size="md"
+            showArrow={false}
+          >
+            Cancel
+          </CtaButton>
+        ) : null}
       </div>
     </form>
   );

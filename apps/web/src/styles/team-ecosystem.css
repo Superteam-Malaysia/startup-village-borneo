@@ -668,6 +668,73 @@
   padding-top: 0.5rem;
 }
 
+/* Profile form (extends team-form) */
+.profile-form {
+  max-width: 42rem;
+}
+
+.profile-form__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .profile-form__row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.profile-form__readonly {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--team-colosseum-border);
+  background: color-mix(in srgb, var(--team-colosseum-panel) 85%, transparent);
+}
+
+.profile-form__readonly p {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0;
+}
+
+.profile-form__readonly-value {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-wisp);
+  word-break: break-word;
+}
+
+.profile-form__saved {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--team-colosseum-accent);
+}
+
+.team-manage {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 1.5rem;
+}
+
+.team-detail__title--manage {
+  margin-top: 1.25rem;
+}
+
+.team-detail__manage-lead {
+  margin: 0.65rem 0 0;
+  max-width: 44rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--color-wisp) 68%, transparent);
+}
+
 .team-member-editor {
   display: flex;
   flex-direction: column;
