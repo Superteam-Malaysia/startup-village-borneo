@@ -19,7 +19,7 @@ SVB participant data lives in **Postgres on Railway**. Builders sign in with
    | `APP_URL` | `https://stmy.fun` |
    | `NEXT_PUBLIC_BASE_PATH` | `/borneo` |
    | `TELEGRAM_BOT_TOKEN` | Bot token from BotFather |
-   | `NEXT_PUBLIC_TELEGRAM_BOT_USERNAME` | Bot username without `@`, e.g. `SVBBorneoBot` |
+   | `NEXT_PUBLIC_TELEGRAM_BOT_USERNAME` | Optional — bot username is resolved from the token at runtime |
 
 5. Deploy — `railway.toml` runs migrations on start, then `next start`.
 
@@ -39,8 +39,7 @@ SVB participant data lives in **Postgres on Railway**. Builders sign in with
 
 ```bash
 docker compose up -d postgres
-# create apps/web/.env.local with AUTH_SECRET, TELEGRAM_BOT_TOKEN,
-# NEXT_PUBLIC_TELEGRAM_BOT_USERNAME, DATABASE_URL
+# create apps/web/.env.local with AUTH_SECRET, TELEGRAM_BOT_TOKEN, DATABASE_URL
 
 cd apps/web
 npm run db:migrate

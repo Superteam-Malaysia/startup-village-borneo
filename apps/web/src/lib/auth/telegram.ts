@@ -20,6 +20,47 @@ function getBotToken(): string {
   return token;
 }
 
+export type TelegramBotInfo = {
+  id: number;
+  username: string;
+  firstName: string;
+  canJoinGroups: boolean;
+};
+
+/** Resolve bot metadata from Telegram using TELEGRAM_BOT_TOKEN (getMe). */
+export async function getTelegramBotInfo(): Promise<TelegramBotInfo | null> {
+  const token = process.env.TELEGRAM_BOT_TOKEN?.trim();
+  if (!token) return null;
+
+  try {
+    const response = await fetch(`https://api.telegram.org/bot${token}/getMe`, {
+      next: { revalidate: 3600 },
+    });
+    if (!response.ok) return null;
+
+    const body = (await response.json()) as {
+      ok?: boolean;
+      result?: {
+        id: number;
+        username?: string;
+        first_name?: string;
+        can_join_groups?: boolean;
+      };
+    };
+
+    if (!body.ok || !body.result?.username) return null;
+
+    return {
+      id: body.result.id,
+      username: body.result.username,
+      firstName: body.result.first_name ?? body.result.username,
+      canJoinGroups: body.result.can_join_groups ?? false,
+    };
+  } catch {
+    return null;
+  }
+}
+
 /** Normalize Luma / t.me / @handle values to a lowercase username. */
 export function normalizeTelegramUsername(
   value: string | null | undefined,
