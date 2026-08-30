@@ -1,100 +1,74 @@
 import { mkdir, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
+import {
+  bucketStorageEnabled,
+  deleteBucketObject,
+  getBucketObject,
+  mimeForExtension,
+  publicPathToObjectKey,
+  putBucketObject,
+} from "@/lib/uploads/bucket";
+import { uploadPublicPath, uploadRootDir } from "@/lib/uploads/paths";
 
-const MAX_BYTES = 2 * 1024 * 1024;
+export { uploadPublicPath, uploadRootDir };
 
-const MIME_TO_EXT: Record<string, string> = {
-  "image/jpeg": "jpg",
-  "image/png": "png",
-  "image/webp": "webp",
-  "image/gif": "gif",
-};
+export function uploadStorageMode(): "bucket" | "disk" {
+  return bucketStorageEnabled() ? "bucket" : "disk";
+}
 
-export type SavedUpload = {
-  /** Path served from site root, e.g. /uploads/participants/{id}.jpg */
+export async function readUploadObject(
+  segments: string[],
+): Promise<{ data: Buffer; contentType: string } | null> {
+  const ext = path.extname(segments.join("/")).slice(1).toLowerCase();
+
+  if (bucketStorageEnabled()) {
+    const data = await getBucketObject(segments.join("/"));
+    if (!data) return null;
+    return { data, contentType: mimeForExtension(ext) };
+  }
+
+  const absolutePath = path.join(uploadRootDir(), ...segments);
+  const root = path.resolve(uploadRootDir());
+  if (!path.resolve(absolutePath).startsWith(root)) return null;
+
+  try {
+    const { readFile } = await import("node:fs/promises");
+    const data = await readFile(absolutePath);
+    return { data, contentType: mimeForExtension(ext) };
+  } catch {
+    return null;
+  }
+}
+
+export async function deleteUploadObject(publicPath: string | null | undefined) {
+  if (!publicPath?.startsWith("/uploads/")) return;
+
+  if (bucketStorageEnabled()) {
+    await deleteBucketObject(publicPathToObjectKey(publicPath)).catch(() => undefined);
+    return;
+  }
+
+  const key = publicPathToObjectKey(publicPath);
+  const absolutePath = path.join(uploadRootDir(), key);
+  await unlink(absolutePath).catch(() => undefined);
+}
+
+export async function writeUploadObject(params: {
   publicPath: string;
-};
-
-export function uploadRootDir(): string {
-  const configured = process.env.UPLOAD_DIR?.trim();
-  if (configured) return configured;
-
-  const volumeMount = process.env.RAILWAY_VOLUME_MOUNT_PATH?.trim();
-  if (volumeMount) return volumeMount;
-
-  return path.join(process.cwd(), "public", "uploads");
-}
-
-export function uploadPublicPath(folder: "participants" | "teams", filename: string): string {
-  return `/uploads/${folder}/${filename}`;
-}
-
-function extensionFor(file: File): string | null {
-  return MIME_TO_EXT[file.type] ?? null;
-}
-
-async function writeImageUpload(params: {
-  file: File;
-  folder: "participants" | "teams";
-  id: string;
-  previousPublicPath?: string | null;
-}): Promise<SavedUpload> {
-  const ext = extensionFor(params.file);
-  if (!ext) {
-    throw new Error("Use a JPG, PNG, WebP, or GIF image.");
-  }
-
-  if (params.file.size > MAX_BYTES) {
-    throw new Error("Image must be 2 MB or smaller.");
-  }
-
-  const buffer = Buffer.from(await params.file.arrayBuffer());
-  if (buffer.length > MAX_BYTES) {
-    throw new Error("Image must be 2 MB or smaller.");
-  }
-
-  const dir = path.join(uploadRootDir(), params.folder);
-  await mkdir(dir, { recursive: true });
-
-  const filename = `${params.id}.${ext}`;
-  const absolutePath = path.join(dir, filename);
-  await writeFile(absolutePath, buffer);
-
-  const publicPath = `/uploads/${params.folder}/${filename}`;
-
-  if (params.previousPublicPath?.startsWith(`/uploads/${params.folder}/`)) {
-    const previousName = path.basename(params.previousPublicPath);
-    const previousPath = path.join(dir, previousName);
-    if (previousPath !== absolutePath) {
-      await unlink(previousPath).catch(() => undefined);
-    }
-  }
-
-  return { publicPath };
-}
-
-export async function saveParticipantAvatar(params: {
-  participantId: string;
-  file: File;
-  previousPublicPath?: string | null;
+  body: Buffer;
+  contentType: string;
 }) {
-  return writeImageUpload({
-    file: params.file,
-    folder: "participants",
-    id: params.participantId,
-    previousPublicPath: params.previousPublicPath,
-  });
-}
+  if (bucketStorageEnabled()) {
+    await putBucketObject({
+      key: publicPathToObjectKey(params.publicPath),
+      body: params.body,
+      contentType: params.contentType,
+    });
+    return;
+  }
 
-export async function saveTeamLogo(params: {
-  teamId: string;
-  file: File;
-  previousPublicPath?: string | null;
-}) {
-  return writeImageUpload({
-    file: params.file,
-    folder: "teams",
-    id: params.teamId,
-    previousPublicPath: params.previousPublicPath,
-  });
+  const key = publicPathToObjectKey(params.publicPath);
+  const absolutePath = path.join(uploadRootDir(), key);
+  await mkdir(path.dirname(absolutePath), { recursive: true });
+  await writeFile(absolutePath, params.body);
 }

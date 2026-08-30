@@ -1,15 +1,5 @@
-import { readFile } from "node:fs/promises";
-import path from "node:path";
 import { NextResponse } from "next/server";
-import { uploadRootDir } from "@/lib/uploads/storage";
-
-const MIME: Record<string, string> = {
-  jpg: "image/jpeg",
-  jpeg: "image/jpeg",
-  png: "image/png",
-  webp: "image/webp",
-  gif: "image/gif",
-};
+import { readUploadObject } from "@/lib/uploads/storage";
 
 type Params = { params: Promise<{ path: string[] }> };
 
@@ -24,22 +14,15 @@ export async function GET(_request: Request, { params }: Params) {
     return new NextResponse("Not found", { status: 404 });
   }
 
-  const absolutePath = path.join(uploadRootDir(), ...segments);
-  const root = path.resolve(uploadRootDir());
-  if (!path.resolve(absolutePath).startsWith(root)) {
+  const object = await readUploadObject(segments);
+  if (!object) {
     return new NextResponse("Not found", { status: 404 });
   }
 
-  try {
-    const data = await readFile(absolutePath);
-    const ext = path.extname(absolutePath).slice(1).toLowerCase();
-    return new NextResponse(data, {
-      headers: {
-        "Content-Type": MIME[ext] ?? "application/octet-stream",
-        "Cache-Control": "public, max-age=3600",
-      },
-    });
-  } catch {
-    return new NextResponse("Not found", { status: 404 });
-  }
+  return new NextResponse(new Uint8Array(object.data), {
+    headers: {
+      "Content-Type": object.contentType,
+      "Cache-Control": "public, max-age=3600",
+    },
+  });
 }

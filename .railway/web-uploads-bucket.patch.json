@@ -1,0 +1,29 @@
+{
+  "buckets": {
+    "a1b2c3d4-e5f6-7890-abcd-ef1234567890": {
+      "isCreated": true,
+      "region": "sjc"
+    }
+  },
+  "services": {
+    "baf14df3-307d-4d8d-884c-162e03d006db": {
+      "variables": {
+        "BUCKET": {
+          "value": "${{svb-uploads.BUCKET}}"
+        },
+        "ACCESS_KEY_ID": {
+          "value": "${{svb-uploads.ACCESS_KEY_ID}}"
+        },
+        "SECRET_ACCESS_KEY": {
+          "value": "${{svb-uploads.SECRET_ACCESS_KEY}}"
+        },
+        "ENDPOINT": {
+          "value": "${{svb-uploads.ENDPOINT}}"
+        },
+        "REGION": {
+          "value": "${{svb-uploads.REGION}}"
+        }
+      }
+    }
+  }
+}

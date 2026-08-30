@@ -5,7 +5,7 @@ import { getDb } from "@/lib/db";
 import { teams } from "@/lib/db/schema";
 import { requireTeamEditor } from "@/lib/teams/access";
 import { getTeamRecordBySlug } from "@/lib/teams/public-teams";
-import { saveTeamLogo } from "@/lib/uploads/storage";
+import { saveTeamLogo } from "@/lib/uploads/save-upload";
 import { uploadPublicUrl } from "@/lib/uploads/public-url";
 
 type Params = { params: Promise<{ slug: string }> };

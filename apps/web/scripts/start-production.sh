@@ -1,9 +1,13 @@
 #!/usr/bin/env sh
 set -e
 
-UPLOAD_ROOT="${UPLOAD_DIR:-${RAILWAY_VOLUME_MOUNT_PATH:-public/uploads}}"
-echo "[startup] ensure upload dirs at ${UPLOAD_ROOT}"
-mkdir -p "${UPLOAD_ROOT}/participants" "${UPLOAD_ROOT}/teams"
+if [ -z "${BUCKET:-}" ]; then
+  UPLOAD_ROOT="${UPLOAD_DIR:-${RAILWAY_VOLUME_MOUNT_PATH:-public/uploads}}"
+  echo "[startup] ensure upload dirs at ${UPLOAD_ROOT}"
+  mkdir -p "${UPLOAD_ROOT}/participants" "${UPLOAD_ROOT}/teams"
+else
+  echo "[startup] uploads via Railway Bucket (${BUCKET})"
+fi
 
 echo "[startup] migrate"
 npm run db:migrate

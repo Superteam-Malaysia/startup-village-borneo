@@ -3,7 +3,7 @@ import { eq } from "drizzle-orm";
 import { getParticipantForSession } from "@/lib/auth/participant";
 import { getDb } from "@/lib/db";
 import { participants } from "@/lib/db/schema";
-import { saveParticipantAvatar } from "@/lib/uploads/storage";
+import { saveParticipantAvatar } from "@/lib/uploads/save-upload";
 import { uploadPublicUrl } from "@/lib/uploads/public-url";
 
 export async function POST(request: Request) {
