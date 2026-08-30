@@ -16,6 +16,7 @@ export type PublicParticipant = {
   linkedin: string | null;
   joinedAt: string | null;
   initials: string;
+  avatarUrl: string | null;
   hackathonTeams: PublicParticipantTeam[];
 };
 

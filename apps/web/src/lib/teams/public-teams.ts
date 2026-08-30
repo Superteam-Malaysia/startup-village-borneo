@@ -3,6 +3,7 @@ import { cache } from "react";
 import { getDb } from "@/lib/db";
 import { participants, teamMembers, teams } from "@/lib/db/schema";
 import { participantInitials } from "@/lib/participants/team-categories";
+import { uploadPublicUrl } from "@/lib/uploads/public-url";
 import type { PublicTeam, PublicTeamMember } from "@/lib/teams/types";
 
 export type { PublicTeam, PublicTeamMember } from "@/lib/teams/types";
@@ -44,6 +45,7 @@ function mapTeamRow(
     tagline: team.tagline,
     description: team.description,
     category: team.category,
+    logoUrl: uploadPublicUrl(team.logoUrl),
     websiteUrl: team.websiteUrl,
     proofUrl: team.proofUrl,
     memberCount: members.length,

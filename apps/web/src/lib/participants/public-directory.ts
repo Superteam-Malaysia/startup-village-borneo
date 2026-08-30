@@ -6,6 +6,7 @@ import {
   participantInitials,
 } from "./team-categories";
 import { builderSocialLinks } from "./social-links";
+import { uploadPublicUrl } from "@/lib/uploads/public-url";
 import type { PublicParticipant } from "./types";
 
 export type { PublicParticipant } from "./types";
@@ -30,6 +31,7 @@ type ParticipantRow = {
   telegram: string | null;
   proofOfWork: string | null;
   lumaCreatedAt: Date | null;
+  avatarUrl: string | null;
 };
 
 function toPublicParticipant(
@@ -52,6 +54,7 @@ function toPublicParticipant(
     linkedin: social.linkedin,
     joinedAt: row.lumaCreatedAt?.toISOString() ?? null,
     initials: participantInitials(name),
+    avatarUrl: uploadPublicUrl(row.avatarUrl),
     hackathonTeams,
   };
 }
@@ -93,6 +96,7 @@ const participantSelect = {
   telegram: participants.telegram,
   proofOfWork: participants.proofOfWork,
   lumaCreatedAt: participants.lumaCreatedAt,
+  avatarUrl: participants.avatarUrl,
 };
 
 /** Public-safe participant rows for the /teams directory. */

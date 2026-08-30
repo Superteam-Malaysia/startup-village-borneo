@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { CtaButton } from "@/components/ui";
+import { ImageUploadField } from "@/components/uploads/ImageUploadField";
 import { withBasePath } from "@/lib/base-path";
 import { TEAM_CATEGORIES } from "@/lib/teams/types";
 
@@ -18,6 +19,8 @@ type TeamFormValues = {
 type TeamFormProps = {
   mode: "create" | "edit";
   slug?: string;
+  logoUrl?: string | null;
+  logoFallback?: string;
   initial?: Partial<TeamFormValues>;
 };
 
@@ -30,7 +33,7 @@ const EMPTY: TeamFormValues = {
   proofUrl: "",
 };
 
-export function TeamForm({ mode, slug, initial }: TeamFormProps) {
+export function TeamForm({ mode, slug, logoUrl, logoFallback, initial }: TeamFormProps) {
   const router = useRouter();
   const [values, setValues] = useState<TeamFormValues>({ ...EMPTY, ...initial });
   const [error, setError] = useState<string | null>(null);
@@ -73,6 +76,18 @@ export function TeamForm({ mode, slug, initial }: TeamFormProps) {
   return (
     <form onSubmit={onSubmit} className="team-form">
       {error ? <p className="team-form__error">{error}</p> : null}
+
+      {mode === "edit" && slug ? (
+        <ImageUploadField
+          inputId={`team-logo-upload-${slug}`}
+          label="Team logo"
+          hint="Square logo works best · JPG, PNG, WebP, or GIF · max 2 MB."
+          uploadUrl={`/api/teams/${slug}/logo`}
+          imageUrl={logoUrl ?? null}
+          fallbackLabel={logoFallback ?? "?"}
+          shape="square"
+        />
+      ) : null}
 
       <label className="team-form__field">
         <span className="team-form__label">Team name</span>

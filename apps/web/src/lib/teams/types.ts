@@ -12,6 +12,7 @@ export type PublicTeam = {
   tagline: string | null;
   description: string | null;
   category: string | null;
+  logoUrl: string | null;
   websiteUrl: string | null;
   proofUrl: string | null;
   memberCount: number;

@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { SectionArticle, SectionIntro } from "@/components/ui";
 import { LogoutButton } from "@/components/auth/LogoutButton";
+import { ImageUploadField } from "@/components/uploads/ImageUploadField";
 import { requireParticipant } from "@/lib/auth/participant";
+import { participantInitials } from "@/lib/participants/team-categories";
+import { uploadPublicUrl } from "@/lib/uploads/public-url";
 
 export const metadata: Metadata = {
   title: "My profile",
@@ -22,16 +25,30 @@ function Field({ label, value }: { label: string; value: string | null | undefin
 
 export default async function ProfilePage() {
   const participant = await requireParticipant();
+  const displayName = participant.name ?? participant.email;
+  const initials = participantInitials(displayName);
+  const avatarUrl = uploadPublicUrl(participant.avatarUrl);
 
   return (
     <main className="site-main site-main--stack">
       <div className="max-w-[90rem] mx-auto px-4 md:px-8 py-16 md:py-24">
         <SectionArticle>
           <SectionIntro
-            title={participant.name ?? participant.email}
+            title={displayName}
             lead={`Registered as ${participant.approvalStatus ?? "guest"} · ${participant.ticketName ?? "Standard"}`}
             accent="green"
           />
+
+          <div className="mt-10 max-w-2xl">
+            <ImageUploadField
+              inputId="profile-avatar-upload"
+              label="Profile photo"
+              hint="JPG, PNG, WebP, or GIF · max 2 MB. Shown on team cards and the builder directory."
+              uploadUrl="/api/profile/avatar"
+              imageUrl={avatarUrl}
+              fallbackLabel={initials}
+            />
+          </div>
 
           <dl className="mt-10 max-w-2xl">
             <Field label="Email" value={participant.email} />

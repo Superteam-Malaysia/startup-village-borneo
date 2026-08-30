@@ -14,6 +14,23 @@ function cardDescription(team: PublicTeam): string {
   return team.description?.trim() || team.tagline?.trim() || "Project details coming soon.";
 }
 
+function TeamLogo({ team }: { team: PublicTeam }) {
+  if (team.logoUrl) {
+    return (
+      <div className="team-card__logo team-card__logo--photo" aria-hidden="true">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={team.logoUrl} alt="" className="team-card__logo-img" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="team-card__logo" aria-hidden="true">
+      {teamInitials(team.name)}
+    </div>
+  );
+}
+
 function TeamCard({ team }: { team: PublicTeam }) {
   const category = team.category ?? "Other";
 
@@ -21,9 +38,7 @@ function TeamCard({ team }: { team: PublicTeam }) {
     <Link href={`/teams/${team.slug}`} className="team-card">
       <div className="team-card__inner">
         <div className="team-card__head">
-          <div className="team-card__logo" aria-hidden="true">
-            {teamInitials(team.name)}
-          </div>
+          <TeamLogo team={team} />
           <div className="team-card__title-wrap">
             <h2 className="team-card__name">{team.name}</h2>
             <p className="team-card__meta">

@@ -46,6 +46,8 @@ export default async function TeamEditPage({ params }: TeamEditPageProps) {
             <TeamForm
               mode="edit"
               slug={slug}
+              logoUrl={team.logoUrl}
+              logoFallback={team.name.slice(0, 2).toUpperCase()}
               initial={{
                 name: team.name,
                 tagline: team.tagline ?? "",

@@ -40,5 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# railway local link config
-.railway/
+# uploads (user content — not committed)
+/public/uploads/*
+!/public/uploads/.gitkeep
+

@@ -21,6 +21,7 @@
 @import "../styles/brand-assets.css";
 @import "../styles/participant-directory.css";
 @import "../styles/team-ecosystem.css";
+@import "../styles/image-upload.css";
 
 @theme inline {
   --font-sans: var(--font-sans);

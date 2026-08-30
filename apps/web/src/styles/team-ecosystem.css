@@ -223,6 +223,18 @@
   color: var(--color-wisp);
 }
 
+.team-card__logo--photo {
+  overflow: hidden;
+  padding: 0;
+}
+
+.team-card__logo-img,
+.team-detail__logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .team-card__title-wrap {
   flex: 1;
   min-width: 0;
@@ -450,6 +462,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-wisp);
+  overflow: hidden;
 }
 
 .team-detail__title {

@@ -85,7 +85,12 @@ export default async function TeamDetailPage({ params }: TeamDetailPageProps) {
                 <span className="team-detail__logo-corner team-detail__logo-corner--bl" />
                 <span className="team-detail__logo-corner team-detail__logo-corner--br" />
                 <div className="team-detail__logo" aria-hidden="true">
-                  {teamInitials(team.name)}
+                  {team.logoUrl ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={team.logoUrl} alt="" className="team-detail__logo-img" />
+                  ) : (
+                    teamInitials(team.name)
+                  )}
                 </div>
               </div>
 

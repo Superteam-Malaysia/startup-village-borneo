@@ -23,6 +23,8 @@ export const participants = pgTable("participants", {
   passportFirstName: text("passport_first_name"),
   passportLastName: text("passport_last_name"),
   telegram: text("telegram"),
+  /** Public URL path under /uploads for profile photo. */
+  avatarUrl: text("avatar_url"),
   /** Linked Telegram user id after first successful login. */
   telegramUserId: text("telegram_user_id"),
   projectIdea: text("project_idea"),
@@ -76,6 +78,8 @@ export const teams = pgTable("teams", {
   tagline: text("tagline"),
   description: text("description"),
   category: text("category"),
+  /** Public URL path under /uploads for team logo. */
+  logoUrl: text("logo_url"),
   websiteUrl: text("website_url"),
   proofUrl: text("proof_url"),
   createdBy: uuid("created_by").references(() => participants.id, {
