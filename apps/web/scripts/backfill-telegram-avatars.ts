@@ -1,11 +1,7 @@
 #!/usr/bin/env tsx
 /**
- * Backfill participant avatar_url from Telegram public userpics.
- *
- * Usage:
- *   DATABASE_URL=... npm run db:backfill-telegram-avatars
- *   DATABASE_URL=... npm run db:backfill-telegram-avatars -- --dry-run
- *   DATABASE_URL=... npm run db:backfill-telegram-avatars -- --skip-verify
+ * Backfill participant avatars from Telegram Bot API (users who signed in via bot).
+ * Clears broken t.me/i/userpic placeholder URLs.
  */
 import "dotenv/config";
 import { closeDb } from "../src/lib/db";
@@ -13,11 +9,9 @@ import { runTelegramAvatarBackfill } from "../src/lib/uploads/backfill-telegram-
 
 async function main() {
   const dryRun = process.argv.includes("--dry-run");
-  const skipVerify = process.argv.includes("--skip-verify");
 
   const result = await runTelegramAvatarBackfill({
     dryRun,
-    skipVerify,
     onProgress: (message) => console.log(message),
   });
 

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ConnectLink } from "@/components/directory/ConnectLink";
+import { ParticipantAvatar } from "@/components/directory/ParticipantAvatar";
 import {
   builderConnectHref,
   builderConnectLabel,
@@ -12,30 +13,13 @@ export type BuilderCardProps = {
   person: PublicParticipant;
 };
 
-function Avatar({ person }: { person: PublicParticipant }) {
-  if (person.avatarUrl) {
-    return (
-      <div className="builder-card__avatar builder-card__avatar--photo" aria-hidden="true">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={person.avatarUrl} alt="" className="mentor-card__photo" />
-      </div>
-    );
-  }
-
-  return (
-    <div className="builder-card__avatar" aria-hidden="true">
-      {person.initials}
-    </div>
-  );
-}
-
 export function BuilderCard({ person }: BuilderCardProps) {
   const teams = person.hackathonTeams;
 
   return (
     <article className="builder-card mentor-card" id={`builder-${person.id}`}>
       <div className="builder-card__top">
-        <Avatar person={person} />
+        <ParticipantAvatar avatarUrl={person.avatarUrl} initials={person.initials} />
         <ConnectLink href={builderConnectHref(person)} label={builderConnectLabel(person)} />
       </div>
 

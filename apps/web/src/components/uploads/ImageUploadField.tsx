@@ -28,6 +28,7 @@ export function ImageUploadField({
   const [previewUrl, setPreviewUrl] = useState<string | null>(imageUrl);
   const [error, setError] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
+  const [imageBroken, setImageBroken] = useState(false);
 
   async function onFileChange(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
@@ -80,9 +81,17 @@ export function ImageUploadField({
       <span className="image-upload__label">{label}</span>
       <div className="image-upload__row">
         <div className={frameClass}>
-          {previewUrl ? (
+          {previewUrl && !imageBroken ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={previewUrl} alt="" className="image-upload__photo" />
+            <img
+              src={previewUrl}
+              alt=""
+              className="image-upload__photo"
+              onError={() => {
+                setImageBroken(true);
+                setPreviewUrl(null);
+              }}
+            />
           ) : (
             <span className="image-upload__fallback" aria-hidden="true">
               {fallbackLabel}

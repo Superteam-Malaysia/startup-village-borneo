@@ -12,8 +12,7 @@ export async function POST(request: Request) {
 
   const url = new URL(request.url);
   const dryRun = url.searchParams.get("dryRun") === "1";
-  const skipVerify = url.searchParams.get("skipVerify") === "1";
 
-  const result = await runTelegramAvatarBackfill({ dryRun, skipVerify });
+  const result = await runTelegramAvatarBackfill({ dryRun });
   return NextResponse.json({ result });
 }
