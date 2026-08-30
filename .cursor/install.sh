@@ -26,4 +26,26 @@ uv --version
 specify version || true
 uv tool list || true
 
+echo "==> Installing Railway CLI (if missing)"
+if ! command -v railway >/dev/null 2>&1; then
+  bash <(curl -fsSL https://railway.com/install.sh) --agents -y
+fi
+# shellcheck disable=SC1091
+[ -f "$HOME/.railway/env" ] && source "$HOME/.railway/env"
+
+echo "==> Checking Cloud Agent secrets"
+missing=()
+[ -z "${RAILWAY_TOKEN:-}" ] && missing+=("RAILWAY_TOKEN")
+[ -z "${TELEGRAM_BOT_TOKEN:-}" ] && missing+=("TELEGRAM_BOT_TOKEN")
+if [ "${#missing[@]}" -gt 0 ]; then
+  echo "WARN: Missing secrets: ${missing[*]} (add in Cursor environment settings)"
+else
+  echo "OK: RAILWAY_TOKEN and TELEGRAM_BOT_TOKEN are set"
+fi
+
+echo "==> Installing web app dependencies (if needed)"
+if [ -f apps/web/package.json ] && [ ! -d apps/web/node_modules ]; then
+  (cd apps/web && npm ci)
+fi
+
 echo "==> Environment setup complete"
