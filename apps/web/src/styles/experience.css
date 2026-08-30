@@ -810,3 +810,16 @@
   outline: 2px solid color-mix(in srgb, var(--color-byte) 70%, transparent);
   outline-offset: 2px;
 }
+
+.telegram-login-button--ghost {
+  width: 100%;
+  min-width: 0;
+  background: transparent;
+  color: color-mix(in srgb, var(--color-wisp) 82%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-wisp) 22%, transparent);
+}
+
+.telegram-login-button--ghost:hover {
+  background: color-mix(in srgb, var(--color-wisp) 8%, transparent);
+  color: var(--color-wisp);
+}

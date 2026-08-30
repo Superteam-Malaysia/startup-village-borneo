@@ -53,6 +53,21 @@ export const authTokens = pgTable("auth_tokens", {
     .defaultNow(),
 });
 
+/** Pending login via t.me bot deep link (mobile-friendly). */
+export const telegramLoginSessions = pgTable("telegram_login_sessions", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  startToken: text("start_token").notNull().unique(),
+  finishToken: text("finish_token").unique(),
+  participantId: uuid("participant_id").references(() => participants.id, {
+    onDelete: "cascade",
+  }),
+  telegramUserId: text("telegram_user_id"),
+  status: text("status").notNull().default("pending"),
+  expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+  completedAt: timestamp("completed_at", { withTimezone: true }),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
 /** Hackathon team — Base ecosystem-style project directory entry. */
 export const teams = pgTable("teams", {
   id: uuid("id").defaultRandom().primaryKey(),
