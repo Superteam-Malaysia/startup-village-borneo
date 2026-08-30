@@ -187,22 +187,14 @@ export function TelegramLoginButton() {
 
   return (
     <div className="telegram-login-wrap">
-      {mobile ? (
-        <>
-          <button type="button" className="telegram-login-button" onClick={() => void openInTelegramApp()}>
-            <TelegramIcon />
-            Open in Telegram app
-          </button>
-          <button type="button" className="telegram-login-button telegram-login-button--ghost mt-3" onClick={openInBrowser}>
-            Sign in in browser instead
-          </button>
-        </>
-      ) : (
-        <button type="button" className="telegram-login-button" onClick={openInBrowser}>
-          <TelegramIcon />
-          Log in with Telegram
-        </button>
-      )}
+      <button
+        type="button"
+        className="telegram-login-button"
+        onClick={() => (mobile ? void openInTelegramApp() : openInBrowser())}
+      >
+        <TelegramIcon />
+        Log in with Telegram
+      </button>
 
       {appMessage ? (
         <p className="mt-4 text-sm text-[color:color-mix(in_srgb,var(--color-wisp)_72%,transparent)]">
@@ -211,7 +203,7 @@ export function TelegramLoginButton() {
       ) : (
         <p className="mt-4 text-sm text-[color:color-mix(in_srgb,var(--color-wisp)_72%,transparent)]">
           {mobile
-            ? "Recommended on mobile: opens @superteamalaysiabot in the Telegram app. Your @username must match Luma."
+            ? "Opens @superteamalaysiabot in the Telegram app. Your @username must match Luma."
             : "Use the Telegram account you registered with on Luma. Your @username must match your registration."}
         </p>
       )}
