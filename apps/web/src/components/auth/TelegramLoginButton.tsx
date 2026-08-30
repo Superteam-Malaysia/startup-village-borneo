@@ -3,17 +3,17 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { withBasePath } from "@/lib/base-path";
 
+const POLL_STORAGE_KEY = "svb_telegram_poll_token";
+
 type TelegramConfig = {
   configured: boolean;
-  botId?: number;
   botUsername?: string;
   error?: string;
 };
 
-type TelegramAuthUser = Record<string, string | number>;
-
 type AppLoginStart = {
   deepLink: string;
+  desktopDeepLink: string;
   pollToken: string;
 };
 
@@ -25,65 +25,43 @@ function isMobileDevice(): boolean {
   );
 }
 
-function parseTgAuthResultHash(): TelegramAuthUser | null {
-  if (typeof window === "undefined") return null;
-
-  const match = window.location.hash.match(/[#?&]tgAuthResult=([A-Za-z0-9\-_=]*)$/);
-  if (!match?.[1]) return null;
-
-  try {
-    let data = match[1].replace(/-/g, "+").replace(/_/g, "/");
-    const pad = data.length % 4;
-    if (pad > 1) data += "=".repeat(4 - pad);
-    const parsed = JSON.parse(window.atob(data)) as TelegramAuthUser;
-    window.history.replaceState(null, "", window.location.pathname + window.location.search);
-    return parsed;
-  } catch {
-    return null;
+function openTelegramDeepLink(webDeepLink: string, desktopDeepLink: string) {
+  if (isMobileDevice()) {
+    window.location.assign(webDeepLink);
+    return;
   }
-}
 
-function redirectToCallback(user: TelegramAuthUser) {
-  const callback = `${window.location.origin}${withBasePath("/api/auth/telegram/callback")}`;
-  const params = new URLSearchParams();
-  for (const [key, value] of Object.entries(user)) {
-    if (value !== undefined && value !== null && value !== "") {
-      params.set(key, String(value));
-    }
-  }
-  window.location.assign(`${callback}?${params.toString()}`);
-}
-
-function buildTelegramOAuthUrl(botId: number, returnTo: string): string {
-  const params = new URLSearchParams({
-    bot_id: String(botId),
-    origin: window.location.origin,
-    request_access: "write",
-    return_to: returnTo,
-  });
-  return `https://oauth.telegram.org/auth?${params.toString()}`;
+  // tg:// triggers Telegram Desktop; https://t.me/ in a new tab only opens the website.
+  const link = document.createElement("a");
+  link.href = desktopDeepLink;
+  link.rel = "noopener noreferrer";
+  link.style.display = "none";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
 }
 
 export function TelegramLoginButton() {
   const [config, setConfig] = useState<TelegramConfig | null>(null);
-  const [mobile] = useState(() => isMobileDevice());
   const [appMessage, setAppMessage] = useState<string | null>(null);
   const [polling, setPolling] = useState(false);
   const pollRef = useRef<number | null>(null);
 
-  const stopPolling = useCallback(() => {
+  const stopPolling = useCallback((clearStored = true) => {
     if (pollRef.current !== null) {
       window.clearInterval(pollRef.current);
       pollRef.current = null;
     }
     setPolling(false);
+    if (clearStored) sessionStorage.removeItem(POLL_STORAGE_KEY);
   }, []);
 
   const startPolling = useCallback(
     (pollToken: string) => {
-      stopPolling();
+      stopPolling(false);
+      sessionStorage.setItem(POLL_STORAGE_KEY, pollToken);
       setPolling(true);
-      setAppMessage("Waiting for you in Telegram… Approve the login, then tap “Open SVB profile”.");
+      setAppMessage("Waiting in Telegram… tap Start, then “Open SVB profile”.");
 
       pollRef.current = window.setInterval(async () => {
         try {
@@ -108,7 +86,7 @@ export function TelegramLoginButton() {
             );
           } else if (data.status === "expired") {
             stopPolling();
-            setAppMessage("Sign-in timed out. Tap “Open in Telegram app” to try again.");
+            setAppMessage("Sign-in timed out. Tap the button to try again.");
           }
         } catch {
           /* keep polling */
@@ -119,12 +97,6 @@ export function TelegramLoginButton() {
   );
 
   useEffect(() => {
-    const authResult = parseTgAuthResultHash();
-    if (authResult?.hash) {
-      redirectToCallback(authResult);
-      return;
-    }
-
     let cancelled = false;
 
     async function loadConfig() {
@@ -140,13 +112,20 @@ export function TelegramLoginButton() {
     }
 
     void loadConfig();
+
+    const savedPoll = sessionStorage.getItem(POLL_STORAGE_KEY);
+    if (savedPoll) startPolling(savedPoll);
+
     return () => {
       cancelled = true;
-      stopPolling();
+      if (pollRef.current !== null) {
+        window.clearInterval(pollRef.current);
+        pollRef.current = null;
+      }
     };
-  }, [stopPolling]);
+  }, [startPolling]);
 
-  async function openInTelegramApp() {
+  async function logInWithTelegram() {
     if (!config?.botUsername) return;
 
     setAppMessage(null);
@@ -155,16 +134,10 @@ export function TelegramLoginButton() {
       if (!res.ok) throw new Error("start failed");
       const data = (await res.json()) as AppLoginStart;
       startPolling(data.pollToken);
-      window.location.assign(data.deepLink);
+      openTelegramDeepLink(data.deepLink, data.desktopDeepLink);
     } catch {
       setAppMessage("Could not start Telegram sign-in. Try again in a moment.");
     }
-  }
-
-  function openInBrowser() {
-    if (!config?.botId) return;
-    const returnTo = `${window.location.origin}${withBasePath("/login")}`;
-    window.location.assign(buildTelegramOAuthUrl(config.botId, returnTo));
   }
 
   if (!config) {
@@ -175,7 +148,7 @@ export function TelegramLoginButton() {
     );
   }
 
-  if (!config.configured || !config.botId || !config.botUsername) {
+  if (!config.configured || !config.botUsername) {
     return (
       <p className="text-sm text-[var(--color-byte)]">
         Telegram sign-in is not configured yet. Set{" "}
@@ -187,11 +160,7 @@ export function TelegramLoginButton() {
 
   return (
     <div className="telegram-login-wrap">
-      <button
-        type="button"
-        className="telegram-login-button"
-        onClick={() => (mobile ? void openInTelegramApp() : openInBrowser())}
-      >
+      <button type="button" className="telegram-login-button" onClick={() => void logInWithTelegram()}>
         <TelegramIcon />
         Log in with Telegram
       </button>
@@ -202,9 +171,7 @@ export function TelegramLoginButton() {
         </p>
       ) : (
         <p className="mt-4 text-sm text-[color:color-mix(in_srgb,var(--color-wisp)_72%,transparent)]">
-          {mobile
-            ? "Opens @superteamalaysiabot in the Telegram app. Your @username must match Luma."
-            : "Use the Telegram account you registered with on Luma. Your @username must match your registration."}
+          Opens @superteamalaysiabot in Telegram (app or desktop). Your @username must match Luma.
         </p>
       )}
 

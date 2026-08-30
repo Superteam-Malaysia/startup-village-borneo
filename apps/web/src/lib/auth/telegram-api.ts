@@ -60,6 +60,12 @@ export function buildTelegramDeepLink(botUsername: string, startToken: string): 
   return `https://t.me/${botUsername}?start=login_${startToken}`;
 }
 
+/** Opens Telegram Desktop / mobile app via OS protocol handler (not the t.me website). */
+export function buildTelegramDesktopDeepLink(botUsername: string, startToken: string): string {
+  const start = `login_${startToken}`;
+  return `tg://resolve?domain=${encodeURIComponent(botUsername)}&start=${encodeURIComponent(start)}`;
+}
+
 export function createTelegramStartToken(): string {
   return createMagicToken().replace(/[^a-zA-Z0-9]/g, "").slice(0, 24);
 }

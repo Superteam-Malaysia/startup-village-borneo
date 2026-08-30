@@ -12,6 +12,7 @@ export async function POST() {
 
   return NextResponse.json({
     deepLink: session.deepLink,
+    desktopDeepLink: session.desktopDeepLink,
     pollToken: session.startToken,
     expiresAt: session.expiresAt.toISOString(),
   });

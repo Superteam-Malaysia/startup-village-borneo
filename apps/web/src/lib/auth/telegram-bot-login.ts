@@ -5,6 +5,7 @@ import { createMagicToken } from "@/lib/auth/session";
 import { normalizeTelegramUsername } from "@/lib/auth/telegram";
 import {
   buildTelegramDeepLink,
+  buildTelegramDesktopDeepLink,
   createTelegramStartToken,
   sendTelegramMessage,
 } from "@/lib/auth/telegram-api";
@@ -26,6 +27,7 @@ export async function createTelegramAppLoginSession(botUsername: string) {
   return {
     startToken,
     deepLink: buildTelegramDeepLink(botUsername, startToken),
+    desktopDeepLink: buildTelegramDesktopDeepLink(botUsername, startToken),
     expiresAt,
   };
 }
