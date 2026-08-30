@@ -159,6 +159,10 @@
   color: var(--color-byte);
 }
 
+.site-nav__auth-link--signed-in {
+  color: var(--color-byte);
+}
+
 @media (min-width: 1024px) {
   .site-nav__auth-link {
     display: inline-flex;

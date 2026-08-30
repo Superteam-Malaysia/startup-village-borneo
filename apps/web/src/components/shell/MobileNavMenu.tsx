@@ -2,10 +2,15 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { AUTH_LINK, NAV_LINKS } from "@/data/site";
+import { NAV_LINKS } from "@/data/site";
+import type { NavAuthLink } from "@/lib/auth/nav-auth-link";
 import { SiteNavMobileItem } from "./SiteNavItem";
 
-export function MobileNavMenu() {
+type MobileNavMenuProps = {
+  authLink: NavAuthLink;
+};
+
+export function MobileNavMenu({ authLink }: MobileNavMenuProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -33,11 +38,11 @@ export function MobileNavMenu() {
             ))}
             <li>
               <Link
-                href={AUTH_LINK.href}
-                className="site-nav__mobile-link"
+                href={authLink.href}
+                className="site-nav__mobile-link site-nav__mobile-link--auth"
                 onClick={() => setOpen(false)}
               >
-                {AUTH_LINK.label}
+                {authLink.label}
               </Link>
             </li>
           </ul>

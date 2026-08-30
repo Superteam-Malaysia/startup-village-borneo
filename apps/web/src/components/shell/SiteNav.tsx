@@ -1,10 +1,17 @@
 import Link from "next/link";
-import { AUTH_LINK, NAV_LINKS, SITE } from "@/data/site";
+import { NAV_LINKS, SITE } from "@/data/site";
+import type { NavAuthLink } from "@/lib/auth/nav-auth-link";
 import { withBasePath } from "@/lib/base-path";
 import { MobileNavMenu } from "./MobileNavMenu";
 import { SiteNavDesktopItem } from "./SiteNavItem";
 
-export function SiteNav() {
+type SiteNavProps = {
+  authLink: NavAuthLink;
+};
+
+export function SiteNav({ authLink }: SiteNavProps) {
+  const signedIn = authLink.href === "/profile";
+
   return (
     <header className="site-nav">
       <div className="site-nav__bar">
@@ -26,10 +33,13 @@ export function SiteNav() {
         </nav>
 
         <div className="site-nav__actions">
-          <Link href={AUTH_LINK.href} className="site-nav__auth-link">
-            {AUTH_LINK.label}
+          <Link
+            href={authLink.href}
+            className={`site-nav__auth-link${signedIn ? " site-nav__auth-link--signed-in" : ""}`}
+          >
+            {authLink.label}
           </Link>
-          <MobileNavMenu />
+          <MobileNavMenu authLink={authLink} />
         </div>
       </div>
     </header>
