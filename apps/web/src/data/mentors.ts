@@ -13,7 +13,7 @@ const MENTOR_CONTACT: Record<
   semi: {
     email: "semi@sendarcade.fun",
     telegram: "semi_infiknight",
-    organization: "stmy",
+    organization: "Superteam Malaysia",
   },
   nikki: {
     organization: "stmy",
