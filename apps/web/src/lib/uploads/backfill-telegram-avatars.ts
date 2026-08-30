@@ -2,11 +2,11 @@ import { eq, isNotNull, or } from "drizzle-orm";
 import { getDb } from "@/lib/db";
 import { participants } from "@/lib/db/schema";
 import { normalizeTelegramUsername } from "@/lib/auth/telegram";
-import { fetchAndStoreTelegramProfilePhoto } from "@/lib/uploads/fetch-telegram-profile-photo";
 import {
-  isTelegramUserpicUrl,
-  shouldBackfillTelegramAvatar,
-} from "@/lib/uploads/telegram-avatar";
+  fetchAndStoreTelegramProfilePhoto,
+  fetchAndStoreTelegramUserpic,
+} from "@/lib/uploads/fetch-telegram-userpic";
+import { isTelegramUserpicUrl, shouldBackfillTelegramAvatar } from "@/lib/uploads/telegram-avatar";
 
 export type TelegramAvatarBackfillOptions = {
   dryRun?: boolean;
@@ -18,8 +18,8 @@ export type TelegramAvatarBackfillResult = {
   updated: number;
   cleared: number;
   skippedHasUpload: number;
-  skippedNoTelegramUserId: number;
-  skippedNoPhoto: number;
+  skippedNoHandle: number;
+  skippedNoPublicPhoto: number;
   scanned: number;
 };
 
@@ -40,18 +40,13 @@ export async function runTelegramAvatarBackfill(
       avatarUrl: participants.avatarUrl,
     })
     .from(participants)
-    .where(
-      or(
-        isNotNull(participants.telegramUserId),
-        isNotNull(participants.telegram),
-      ),
-    );
+    .where(isNotNull(participants.telegram));
 
   let updated = 0;
   let cleared = 0;
   let skippedHasUpload = 0;
-  let skippedNoTelegramUserId = 0;
-  let skippedNoPhoto = 0;
+  let skippedNoHandle = 0;
+  let skippedNoPublicPhoto = 0;
 
   for (const row of rows) {
     const handle = normalizeTelegramUsername(row.telegram);
@@ -62,44 +57,46 @@ export async function runTelegramAvatarBackfill(
       continue;
     }
 
-    if (isTelegramUserpicUrl(row.avatarUrl)) {
-      if (dryRun) {
-        log(`would clear broken userpic: ${label}`);
-      } else {
-        await db
-          .update(participants)
-          .set({ avatarUrl: null, updatedAt: new Date() })
-          .where(eq(participants.id, row.id));
-        log(`cleared broken userpic: ${label}`);
-      }
-      cleared++;
-      row.avatarUrl = null;
-    }
-
-    if (!shouldBackfillTelegramAvatar(row.avatarUrl)) {
+    if (!shouldBackfillTelegramAvatar(row.avatarUrl) && !isTelegramUserpicUrl(row.avatarUrl)) {
       continue;
     }
 
-    if (!row.telegramUserId) {
-      skippedNoTelegramUserId++;
+    if (!handle) {
+      skippedNoHandle++;
       continue;
     }
 
     if (dryRun) {
-      log(`would fetch from Telegram: ${label}`);
+      log(`would backfill: ${label}`);
       updated++;
       continue;
     }
 
-    const publicPath = await fetchAndStoreTelegramProfilePhoto({
-      participantId: row.id,
-      telegramUserId: row.telegramUserId,
-      previousPublicPath: row.avatarUrl,
-    });
+    let publicPath =
+      (await fetchAndStoreTelegramUserpic({
+        participantId: row.id,
+        telegram: row.telegram,
+        previousPublicPath: row.avatarUrl,
+      })) ?? null;
+
+    if (!publicPath && row.telegramUserId) {
+      publicPath = await fetchAndStoreTelegramProfilePhoto({
+        participantId: row.id,
+        telegramUserId: row.telegramUserId,
+        previousPublicPath: row.avatarUrl,
+      });
+    }
 
     if (!publicPath) {
-      log(`skip (no bot photo): ${label}`);
-      skippedNoPhoto++;
+      if (isTelegramUserpicUrl(row.avatarUrl) || row.avatarUrl?.trim()) {
+        await db
+          .update(participants)
+          .set({ avatarUrl: null, updatedAt: new Date() })
+          .where(eq(participants.id, row.id));
+        cleared++;
+      }
+      log(`skip (no public photo): ${label}`);
+      skippedNoPublicPhoto++;
       continue;
     }
 
@@ -107,7 +104,7 @@ export async function runTelegramAvatarBackfill(
       .update(participants)
       .set({ avatarUrl: publicPath, updatedAt: new Date() })
       .where(eq(participants.id, row.id));
-    log(`saved Telegram photo: ${label}`);
+    log(`saved photo: ${label}`);
     updated++;
   }
 
@@ -116,8 +113,8 @@ export async function runTelegramAvatarBackfill(
     updated,
     cleared,
     skippedHasUpload,
-    skippedNoTelegramUserId,
-    skippedNoPhoto,
+    skippedNoHandle,
+    skippedNoPublicPhoto,
     scanned: rows.length,
   };
 }

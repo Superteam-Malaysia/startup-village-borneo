@@ -13,7 +13,10 @@ import { appOrigin, withBasePath } from "@/lib/auth/session";
 import {
   shouldBackfillTelegramAvatar,
 } from "@/lib/uploads/telegram-avatar";
-import { fetchAndStoreTelegramProfilePhoto } from "@/lib/uploads/fetch-telegram-profile-photo";
+import {
+  fetchAndStoreTelegramProfilePhoto,
+  fetchAndStoreTelegramUserpic,
+} from "@/lib/uploads/fetch-telegram-userpic";
 
 const LOGIN_TTL_MS = 10 * 60 * 1000;
 
@@ -153,12 +156,19 @@ export async function completeTelegramAppLoginFromBot(params: {
       .where(eq(participants.id, participant.id));
   }
 
-  if (authUsername && shouldBackfillTelegramAvatar(participant.avatarUrl)) {
-    const publicPath = await fetchAndStoreTelegramProfilePhoto({
-      participantId: participant.id,
-      telegramUserId,
-      previousPublicPath: participant.avatarUrl,
-    });
+  if (shouldBackfillTelegramAvatar(participant.avatarUrl)) {
+    const publicPath =
+      (await fetchAndStoreTelegramUserpic({
+        participantId: participant.id,
+        telegram: authUsername ?? participant.telegram,
+        previousPublicPath: participant.avatarUrl,
+      })) ??
+      (await fetchAndStoreTelegramProfilePhoto({
+        participantId: participant.id,
+        telegramUserId,
+        previousPublicPath: participant.avatarUrl,
+      }));
+
     if (publicPath) {
       await db
         .update(participants)
