@@ -27,19 +27,28 @@ export type TelegramBotInfo = {
   canJoinGroups: boolean;
 };
 
+export type TelegramBotLookup =
+  | { ok: true; bot: TelegramBotInfo }
+  | { ok: false; reason: "missing_token" | "telegram_error" | "missing_username"; detail?: string };
+
 /** Resolve bot metadata from Telegram using TELEGRAM_BOT_TOKEN (getMe). */
 export async function getTelegramBotInfo(): Promise<TelegramBotInfo | null> {
+  const lookup = await lookupTelegramBot();
+  return lookup.ok ? lookup.bot : null;
+}
+
+export async function lookupTelegramBot(): Promise<TelegramBotLookup> {
   const token = process.env.TELEGRAM_BOT_TOKEN?.trim();
-  if (!token) return null;
+  if (!token) return { ok: false, reason: "missing_token" };
 
   try {
     const response = await fetch(`https://api.telegram.org/bot${token}/getMe`, {
-      next: { revalidate: 3600 },
+      cache: "no-store",
     });
-    if (!response.ok) return null;
 
     const body = (await response.json()) as {
       ok?: boolean;
+      description?: string;
       result?: {
         id: number;
         username?: string;
@@ -48,16 +57,33 @@ export async function getTelegramBotInfo(): Promise<TelegramBotInfo | null> {
       };
     };
 
-    if (!body.ok || !body.result?.username) return null;
+    if (!response.ok || !body.ok) {
+      return {
+        ok: false,
+        reason: "telegram_error",
+        detail: body.description ?? `HTTP ${response.status}`,
+      };
+    }
+
+    if (!body.result?.username) {
+      return { ok: false, reason: "missing_username" };
+    }
 
     return {
-      id: body.result.id,
-      username: body.result.username,
-      firstName: body.result.first_name ?? body.result.username,
-      canJoinGroups: body.result.can_join_groups ?? false,
+      ok: true,
+      bot: {
+        id: body.result.id,
+        username: body.result.username,
+        firstName: body.result.first_name ?? body.result.username,
+        canJoinGroups: body.result.can_join_groups ?? false,
+      },
     };
-  } catch {
-    return null;
+  } catch (error) {
+    return {
+      ok: false,
+      reason: "telegram_error",
+      detail: error instanceof Error ? error.message : "Network error",
+    };
   }
 }
 
