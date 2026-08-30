@@ -1,0 +1,17 @@
+{
+  "services": {
+    "baf14df3-307d-4d8d-884c-162e03d006db": {
+      "variables": {
+        "UPLOAD_DIR": {
+          "value": "/app/public/uploads"
+        },
+        "RAILWAY_RUN_UID": {
+          "value": "0"
+        }
+      },
+      "deploy": {
+        "startCommand": "scripts/start-production.sh"
+      }
+    }
+  }
+}
