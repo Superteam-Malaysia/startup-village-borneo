@@ -1,18 +1,20 @@
-# Profile photos & team logos (no storage cost)
+# Profile photos & team logos (free uploads)
 
-SVB does **not** host uploaded images. There is no Railway Bucket or volume required.
+Uploads are stored in **Postgres** (`uploaded_images` table) — the same database Railway already provisions for the app. No Railway Bucket, no volume, no extra storage product.
 
 ## How it works
 
-- **Profile photos:** paste an HTTPS link on `/profile`, or sign in via Telegram — we store Telegram’s public userpic URL (`t.me/i/userpic/...`) automatically when your profile has no photo yet.
-- **Team logos:** paste an HTTPS link on your team edit form. Leave blank to show initials.
-
-Supported hosts include `t.me`, GitHub avatars, Gravatar, X/Twitter CDN, Imgur, and Google Drive image links. See `apps/web/src/lib/uploads/image-url.ts`.
+- User picks a file on `/profile` or team edit (max **1 MB**)
+- Bytes are saved in Postgres; `avatar_url` / `logo_url` point at `/uploads/participants/…` or `/uploads/teams/…`
+- Images are served from `/borneo/uploads/…` via the web app
+- Telegram sign-in still auto-sets a Telegram userpic URL when the profile has no photo yet
 
 ## Local dev
 
-No extra env vars. URLs are stored in Postgres only.
+Without `DATABASE_URL`, files fall back to `public/uploads/` on disk.
 
-## Legacy uploads
+## Optional Railway Bucket
 
-Older `/uploads/...` paths still render if present. New uploads via `/api/profile/avatar` and `/api/teams/[slug]/logo` return **410 Gone** — use URL fields instead.
+If `BUCKET`, `ACCESS_KEY_ID`, `SECRET_ACCESS_KEY`, and `ENDPOINT` are set, uploads use the bucket instead of Postgres. Not required for SVB.
+
+Run migrations after deploy: `npm run db:migrate`

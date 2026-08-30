@@ -5,6 +5,7 @@ import { ProfileEditForm } from "@/components/profile/ProfileEditForm";
 import { requireParticipant } from "@/lib/auth/participant";
 import { participantInitials } from "@/lib/participants/team-categories";
 import { participantToProfileForm } from "@/lib/profile/form";
+import { uploadPublicUrl } from "@/lib/uploads/public-url";
 
 export const metadata: Metadata = {
   title: "My profile",
@@ -17,6 +18,7 @@ export default async function ProfilePage() {
   const participant = await requireParticipant();
   const displayName = participant.name ?? participant.email;
   const initials = participantInitials(displayName);
+  const avatarUrl = uploadPublicUrl(participant.avatarUrl);
 
   return (
     <main className="site-main site-main--stack">
@@ -37,6 +39,7 @@ export default async function ProfilePage() {
                 ticketName: participant.ticketName,
               }}
               avatarFallback={initials}
+              avatarUrl={avatarUrl}
             />
           </div>
 

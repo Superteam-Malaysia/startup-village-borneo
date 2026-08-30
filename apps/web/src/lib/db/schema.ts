@@ -1,4 +1,5 @@
 import {
+  customType,
   jsonb,
   pgTable,
   text,
@@ -6,6 +7,20 @@ import {
   unique,
   uuid,
 } from "drizzle-orm/pg-core";
+
+const bytea = customType<{ data: Buffer; driverData: Buffer }>({
+  dataType() {
+    return "bytea";
+  },
+  fromDriver(value: unknown) {
+    if (Buffer.isBuffer(value)) return value;
+    if (value instanceof Uint8Array) return Buffer.from(value);
+    throw new Error("Unexpected bytea value");
+  },
+  toDriver(value: Buffer) {
+    return value;
+  },
+});
 export const participants = pgTable("participants", {
   id: uuid("id").defaultRandom().primaryKey(),
   guestId: text("guest_id").notNull().unique(),
@@ -23,7 +38,7 @@ export const participants = pgTable("participants", {
   passportFirstName: text("passport_first_name"),
   passportLastName: text("passport_last_name"),
   telegram: text("telegram"),
-  /** HTTPS image URL or legacy /uploads path for profile photo. */
+  /** `/uploads/…` path, external HTTPS URL, or null. */
   avatarUrl: text("avatar_url"),
   /** Linked Telegram user id after first successful login. */
   telegramUserId: text("telegram_user_id"),
@@ -78,7 +93,7 @@ export const teams = pgTable("teams", {
   tagline: text("tagline"),
   description: text("description"),
   category: text("category"),
-  /** HTTPS image URL or legacy /uploads path for team logo. */
+  /** `/uploads/…` path, external HTTPS URL, or null. */
   logoUrl: text("logo_url"),
   websiteUrl: text("website_url"),
   proofUrl: text("proof_url"),
@@ -123,6 +138,14 @@ export const raceSubmissions = pgTable(
   },
   (table) => [unique("race_submissions_team_task_unique").on(table.teamId, table.taskId)],
 );
+
+/** Small profile/team images stored in Postgres (no bucket or volume). */
+export const uploadedImages = pgTable("uploaded_images", {
+  objectKey: text("object_key").primaryKey(),
+  contentType: text("content_type").notNull(),
+  data: bytea("data").notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+});
 
 export type Participant = typeof participants.$inferSelect;
 export type NewParticipant = typeof participants.$inferInsert;

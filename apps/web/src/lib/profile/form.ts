@@ -1,6 +1,5 @@
 export type ProfileFormValues = {
   name: string;
-  avatarUrl: string;
   phoneNumber: string;
   telegram: string;
   passportFirstName: string;
@@ -26,7 +25,6 @@ export const PROFILE_FIELD_LIMITS = {
 
 export function participantToProfileForm(participant: {
   name: string | null;
-  avatarUrl: string | null;
   phoneNumber: string | null;
   telegram: string | null;
   passportFirstName: string | null;
@@ -40,7 +38,6 @@ export function participantToProfileForm(participant: {
 }): ProfileFormValues {
   return {
     name: participant.name?.trim() ?? "",
-    avatarUrl: participant.avatarUrl?.trim() ?? "",
     phoneNumber: participant.phoneNumber?.trim() ?? "",
     telegram: participant.telegram?.trim() ?? "",
     passportFirstName: participant.passportFirstName?.trim() ?? "",
@@ -60,7 +57,6 @@ export function sanitizeProfileInput(body: Partial<ProfileFormValues>): ProfileF
 
   return {
     name: trim(body.name, PROFILE_FIELD_LIMITS.short),
-    avatarUrl: trim(body.avatarUrl, PROFILE_FIELD_LIMITS.short),
     phoneNumber: trim(body.phoneNumber, PROFILE_FIELD_LIMITS.short),
     telegram: trim(body.telegram, PROFILE_FIELD_LIMITS.short),
     passportFirstName: trim(body.passportFirstName, PROFILE_FIELD_LIMITS.short),

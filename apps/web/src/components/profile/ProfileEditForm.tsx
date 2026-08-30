@@ -2,17 +2,18 @@
 
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ImageUrlField } from "@/components/uploads/ImageUrlField";
+import { ImageUploadField } from "@/components/uploads/ImageUploadField";
 import { withBasePath } from "@/lib/base-path";
 import type { ProfileFormValues, ProfileReadonlyMeta } from "@/lib/profile/form";
 
 type ProfileEditFormProps = {
   initial: ProfileFormValues;
   meta: ProfileReadonlyMeta;
+  avatarUrl: string | null;
   avatarFallback: string;
 };
 
-export function ProfileEditForm({ initial, meta, avatarFallback }: ProfileEditFormProps) {
+export function ProfileEditForm({ initial, meta, avatarUrl, avatarFallback }: ProfileEditFormProps) {
   const router = useRouter();
   const [values, setValues] = useState<ProfileFormValues>(initial);
   const [error, setError] = useState<string | null>(null);
@@ -56,13 +57,13 @@ export function ProfileEditForm({ initial, meta, avatarFallback }: ProfileEditFo
         <p className="profile-form__saved">Profile saved.</p>
       ) : null}
 
-      <ImageUrlField
+      <ImageUploadField
+        inputId="profile-avatar-upload"
         label="Profile photo"
-        hint="Paste an HTTPS image link — no upload needed. Telegram users get a photo automatically on sign-in. GitHub, Gravatar, and X CDN links also work."
-        value={values.avatarUrl}
-        onChange={(next) => update("avatarUrl", next)}
+        hint="JPG, PNG, WebP, or GIF · max 1 MB. Stored in the event database — no extra storage fees."
+        uploadUrl="/api/profile/avatar"
+        imageUrl={avatarUrl}
         fallbackLabel={avatarFallback}
-        placeholder="https://t.me/i/userpic/320/yourname.jpg"
       />
 
       <div className="profile-form__readonly">

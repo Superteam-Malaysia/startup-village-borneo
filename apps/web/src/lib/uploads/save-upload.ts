@@ -6,7 +6,7 @@ import {
   writeUploadObject,
 } from "@/lib/uploads/storage";
 
-const MAX_BYTES = 2 * 1024 * 1024;
+const MAX_BYTES = 1024 * 1024;
 
 const MIME_TO_EXT: Record<string, string> = {
   "image/jpeg": "jpg",
@@ -36,12 +36,12 @@ async function writeImageUpload(params: {
   }
 
   if (params.file.size > MAX_BYTES) {
-    throw new Error("Image must be 2 MB or smaller.");
+    throw new Error("Image must be 1 MB or smaller.");
   }
 
   const buffer = Buffer.from(await params.file.arrayBuffer());
   if (buffer.length > MAX_BYTES) {
-    throw new Error("Image must be 2 MB or smaller.");
+    throw new Error("Image must be 1 MB or smaller.");
   }
 
   const filename = `${params.id}.${ext}`;

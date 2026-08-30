@@ -4,7 +4,6 @@ import { getParticipantForSession } from "@/lib/auth/participant";
 import { getDb } from "@/lib/db";
 import { participants } from "@/lib/db/schema";
 import { participantToProfileForm, sanitizeProfileInput } from "@/lib/profile/form";
-import { sanitizeImageUrl } from "@/lib/uploads/image-url";
 
 export async function GET() {
   const participant = await getParticipantForSession();
@@ -35,20 +34,11 @@ export async function PATCH(request: Request) {
     return NextResponse.json({ error: "Name is required." }, { status: 400 });
   }
 
-  const avatarUrl = values.avatarUrl ? sanitizeImageUrl(values.avatarUrl) : null;
-  if (values.avatarUrl && !avatarUrl) {
-    return NextResponse.json(
-      { error: "Profile photo must be an HTTPS link from a supported host (e.g. t.me, GitHub, Gravatar)." },
-      { status: 400 },
-    );
-  }
-
   const db = getDb();
   const [updated] = await db
     .update(participants)
     .set({
       name: values.name,
-      avatarUrl,
       phoneNumber: values.phoneNumber || null,
       telegram: values.telegram || null,
       passportFirstName: values.passportFirstName || null,

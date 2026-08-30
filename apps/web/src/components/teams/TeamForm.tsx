@@ -3,7 +3,7 @@
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { CtaButton } from "@/components/ui";
-import { ImageUrlField } from "@/components/uploads/ImageUrlField";
+import { ImageUploadField } from "@/components/uploads/ImageUploadField";
 import { withBasePath } from "@/lib/base-path";
 import { TEAM_CATEGORIES } from "@/lib/teams/types";
 
@@ -14,12 +14,12 @@ type TeamFormValues = {
   category: string;
   websiteUrl: string;
   proofUrl: string;
-  logoUrl: string;
 };
 
 type TeamFormProps = {
   mode: "create" | "edit";
   slug?: string;
+  logoUrl?: string | null;
   logoFallback?: string;
   initial?: Partial<TeamFormValues>;
   /** When true, save refreshes in place (no cancel link). Used on team detail page. */
@@ -33,10 +33,9 @@ const EMPTY: TeamFormValues = {
   category: "Other",
   websiteUrl: "",
   proofUrl: "",
-  logoUrl: "",
 };
 
-export function TeamForm({ mode, slug, logoFallback, initial, inline }: TeamFormProps) {
+export function TeamForm({ mode, slug, logoUrl, logoFallback, initial, inline }: TeamFormProps) {
   const router = useRouter();
   const [values, setValues] = useState<TeamFormValues>({ ...EMPTY, ...initial });
   const [error, setError] = useState<string | null>(null);
@@ -92,15 +91,15 @@ export function TeamForm({ mode, slug, logoFallback, initial, inline }: TeamForm
       {error ? <p className="team-form__error">{error}</p> : null}
       {saved ? <p className="profile-form__saved">Team saved.</p> : null}
 
-      {mode === "edit" ? (
-        <ImageUrlField
+      {mode === "edit" && slug ? (
+        <ImageUploadField
+          inputId={`team-logo-upload-${slug}`}
           label="Team logo"
-          hint="Paste an HTTPS image link (GitHub org avatar, project site favicon, etc.). Leave blank to show initials."
-          value={values.logoUrl}
-          onChange={(next) => update("logoUrl", next)}
+          hint="Square works best · JPG, PNG, WebP, or GIF · max 1 MB. Stored in the event database."
+          uploadUrl={`/api/teams/${slug}/logo`}
+          imageUrl={logoUrl ?? null}
           fallbackLabel={logoFallback ?? "?"}
           shape="square"
-          placeholder="https://avatars.githubusercontent.com/…"
         />
       ) : null}
 
