@@ -71,7 +71,7 @@ export default async function TeamDetailPage({ params }: TeamDetailPageProps) {
                 <p className="team-detail__manage-lead">
                   Update your team profile, logo, links, and members below.
                 </p>
-                <TeamManageSection slug={slug} team={team} />
+                <TeamManageSection slug={slug} team={team} storedLogoUrl={record?.logoUrl} />
               </>
             ) : (
               <TeamDetailPublicView team={team} />

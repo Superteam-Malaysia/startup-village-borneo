@@ -1,34 +1,18 @@
-# Railway uploads (no volume)
+# Profile photos & team logos (no storage cost)
 
-Profile photos and team logos use **Railway Bucket** (S3-compatible object storage) in production.
-
-## One-time setup
-
-1. In Railway project **svb**, click **Create → Bucket**
-2. Name it **`svb-uploads`** (must match variable references)
-3. Region: **US West (sjc)** or closest to the web service
-4. Deploy the staged environment change (bucket + web variable refs)
-
-The web service already references:
-
-- `${{svb-uploads.BUCKET}}`
-- `${{svb-uploads.ACCESS_KEY_ID}}`
-- `${{svb-uploads.SECRET_ACCESS_KEY}}`
-- `${{svb-uploads.ENDPOINT}}`
-- `${{svb-uploads.REGION}}`
-
-Or apply the patch:
-
-```bash
-apps/web/scripts/setup-railway-upload-bucket.sh
-```
-
-## Local dev
-
-Without bucket env vars, files save under `public/uploads/` on disk.
+SVB does **not** host uploaded images. There is no Railway Bucket or volume required.
 
 ## How it works
 
-- Upload APIs write to the bucket
-- Images are served from `/borneo/uploads/...` (proxied by the web app)
-- No Railway volume required
+- **Profile photos:** paste an HTTPS link on `/profile`, or sign in via Telegram — we store Telegram’s public userpic URL (`t.me/i/userpic/...`) automatically when your profile has no photo yet.
+- **Team logos:** paste an HTTPS link on your team edit form. Leave blank to show initials.
+
+Supported hosts include `t.me`, GitHub avatars, Gravatar, X/Twitter CDN, Imgur, and Google Drive image links. See `apps/web/src/lib/uploads/image-url.ts`.
+
+## Local dev
+
+No extra env vars. URLs are stored in Postgres only.
+
+## Legacy uploads
+
+Older `/uploads/...` paths still render if present. New uploads via `/api/profile/avatar` and `/api/teams/[slug]/logo` return **410 Gone** — use URL fields instead.

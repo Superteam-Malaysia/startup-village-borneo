@@ -5,6 +5,7 @@ import { getDb } from "@/lib/db";
 import { teams } from "@/lib/db/schema";
 import { requireTeamEditor } from "@/lib/teams/access";
 import { getPublicTeamBySlug, getTeamRecordBySlug } from "@/lib/teams/public-teams";
+import { sanitizeImageUrl } from "@/lib/uploads/image-url";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -41,7 +42,22 @@ export async function PATCH(request: Request, { params }: Params) {
     category?: string;
     websiteUrl?: string;
     proofUrl?: string;
+    logoUrl?: string;
   };
+
+  const logoInput = body.logoUrl?.trim();
+  const logoUrl =
+    logoInput === ""
+      ? null
+      : logoInput
+        ? sanitizeImageUrl(logoInput)
+        : record.logoUrl;
+  if (logoInput && !logoUrl) {
+    return NextResponse.json(
+      { error: "Logo must be an HTTPS link from a supported host." },
+      { status: 400 },
+    );
+  }
 
   const db = getDb();
   await db
@@ -53,6 +69,7 @@ export async function PATCH(request: Request, { params }: Params) {
       category: body.category?.trim() ?? record.category,
       websiteUrl: body.websiteUrl?.trim() ?? record.websiteUrl,
       proofUrl: body.proofUrl?.trim() ?? record.proofUrl,
+      logoUrl,
       updatedAt: new Date(),
     })
     .where(eq(teams.id, record.id));

@@ -10,6 +10,7 @@ import {
   sendTelegramMessage,
 } from "@/lib/auth/telegram-api";
 import { appOrigin, withBasePath } from "@/lib/auth/session";
+import { telegramUserpicUrl } from "@/lib/uploads/image-url";
 
 const LOGIN_TTL_MS = 10 * 60 * 1000;
 
@@ -146,6 +147,16 @@ export async function completeTelegramAppLoginFromBot(params: {
     await db
       .update(participants)
       .set({ telegramUserId, updatedAt: new Date() })
+      .where(eq(participants.id, participant.id));
+  }
+
+  if (authUsername && !participant.avatarUrl?.trim()) {
+    await db
+      .update(participants)
+      .set({
+        avatarUrl: telegramUserpicUrl(authUsername),
+        updatedAt: new Date(),
+      })
       .where(eq(participants.id, participant.id));
   }
 
